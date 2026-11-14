@@ -22,10 +22,12 @@ interface Host {
   state(): { bench: Workbench; selectedId: string; dirty: boolean };
   show(bench: Workbench, dirty: boolean, selectedId: string): void;
   changed(): void;
+  onPhotoReady?(): void | Promise<void>;
 }
 const el = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const message = (id: string, value: unknown) => { el(id).textContent = value instanceof Error ? value.message : String(value); };
 type Answer = { question: string; answer: string };
+type WordsReply = { message: string; reviewRequired: boolean; changes: string[] };
 
 export class InputUI {
   private strokes = new StrokeStore(crypto.randomUUID());
@@ -42,6 +44,8 @@ export class InputUI {
   private sketchAnswers: Answer[] = [];
   private commandAnswers: Answer[] = [];
   private voice: PressToTalk;
+  private wordsClosed: Promise<void> = Promise.resolve();
+  private wordsRevision = 0;
   get active(): boolean { return !!this.preview; }
 
   constructor(private host: Host) {
@@ -80,7 +84,7 @@ export class InputUI {
     });
     el('clear-strokes').onclick = () => { this.strokes.clear(); this.sourceChanged(); this.paint(); };
     el<HTMLTextAreaElement>('source-notes').oninput = () => this.sourceChanged();
-    el<HTMLInputElement>('photo-file').onchange = () => void this.loadPhoto();
+    el<HTMLInputElement>('photo-file').onchange = () => { void this.loadPhoto().catch(error => message('source-status', error)); };
     el('interpret').onclick = () => void this.interpret(); el('cancel-interpret').onclick = () => this.requests.cancel('sketch');
     el('open-command').onclick = () => { this.pause(); const state = this.host.state(), part = state.bench.scene.objects.find(o => o.id === state.selectedId); message('command-selection', part ? `Selected: ${part.label} (${part.id})` : 'No part selected. Name the part in your command.'); this.commandChanged(); el<HTMLDialogElement>('command-dialog').showModal(); };
     el('close-command').onclick = () => el<HTMLDialogElement>('command-dialog').close();
@@ -102,6 +106,77 @@ export class InputUI {
   }
   /** Show the drawing surface in place over the 3D stage. Opening it alone does not change the experiment. */
   openSource(): void { el<HTMLDialogElement>('source-dialog').show(); this.paint(); void this.providerStatus(); }
+  async receivePhoto(file: File): Promise<void> {
+    check(file, 'Choose a photo file first.');
+    await this.loadPhoto(file);
+  }
+  async reviewWords(text: string): Promise<WordsReply> {
+    check(text.trim() && text.length <= 4000, 'Use a command of at most 4000 characters.');
+    await this.wordsClosed;
+    if ([...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].some(input => !input.value.trim())) return this.buildPreviewWords(text);
+    check(!this.preview, 'Confirm or cancel the 3D preview before describing another change.');
+    const revision = ++this.wordsRevision, dialog = el<HTMLDialogElement>('command-dialog');
+    if (!dialog.open) dialog.show();
+    const unanswered = [...el('command-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim());
+    if (unanswered.length) {
+      check(text.length <= 2000, 'Use an answer of at most 2000 characters.');
+      unanswered[0]!.value = text.trim(); unanswered[0]!.dispatchEvent(new Event('input'));
+      if (unanswered.length > 1) return { message: unanswered[1]!.dataset.question!, reviewRequired: false, changes: [] };
+    } else { el<HTMLTextAreaElement>('command-text').value = text; this.commandChanged(); }
+    await this.command();
+    check(revision === this.wordsRevision, 'The request was cancelled. Nothing was applied.');
+    const questions = [...el('command-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim()).map(input => input.dataset.question!);
+    const changes = [...el('command-changes').querySelectorAll('li')].map(item => item.textContent ?? '');
+    const status = el('command-status').textContent || 'No change was proposed.';
+    check(this.proposal || questions.length, status);
+    return { message: questions.length ? `${status} ${questions.join(' ')}` : status, reviewRequired: !!this.proposal, changes };
+  }
+  applyWords(): { message: string } {
+    this.sync(); const dialog = el<HTMLDialogElement>('command-dialog');
+    check(dialog.open && this.proposal, 'There is no current reviewed change. Review it again before applying.');
+    const closed = new Promise<void>(resolve => dialog.addEventListener('close', () => resolve(), { once: true }));
+    this.apply();
+    check(!dialog.open && !this.proposal, el('command-status').textContent || 'The reviewed change could not be applied.');
+    this.wordsClosed = closed;
+    return { message: 'Applied the reviewed change.' };
+  }
+  async buildPreviewWords(answer?: string): Promise<WordsReply> {
+    await this.wordsClosed;
+    check(!this.preview, 'Confirm or cancel the current 3D preview first.');
+    const revision = ++this.wordsRevision;
+    const unanswered = [...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim());
+    if (answer !== undefined) {
+      check(unanswered.length && answer.trim() && answer.length <= 2000, 'Answer the current sketch question in at most 2000 characters.');
+      unanswered[0]!.value = answer.trim(); unanswered[0]!.dispatchEvent(new Event('input'));
+      if (unanswered.length > 1) return { message: unanswered[1]!.dataset.question!, reviewRequired: false, changes: [] };
+    }
+    const dialog = el<HTMLDialogElement>('source-dialog');
+    if (!dialog.open) this.openSource();
+    const closed = new Promise<void>(resolve => dialog.addEventListener('close', () => resolve(), { once: true }));
+    await this.interpret();
+    check(revision === this.wordsRevision, 'The request was cancelled. Nothing was applied.');
+    const questions = [...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim()).map(input => input.dataset.question!);
+    const status = el('source-status').textContent || 'No 3D preview was produced.';
+    check(this.preview || questions.length, status);
+    if (this.preview) { await closed; check(revision === this.wordsRevision && this.preview, 'The preview was cancelled. Nothing was confirmed.'); return { message: 'The 3D preview is ready. Review the parts and assumptions, then say yes to confirm.', reviewRequired: true, changes: [...el('preview-explanations').querySelectorAll('li')].map(item => item.textContent ?? '') }; }
+    return { message: `${status} ${questions.join(' ')}`, reviewRequired: false, changes: [] };
+  }
+  confirmPreviewWords(): { message: string } {
+    check(this.preview, 'There is no current 3D preview to confirm.');
+    this.finishPreview(true);
+    check(!this.preview, el('preview-status').textContent || 'The 3D preview could not be confirmed.');
+    return { message: el('message').textContent || 'The reviewed 3D preview was confirmed.' };
+  }
+  cancelWords(): void {
+    this.wordsRevision++; this.photoSequence++; this.photoLoading = false;
+    this.requests.cancel('command'); this.requests.cancel('sketch'); this.voice.cancel();
+    this.proposal = undefined; this.commandAnswers = []; this.sketchAnswers = [];
+    this.questions('command-questions', []); this.questions('sketch-questions', []); this.list('command-changes', []);
+    if (this.preview) this.finishPreview(false);
+    const dialog = el<HTMLDialogElement>('command-dialog');
+    if (dialog.open) { this.wordsClosed = new Promise<void>(resolve => dialog.addEventListener('close', () => resolve(), { once: true })); dialog.close(); }
+    this.sync();
+  }
   private pause(): void { const b = this.host.state().bench; b.pause(); b.capture(); this.host.changed(); }
   private target(): TargetToken {
     const { bench } = this.host.state(), context = `${bench.contextToken}:${bench.replayTime}:${bench.restartRequired}`;
@@ -140,8 +215,9 @@ export class InputUI {
     canvas.onpointerup = event => { if (!points) return; points.push(point(event)); const added = this.strokes.add(points); points = undefined; this.paint(); if (!added) message('source-status', 'Drawing limit reached. Undo or clear a stroke.'); };
     canvas.onpointercancel = canvas.onlostpointercapture = () => { points = undefined; this.paint(); };
   }
-  private async loadPhoto(): Promise<void> {
-    const sequence = ++this.photoSequence, file = el<HTMLInputElement>('photo-file').files?.[0]; if (!file) return;
+  private async loadPhoto(file: File | undefined = el<HTMLInputElement>('photo-file').files?.[0]): Promise<void> {
+    if (!file) return;
+    const sequence = ++this.photoSequence;
     this.photoLoading = true; this.sourceChanged(); message('source-status', 'Preparing image…');
     try {
       const prepared = await prepareImage(file); if (sequence !== this.photoSequence) return;
@@ -149,9 +225,15 @@ export class InputUI {
       const image = await new Promise<string>((resolve, reject) => { const reader = new FileReader(); reader.onload = () => resolve(String(reader.result)); reader.onerror = () => reject(new Error('Reading the prepared image failed.')); reader.readAsDataURL(prepared.image.blob); });
       if (sequence !== this.photoSequence) return;
       this.photo = { id: prepared.image.sha256, image, widthPx: prepared.image.widthPx, heightPx: prepared.image.heightPx };
+      this.switchSource('photo');
       el<HTMLImageElement>('photo-preview').src = image; el('photo-preview').hidden = false; this.sourceChanged(); message('source-status', 'Photo ready. Original metadata was removed.');
-    } catch (error) { if (sequence === this.photoSequence) message('source-status', error); }
+    } catch (error) { if (sequence !== this.photoSequence) return; message('source-status', error); throw error; }
     finally { if (sequence === this.photoSequence) { this.photoLoading = false; this.sync(); } }
+    if (sequence === this.photoSequence) {
+      const photo = this.photo;
+      try { await this.host.onPhotoReady?.(); }
+      catch (error) { if (this.photo !== photo || this.photoLoading) return; message('source-status', error); throw error; }
+    }
   }
   private answers(id: string): Answer[] { return [...el(id).querySelectorAll<HTMLInputElement>('input')].filter(i => i.value.trim()).map(i => ({ question: i.dataset.question!, answer: i.value.trim() })); }
   private questions(id: string, questions: Clarification[]): void {
@@ -167,7 +249,7 @@ export class InputUI {
   private async providerStatus(): Promise<void> {
     try {
       const response = await fetch('/api/status'); check(response.ok, 'Vision service unavailable.'); const status = await response.json();
-      message('provider-status', status.accessRequired ? 'Vision runtime: private judge access is required. Public experiments are available in Library. ' : status.configured ? `Vision runtime: ${status.provider}. Requests start only when you choose Build 3D preview.` : 'Vision runtime is not configured. Your drawing stays here; no inference request can run yet.');
+      message('provider-status', status.accessRequired ? 'Vision runtime: private judge access is required. Local conversation controls remain available. ' : status.configured ? `Vision runtime: ${status.provider}. Photo uploads are checked automatically. For a canvas drawing, say interpret my sketch.` : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
       if (status.accessRequired) {
         const link = document.createElement('a'); link.href = '/api/access'; link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Unlock live AI (opens a new tab)'; el('provider-status').append(link);
       }

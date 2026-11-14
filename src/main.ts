@@ -2,14 +2,21 @@ import './style.css';
 import './ui/shell.css';
 import { initShell } from './ui/shell.ts';
 import { InputUI } from './input/ui.ts';
+import { VoiceSession } from './assistant/voice.ts';
+import { AssistantActions } from './assistant/actions.ts';
+import type { AssistantReply } from './assistant/actions.ts';
+import { initAssistantPanel } from './assistant/panel.ts';
+import { demonstrate, warmupRendering } from './assistant/demo.ts';
+import { unlockJudgeLink } from './assistant/access.ts';
+import './assistant/panel.css';
 import * as THREE from 'three';
 import { Viewport } from './viewport.ts';
 import { FixedClock, initPhysics } from './physics/engine.ts';
 import type { BodySample, Run } from './physics/engine.ts';
 import { BrowserStorage, validateLibrary, Workbench } from './physics/experiments.ts';
-import { EXAMPLES, fan } from './physics/examples.ts';
+import { EXAMPLES } from './physics/examples.ts';
 import { check, emptyScene, newObject, validateScene, LIMITS } from './physics/scene.ts';
-import type { Kind, Operation, SceneObject } from './physics/scene.ts';
+import type { Kind, Operation, Scene, SceneObject } from './physics/scene.ts';
 import rampReplay from '../docs/evidence/f1-comparison-2026-11-10/Nox-ramp-and-cup.json?url';
 import fanReplay from '../docs/evidence/fan-friction-comparison/Nox-fan-and-friction.json?url';
 import cartReplay from '../docs/evidence/spring-cart-comparison/Nox-spring-cart.json?url';
@@ -23,6 +30,12 @@ let bench: Workbench, selectedId = '', dirty = false, busy = false;
 let openingReplay = false;
 let lastFrame = 0, lastPanel = 0;
 let sceneContext: Workbench['commandContext'] | undefined;
+let assistant: ReturnType<typeof initAssistantPanel>, voice: VoiceSession, assistantActions: AssistantActions;
+let demoController: AbortController | undefined;
+let assistantTurn = 0;
+let photoEpoch = 0, automaticPhotoEpoch = 0;
+let checkingPhoto = false;
+let judgeAccessReady: Promise<void> = Promise.resolve();
 const propertyForm = el<HTMLFormElement>('properties'), worldForm = el<HTMLFormElement>('world');
 const templates = el<HTMLSelectElement>('examples'), startButton = el<HTMLButtonElement>('new');
 const replays = new Map([
@@ -202,6 +215,199 @@ async function openReplay(key: string, url: string, objectId: string): Promise<v
   } catch (e) { error(e); }
   finally { openingReplay = false; refreshStartButton(); }
 }
+
+function assistantChanged(): void { dirty = true; clock.reset(); lastFrame = 0; refresh(); }
+function assistantScene(scene: Scene): void {
+  check(!inputUI?.active, 'Confirm or cancel the current preview first.');
+  bench.newExperiment(scene); selectedId = scene.objects.find(object => !object.fixed)?.id ?? '';
+  el<HTMLDialogElement>('source-dialog').close(); document.body.dataset.drawer = '';
+  assistantChanged(); fit();
+}
+function assistantExample(name: string): Scene {
+  const aliases: Record<string, keyof typeof EXAMPLES> = { spring: 'spring', oscillator: 'spring', pendulum: 'pendulum', collision: 'collision', momentum: 'collision', fan: 'fan', domino: 'dominoes', dominoes: 'dominoes', ramp: 'ramp', cup: 'ramp', bridge: 'composition', composition: 'composition' };
+  const match = /\b(spring|oscillator|pendulum|collision|momentum|fan|dominoes|domino|ramp|cup|bridge|composition)\b/i.exec(name);
+  const key = match && aliases[match[1]!.toLowerCase()]; check(key, 'I do not have that built-in example. Describe the custom system and I can request a reviewed AI proposal.');
+  return EXAMPLES[key]();
+}
+async function assistantSay(text: string): Promise<void> {
+  assistant.say(text);
+  if (voice.isActive) await voice.speak(text);
+}
+async function presentAssistantReply(response: AssistantReply, turn: number): Promise<void> {
+  if (turn !== assistantTurn) return;
+  if (automaticPhotoEpoch && automaticPhotoEpoch === photoEpoch && inputUI?.active && response.reviewRequired) {
+    assistant.say(`Your drawing has become a validated 3D scene. I am starting the experiment automatically.\n${response.changes.join('\n')}`);
+    await assistantActions.handle('yes');
+    if (turn !== assistantTurn) return;
+    automaticPhotoEpoch = 0;
+    await assistantActions.handle('run');
+    if (turn === assistantTurn) await assistantSay('Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.');
+    return;
+  }
+  await assistantSay([response.message, ...response.changes].join('\n'));
+}
+async function receiveAssistantPhoto(file: File): Promise<void> {
+  const epoch = ++photoEpoch, turn = ++assistantTurn;
+  automaticPhotoEpoch = 0; demoController?.abort(); await assistantActions.handle('cancel');
+  if (epoch !== photoEpoch || turn !== assistantTurn) return;
+  voice.setThinking(true); assistant.setState('thinking', 'Preparing your photo. It will be checked automatically.');
+  void assistantSay('I am preparing the photo. Then I will check the drawing and build its physical scene.');
+  try { await inputUI!.receivePhoto(file); }
+  catch (cause) {
+    if (epoch === photoEpoch && turn === assistantTurn) {
+      const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message);
+      if (voice.isActive) await voice.speak(message); voice.setThinking(false);
+    }
+  }
+}
+async function checkUploadedPhoto(): Promise<void> {
+  const epoch = ++photoEpoch, turn = ++assistantTurn;
+  await assistantActions.handle('cancel');
+  if (epoch !== photoEpoch || turn !== assistantTurn) return;
+  automaticPhotoEpoch = epoch; voice.setThinking(true); assistant.setState('thinking', 'Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.');
+  checkingPhoto = true;
+  try {
+    await judgeAccessReady;
+    if (turn !== assistantTurn) return;
+    const pending = assistantActions.handle('interpret my photo');
+    voice.setThinking(false);
+    const response = await pending; checkingPhoto = false;
+    if (turn === assistantTurn) { voice.setThinking(true); await presentAssistantReply(response, turn); }
+  }
+  catch (cause) {
+    if (epoch === photoEpoch && turn === assistantTurn) {
+      automaticPhotoEpoch = 0; const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message);
+    }
+  } finally { if (turn === assistantTurn) { checkingPhoto = false; voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
+}
+function compareMeasurements(): string {
+  bench.pause(); bench.capture(); const baseline = bench.experiment.baseline;
+  check(baseline, 'I need an original measured run first. Ask me to keep a baseline before changing the experiment.');
+  const time = Math.min(bench.sample.simulationTime, baseline.run.samples.at(-1)!.simulationTime);
+  const before = baseline.run.samples.findLast(sample => sample.simulationTime <= time + 1e-8)?.bodies.find(body => body.objectId === selectedId);
+  const after = bench.selected.run.samples.findLast(sample => sample.simulationTime <= time + 1e-8)?.bodies.find(body => body.objectId === selectedId);
+  check(before && after, 'The selected part needs samples in both the original and edited runs. Ask me to select a shared part.');
+  el('analysis').hidden = false; el('show-analysis').setAttribute('aria-expanded', 'true'); assistantChanged();
+  return `At ${time.toFixed(2)} simulated seconds, ${selection()?.label ?? 'the selected part'} had speed ${before.speed.toFixed(3)} meters per second in the original and ${after.speed.toFixed(3)} in the current run. The plots show the measured baseline and current run.`;
+}
+async function saveAssistantExperiment(): Promise<void> {
+  check(!inputUI?.active, 'Confirm or cancel the preview before saving.');
+  dirty = !(await bench.save(storage)); clock.reset(); lastFrame = 0; refresh();
+  check(!dirty, 'The experiment changed while saving. Please ask me to save again.');
+}
+async function runAssistantFor(seconds: number, signal: AbortSignal): Promise<void> {
+  const current = bench, context = bench.contextToken, target = bench.physics.time + seconds, started = performance.now();
+  bench.pause(); assistantChanged();
+  await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), signal, () => !!document.querySelector('.viewport-wrap.reveal'));
+  check(bench === current && bench.contextToken === context && !document.hidden, 'The experiment changed before the run began.');
+  bench.play(); assistantChanged();
+  voice.setThinking(false);
+  try {
+    while (bench.physics.time < target - 1e-8) {
+      check(!signal.aborted && !document.hidden, 'Demonstration stopped. Your experiments are retained.');
+      check(bench === current && bench.contextToken === context, 'The active experiment changed. I stopped the demonstration.');
+      check(bench.running, 'The solver paused before the measurement finished. Your samples are retained; ask me to run the demonstration again.');
+      check(performance.now() - started < 30_000, 'The simulation took too long on this device. I stopped and retained its samples.');
+      await new Promise<void>(resolve => setTimeout(resolve, 40));
+    }
+  } finally { voice.setThinking(true); if (bench === current) { current.pause(); current.capture(); assistantChanged(); } }
+}
+async function handleAssistant(text: string): Promise<void> {
+  if (!text.trim()) return;
+  const turn = ++assistantTurn;
+  assistant.heard(text);
+  demoController?.abort();
+  if (/^(stop listening|go to sleep|goodbye|mute)[.!?]?$/i.test(text.trim())) {
+    checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
+  }
+  voice.setThinking(true); assistant.setState('thinking');
+  try {
+    const response = await assistantActions.handle(text);
+    await presentAssistantReply(response, turn);
+  } catch (cause) { if (turn === assistantTurn) { const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message); } }
+  finally { if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
+}
+function startAssistant(): void {
+  let greeting = false;
+  assistant = initAssistantPanel({
+    onStart: () => { assistant.open(); greeting = true; voice.start(); },
+    onStop: async () => { greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); bench.pause(); bench.capture(); assistantChanged(); },
+    isVoiceActive: () => voice?.isActive ?? false,
+    onSend: text => handleAssistant(text),
+    onPhoto: file => receiveAssistantPhoto(file),
+  });
+  voice = new VoiceSession({
+    onTranscript: text => {
+      if (/^(stop listening|go to sleep|goodbye|mute)[.!?]?$/i.test(text.trim())) { void handleAssistant(text); return; }
+      if (checkingPhoto && !/^(?:(?:hey )?(?:nox|jarvis)[, ]+)?(?:cancel|stop|never mind)(?: (?:it|that|checking|the request))?[.!?]?$/i.test(text.trim())) {
+        void assistantSay('I am still checking the drawing. You can say cancel to stop the request. I will ask if I need a detail from you.').finally(() => voice.setThinking(false)); return;
+      }
+      if (checkingPhoto) { checkingPhoto = false; void handleAssistant('cancel'); }
+      else void handleAssistant(text);
+    },
+    onState: state => {
+      assistant.setState(state, checkingPhoto ? 'Checking the drawing. You can say cancel while it builds.' : '');
+      if (state === 'listening' && greeting) {
+        greeting = false;
+        void assistantSay(checkingPhoto ? 'I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.' : 'I am Nox. Tell me what you want to build, or say show me what you can do.').finally(() => voice.setThinking(false));
+      }
+    },
+    onError: message => assistant.error(message),
+  });
+  assistantActions = new AssistantActions({
+    demo: async topic => {
+      demoController?.abort(); const controller = new AbortController(); demoController = controller;
+      try {
+        if (topic) {
+          const scene = assistantExample(topic); assistantScene(scene);
+          await assistantSay(`I created the built-in ${scene.name} example. I will run its real physics for three simulated seconds and retain the result.`);
+          await runAssistantFor(3, controller.signal); check(!controller.signal.aborted, 'Demonstration stopped.');
+          bench.pinBaseline(); await saveAssistantExperiment();
+          return `I ran ${scene.name}, retained a measured baseline and saved it. ${el('readout').textContent} Tell me which part to select or what to change.`;
+        }
+        return await demonstrate({ current: () => bench, begin: assistantScene, changed: assistantChanged, say: assistantSay, runFor: runAssistantFor, compare: () => { compareMeasurements(); }, save: saveAssistantExperiment }, controller.signal);
+      }
+      finally { if (demoController === controller) demoController = undefined; }
+    },
+    create: name => {
+      assistantScene(assistantExample(name)); return `I created a built-in ${name} experiment with the real physics solver. Say run it, select a part, or tell me what to change.`;
+    },
+    run: async () => {
+      check(!inputUI?.active, 'Confirm the preview before running.'); check(bench.scene.objects.length > 0, 'Tell me what to build first, or say show me what you can do.');
+      bench.resumeLive(); el<HTMLDialogElement>('source-dialog').close(); assistantChanged();
+      const context = bench.contextToken, turn = assistantTurn; await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), AbortSignal.timeout(9000), () => !!document.querySelector('.viewport-wrap.reveal'));
+      check(turn === assistantTurn && bench.contextToken === context && !document.hidden, 'The request changed or was stopped before the run began.');
+      const started = performance.now(), initialTime = bench.physics.time; bench.play(); assistantChanged();
+      while (bench.physics.time < initialTime + .15) {
+        check(turn === assistantTurn && bench.contextToken === context && bench.running && !document.hidden, 'The solver paused before the run was established. Your experiment is retained.');
+        check(performance.now() - started < 3000, 'The solver has not advanced on this device. Your experiment is retained.');
+        await new Promise(resolve => setTimeout(resolve, 25));
+      }
+      return 'The real simulation is running. Say pause, keep a baseline, or compare.';
+    },
+    pause: () => { bench.pause(); bench.capture(); assistantChanged(); return `Paused at ${bench.sample.simulationTime.toFixed(2)} simulated seconds.`; },
+    reset: () => { bench.reset(); assistantChanged(); return 'Reset to this version’s starting setup. Earlier versions and the baseline are retained.'; },
+    baseline: () => { bench.pause(); bench.capture(); check(bench.selected.run.samples.length > 1, 'Run the experiment first so I can retain a measured baseline.'); bench.pinBaseline(); assistantChanged(); return `I kept the original run through ${bench.sample.simulationTime.toFixed(2)} simulated seconds as your baseline. Tell me what to change.`; },
+    compare: compareMeasurements,
+    save: async () => { await saveAssistantExperiment(); return 'Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.'; },
+    source: () => { const source = bench.experiment.source; return source ? `This experiment came from a ${source.kind === 'photo' ? 'paper photo' : 'drawing'}. ${source.notes}\n${source.explanations.join('\n')}` : `This experiment has no drawing source. ${bench.scene.assumptions.join(' ')}`; },
+    select: name => {
+      const query = name.toLowerCase().replace(/^(the|a|an)\s+/, '');
+      let matches = bench.scene.objects.filter(object => object.id.toLowerCase() === query || object.label.toLowerCase() === query);
+      if (!matches.length) matches = bench.scene.objects.filter(object => object.label.toLowerCase().includes(query) || object.kind.toLowerCase().includes(query));
+      check(matches.length === 1, matches.length ? `Which part? I found ${matches.map(object => object.label).join(', ')}.` : `I could not find that part. The parts are ${bench.scene.objects.map(object => object.label).join(', ')}.`);
+      selectedId = matches[0]!.id; refresh(); viewport.focus(matches[0]!.position); return `Selected ${matches[0]!.label}. Tell me what to change.`;
+    },
+    review: async text => { await judgeAccessReady.catch(() => undefined); return inputUI!.reviewWords(text); },
+    apply: () => inputUI!.active ? inputUI!.confirmPreviewWords().message : inputUI!.applyWords().message,
+    cancel: () => { checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
+    interpret: () => inputUI!.buildPreviewWords(),
+  });
+  document.addEventListener('nox:talk', () => { assistant.open(); greeting = !voice.isActive; if (!voice.isActive) voice.start(); });
+  judgeAccessReady = unlockJudgeLink(new URL(location.href), url => history.replaceState(history.state, '', url));
+  void judgeAccessReady.catch(cause => assistant.error(cause instanceof Error ? cause.message : 'Live judge access could not be unlocked.'));
+  window.addEventListener('pagehide', () => { demoController?.abort(); voice.dispose(); }, { once: true });
+}
 el<HTMLInputElement>('experiment-name').onchange = event => act(() => { const name = (event.target as HTMLInputElement).value.trim(); check(name.length > 0, 'Enter an experiment name.'); bench.experiment.name = name; bench.scene.name = name; bench.physics.scene.name = name; });
 el('add').onclick = () => act(() => { const o = newObject(el<HTMLSelectElement>('kind').value as Kind, crypto.randomUUID()); o.label = `${o.kind} ${bench.scene.objects.length + 1}`; o.position = { x: 0, y: 4, z: 0 }; edit([{ type: 'add', object: o }], 'Added object'); selectedId = o.id; });
 el('remove').onclick = () => act(() => edit([{ type: 'remove', id: selectedId }], 'Removed object'));
@@ -232,7 +438,7 @@ el('apply-scene').onclick = () => act(() => { const scene = validateScene(JSON.p
 el('close-scene').onclick = () => el<HTMLDialogElement>('scene-editor').close();
 el('export-scene').onclick = () => { bench.pause(); bench.capture(); download('nox-scene.json', JSON.stringify(bench.physics.currentScene(), null, 2), 'application/json'); };
 el('csv').onclick = () => { const rows = bench.selected.run.samples.flatMap(s => { const b = s.bodies.find(b => b.objectId === selectedId); return b ? [[s.simulationTime, b.position.x, b.position.y, b.position.z, b.velocity.x, b.velocity.y, b.velocity.z, b.speed, b.rotation.x, b.rotation.y, b.rotation.z, b.rotation.w, b.angularVelocity.x, b.angularVelocity.y, b.angularVelocity.z].join(',')] : []; }); download('nox-motion.csv', `time_s,x_m,y_m,z_m,vx_m_s,vy_m_s,vz_m_s,speed_m_s,qx,qy,qz,qw,wx_rad_s,wy_rad_s,wz_rad_s\n${rows.join('\n')}`, 'text/csv'); };
-document.addEventListener('visibilitychange', () => { if (bench?.running && document.hidden) act(() => { bench.pause(); bench.capture(); bench.notice = 'Paused because the tab was hidden.'; }); });
+document.addEventListener('visibilitychange', () => { if (document.hidden) { assistantTurn++; demoController?.abort(); if (assistantActions) void assistantActions.handle('cancel').catch(error); } if (bench?.running && document.hidden) act(() => { bench.pause(); bench.capture(); bench.notice = 'Paused because the tab was hidden.'; }); });
 canvas.addEventListener('viewport-error', event => {
   if (bench) { bench.pause(); bench.capture(); dirty = true; clock.reset(); lastFrame = 0; panels(); }
   error((event as CustomEvent<string>).detail);
@@ -250,7 +456,7 @@ function frame(timestamp: number): void {
 }
 async function start(): Promise<void> {
   try {
-    await initPhysics(); bench = new Workbench(fan());
+    await initPhysics(); bench = new Workbench(emptyScene('Talk to Nox'));
     let transformContext = bench.commandContext;
     viewport = new Viewport(canvas, id => { selectedId = id; el<HTMLSelectElement>('objects').value = id; fillProperties(); panels(); draw(); },
       () => { transformContext = bench.commandContext; bench.pause(); bench.capture(); clock.reset(); lastFrame = 0; dirty = true; panels(); },
@@ -260,8 +466,10 @@ async function start(): Promise<void> {
       state: () => ({ bench, selectedId, dirty }),
       show: (next, nextDirty, nextSelected) => { bench = next; dirty = nextDirty; selectedId = nextSelected; clock.reset(); lastFrame = 0; fit(); refresh(); },
       changed: () => { dirty = true; clock.reset(); lastFrame = 0; refresh(); },
+      onPhotoReady: () => checkUploadedPhoto(),
     });
     initShell({ openSource: () => inputUI?.openSource() });
+    startAssistant();
     fit(); refresh(); requestAnimationFrame(frame);
   } catch (e) { error(e); el('message').textContent = '3D workbench could not start. Reload to retry; saved work is retained.'; }
 }

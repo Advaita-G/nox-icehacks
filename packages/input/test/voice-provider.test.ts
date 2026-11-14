@@ -149,7 +149,7 @@ describe('provider client', () => {
 
   it('maps not-configured, network and other failures', async () => {
     await expect(postModel('/api/interpret', {}, signal, ok(503, { code: 'PROVIDER_NOT_CONFIGURED' }))).rejects.toMatchObject({ code: 'PROVIDER_NOT_CONFIGURED' });
-    await expect(postModel('/api/interpret', {}, signal, ok(401, { code: 'ACCESS_REQUIRED', message: 'untrusted server detail' }))).rejects.toMatchObject({ code: 'ACCESS_REQUIRED', message: 'Unlock live AI from the Draw panel, then retry. Your sketch and scene are retained.' });
+    await expect(postModel('/api/interpret', {}, signal, ok(401, { code: 'ACCESS_REQUIRED', message: 'untrusted server detail' }))).rejects.toMatchObject({ code: 'ACCESS_REQUIRED', message: 'This session needs live AI access. Open the judge link supplied by the project owner, then retry. Your sketch and experiment are retained.' });
     await expect(postModel('/api/interpret', {}, signal, async () => Promise.reject(new TypeError('fetch failed')))).rejects.toBeInstanceOf(ProviderError);
     await expect(postModel('/api/interpret', {}, signal, ok(500, null))).rejects.toMatchObject({ code: 'PROVIDER_ERROR' });
   });

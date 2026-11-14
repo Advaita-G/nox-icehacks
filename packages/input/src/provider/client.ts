@@ -17,9 +17,9 @@ export class ProviderError extends Error {
 }
 
 export const PROVIDER_MESSAGES: Record<ProviderErrorCode, string> = {
-  ACCESS_REQUIRED: 'Unlock live AI from the Draw panel, then retry. Your sketch and scene are retained.',
+  ACCESS_REQUIRED: 'This session needs live AI access. Open the judge link supplied by the project owner, then retry. Your sketch and experiment are retained.',
   PROVIDER_NOT_CONFIGURED:
-    'The vision runtime is not configured. Your sketch is retained. Manual controls and the listed offline commands are available.',
+    'Live interpretation is not configured. Your sketch and experiment are retained. Local controls and offline commands remain available.',
   PROVIDER_UNAVAILABLE: 'The AI service could not be reached. Your sketch and scene are unchanged; Retry when ready.',
   PROVIDER_ERROR: 'The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.',
   REQUEST_TOO_LARGE: 'The request was too large to send.',

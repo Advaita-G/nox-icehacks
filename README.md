@@ -1,17 +1,22 @@
 # Nox
 
-**Turn rough sketches into editable 3D physics experiments.** Built for IceHacks 2026 by Advaita Gupta and Juwon.
+**A talking Jarvis for real 3D physics experiments.** Built for IceHacks 2026 by Advaita Gupta and Juwon.
 
-Draw a mechanism or upload a paper sketch. Nox asks about missing physical details, turns the source into a correctable 3D preview, then runs a real rigid-body simulation. Change it by voice or text, review the exact proposed edit, and compare the new motion with a retained baseline.
+Tell Nox what to do. It talks back, builds experiments, runs the real solver, reviews changes with you, compares measurements and saves the result. Drawing and photo input remain available for ideas that are easier to show.
 
 ## Try it
 
-1. Open **Library**, choose **Ramp and cup**, **Fan and floor friction** or **Spring cart stiffness**, then **Open replay**. These recorded experiments need no model API key.
-2. Close Library, select a moving part and use **Run experiment**, **Reset** and **Measure**. The solid plot is the current run; the dashed plot is the retained baseline.
-3. Open **Parts** for values and versions, or **Source** for the original drawing. **Save** retains experiments in this browser; **Export** creates a portable backup.
-4. For new input, use **Draw** or **Upload photo → Build 3D preview**. Review assumptions and parts, then **Confirm experiment**. Fresh interpretation and free-form language edits require the configured live service and a judge access code. **Unlock live AI** opens access in a separate tab so your drawing is retained. Public recorded experiments and offline editing remain available to everyone.
+1. Choose **Talk to Nox** and allow microphone access once for spoken replies and hands-free edits.
+2. Choose **Take a photo** to use a phone camera, or **Upload drawing** for an existing image. Nox normalizes the image and automatically starts checking it. The source and animated checking state stay visible; model work is bounded to 120 seconds.
+3. A validated scene appears and starts running in the same workspace. Missing noncritical values become visible, estimated assumptions. If the structure is genuinely ambiguous, Nox asks a question that you can answer by voice.
+4. Tell it what to change: **“Move the cup farther right”** or **“make this part twice as heavy.”** Nox explains the proposed operations. Say **“yes, apply”** to commit them, or **“cancel”** to retain the current experiment.
+5. Continue with **“run it,” “pause,” “keep a baseline,” “compare,”** and **“save.”** Nox listens again between replies. Say **“stop listening”** to turn voice off.
 
-**Voice** opens speech and typed commands. Check the transcript, choose **Review change**, inspect the before/after values, then **Apply change**. Offline numerical commands such as `set this mass x2` and `gravity -4.9` work without a model. Browser speech requires a supported browser, its speech service and microphone permission.
+Fresh drawing recognition and free-form model edits need the configured live Momen service and private judge access. A static build alone cannot interpret a new image. The application reports unavailable service, invalid images and unsupported requests; it does not replace failed recognition with a stored scene.
+
+**Without a model account**, say **“Show me what you can do.”** Nox builds a declared spring example, computes two new solver runs, doubles its mass from the same initial setup, compares measured periods and saves the result. You do not navigate Library or click experiment controls. This is a built-in demonstration, not fresh model inference. Local creation of known examples, numerical edits and simulation controls also work without a model key.
+
+Typing uses the same assistant when speech is unavailable. Browser speech needs its recognition service, microphone permission and audio output; denied permission and service failures are reported. Stop remains available during checking. Conversation stays only in the current page; **Save** stores the experiment in this browser and **Export** creates a portable backup. Draw, Parts, Measure and the three labelled Library replays remain optional advanced tools.
 
 ## Run locally
 

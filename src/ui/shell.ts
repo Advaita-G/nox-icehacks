@@ -1,5 +1,5 @@
 /**
- * Nox "assistant" shell: one stage where the sketch becomes the 3D preview and then the simulation.
+ * Nox assistant shell: one real 3D stage with optional drawing and advanced controls.
  * Presentation only. It rearranges existing controls (their IDs and handlers stay the same) and mirrors real
  * states that other modules already publish in the DOM: request pending, listening, preview open, running.
  * Animation here is CSS on the page clock and never touches the fixed-step physics clock.
@@ -21,7 +21,7 @@ export const ORB = `<svg class="orb" viewBox="0 0 64 64" aria-hidden="true"><def
 
 type Drawer = '' | 'library' | 'parts';
 
-export function initShell(host: { openSource(): void }): void {
+export function initShell(_host?: { openSource(): void }): void {
   const body = document.body, workspace = document.querySelector<HTMLElement>('.workspace')!, stage = document.querySelector<HTMLElement>('.stage')!;
   const wrap = document.querySelector<HTMLElement>('.viewport-wrap')!, inspector = document.querySelector<HTMLElement>('.inspector')!;
   const header = document.querySelector<HTMLElement>('.app-header')!, source = el<HTMLDialogElement>('source-dialog'), banner = el('preview-banner');
@@ -44,8 +44,8 @@ export function initShell(host: { openSource(): void }): void {
   drawerButton('library', ICONS.library, 'Library', 'library-drawer');
   drawerButton('parts', ICONS.parts, 'Parts', 'parts-drawer');
   const measure = tool(el('show-analysis'), ICONS.measure, 'Measure');
-  const voice = el('open-command'); voice.classList.add('voice-button'); voice.innerHTML = `${ORB}<span>Voice</span>`; voice.setAttribute('aria-label', 'Change the experiment by voice or text'); rail.append(voice);
-  voice.addEventListener('click', () => { if (source.open) source.close(); open(''); });
+  const voice = document.createElement('button'); voice.id = 'assistant-talk'; voice.type = 'button'; voice.classList.add('voice-button'); voice.innerHTML = `${ORB}<span>Talk</span>`; voice.setAttribute('aria-label', 'Talk to Nox'); rail.append(voice);
+  voice.onclick = () => { if (source.open) source.close(); open(''); document.dispatchEvent(new CustomEvent('nox:talk')); };
   // Close the sketch before Measure's existing handler publishes its panel state.
   measure.addEventListener('click', () => { if (source.open) source.close(); }, { capture: true });
   workspace.prepend(rail);
@@ -92,12 +92,9 @@ export function initShell(host: { openSource(): void }): void {
     const skip = document.querySelector<HTMLAnchorElement>('.skip')!;
     skip.href = source.open ? '#sketch' : '#scene'; skip.textContent = source.open ? 'Skip to drawing' : 'Skip to 3D experiment';
     const orb = listening ? 'listening' : processing ? 'processing' : el<HTMLDialogElement>('command-dialog').open ? 'open' : '';
-    for (const o of document.querySelectorAll('.orb')) o.setAttribute('data-state', orb);
+    for (const o of document.querySelectorAll('#command-dialog .orb')) o.setAttribute('data-state', orb);
     stage.dataset.mode = source.open ? 'draw' : !banner.hidden ? 'review' : el('mode').textContent ?? '';
-    if (!banner.hidden && !previewShown && body.dataset.drawer !== 'parts' && matchMedia('(min-width: 761px)').matches) open('parts');
-    previewShown = !banner.hidden;
   };
-  let previewShown = false;
   const watch = new MutationObserver(state);
   for (const id of ['cancel-interpret', 'cancel-command', 'hold-talk', 'preview-banner', 'command-dialog', 'source-dialog']) watch.observe(el(id), { attributes: true, attributeFilter: ['hidden', 'aria-pressed', 'open'] });
   watch.observe(el('mode'), { childList: true, characterData: true, subtree: true });
@@ -126,6 +123,5 @@ export function initShell(host: { openSource(): void }): void {
   }, 0));
 
   open(''); state();
-  // First view: the drawing surface, in place over the 3D stage.
-  host.openSource();
+  // Conversation starts over the real stage; Draw remains an optional tool.
 }

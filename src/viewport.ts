@@ -7,6 +7,41 @@ import type { BodySample, Sample } from './physics/engine.ts';
 import type { Operation, Scene, SceneObject, Vec3 } from './physics/scene.ts';
 
 export const theme = (role: string): string => getComputedStyle(document.documentElement).getPropertyValue(`--color-${role}`).trim();
+/** Connection resources survive pose updates so their GPU programs and buffers stay warm. */
+export class ConnectionLines extends THREE.Group {
+  private signature = '';
+  private material?: THREE.LineDashedMaterial;
+  update(setup: Scene, sample: Sample, color: string): void {
+    const bodies = new Map(sample.bodies.map(body => [body.objectId, body]));
+    const connections = setup.constraints.filter(c => bodies.has(c.bodyA) && bodies.has(c.bodyB));
+    const signature = JSON.stringify([color, connections.map(c => [c.id, c.type, c.bodyA, c.bodyB])]);
+    if (signature !== this.signature) {
+      this.dispose();
+      if (connections.length) this.material = new THREE.LineDashedMaterial({ color, dashSize: .08, gapSize: .05 });
+      for (const _connection of connections) {
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(6), 3).setUsage(THREE.DynamicDrawUsage));
+        geometry.setAttribute('lineDistance', new THREE.Float32BufferAttribute(new Float32Array(2), 1).setUsage(THREE.DynamicDrawUsage));
+        this.add(new THREE.LineSegments(geometry, this.material!));
+      }
+      this.signature = signature;
+    }
+    const anchor = (body: BodySample, local: Vec3) => new THREE.Vector3(local.x, local.y, local.z).applyQuaternion(new THREE.Quaternion(body.rotation.x, body.rotation.y, body.rotation.z, body.rotation.w)).add(new THREE.Vector3(body.position.x, body.position.y, body.position.z));
+    connections.forEach((c, index) => {
+      const a = anchor(bodies.get(c.bodyA)!, c.anchorA), b = anchor(bodies.get(c.bodyB)!, c.anchorB);
+      const geometry = (this.children[index] as THREE.LineSegments).geometry;
+      const positions = geometry.getAttribute('position'), distances = geometry.getAttribute('lineDistance');
+      positions.setXYZ(0, a.x, a.y, a.z); positions.setXYZ(1, b.x, b.y, b.z); positions.needsUpdate = true;
+      distances.setX(0, 0); distances.setX(1, a.distanceTo(b)); distances.needsUpdate = true;
+      geometry.computeBoundingSphere();
+    });
+  }
+  dispose(): void {
+    for (const line of this.children as THREE.LineSegments[]) line.geometry.dispose();
+    this.material?.dispose(); this.material = undefined; this.clear(); this.signature = '';
+  }
+}
+
 export class Viewport {
   renderer: THREE.WebGLRenderer;
   scene = new THREE.Scene();
@@ -20,10 +55,12 @@ export class Viewport {
   signature = '';
   selected = '';
   assemblyId = '';
-  links = new THREE.Group();
-  constructor(public canvas: HTMLCanvasElement, onSelect: (id: string) => void, onBegin: () => void, onCommit: (operations: Operation[]) => void) {
-    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); this.renderer.shadowMap.enabled = true; this.renderer.shadowMap.type = THREE.PCFShadowMap;
+  links = new ConnectionLines();
+  canvas: HTMLCanvasElement;
+  constructor(canvas: HTMLCanvasElement, onSelect: (id: string) => void, onBegin: () => void, onCommit: (operations: Operation[]) => void) {
+    this.canvas = canvas;
+    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false });
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5)); this.renderer.shadowMap.enabled = false;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping; this.renderer.toneMappingExposure = 1.25;
     this.scene.background = new THREE.Color(theme('viewport')); this.scene.fog = new THREE.Fog(theme('viewport'), 60, 180);
     this.scene.add(new THREE.HemisphereLight(theme('light'), theme('shadow'), 2.5));
@@ -84,7 +121,7 @@ export class Viewport {
     if (this.transform.dragging) return;
     const signature = JSON.stringify([setup.objects.map(o => [o.id, o.kind, o.fixed, o.width, o.height, o.depth, o.wallThickness, o.geometry]), baseline?.scene]);
     if (signature !== this.signature) {
-      this.transform.detach(); this.clear(this.objects); this.clear(this.ghosts); this.meshes.clear(); this.selected = '';
+      this.transform.detach(); this.clear(this.objects); this.clear(this.ghosts); this.links.dispose(); this.meshes.clear(); this.selected = '';
       setup.objects.forEach(o => { const group = this.mesh(o); this.meshes.set(o.id, group); this.objects.add(group); });
       baseline?.scene.objects.forEach(o => this.ghosts.add(this.mesh(o, true))); this.signature = signature;
     }
@@ -97,12 +134,7 @@ export class Viewport {
     const selectedMesh = this.meshes.get(selected);
     if (selectedMesh && this.transform.object !== selectedMesh) this.transform.attach(selectedMesh);
     else if (!selectedMesh) this.transform.detach();
-    this.clear(this.links);
-    for (const c of setup.constraints) {
-      const a = sample.bodies.find(b => b.objectId === c.bodyA), b = sample.bodies.find(b => b.objectId === c.bodyB); if (!a || !b) continue;
-      const anchor = (body: BodySample, local: Vec3) => new THREE.Vector3(local.x, local.y, local.z).applyQuaternion(new THREE.Quaternion(body.rotation.x, body.rotation.y, body.rotation.z, body.rotation.w)).add(new THREE.Vector3(body.position.x, body.position.y, body.position.z));
-      const line = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([anchor(a, c.anchorA), anchor(b, c.anchorB)]), new THREE.LineDashedMaterial({ color: theme('body-edge'), dashSize: .08, gapSize: .05 })); line.computeLineDistances(); this.links.add(line);
-    }
+    this.links.update(setup, sample, theme('body-edge'));
     this.transform.getHelper().visible = this.transform.enabled;
     this.render();
   }
