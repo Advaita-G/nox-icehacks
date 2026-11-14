@@ -115,9 +115,9 @@ function refresh(): void {
 }
 function fit(): void { draw(); viewport?.fit(bench.scene); }
 function draw(): void {
-  if (!bench || !viewport) return;
+  if (!bench || !viewport || viewport.transform.dragging) return;
   const baseline = bench.experiment.baseline;
-  viewport.transform.enabled = !bench.restartRequired && bench.replayTime === null;
+  viewport.transform.enabled = document.body.dataset.tools === 'open' && !bench.restartRequired && bench.replayTime === null;
   viewport.update(bench.scene, bench.sample, selectedId, baseline ? { scene: baseline.scene, sample: baseline.run.samples.findLast(s => s.simulationTime <= bench.sample.simulationTime + 1e-8) ?? baseline.run.samples[0] } : undefined);
 }
 function svgNode(tag: string, attributes: Record<string, string>, textValue?: string): SVGElement {
@@ -450,6 +450,7 @@ canvas.addEventListener('viewport-error', event => {
 });
 window.addEventListener('beforeunload', event => { if (dirty || inputUI?.active) event.preventDefault(); });
 new ResizeObserver(() => draw()).observe(canvas);
+new MutationObserver(() => draw()).observe(document.body, { attributes: true, attributeFilter: ['data-tools'] });
 function frame(timestamp: number): void {
   if (bench?.running) {
     try { clock.advance(lastFrame ? (timestamp - lastFrame) / 1000 : 0, () => { if (bench.running) bench.tick(); }); dirty = true; }

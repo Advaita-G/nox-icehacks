@@ -81,3 +81,25 @@ test('Viewport releases connection resources when replacement geometry rebuilds 
     viewport.links.dispose();
   } finally { globalThis.document = priorDocument; globalThis.getComputedStyle = priorStyle; }
 });
+
+test('disabled manual controls detach the selected gizmo and reattach only when enabled', () => {
+  const { scene, sample } = fixture(), viewport = Object.create(Viewport.prototype), helper = {};
+  const priorDocument = globalThis.document, priorStyle = globalThis.getComputedStyle;
+  globalThis.document = { documentElement: {} };
+  globalThis.getComputedStyle = () => ({ getPropertyValue: () => '#7fd3e6' });
+  let attached = 0;
+  const transform = { dragging: false, enabled: false, object: undefined,
+    attach(object) { this.object = object; attached++; }, detach() { this.object = undefined; }, getHelper: () => helper };
+  Object.assign(viewport, { objects: new THREE.Group(), ghosts: new THREE.Group(), links: new ConnectionLines(), meshes: new Map(), signature: '', selected: '', transform, render() {} });
+  try {
+    viewport.update(scene, sample, 'b');
+    assert.equal(attached, 0); assert.equal(transform.object, undefined); assert.equal(helper.visible, false);
+    const ball = viewport.meshes.get('b');
+    transform.enabled = true; viewport.update(scene, sample, 'b'); viewport.update(scene, sample, 'b');
+    assert.equal(attached, 1); assert.equal(transform.object, ball); assert.equal(helper.visible, true);
+    transform.enabled = false; viewport.update(scene, sample, 'b');
+    assert.equal(transform.object, undefined); assert.equal(helper.visible, false); assert.equal(viewport.meshes.get('b'), ball);
+    transform.enabled = true; viewport.update(scene, sample, 'a');
+    assert.equal(attached, 2); assert.equal(transform.object, viewport.meshes.get('a'));
+  } finally { viewport.clear(viewport.objects); viewport.links.dispose(); globalThis.document = priorDocument; globalThis.getComputedStyle = priorStyle; }
+});

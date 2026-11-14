@@ -132,8 +132,9 @@ export class Viewport {
       this.meshes.forEach((group, id) => group.traverse(child => { if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) { child.material.emissive.set(id === selected ? theme('selection') : theme('unselected')); child.material.emissiveIntensity = id === selected ? .18 : 0; } })); this.selected = selected;
     }
     const selectedMesh = this.meshes.get(selected);
-    if (selectedMesh && this.transform.object !== selectedMesh) this.transform.attach(selectedMesh);
-    else if (!selectedMesh) this.transform.detach();
+    if (selectedMesh && this.transform.enabled) {
+      if (this.transform.object !== selectedMesh) this.transform.attach(selectedMesh);
+    } else if (this.transform.object) this.transform.detach();
     this.links.update(setup, sample, theme('body-edge'));
     this.transform.getHelper().visible = this.transform.enabled;
     this.render();
