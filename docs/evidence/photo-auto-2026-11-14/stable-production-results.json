@@ -1,0 +1,312 @@
+{
+  "url": "https://nox-icehacks.vercel.app",
+  "evidence": "Anonymous fresh isolated full Chromium; actual builtin physics/storage; no API mocks, synthetic responses, media capture, or inference requested.",
+  "sourceHead": "7749a8b",
+  "checks": [
+    {
+      "viewport": "1280x800",
+      "initialAccessibility": "- region \"Nox\":\n  - heading \"Nox\" [level=2]\n  - status: Ready\n  - group: Voice setup\n  - paragraph: Start with a photo of your paper drawing. Nox checks it, builds the 3D experiment, then you can talk to change it.\n  - text: Take a photo\n  - button \"Take a photo\"\n  - text: Upload drawing\n  - button \"Upload drawing\"\n  - paragraph: JPG, PNG, WebP or AVIF. If your camera uses HEIC, choose or export a JPEG.\n  - button \"Talk to Nox\"\n  - button \"Stop listening\"\n  - paragraph: Start once and allow your microphone. Then speak naturally.\n  - text: Talk to Nox by typing\n  - textbox \"Talk to Nox by typing\":\n    - /placeholder: Or type a request\u2026\n  - button \"Send request\"",
+      "initialLayout": {
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "document": {
+          "scrollWidth": 1280,
+          "clientWidth": 1280
+        },
+        "elements": {
+          "#assistant-panel": {
+            "tag": "SECTION",
+            "text": "NoxReady\n      Voice setupChoose Talk to Nox and allow your microphone once to start the conversation. Then speak naturally between replies. Your browser may ask again. Speech uses your browser\u2019s service; support varies. You can always type instead. Stop listening ends voice input.\n    \n    Start with a photo of your paper drawing. Nox checks it, builds the 3D experiment, then you can talk to change it.\n    Take a photoUpload drawing\n    JPG, PNG, WebP or AVIF. If your camera uses HEIC, choose or export a JPEG.\n    \n    Talk to NoxStop listening\n    Start once and allow your microphone. Then speak naturally.\n    \n    Talk to Nox by typingSend request",
+            "x": 930,
+            "y": 388.375,
+            "width": 338,
+            "height": 399.625,
+            "bottom": 788,
+            "right": 1268,
+            "scrollWidth": 336,
+            "clientWidth": 336,
+            "fontSize": "16px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          "#assistant-camera": {
+            "tag": "INPUT",
+            "text": "",
+            "x": 1012,
+            "y": 534.625,
+            "width": 18,
+            "height": 44,
+            "bottom": 578.625,
+            "right": 1030,
+            "scrollWidth": 199,
+            "clientWidth": 16,
+            "fontSize": "14px",
+            "visible": true,
+            "overflowX": "clip",
+            "overflowY": "clip"
+          },
+          "#assistant-upload": {
+            "tag": "INPUT",
+            "text": "",
+            "x": 1168,
+            "y": 534.625,
+            "width": 18,
+            "height": 44,
+            "bottom": 578.625,
+            "right": 1186,
+            "scrollWidth": 199,
+            "clientWidth": 16,
+            "fontSize": "14px",
+            "visible": true,
+            "overflowX": "clip",
+            "overflowY": "clip"
+          },
+          "#assistant-start": {
+            "tag": "BUTTON",
+            "text": "Talk to Nox",
+            "x": 947,
+            "y": 629.40625,
+            "width": 148,
+            "height": 44,
+            "bottom": 673.40625,
+            "right": 1095,
+            "scrollWidth": 146,
+            "clientWidth": 146,
+            "fontSize": "16px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          "#assistant-stop": {
+            "tag": "BUTTON",
+            "text": "Stop listening",
+            "x": 1103,
+            "y": 629.40625,
+            "width": 148,
+            "height": 44,
+            "bottom": 673.40625,
+            "right": 1251,
+            "scrollWidth": 146,
+            "clientWidth": 146,
+            "fontSize": "16px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          "#assistant-text": {
+            "tag": "INPUT",
+            "text": "",
+            "x": 947,
+            "y": 727,
+            "width": 235.15625,
+            "height": 44,
+            "bottom": 771,
+            "right": 1182.15625,
+            "scrollWidth": 233,
+            "clientWidth": 233,
+            "fontSize": "14px",
+            "visible": true,
+            "overflowX": "clip",
+            "overflowY": "clip"
+          },
+          ".assistant-compose button": {
+            "tag": "BUTTON",
+            "text": "Send request",
+            "x": 1190.15625,
+            "y": 727,
+            "width": 60.84375,
+            "height": 44,
+            "bottom": 771,
+            "right": 1251,
+            "scrollWidth": 59,
+            "clientWidth": 59,
+            "fontSize": "16px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          "#assistant-state": {
+            "tag": "SPAN",
+            "text": "Ready",
+            "x": 1034.75,
+            "y": 418.078125,
+            "width": 35.03125,
+            "height": 18.59375,
+            "bottom": 436.671875,
+            "right": 1069.78125,
+            "scrollWidth": 35,
+            "clientWidth": 35,
+            "fontSize": "12px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          ".assistant-photo-help": {
+            "tag": "P",
+            "text": "JPG, PNG, WebP or AVIF. If your camera uses HEIC, choose or export a JPEG.",
+            "x": 947,
+            "y": 588.625,
+            "width": 304,
+            "height": 30.78125,
+            "bottom": 619.40625,
+            "right": 1251,
+            "scrollWidth": 304,
+            "clientWidth": 304,
+            "fontSize": "11px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "photoLabels": [
+          {
+            "tag": "LABEL",
+            "text": "Take a photo",
+            "x": 947,
+            "y": 534.625,
+            "width": 148,
+            "height": 44,
+            "bottom": 578.625,
+            "right": 1095,
+            "scrollWidth": 146,
+            "clientWidth": 146,
+            "fontSize": "14px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          },
+          {
+            "tag": "LABEL",
+            "text": "Upload drawing",
+            "x": 1103,
+            "y": 534.625,
+            "width": 148,
+            "height": 44,
+            "bottom": 578.625,
+            "right": 1251,
+            "scrollWidth": 146,
+            "clientWidth": 146,
+            "fontSize": "14px",
+            "visible": true,
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        ],
+        "canvas": {
+          "tag": "CANVAS",
+          "text": "",
+          "x": 89,
+          "y": 117,
+          "width": 828,
+          "height": 602,
+          "bottom": 719,
+          "right": 917,
+          "scrollWidth": 828,
+          "clientWidth": 828,
+          "fontSize": "16px",
+          "visible": true,
+          "overflowX": "clip",
+          "overflowY": "clip"
+        }
+      },
+      "transcript": "Youshow me what you can doNoxI will build a spring experiment, measure its motion, double the mass, and compare. This is my built-in demonstration, using the real physics solver without an AI call.NoxThe mass is attached to a spring and starts one meter from equilibrium. I am measuring the original oscillation.NoxI measured an original period of 1.57 seconds. I will return to the same starting position and double the mass for the comparison.NoxThe heavier mass takes 2.22 seconds per oscillation, compared with 1.57 seconds before. Those numbers come from the actual simulation samples. The solid line is the edited run; the dashed line is the original baseline.NoxI saved the experiment, both measured runs and the baseline in this browser. You can ask me to create a pendulum, run it, select a part, change its mass, compare, or save. For a custom system, tell me what you want to build.",
+      "saved": {
+        "id": "a84e8524-b56d-4e06-9b6f-6c3d3962f668",
+        "name": "Spring oscillator",
+        "selectedVersionId": "54cdbfb3-95d7-4b48-a995-548cee647a59",
+        "source": null,
+        "versions": [
+          {
+            "id": "d82358c6-5282-4371-be44-ed869a9e1377",
+            "mass": 1,
+            "samples": 153,
+            "end": 5.041666666666667,
+            "checkpoint": true
+          },
+          {
+            "id": "431ac407-186a-4128-93a4-3b2083679ca1",
+            "mass": 1,
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true
+          },
+          {
+            "id": "54cdbfb3-95d7-4b48-a995-548cee647a59",
+            "mass": 2,
+            "samples": 153,
+            "end": 5.041666666666667,
+            "checkpoint": true
+          }
+        ],
+        "baseline": {
+          "id": "d82358c6-5282-4371-be44-ed869a9e1377",
+          "mass": 1,
+          "samples": 153,
+          "end": 5.041666666666667
+        }
+      },
+      "restored": {
+        "id": "a84e8524-b56d-4e06-9b6f-6c3d3962f668",
+        "name": "Spring oscillator",
+        "selectedVersionId": "54cdbfb3-95d7-4b48-a995-548cee647a59",
+        "source": null,
+        "versions": [
+          {
+            "id": "d82358c6-5282-4371-be44-ed869a9e1377",
+            "mass": 1,
+            "samples": 153,
+            "end": 5.041666666666667,
+            "checkpoint": true
+          },
+          {
+            "id": "431ac407-186a-4128-93a4-3b2083679ca1",
+            "mass": 1,
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true
+          },
+          {
+            "id": "54cdbfb3-95d7-4b48-a995-548cee647a59",
+            "mass": 2,
+            "samples": 153,
+            "end": 5.041666666666667,
+            "checkpoint": true
+          }
+        ],
+        "baseline": {
+          "id": "d82358c6-5282-4371-be44-ed869a9e1377",
+          "mass": 1,
+          "samples": 153,
+          "end": 5.041666666666667
+        }
+      },
+      "reloadedClock": "5.042 s",
+      "result": "PASS"
+    }
+  ],
+  "apiRequests": [],
+  "errors": [],
+  "assets": [
+    "https://nox-icehacks.vercel.app/assets/index-ssLHYYBl.js",
+    "https://nox-icehacks.vercel.app/assets/main-BJRwfRGF.js",
+    "https://nox-icehacks.vercel.app/assets/main-D8_HSnH1.css",
+    "https://nox-icehacks.vercel.app/assets/index-ssLHYYBl.js",
+    "https://nox-icehacks.vercel.app/assets/main-BJRwfRGF.js",
+    "https://nox-icehacks.vercel.app/assets/main-D8_HSnH1.css"
+  ],
+  "indexMatchesLocalDist": true,
+  "indexSha256": "59a28a29b057fb1e07935b9e4649a15e88d0215a59aa91522e3d1ba8e45fc90d",
+  "status": {
+    "configured": false,
+    "provider": null,
+    "accessRequired": true
+  },
+  "assetHashes": {
+    "https://nox-icehacks.vercel.app/assets/main-D8_HSnH1.css": "98806409cf6c07f32f78b2ed2fb0ebddfc163b01a9bddffcc750b524b4a4b78c",
+    "https://nox-icehacks.vercel.app/assets/index-ssLHYYBl.js": "5b54b12c4bc435bb29e823dfc58524d89375bdeef2bbaf0b0270a463b7dac4dc",
+    "https://nox-icehacks.vercel.app/assets/main-BJRwfRGF.js": "60c5a7380dca1602e6b9c3c620b6e9f176c4f1ef059398490340e885be9d2eb0"
+  }
+}

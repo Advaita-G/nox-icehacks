@@ -32,4 +32,4 @@ Nox models rigid mechanics and a declared fan approximation. It does not model f
 
 We want to test more unfamiliar mechanisms and make physical ambiguity easier to resolve through conversation.
 
-Built with TypeScript, Vite, Three.js, Rapier3D, Momen, GPT 6 Luna, browser speech, Codex and Claude Code. Prepared tracks: Best AI Hack and Best Design & UX.
+Built with TypeScript, Vite, Three.js, Rapier3D, Momen, GPT 6 Luna, browser speech, Codex and Claude Code. Prepared tracks: Best AI Hack, Best Design & UX and Best Deployed / Shipped App.

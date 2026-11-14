@@ -6,6 +6,10 @@ Start with a photo of your paper drawing or upload an image. With the live model
 
 ## Try it
 
+[Open Nox](https://nox-icehacks.vercel.app)
+
+The hosted local assistant and physics are available. Fresh photo interpretation is awaiting the Momen runtime connection.
+
 1. Choose **Take a photo** to use a phone camera, or **Upload drawing** for an existing image. Nox normalizes the image and automatically starts checking it; the source and real checking state stay visible.
 2. A validated scene appears and starts running in the same workspace. There is no required Library, Build or Confirm click for a ready photo result. Missing values can become visible assumptions; genuine ambiguity produces a clarification.
 3. Choose **Talk to Nox** and allow microphone access when prompted. You can start talking during checking or after the model appears; typing also works.
