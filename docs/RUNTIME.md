@@ -1,25 +1,34 @@
-# Nox: paper drawing to a talking 3D experiment
+# Nox: start a conversation
 
-## Start with your drawing
+## Enter the room
 
-1. Choose **Take a photo** on a device with a camera, or **Upload drawing** to select an existing image. Camera capture is a browser/device feature; on a desktop it may open the normal file picker. Use a JPEG, PNG, WebP or AVIF that the browser can decode. Unsupported or damaged files produce a visible error; if a camera supplies HEIC, export a JPEG or PNG.
-2. Nox prepares the image and begins checking automatically. The normalized source stays visible with the real checking animation and phase text. You do not need to open Library or click Build/Confirm for a ready photo interpretation.
-3. When the model supplies a valid scene, Nox validates it, creates the 3D experiment, lets rendering settle and starts the real simulation. If physical intent is unclear, answer the clarification instead of assuming the model guessed correctly. A failed or cancelled request preserves valid work.
-4. Choose **Talk to Nox** and allow microphone permission to move or change objects through conversation. You can also enable Talk while the photo is being checked. The browser may ask for permission again in a later session; typing follows the same action pipeline.
+The first view centers on **Nox**. Tap the name once and grant microphone permission when the browser asks. Nox then listens between its spoken replies; there is no hold-to-talk step. The browser may request permission again in a later session. **Keyboard** opens the optional typed input and uses the same action pipeline when voice is unavailable or inconvenient.
 
-Photo understanding and free-form edits need the configured model service. Checking is actual pending work, not an estimated percentage. Each model request is bounded to 120 seconds; clarification rounds and service latency affect total time. A captured-response check does not establish fresh recognition or a live latency guarantee.
+Say **“Create a ramp and ball.”** This bounded request creates a fresh three-body local scene: fixed floor, fixed ramp and dynamic ball. Dimensions and coefficients are declared defaults. Nox starts the actual solver after the scene settles into the same room, with its conversation docked below. No model call, drawing recognition or captured response is used for this request. Custom dimensions or additional objects must be preserved through the custom proposal path rather than silently replaced with these defaults.
 
-## Continue by voice or text
+Continue with **“pause,” “keep a baseline,” “select the ball,” “double its mass,” “yes, apply,” “reset,” “run it,” “compare,”** and **“save.”** Normal physical edits are explained before spoken confirmation or Apply commits them. **“Cancel”** discards a pending request or proposal.
 
-Ask Nox to select a named part, move it or change a physical property. The assistant explains the proposed physical changes and waits for **“yes”** before applying a normal edit. **“Cancel”** discards a pending request or change. You can run, pause, reset, keep a baseline, compare measured motion and save.
+**Stop** is available during active voice and pending work. It turns voice off, cancels pending work and pauses the experiment rather than permitting a delayed automatic start. Browser speech support varies and may use an online recognition service; speech synthesis supplies narration. Speech failures remain visible. Recent conversation is held in memory for this session, not stored by Save.
 
-**Stop listening** remains available during checking, listening, thinking, speaking and errors. It turns voice off and cancels pending work rather than allowing a delayed auto-start. Browser speech support varies and may use an online speech service. The recent transcript is held in memory for this session; Save stores experiments, not a persistent conversation transcript.
+## Add a drawing when you need one
 
-Use Parts or Draw when exact manual control is useful. Recorded Library examples and the built-in **“show me what you can do”** demonstration are optional. The spring demonstration creates and measures two real five-second runs before/after doubling mass, compares the sampled periods and saves the experiment. It identifies itself as local and makes no model call.
+The conversation reveals contextual **Camera** and **Add drawing** controls. You can also drop or paste an image into the room. Camera capture depends on the device/browser; a desktop may open a normal file picker. Use a JPEG, PNG, WebP or AVIF the browser can decode. Unsupported or damaged files produce an error; convert a camera's HEIC to JPEG or PNG if needed.
+
+Nox normalizes the source and starts model checking automatically. The normalized image remains visible with actual pending state and phase text. With a configured service, a validated ready response becomes the 3D scene and starts real simulation; a critical question waits for your answer. No Library, Build or Confirm click is required for a ready photo result. Manual canvas drawing remains available through **Tools** and retains its preview/confirmation controls.
+
+The interpretation prompt attempts objects, characters, scenery, abstract forms and mechanisms through explicit rigid-body, compound or shallow-extrusion approximations. Noncritical scale, depth, mass and material coefficients become declared estimates. It preserves source grounding and important visual features. Fluids, electricity and deformation are not simulated: visual proxies must be labelled, and behavior that changes the user's intended result requires a critical-intent question. A failed, invalid or cancelled result preserves valid work.
+
+Model requests have a 120-second deadline each. Checking is pending work, not an estimated percentage; clarification rounds and service latency affect total time. No universal conversion-time or recognition guarantee is claimed.
+
+## Optional tools and demonstrations
+
+**Tools** keeps Draw, Source, Library, Parts, measurements and workbench/file controls available without making them the starting workflow. The labelled Library examples replay stored experiments through the real solver.
+
+Say **“show me what you can do”** for a local spring demonstration. It creates and measures two real five-second runs before/after doubling mass, compares sampled periods and saves the experiment. This and the local ramp creation are separate from fresh model inference.
 
 ## Live model configuration
 
-Photo interpretation, custom systems and language outside the local command set use a configured server-side provider. Earlier actual live cases used GPT 6 Luna through Momen. Local commands, the spring demonstration and recorded examples remain separate from fresh interpretation.
+**The new hosted Momen vision connection is pending live verification.** Signing into Momen does not by itself configure Nox or establish available runtime credit. Photo interpretation, custom systems and language outside the local command set require the configured server-side provider. Earlier actual live cases used GPT 6 Luna through Momen.
 
 For local setup, run `npm ci` and `npm run dev`, then open the printed URL. Use the repository root for the current 3D product; `packages/input` includes shared modules and a preserved earlier prototype. The [README](../README.md) lists root/input-package verification commands.
 
@@ -31,6 +40,6 @@ Production endpoints include `/api/status`, `/api/interpret`, `/api/command` and
 
 Save retains confirmed experiments with their source/notes, versions, baseline samples and paused checkpoints. Export creates a portable backup before changing browsers or clearing storage. Unconfirmed drawing drafts do not survive reload.
 
-The automatic photo flow is checked separately from model understanding: text-only desktop/phone tests use an existing paper photo, captured model replies and explicit speech-device fakes while exercising real normalization, validation, simulation, cancellation and storage. They are not a newly captured photo, fresh inference or a new physical-microphone acceptance run. See [verification](VERIFICATION.md) for evidence boundaries.
+The automatic photo flow is checked separately from model understanding: text-only desktop/phone tests use an existing paper photo, captured model replies and explicit speech-device fakes while exercising real normalization, validation, simulation, cancellation and storage. Those checks do not establish a newly captured photo, fresh inference, physical-microphone acceptance or verification of every later interface change. See [verification](VERIFICATION.md) for dated evidence boundaries.
 
 Nox models rigid mechanics and a declared fan approximation, with inspectable assumptions. A model can be wrong, refused, late or unavailable. Errors remain visible and stale-result checks protect the current experiment. [Architecture](ARCHITECTURE.md) · [Attribution](../ATTRIBUTION.md)

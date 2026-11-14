@@ -22,6 +22,16 @@ export function rampContainer(): Scene {
     object('container', 'cup', { label: 'Open container', position: { x: 2, y: .8, z: 0 }, width: 3, height: 1.6, friction: .6, restitution: 0 })];
   return validateScene(scene);
 }
+export function rampBall(): Scene {
+  const scene = rampContainer(); scene.name = 'Ramp and ball';
+  scene.objects = scene.objects.filter(body => body.id !== 'cup');
+  const ramp = scene.objects.find(body => body.id === 'ramp')!, ball = scene.objects.find(body => body.id === 'ball')!;
+  ramp.label = 'Ramp'; ramp.position.y = ramp.height / 2; ball.label = 'Ball';
+  const slope = ramp.height / ramp.width, normal = Math.hypot(slope, 1), radius = ball.width / 2, contactX = -ramp.width / 3;
+  ball.position = { x: ramp.position.x + contactX + radius * slope / normal, y: ramp.position.y - contactX * slope + radius / normal, z: ramp.position.z };
+  scene.assumptions.push('Fresh local setup with assumed dimensions: fixed 6 m long, 2 m high, 2 m wide ramp; 0.6 m diameter, 1 kg ball; ramp/ball friction 0.6 and restitution 0. No image measurements or recorded motion were used.');
+  return validateScene(scene);
+}
 export function dominoes(gap = false): Scene {
   const scene = emptyScene(gap ? 'A gap stops the chain' : 'Domino chain');
   scene.objects = [floor(), ...Array.from({ length: 9 }, (_, i) => object('domino', `d${i}`, {

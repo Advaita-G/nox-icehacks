@@ -1,0 +1,567 @@
+{
+  "url": "http://127.0.0.1:5201",
+  "expectedMain": "/assets/main-CwljF86v.js",
+  "checkedAt": "2026-11-14T22:08:45.099014+00:00",
+  "evidence": "Actual browser/solver/storage with synthetic browser recognition/TTS. Photo model response #103 is replayed with request/source identity remapped; no live model or physical microphone.",
+  "capturedReplySha256": "bc98993bb94b362cecf23b08a315d0cfa2765db9368bb51382fd38379a87722a",
+  "cases": [
+    {
+      "viewport": "1280x800",
+      "checks": [
+        "pre-JS Nox placeholder hides the old workbench",
+        "one start gesture, natural spoken ramp creates three fresh bodies and auto-runs with zero model/replay requests",
+        "reviewed mass change, measured baseline, Save/reload exact library retention, Nox-only restored arrival, spoken resume reveals prior model",
+        "one captured photo interpretation, real animated pending source, automatic validated preview confirmation/run, followed by reviewed local edit and real Save",
+        "cancel drops late photo result; yes cannot apply; controlled provider error retains valid scene; Stop halts recognition/physics; typed source fallback remains reachable"
+      ],
+      "arrival": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "room": "arrival"
+      },
+      "keyboardTabPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "localRunningLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          20,
+          626.5,
+          1240,
+          153.5
+        ],
+        "room": "experiment"
+      },
+      "localSaved": {
+        "experimentId": "4ba8516f-cb49-460a-8349-69a235ce2c14",
+        "versionId": "67e306f1-9295-4075-aa14-e818229a43a7",
+        "bodyCount": 3,
+        "ballMass": 2,
+        "runSeconds": 0.8583333333333333,
+        "baselineSamples": 28,
+        "checkpointSha256": "e4e93dd3667638dba929d3f29d340be6151926253b7810ab5e454389acb3b10e",
+        "modelRequests": 0
+      },
+      "thinking": {
+        "sourceVisible": true,
+        "scanAnimation": "source-scan",
+        "layout": {
+          "width": 1280,
+          "height": 800,
+          "docWidth": 1280,
+          "docHeight": 800,
+          "panel": [
+            20,
+            626.5,
+            1240,
+            153.5
+          ],
+          "room": "checking"
+        }
+      },
+      "reducedMotion": [
+        {
+          "selector": ".scan",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".nox-signal i",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": "#source-dialog",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": "#scene",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".assistant-panel",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".scan::after",
+          "animation": "none",
+          "transition": "0s"
+        }
+      ],
+      "photoSaved": {
+        "experimentId": "ba42bbb9-665b-4ffb-81c5-6046616d1a5d",
+        "versionId": "fd642cc2-a13a-49d4-95c3-41a9e5e809d0",
+        "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+        "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+        "sourceKind": "photo",
+        "runSeconds": 0.9,
+        "checkpointSha256": "5ecc94ecdda222b1a8e7398465ed3526e922bbf04c1d966832806c7880e3249d"
+      },
+      "lateReply": "delivered after cancellation",
+      "finalLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          20,
+          558,
+          1240,
+          222
+        ],
+        "room": "experiment"
+      },
+      "requests": [
+        {
+          "kind": "interpret",
+          "mode": "hold",
+          "requestId": "req-3f7e673f",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 3
+        },
+        {
+          "kind": "interpret",
+          "mode": "hold",
+          "requestId": "req-39015f9c",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 6
+        },
+        {
+          "kind": "interpret",
+          "mode": "error",
+          "requestId": "req-678e452a",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 8
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "status": "PASS"
+    },
+    {
+      "viewport": "375x667",
+      "checks": [
+        "pre-JS Nox placeholder hides the old workbench",
+        "one start gesture, natural spoken ramp creates three fresh bodies and auto-runs with zero model/replay requests",
+        "reviewed mass change, measured baseline, Save/reload exact library retention, Nox-only restored arrival, spoken resume reveals prior model",
+        "one captured photo interpretation, real animated pending source, automatic validated preview confirmation/run, followed by reviewed local edit and real Save",
+        "cancel drops late photo result; yes cannot apply; controlled provider error retains valid scene; Stop halts recognition/physics; typed source fallback remains reachable"
+      ],
+      "arrival": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          0,
+          0,
+          375,
+          667
+        ],
+        "room": "arrival"
+      },
+      "keyboardTabPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "localRunningLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          10,
+          465.5,
+          355,
+          191.5
+        ],
+        "room": "experiment"
+      },
+      "localSaved": {
+        "experimentId": "d326b790-d038-4ca3-9796-f57f9b5dbfe2",
+        "versionId": "8ee48e05-dcf3-4e43-ae85-c8afaf9a6817",
+        "bodyCount": 3,
+        "ballMass": 2,
+        "runSeconds": 0.875,
+        "baselineSamples": 28,
+        "checkpointSha256": "b948d523afbbc66fa58c6a26aa95f488b244dc258ed4477d3397a7f888d8d359",
+        "modelRequests": 0
+      },
+      "thinking": {
+        "sourceVisible": true,
+        "scanAnimation": "source-scan",
+        "layout": {
+          "width": 375,
+          "height": 667,
+          "docWidth": 375,
+          "docHeight": 667,
+          "panel": [
+            10,
+            419.5,
+            355,
+            237.5
+          ],
+          "room": "checking"
+        }
+      },
+      "reducedMotion": [
+        {
+          "selector": ".scan",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".nox-signal i",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": "#source-dialog",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": "#scene",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".assistant-panel",
+          "animation": "none",
+          "transition": "0s"
+        },
+        {
+          "selector": ".scan::after",
+          "animation": "none",
+          "transition": "0s"
+        }
+      ],
+      "photoSaved": {
+        "experimentId": "13bb42f0-b9b1-4e8a-abe2-86b011df40e8",
+        "versionId": "625c4c43-8a94-4433-89ef-ac8fa8ba89bb",
+        "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+        "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+        "sourceKind": "photo",
+        "runSeconds": 0.8583333333333333,
+        "checkpointSha256": "cbf578361c4992f5b3b1069f4b11d7f86f108b37f979ab158991fc62109bb974"
+      },
+      "lateReply": "delivered after cancellation",
+      "finalLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          10,
+          379.5,
+          355,
+          277.5
+        ],
+        "room": "experiment"
+      },
+      "requests": [
+        {
+          "kind": "interpret",
+          "mode": "hold",
+          "requestId": "req-8604d6dc",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 3
+        },
+        {
+          "kind": "interpret",
+          "mode": "hold",
+          "requestId": "req-00ddf8ed",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 6
+        },
+        {
+          "kind": "interpret",
+          "mode": "error",
+          "requestId": "req-574d27bb",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 8
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "mediaCapture": false,
+  "emptyWorldExits": [
+    {
+      "viewport": "1280x800",
+      "exit": "cancel",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-b63e560e"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "1280x800",
+      "exit": "stop",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-bf33eddd"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "1280x800",
+      "exit": "failure-back",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-808b5673"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "layout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "1280x800",
+      "exit": "question-back",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-d0531d74"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": [
+          0,
+          0,
+          1280,
+          800
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "375x667",
+      "exit": "cancel",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-aa9454dd"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          0,
+          0,
+          375,
+          667
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "375x667",
+      "exit": "stop",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-1d8cc78e"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          0,
+          0,
+          375,
+          667
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "375x667",
+      "exit": "failure-back",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-75e2fb7a"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [
+        "Failed to load resource: the server responded with a status of 503 (Service Unavailable)"
+      ],
+      "layout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          0,
+          0,
+          375,
+          667
+        ],
+        "room": "conversation"
+      }
+    },
+    {
+      "viewport": "375x667",
+      "exit": "question-back",
+      "status": "PASS",
+      "finalRoom": "conversation",
+      "sourceClosed": true,
+      "objects": 0,
+      "modelRequests": [
+        {
+          "kind": "interpret",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "requestId": "req-abcdb2d2"
+        }
+      ],
+      "unexpectedErrors": [],
+      "expectedControlledErrors": [],
+      "layout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": [
+          0,
+          0,
+          375,
+          667
+        ],
+        "room": "conversation"
+      }
+    }
+  ],
+  "mainSha256": "d8c38aa51f6985f7561c77d6a78b02076786146c7c630dbbd40c51151fe1d813",
+  "mainBytes": 5086528,
+  "status": "PASS"
+}

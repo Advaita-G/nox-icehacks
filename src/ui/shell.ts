@@ -14,10 +14,8 @@ const ICONS = {
   measure: icon('<path d="M4 19h16"/><path d="M6 15l4-5 3 3 5-7"/>'),
   close: icon('<path d="M6 6l12 12M18 6L6 18"/>'),
 };
-/** Animated voice orb. Its state attribute is set only from real voice/request state. */
-export const ORB = `<svg class="orb" viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="orb-core" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#e9fbff"/><stop offset=".35" stop-color="#7fd3e6"/><stop offset="1" stop-color="#0d3a4c" stop-opacity="0"/></radialGradient></defs>
-  <circle class="orb-halo" cx="32" cy="32" r="30"/><g class="orb-ring r1"><ellipse cx="32" cy="32" rx="25" ry="10"/></g><g class="orb-ring r2"><ellipse cx="32" cy="32" rx="25" ry="10"/></g><g class="orb-ring r3"><ellipse cx="32" cy="32" rx="25" ry="10"/></g>
-  <circle class="orb-arc" cx="32" cy="32" r="28" pathLength="100"/><circle class="orb-core" cx="32" cy="32" r="14" fill="url(#orb-core)"/></svg>`;
+/** Neutral presence; small state marks follow actual voice/request state. */
+export const ORB = `<svg class="orb" viewBox="0 0 64 64" aria-hidden="true"><circle class="orb-core" cx="32" cy="28" r="18"/><g class="orb-marks"><circle cx="24" cy="55" r="1.5"/><circle cx="32" cy="55" r="1.5"/><circle cx="40" cy="55" r="1.5"/></g></svg>`;
 
 type Drawer = '' | 'library' | 'parts';
 
@@ -26,13 +24,19 @@ export function initShell(_host?: { openSource(): void }): void {
   const wrap = document.querySelector<HTMLElement>('.viewport-wrap')!, inspector = document.querySelector<HTMLElement>('.inspector')!;
   const header = document.querySelector<HTMLElement>('.app-header')!, source = el<HTMLDialogElement>('source-dialog'), banner = el('preview-banner');
   body.classList.add('shell');
+  body.dataset.room ??= 'arrival';
+  body.dataset.tools ??= 'closed';
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let clearReveal: (() => void) | undefined;
 
-  // Header: brand, live status line, then file actions.
-  header.querySelector('h1')!.innerHTML = `<span class="brand-orb" aria-hidden="true"></span>Nox`;
+  // The experiment header keeps file actions behind one explicit Tools control.
+  header.querySelector('h1')!.textContent = 'Nox';
   const status = document.createElement('div'); status.className = 'hud-status';
   status.append(el('message'), el('error'), el('retry')); header.querySelector('.workspace-label')!.after(status);
+  const tools = document.createElement('button'); tools.id = 'toggle-tools'; tools.type = 'button'; tools.className = 'tools-toggle'; tools.textContent = 'Tools';
+  tools.setAttribute('aria-expanded', 'false'); tools.setAttribute('aria-controls', 'hud-rail library-drawer parts-drawer'); header.append(tools);
 
-  // Rail: the drawing surface, the source, drawers, measurements and the voice orb. Mobile shows it as a bottom bar.
+  // The Tools rail retains drawing, source, drawers, measurements and voice controls.
   const rail = document.createElement('nav'); rail.id = 'hud-rail'; rail.setAttribute('aria-label', 'Nox tools');
   const tool = (button: HTMLElement, svg: string, label: string) => { button.classList.add('rail-button'); button.innerHTML = `${svg}<span>${label}</span>`; rail.append(button); return button; };
   tool(el('open-source'), ICONS.draw, 'Draw').classList.remove('primary');
@@ -64,13 +68,18 @@ export function initShell(_host?: { openSource(): void }): void {
   }
   function open(drawer: Drawer): void {
     const previous = body.dataset.drawer;
-    if (drawer && source.open) source.close();
+    if (drawer) { body.dataset.tools = 'open'; tools.setAttribute('aria-expanded', 'true'); if (source.open) source.close(); }
     body.dataset.drawer = drawer;
     if (!drawer && previous && (previous === 'library' ? library : inspector).contains(document.activeElement)) rail.querySelector<HTMLElement>(`[data-drawer="${previous}"]`)?.focus();
     for (const b of rail.querySelectorAll<HTMLButtonElement>('[data-drawer]')) b.setAttribute('aria-expanded', String(b.dataset.drawer === drawer));
     // Move focus into the opened drawer; visibility switches with the attribute, and focus() applies styles first.
     if (drawer) (drawer === 'library' ? library : inspector).querySelector<HTMLElement>('select:not(:disabled), input:not(:disabled), button:not(:disabled):not(.drawer-close)')?.focus({ preventScroll: true });
   }
+  tools.onclick = () => {
+    const expanded = body.dataset.tools !== 'open';
+    if (!expanded) { open(''); el('analysis').hidden = true; measure.setAttribute('aria-expanded', 'false'); }
+    body.dataset.tools = expanded ? 'open' : 'closed'; tools.setAttribute('aria-expanded', String(expanded)); tools.focus({ preventScroll: true });
+  };
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape' || !body.dataset.drawer || document.querySelector('dialog[open]:modal')) return;
     const from = body.dataset.drawer; open(''); rail.querySelector<HTMLElement>(`[data-drawer="${from}"]`)?.focus();
@@ -84,13 +93,17 @@ export function initShell(_host?: { openSource(): void }): void {
   const state = () => {
     const thinking = !el('cancel-interpret').hidden, listening = el('hold-talk').getAttribute('aria-pressed') === 'true', processing = !el('cancel-command').hidden;
     source.dataset.state = thinking ? 'thinking' : '';
-    el('scene').inert = source.open;
+    // Room/scene inertness is owned by the assistant orchestrator.
+    tools.setAttribute('aria-expanded', String(body.dataset.tools === 'open'));
+    if (body.dataset.tools !== 'open' && body.dataset.drawer) open('');
+    if (source.open || reducedMotion.matches || body.dataset.motion === 'paused' || body.dataset.room === 'arrival' || body.dataset.room === 'conversation') clearReveal?.();
     if (source.open) {
       if (body.dataset.drawer) open('');
       el('analysis').hidden = true; el('show-analysis').setAttribute('aria-expanded', 'false');
     }
     const skip = document.querySelector<HTMLAnchorElement>('.skip')!;
-    skip.href = source.open ? '#sketch' : '#scene'; skip.textContent = source.open ? 'Skip to drawing' : 'Skip to 3D experiment';
+    skip.href = source.open ? '#sketch' : body.dataset.room === 'experiment' ? '#scene' : '#assistant-panel';
+    skip.textContent = source.open ? 'Skip to drawing' : body.dataset.room === 'experiment' ? 'Skip to 3D experiment' : 'Skip to Nox';
     const orb = listening ? 'listening' : processing ? 'processing' : el<HTMLDialogElement>('command-dialog').open ? 'open' : '';
     for (const o of document.querySelectorAll('#command-dialog .orb')) o.setAttribute('data-state', orb);
     stage.dataset.mode = source.open ? 'draw' : !banner.hidden ? 'review' : el('mode').textContent ?? '';
@@ -98,20 +111,28 @@ export function initShell(_host?: { openSource(): void }): void {
   const watch = new MutationObserver(state);
   for (const id of ['cancel-interpret', 'cancel-command', 'hold-talk', 'preview-banner', 'command-dialog', 'source-dialog']) watch.observe(el(id), { attributes: true, attributeFilter: ['hidden', 'aria-pressed', 'open'] });
   watch.observe(el('mode'), { childList: true, characterData: true, subtree: true });
+  watch.observe(body, { attributes: true, attributeFilter: ['data-room', 'data-tools', 'data-motion'] });
+  reducedMotion.addEventListener('change', state);
 
   // The command dialog carries the same orb, so listening/processing is visible where the user is speaking.
   el('command-title').insertAdjacentHTML('beforebegin', ORB);
 
   // Sketch → 3D: when an interpretation closes the sketch and opens the review, the drawing dissolves into the scene.
   source.addEventListener('close', () => {
-    if (banner.hidden) return;
+    clearReveal?.();
+    if (banner.hidden || reducedMotion.matches || body.dataset.motion === 'paused') return;
     const photo = el<HTMLImageElement>('photo-preview'), sketch = el<HTMLCanvasElement>('sketch');
     const ghost = document.createElement('canvas'); ghost.className = 'sketch-ghost'; ghost.width = 1600; ghost.height = 900; ghost.setAttribute('aria-hidden', 'true');
     const ctx = ghost.getContext('2d');
     if (ctx) { if (!el('photo-area').hidden && !photo.hidden && photo.complete && photo.naturalWidth) { const s = Math.min(1600 / photo.naturalWidth, 900 / photo.naturalHeight); ctx.drawImage(photo, (1600 - photo.naturalWidth * s) / 2, (900 - photo.naturalHeight * s) / 2, photo.naturalWidth * s, photo.naturalHeight * s); } else ctx.drawImage(sketch, 0, 0); }
     wrap.append(ghost); wrap.classList.remove('reveal'); void wrap.offsetWidth; wrap.classList.add('reveal');
-    const done = () => { ghost.remove(); wrap.classList.remove('reveal'); };
-    ghost.addEventListener('animationend', done, { once: true }); setTimeout(done, 1600);
+    let cleanupTimer: ReturnType<typeof setTimeout>;
+    const done = () => {
+      clearTimeout(cleanupTimer); ghost.removeEventListener('animationend', done); ghost.remove();
+      if (clearReveal === done) { wrap.classList.remove('reveal'); clearReveal = undefined; }
+    };
+    clearReveal = done;
+    ghost.addEventListener('animationend', done, { once: true }); cleanupTimer = setTimeout(done, 360);
   });
 
   // Selecting a part in the 3D view opens its numbers.

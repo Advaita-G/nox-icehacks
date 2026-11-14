@@ -4,4 +4,9 @@ void import('./main.ts').catch((error: unknown) => {
   const retry = document.getElementById('retry') as HTMLButtonElement;
   retry.hidden = false;
   retry.onclick = () => location.reload();
+  document.getElementById('nox-loading-status')!.textContent = 'Nox could not start';
+  const startupError = document.getElementById('nox-loading-error')!;
+  startupError.textContent = error instanceof Error ? error.message : String(error); startupError.hidden = false;
+  const startupRetry = document.getElementById('nox-loading-retry') as HTMLButtonElement;
+  startupRetry.hidden = false; startupRetry.onclick = () => location.reload();
 });

@@ -1,35 +1,37 @@
 # Nox
 
-**Turn a paper drawing into a real 3D physics experiment, then change it by talking.**
+**Speak an idea, see it take shape in 3D, and keep changing it with Nox.**
 
 ## Inspiration
 
-We wanted to test a rough physical idea without rebuilding it through a long series of controls. A drawing should be enough to start a conversation about what moves, what connects and what happens when a variable changes.
+We wanted a space where trying an idea feels like talking to someone who can build beside you. A rough drawing, an object you describe or a question about motion should lead into the same conversation, without a dashboard of controls becoming the first task.
 
 ## What it does
 
-Take a photo of a paper mechanism or upload a drawing. With its live model service configured, Nox prepares the image and starts checking it automatically. The normalized source stays visible while the assistant reports its actual progress. A valid interpretation becomes a 3D model and starts running in the same dark assistant workspace. If the drawing leaves a physical detail unclear, Nox asks about it.
+The room opens with Nox. Tap its name once for the browser's microphone consent, then speak naturally. Say “Create a ramp and ball” and Nox creates a fresh local floor, ramp and ball using declared physical defaults, then starts the real simulation. The scene occupies the same room while Nox docks below it, ready for the next request. This local creation uses neither a model call nor a captured reply.
 
-Allow the microphone once to continue by voice, or use the typed fallback. Ask Nox to select a part, move an object or change a property. It explains the proposed physical changes and waits for “yes” before applying an edit. You can pause, reset, retain a baseline, compare measured motion and save the experiment with its source, versions and paused checkpoint.
+Ask Nox to select a part, move it or change a property. It explains proposed physical changes and waits for “yes” before applying a normal edit. You can pause, reset, keep a baseline, compare measured motion and save the experiment with its source, versions and paused checkpoint. Keyboard input is available on demand; optional workbench controls live behind Tools.
 
-Photo interpretation and free-form edits use the configured Momen service. The intended photo-to-running-model response is two to three minutes; this is a design aim, not a measured latency guarantee. Each model request is bounded to 120 seconds, and clarification rounds can take longer. Local actions and a clearly identified built-in spring demonstration also run without a model call. That demonstration measures two real five-second runs before and after doubling mass and explains the sampled change in period. Recorded Library experiments are optional examples.
+Camera and Add drawing appear when the conversation needs them; images can also be dropped or pasted into the room. With a configured vision service, Nox normalizes the source and checks it automatically. The prompt attempts objects, characters, scenery, abstract forms and mechanisms as declared rigid-body approximations. It estimates noncritical scale, depth and mass, retains source grounding and asks when an unresolved detail changes the intended result. A validated ready interpretation becomes the running scene.
+
+Fresh hosted vision interpretation and free-form model edits are pending the new Momen runtime connection and live verification. The local ramp flow and the “show me what you can do” spring demonstration work independently of that service. The spring demonstration produces two real measured runs before and after doubling mass, compares sampled periods and saves the result. Recorded Library experiments remain labelled optional examples. Model requests are bounded, and no universal recognition or conversion-time guarantee is claimed.
 
 ## How we built it
 
-TypeScript and Vite power Nox, Three.js renders the geometry, and Rapier3D advances rigid bodies at 120 fixed steps per second. Server-side model replies become validated scene data and operations. Browser speech supplies reviewed text through the same action pipeline. Earlier actual live interpretation cases used GPT 6 Luna through Momen with participant credits.
+TypeScript and Vite power Nox, Three.js renders the geometry, and Rapier3D advances rigid bodies at 120 fixed steps per second. Browser speech and optional keyboard input share an action pipeline. Bounded local requests create fresh scene data; server-side model replies become validated scene data and reviewed operations. Earlier actual live interpretation cases used GPT 6 Luna through Momen with participant credits.
 
 Advaita Gupta built physics, measurements, recovery, integration and correctness review. Juwon built sketch/photo intake, interpretation, voice/editor, runtime integration and the assistant interface. Both contributed UX and testing. Codex and Claude Code assisted implementation and review; third-party engines, models and significant AI contributions are credited in the repository.
 
 ## Challenges and learning
 
-A plausible model can have a missing support or a joint that starts apart. We made those assumptions inspectable and added validation from actual bad replies. Delayed responses also need source/version identity so cancellation or a new drawing cannot silently edit another experiment.
+A plausible model can have a missing support or a joint that starts apart. We made assumptions inspectable and added validation from actual bad replies. Broad drawings also require a distinction between representing a subject and simulating its behavior: a rigid figurine is useful, but it must not be presented as a walking character or a deformable body. Delayed responses need source/version identity so cancellation or a new drawing cannot silently edit another experiment.
 
 Retaining comparable starting conditions, sample data and checkpoints made a before/after comparison repeatable through Save/reload. The assistant explains measured results instead of treating an attractive motion as proof.
 
 ## Limits and next steps
 
-Nox models rigid mechanics and a declared fan approximation. It does not model fluids, deformation or electricity. Browser speech support varies, and model interpretation can be unavailable, refused or wrong. Results describe the declared simulated setup. Captured-reply tests, built-in demonstrations and actual live-model/device evidence are identified separately.
+Nox models rigid mechanics and a declared fan approximation. Water, cloth and electrical objects may be represented by explicit rigid visual proxies; fluid flow, deformation and electricity are not simulated. Browser speech support varies, and model interpretation can be unavailable, refused or wrong. Results describe the declared simulated setup. Captured-reply tests, fresh local demonstrations and actual live-model/device evidence are identified separately.
 
-We want to test more unfamiliar mechanisms and make physical ambiguity easier to resolve through conversation.
+We want to test more unfamiliar drawings and make the limits of each approximation easier to resolve through conversation.
 
 Built with TypeScript, Vite, Three.js, Rapier3D, Momen, GPT 6 Luna, browser speech, Codex and Claude Code. Prepared tracks: Best AI Hack, Best Design & UX and Best Deployed / Shipped App.

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { AssistantActions, normalizeAssistantInput } from '../src/assistant/actions.ts';
+import { AssistantActions, normalizeAssistantInput, isAssistantCancellation } from '../src/assistant/actions.ts';
 
 test('Nox, Knox and Jarvis share normalization for named stop and cancellation', () => {
   for (const [input, expected] of [
@@ -11,6 +11,8 @@ test('Nox, Knox and Jarvis share normalization for named stop and cancellation',
     ['  HEY  NOX,  stop checking please!  ', 'stop checking'],
     ['Knoxville pause', 'knoxville pause'],
   ]) assert.equal(normalizeAssistantInput(input), expected, input);
+  assert.equal(isAssistantCancellation('Knox, cancel the request!'), true);
+  assert.equal(isAssistantCancellation('Nox, move the ball'), false);
 });
 
 test('named pause remains local and never requests model review', async () => {

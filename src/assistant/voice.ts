@@ -2,13 +2,14 @@ import type { RecognitionLike } from '../../packages/input/src/voice/pressToTalk
 
 export type VoiceState = 'idle' | 'listening' | 'thinking' | 'speaking' | 'error';
 type Recognition = RecognitionLike & { onstart?: (() => void) | null };
+type Synthesis = Pick<SpeechSynthesis, 'speak' | 'cancel'> & Partial<Pick<SpeechSynthesis, 'getVoices' | 'addEventListener' | 'removeEventListener'>>;
 interface Visibility { hidden: boolean; addEventListener(type: 'visibilitychange', listener: () => void): void; removeEventListener(type: 'visibilitychange', listener: () => void): void }
 export interface VoiceSessionOptions {
   onTranscript(text: string): void | Promise<void>;
   onState(state: VoiceState): void;
   onError(message: string): void;
   recognitionFactory?: (() => Recognition) | null;
-  synthesis?: Pick<SpeechSynthesis, 'speak' | 'cancel'> | null;
+  synthesis?: Synthesis | null;
   createUtterance?: ((text: string) => SpeechSynthesisUtterance) | null;
   visibility?: Visibility | null;
   setTimer?: (callback: () => void, ms: number) => unknown;
@@ -80,22 +81,53 @@ export class VoiceSession {
     let speech: SpeechSynthesisUtterance;
     try { speech = this.utterance!(text); }
     catch { this.fail('The browser could not prepare the spoken reply. Continue by typing.'); return Promise.resolve(); }
+    speech.lang = 'en-US'; speech.rate = 0.98; speech.pitch = 1;
     this.speaking = true; this.update('speaking');
     return new Promise(resolve => {
-      let done = false;
+      let done = false, voiceTimer: unknown;
+      const clearVoiceWait = () => {
+        this.clearTimer(voiceTimer); voiceTimer = undefined;
+        this.synthesis?.removeEventListener?.('voiceschanged', voicesChanged);
+      };
+      const speakNow = () => {
+        if (done) return;
+        clearVoiceWait();
+        const voice = this.preferredVoice();
+        if (voice) { speech.voice = voice; speech.lang = voice.lang; }
+        try { this.synthesis!.speak(speech); }
+        catch { this.fail('The browser could not start the spoken reply. Continue by typing.'); }
+      };
+      const voicesChanged = () => { if (this.preferredVoice()) speakNow(); };
       const timer = this.setTimer(() => this.fail('The spoken reply did not finish. Start voice again, or continue by typing.'), 120_000);
       const finish = () => {
         if (done) return;
-        done = true; this.clearTimer(timer); speech.onend = speech.onerror = null;
+        done = true; this.clearTimer(timer); clearVoiceWait(); speech.onend = speech.onerror = null;
         this.finishSpeech = undefined; this.speaking = false; resolve();
         if (this.active) { this.update(this.thinking ? 'thinking' : 'idle'); if (!this.thinking) this.restart(); }
       };
       this.finishSpeech = finish;
       speech.onend = finish;
       speech.onerror = () => this.fail('The browser could not speak the reply. Start voice again, or continue by typing.');
-      try { this.synthesis!.speak(speech); }
-      catch { this.fail('The browser could not start the spoken reply. Continue by typing.'); }
+      if (this.preferredVoice() || !this.synthesis?.getVoices) speakNow();
+      else {
+        // Chromium can expose an empty list until voiceschanged; never block a reply indefinitely.
+        if (this.synthesis.addEventListener && this.synthesis.removeEventListener) this.synthesis.addEventListener('voiceschanged', voicesChanged);
+        voiceTimer = this.setTimer(speakNow, 750);
+        voicesChanged();
+      }
     });
+  }
+  private preferredVoice(): SpeechSynthesisVoice | undefined {
+    let english: SpeechSynthesisVoice[];
+    try { english = this.synthesis?.getVoices?.().filter(voice => /^en(?:[-_]|$)/i.test(voice.lang)) ?? []; }
+    catch { return undefined; }
+    // The API has no quality metric. Prefer labelled quality voices, then familiar conversational voices.
+    return english.find(voice => /natural|neural|premium|enhanced/i.test(`${voice.name} ${voice.voiceURI}`))
+      ?? english.find(voice => /google.*english/i.test(voice.name))
+      ?? english.find(voice => /^(?:Daniel|Alex)(?:\b|$)/i.test(voice.name))
+      ?? english.find(voice => voice.default)
+      ?? english.find(voice => /^(?:Samantha|Karen|Moira|Tessa)(?:\b|$)/i.test(voice.name))
+      ?? english[0];
   }
   private update(state: VoiceState): void { if (state !== this.state) { this.state = state; this.options.onState(state); } }
   private fail(message: string): void { this.stop(); this.update('error'); this.options.onError(message); }

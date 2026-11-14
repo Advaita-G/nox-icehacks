@@ -1,0 +1,54 @@
+{
+  "url": "http://127.0.0.1:5201",
+  "checkedAt": "2026-11-14T22:17:46.750930+00:00",
+  "viewport": "1280x800",
+  "expectedAssets": [
+    "/assets/main-bCFecXw6.js",
+    "/assets/main-MEbMjkZu.css",
+    "/assets/index-DH1jtNxO.js"
+  ],
+  "evidence": "Bounded AA CSS/current-build smoke with synthetic browser speech/TTS; prior complete workflow receipt remains bound to main-CwljF86v.js.",
+  "mediaCapture": false,
+  "noxOnlyArrival": true,
+  "placeholder": {
+    "computedColor": "rgb(164, 164, 158)",
+    "computedOpacity": "1",
+    "effectiveBackgroundRgb": [
+      23.0,
+      23.0,
+      23.0
+    ],
+    "fontSize": "16px",
+    "contrastRatio": 7.156120107982672,
+    "threshold": 4.5
+  },
+  "ramp": {
+    "spokenRequest": "Can you make a ramp with the ball?",
+    "freshBodies": 3,
+    "runningClockSeconds": 0.808,
+    "modelRequests": 0,
+    "statusRequests": 0,
+    "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+  },
+  "stop": {
+    "clock": "0.908 s",
+    "mode": "Paused",
+    "recognitionInactive": true
+  },
+  "assets": {
+    "/assets/main-bCFecXw6.js": {
+      "bytes": 5086528,
+      "sha256": "d8c38aa51f6985f7561c77d6a78b02076786146c7c630dbbd40c51151fe1d813"
+    },
+    "/assets/main-MEbMjkZu.css": {
+      "bytes": 41975,
+      "sha256": "032793a94c26c70be0419fc9f8bfd3707c898bc491cfb93503686b5aa4f73556"
+    },
+    "/assets/index-DH1jtNxO.js": {
+      "bytes": 3052,
+      "sha256": "11eccc5ba12fe3500d2c7886f4afea53f0e276ac504df46ede965487fee8b976"
+    }
+  },
+  "unexpectedErrors": [],
+  "status": "PASS"
+}

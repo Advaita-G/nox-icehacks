@@ -3,7 +3,7 @@ import './ui/shell.css';
 import { initShell } from './ui/shell.ts';
 import { InputUI } from './input/ui.ts';
 import { VoiceSession } from './assistant/voice.ts';
-import { AssistantActions, normalizeAssistantInput } from './assistant/actions.ts';
+import { AssistantActions, normalizeAssistantInput, isAssistantCancellation } from './assistant/actions.ts';
 import type { AssistantReply } from './assistant/actions.ts';
 import { initAssistantPanel } from './assistant/panel.ts';
 import { demonstrate, warmupRendering } from './assistant/demo.ts';
@@ -14,7 +14,7 @@ import { Viewport } from './viewport.ts';
 import { FixedClock, initPhysics } from './physics/engine.ts';
 import type { BodySample, Run } from './physics/engine.ts';
 import { BrowserStorage, validateLibrary, Workbench } from './physics/experiments.ts';
-import { EXAMPLES } from './physics/examples.ts';
+import { EXAMPLES, rampBall } from './physics/examples.ts';
 import { check, emptyScene, newObject, validateScene, LIMITS } from './physics/scene.ts';
 import type { Kind, Operation, Scene, SceneObject } from './physics/scene.ts';
 import rampReplay from '../docs/evidence/f1-comparison-2026-11-10/Nox-ramp-and-cup.json?url';
@@ -216,7 +216,7 @@ async function openReplay(key: string, url: string, objectId: string): Promise<v
   finally { openingReplay = false; refreshStartButton(); }
 }
 
-function assistantChanged(): void { dirty = true; clock.reset(); lastFrame = 0; refresh(); }
+function assistantChanged(): void { dirty = true; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); refresh(); }
 function assistantScene(scene: Scene): void {
   check(!inputUI?.active, 'Confirm or cancel the current preview first.');
   bench.newExperiment(scene); selectedId = scene.objects.find(object => !object.fixed)?.id ?? '';
@@ -318,20 +318,35 @@ async function handleAssistant(text: string): Promise<void> {
   assistant.heard(text);
   demoController?.abort();
   if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) {
-    checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
+    checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
   }
   voice.setThinking(true); assistant.setState('thinking');
   try {
     const response = await assistantActions.handle(text);
+    if (isAssistantCancellation(text)) { el<HTMLDialogElement>('source-dialog').close(); assistantChanged(); }
     await presentAssistantReply(response, turn);
   } catch (cause) { if (turn === assistantTurn) { const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message); } }
   finally { if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
 }
+async function runAssistantScene(): Promise<string> {
+  check(!inputUI?.active, 'Confirm the preview before running.'); check(bench.scene.objects.length > 0, 'Tell me what to build first, or say show me what you can do.');
+  bench.resumeLive(); el<HTMLDialogElement>('source-dialog').close(); assistantChanged();
+  const context = bench.contextToken, turn = assistantTurn; await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), AbortSignal.timeout(9000), () => !!document.querySelector('.viewport-wrap.reveal'));
+  check(turn === assistantTurn && bench.contextToken === context && !document.hidden, 'The request changed or was stopped before the run began.');
+  const started = performance.now(), initialTime = bench.physics.time; bench.play(); assistantChanged();
+  while (bench.physics.time < initialTime + .15) {
+    check(turn === assistantTurn && bench.contextToken === context && bench.running && !document.hidden, 'The solver paused before the run was established. Your experiment is retained.');
+    check(performance.now() - started < 3000, 'The solver has not advanced on this device. Your experiment is retained.');
+    await new Promise(resolve => setTimeout(resolve, 25));
+  }
+  return 'The real simulation is running. Say pause, keep a baseline, or compare.';
+}
+
 function startAssistant(): void {
   let greeting = false;
   assistant = initAssistantPanel({
     onStart: () => { assistant.open(); greeting = true; voice.start(); },
-    onStop: async () => { greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); bench.pause(); bench.capture(); assistantChanged(); },
+    onStop: async () => { greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Stopped. Your work is retained.'); },
     isVoiceActive: () => voice?.isActive ?? false,
     onSend: text => handleAssistant(text),
     onPhoto: file => receiveAssistantPhoto(file),
@@ -349,7 +364,7 @@ function startAssistant(): void {
       assistant.setState(state, checkingPhoto ? 'Checking the drawing. You can say cancel while it builds.' : '');
       if (state === 'listening' && greeting) {
         greeting = false;
-        void assistantSay(checkingPhoto ? 'I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.' : 'I am Nox. Tell me what you want to build, or say show me what you can do.').finally(() => voice.setThinking(false));
+        void assistantSay(checkingPhoto ? 'I am checking your drawing. You can say cancel while it builds.' : 'What are we building?').finally(() => voice.setThinking(false));
       }
     },
     onError: message => assistant.error(message),
@@ -369,22 +384,12 @@ function startAssistant(): void {
       }
       finally { if (demoController === controller) demoController = undefined; }
     },
-    create: name => {
-      assistantScene(assistantExample(name)); return `I created a built-in ${name} experiment with the real physics solver. Say run it, select a part, or tell me what to change.`;
+    create: async name => {
+      const scene = name === 'ramp-ball' ? rampBall() : assistantExample(name);
+      assistantScene(scene); await runAssistantScene();
+      return 'I built ' + scene.name + ' locally with declared physical defaults. It is running. Tell me what to change.';
     },
-    run: async () => {
-      check(!inputUI?.active, 'Confirm the preview before running.'); check(bench.scene.objects.length > 0, 'Tell me what to build first, or say show me what you can do.');
-      bench.resumeLive(); el<HTMLDialogElement>('source-dialog').close(); assistantChanged();
-      const context = bench.contextToken, turn = assistantTurn; await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), AbortSignal.timeout(9000), () => !!document.querySelector('.viewport-wrap.reveal'));
-      check(turn === assistantTurn && bench.contextToken === context && !document.hidden, 'The request changed or was stopped before the run began.');
-      const started = performance.now(), initialTime = bench.physics.time; bench.play(); assistantChanged();
-      while (bench.physics.time < initialTime + .15) {
-        check(turn === assistantTurn && bench.contextToken === context && bench.running && !document.hidden, 'The solver paused before the run was established. Your experiment is retained.');
-        check(performance.now() - started < 3000, 'The solver has not advanced on this device. Your experiment is retained.');
-        await new Promise(resolve => setTimeout(resolve, 25));
-      }
-      return 'The real simulation is running. Say pause, keep a baseline, or compare.';
-    },
+    run: runAssistantScene,
     pause: () => { bench.pause(); bench.capture(); assistantChanged(); return `Paused at ${bench.sample.simulationTime.toFixed(2)} simulated seconds.`; },
     reset: () => { bench.reset(); assistantChanged(); return 'Reset to this version’s starting setup. Earlier versions and the baseline are retained.'; },
     baseline: () => { bench.pause(); bench.capture(); check(bench.selected.run.samples.length > 1, 'Run the experiment first so I can retain a measured baseline.'); bench.pinBaseline(); assistantChanged(); return `I kept the original run through ${bench.sample.simulationTime.toFixed(2)} simulated seconds as your baseline. Tell me what to change.`; },
@@ -464,13 +469,18 @@ async function start(): Promise<void> {
     try { await bench.load(storage); } catch (e) { error(e); }
     inputUI = new InputUI({
       state: () => ({ bench, selectedId, dirty }),
-      show: (next, nextDirty, nextSelected) => { bench = next; dirty = nextDirty; selectedId = nextSelected; clock.reset(); lastFrame = 0; fit(); refresh(); },
-      changed: () => { dirty = true; clock.reset(); lastFrame = 0; refresh(); },
+      show: (next, nextDirty, nextSelected) => { bench = next; dirty = nextDirty; selectedId = nextSelected; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); fit(); refresh(); },
+      changed: () => { dirty = true; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); refresh(); },
       onPhotoReady: () => checkUploadedPhoto(),
     });
     initShell({ openSource: () => inputUI?.openSource() });
     startAssistant();
-    fit(); refresh(); requestAnimationFrame(frame);
-  } catch (e) { error(e); el('message').textContent = '3D workbench could not start. Reload to retry; saved work is retained.'; }
+    fit(); refresh(); document.body.dataset.ready = 'ready'; requestAnimationFrame(frame);
+  } catch (e) {
+    error(e); el('message').textContent = 'Nox could not start. Reload to retry; saved work is retained.';
+    el('nox-loading-status').textContent = 'Nox could not start';
+    el('nox-loading-error').textContent = e instanceof Error ? e.message : String(e); el('nox-loading-error').hidden = false;
+    el('nox-loading-retry').hidden = false; el('nox-loading-retry').onclick = () => location.reload();
+  }
 }
 void start();
