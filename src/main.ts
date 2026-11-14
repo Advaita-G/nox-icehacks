@@ -3,7 +3,7 @@ import './ui/shell.css';
 import { initShell } from './ui/shell.ts';
 import { InputUI } from './input/ui.ts';
 import { VoiceSession } from './assistant/voice.ts';
-import { AssistantActions } from './assistant/actions.ts';
+import { AssistantActions, normalizeAssistantInput } from './assistant/actions.ts';
 import type { AssistantReply } from './assistant/actions.ts';
 import { initAssistantPanel } from './assistant/panel.ts';
 import { demonstrate, warmupRendering } from './assistant/demo.ts';
@@ -317,7 +317,7 @@ async function handleAssistant(text: string): Promise<void> {
   const turn = ++assistantTurn;
   assistant.heard(text);
   demoController?.abort();
-  if (/^(stop listening|go to sleep|goodbye|mute)[.!?]?$/i.test(text.trim())) {
+  if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) {
     checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
   }
   voice.setThinking(true); assistant.setState('thinking');
@@ -338,8 +338,8 @@ function startAssistant(): void {
   });
   voice = new VoiceSession({
     onTranscript: text => {
-      if (/^(stop listening|go to sleep|goodbye|mute)[.!?]?$/i.test(text.trim())) { void handleAssistant(text); return; }
-      if (checkingPhoto && !/^(?:(?:hey )?(?:nox|jarvis)[, ]+)?(?:cancel|stop|never mind)(?: (?:it|that|checking|the request))?[.!?]?$/i.test(text.trim())) {
+      if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) { void handleAssistant(text); return; }
+      if (checkingPhoto && !/^(?:cancel|stop|never mind)(?: (?:it|that|checking|the request))?$/.test(normalizeAssistantInput(text))) {
         void assistantSay('I am still checking the drawing. You can say cancel to stop the request. I will ask if I need a detail from you.').finally(() => voice.setThinking(false)); return;
       }
       if (checkingPhoto) { checkingPhoto = false; void handleAssistant('cancel'); }

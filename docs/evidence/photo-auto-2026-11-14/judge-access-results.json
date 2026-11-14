@@ -1,0 +1,22 @@
+{
+  "baseURL": "https://nox-icehacks-eowmrsh75-idk-41a8.vercel.app",
+  "tokenFormatValid": true,
+  "anonymousInitially": true,
+  "loaded": true,
+  "accessAccepted": true,
+  "fragmentRemoved": true,
+  "navigationHistoryClean": true,
+  "cookiePresent": true,
+  "cookieHttpOnly": true,
+  "cookieSecure": true,
+  "cookieSameSiteStrict": true,
+  "cookieRootPath": true,
+  "cookieHiddenFromJavaScript": true,
+  "statusAccessUnlocked": true,
+  "statusConfiguredFalse": true,
+  "noInferenceRequested": true,
+  "noPageErrors": true,
+  "noConsoleErrors": true,
+  "browserClosed": true,
+  "checksComplete": true
+}

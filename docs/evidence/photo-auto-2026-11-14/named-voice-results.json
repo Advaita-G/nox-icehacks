@@ -1,0 +1,17 @@
+{
+  "evidence": "Simulated SpeechRecognition/synthesis; existing drawing uploaded as photo input solely for a held-request cancellation check; no screenshot/media capture or provider inference.",
+  "assets": [
+    "http://127.0.0.1:5201/assets/index-ssLHYYBl.js",
+    "http://127.0.0.1:5201/assets/main-BJRwfRGF.js",
+    "http://127.0.0.1:5201/assets/main-D8_HSnH1.css"
+  ],
+  "interpretIntercepted": 1,
+  "commandIntercepted": 0,
+  "errors": [],
+  "namedStopTurnsMicOff": true,
+  "namedCancelStopsBusyPhoto": true,
+  "noRetryOrMutation": true,
+  "transcript": "NoxI am Nox. Tell me what you want to build, or say show me what you can do.YouNox, stop listeningNoxVoice is off. Your experiment is retained. Enable voice whenever you want to continue.NoxI am Nox. Tell me what you want to build, or say show me what you can do.NoxI am preparing the photo. Then I will check the drawing and build its physical scene.YoucancelNoxCancelled. Valid experiments and saved work are retained.",
+  "result": "PASS",
+  "browserClosed": true
+}

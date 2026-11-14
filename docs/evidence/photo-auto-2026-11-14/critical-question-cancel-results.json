@@ -1,0 +1,55 @@
+{
+  "deploymentUrl": "https://nox-icehacks-6z8ctm96p-idk-41a8.vercel.app",
+  "reportedSourceCommit": "d0393b29861b8fadede6c0d0f0de56fa6d14b6a5",
+  "checkedAt": "2026-11-14T20:47:24.306213+00:00",
+  "cases": [
+    {
+      "mode": "typed",
+      "requestLog": [
+        {
+          "path": "interpret",
+          "requestId": "req-256cb6cb",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 3
+        }
+      ],
+      "interpretRequests": 1,
+      "commandRequests": 0,
+      "questionCleared": true,
+      "yesCannotApply": true,
+      "clockBefore": "0.000 s",
+      "clockAfter": "0.000 s",
+      "finalMode": "Paused",
+      "previewVisible": false,
+      "unexpectedErrors": []
+    },
+    {
+      "mode": "native-synthetic-speech",
+      "requestLog": [
+        {
+          "path": "interpret",
+          "requestId": "req-c78579ef",
+          "sourceKind": "photo",
+          "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "sourceRevision": 3
+        }
+      ],
+      "interpretRequests": 1,
+      "commandRequests": 0,
+      "questionCleared": true,
+      "yesCannotApply": true,
+      "clockBefore": "0.000 s",
+      "clockAfter": "0.000 s",
+      "finalMode": "Paused",
+      "previewVisible": false,
+      "unexpectedErrors": []
+    }
+  ],
+  "liveInferenceCalls": 0,
+  "mediaCapture": false,
+  "bundleUrl": "https://nox-icehacks-6z8ctm96p-idk-41a8.vercel.app/assets/main-CPfShkvY.js",
+  "bundleSha256": "8533a767ad1ab62e355d3608eb23d099045e5b98dbad26c0feec75b73dfc86b3",
+  "bundleBytes": 5081735,
+  "status": "PASS"
+}

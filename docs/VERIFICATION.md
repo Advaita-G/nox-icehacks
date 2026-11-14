@@ -1,6 +1,8 @@
 # Verification and evidence boundaries
 
-Updated November 14, 2026 for photo-first Nox. The latest local source passed **201/201 root tests**, **110/110 input-package tests**, and both production builds/typechecks. It extends `760fd41` with cancellation aliases that discard a pending critical question instead of treating “cancel the request” as an answer; the new regression covers that boundary. The resulting root build is `main-CPfShkvY.js` / `index-kjaBBva9.js`, with `main-D8_HSnH1.css`. Use the [README commands](../README.md#run-locally) to reproduce the suites. Provider tests use injected transports and captured replies; they make no paid inference calls. The build retains its existing large-chunk warning.
+Updated November 14, 2026 for photo-first Nox. The latest local source passed **204/204 root tests**, **110/110 input-package tests**, and both production builds/typechecks. It extends `760fd41` with cancellation aliases that discard a pending critical question, plus shared normalization so “Nox, stop listening” and the speech spelling “Knox” reach the same local controls. Focused regressions cover those boundaries. The resulting root build is `main-BJRwfRGF.js` / `index-ssLHYYBl.js`, with `main-D8_HSnH1.css`. Use the [README commands](../README.md#run-locally) to reproduce the suites. Provider tests use injected transports and captured replies; they make no paid inference calls. The build retains its existing large-chunk warning.
+
+GitHub-hosted checks could not start because the repository owner's account is billing-locked ([observed run](https://github.com/Advaita-G/nox-icehacks/actions/runs/43638844038)). The passing counts above are completed local checks, not a claim that hosted CI passed.
 
 ## Current automatic photo and conversation checks
 
@@ -22,7 +24,7 @@ The first six rows ran at both widths: **12 cases**. The photo-before-microphone
 
 [Full 12-case receipt](evidence/photo-auto-2026-11-14/photo-flow-results.json) · [Upload-first 2-case receipt](evidence/photo-auto-2026-11-14/photo-first-results.json). These public copies omit only the private local input-file path. Original local records are `results-20261114-121638.json` and `results-20261114-121926.json` in the test output directory.
 
-The receipts retain their exact tested source hashes. Afterwards, `src/input/ui.ts` received a provider-status/help-copy update explaining automatic photos and manual canvas interpretation; the current source differs there. The final 201/110 suites and both builds include that copy update and the cancellation-alias regression. The 14 browser cases are evidence for the named asset candidate, not a claim that a later public deployment was re-exercised.
+The receipts retain their exact tested source hashes. Afterwards, `src/input/ui.ts` received a provider-status/help-copy update explaining automatic photos and manual canvas interpretation; the current source differs there. The final 204/110 suites and both builds include that copy update, cancellation aliases and named voice controls. The 14 browser cases are evidence for the named asset candidate, not a claim that a later public deployment was re-exercised.
 
 ## Anonymous deployed application and access boundary
 
@@ -33,9 +35,11 @@ A separate fresh anonymous full-Chromium smoke passed on the [pinned deployed ca
 - No API mocks, synthetic model replies or UI captures were used in this deployed smoke. Its browser made no API requests and recorded no page errors. The demonstration is local; it does not verify a fresh model request or physical speech.
 - The separately recorded anonymous status was `configured: false`, `provider: null`, `accessRequired: true`. That is the protected anonymous view, not proof that the runtime behind the gate has been exercised.
 
-[Production smoke receipt](evidence/photo-auto-2026-11-14/production-smoke-results.json). The final cancellation aliases were added after this deployed receipt and passed the 201-test suite and new build above; this receipt does not claim to test their later deployment. The stable `nox-icehacks.vercel.app` alias is a planned promotion target until the final release checks confirm it.
+[Production smoke receipt](evidence/photo-auto-2026-11-14/production-smoke-results.json). Subsequent cancellation aliases passed a separate production browser check on `d0393b2` / `main-CPfShkvY.js`: typed and synthetic spoken cancellation after a critical photo question made no second request, applied nothing and kept physics paused at 0.000 s. Named stop/cancellation also passed a separate local production-build check on `main-BJRwfRGF.js`, with synthetic speech and a held photo request. Neither check used fresh inference or a physical microphone. The stable `nox-icehacks.vercel.app` alias is a planned promotion target until the final release checks confirm it.
 
-The judge-link helper is covered by focused source tests: a private access code is removed from the URL before exchange through the same-origin gate; ordinary links make no auth exchange, and invalid/failed links do not expose the code or enable inference. Provider credentials stay server-side. Auth unit tests and anonymous local features are distinct from an authorized production model call, which remains a separate live check.
+The judge-link helper has focused source tests and a real browser exchange on the pinned deployed candidate: the private code was removed from URL/history, the accepted cookie was Secure/HttpOnly/SameSite Strict, and unlocked status accurately remained `configured: false`. Ordinary links make no auth exchange; invalid/failed links do not expose the code or enable inference. Provider credentials stay server-side. Access checks and anonymous local features are distinct from an authorized production model call, which remains a separate live check.
+
+Focused receipts: [critical-question cancellation](evidence/photo-auto-2026-11-14/critical-question-cancel-results.json), [named voice controls](evidence/photo-auto-2026-11-14/named-voice-results.json), [judge access](evidence/photo-auto-2026-11-14/judge-access-results.json).
 
 ## Rendering and loading fixes
 

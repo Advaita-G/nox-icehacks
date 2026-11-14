@@ -18,7 +18,7 @@ export interface AssistantHost {
 }
 
 const reply = (message: string): AssistantReply => ({ message, reviewRequired: false, changes: [] });
-const normalize = (text: string) => text.trim().toLowerCase().replace(/[.!?]+$/, '').replace(/^(?:hey\s+)?(?:jarvis|nox)[,:]?\s+/, '').replace(/^please\s+|\s+please$/g, '').replace(/\s+/g, ' ');
+export const normalizeAssistantInput = (text: string) => text.trim().toLowerCase().replace(/[.!?]+$/, '').replace(/^(?:hey\s+)?(?:jarvis|nox|knox)[,:]?\s+/, '').replace(/^please\s+|\s+please$/g, '').replace(/\s+/g, ' ');
 const cancel = /^(?:no(?:,? thanks)?|cancel(?: (?:it|that|checking|the request|the change|the proposal|the preview))?|stop (?:checking|the request)|never mind|nevermind|discard(?: (?:it|that|the change))?)$/;
 const confirm = /^(?:yes(?:,? (?:apply|confirm)(?: it| that| the change| the changes)?)?(?:,? please)?|yeah|yep|apply(?: (?:it|that|the change|the changes|the preview))?|confirm(?: (?:it|that|the change|the changes|the preview))?|go ahead|do it)$/;
 const builtin = '(spring(?: cart)?|pendulum|collision|fan)';
@@ -36,7 +36,7 @@ export class AssistantActions {
 
   handle(input: string): Promise<AssistantReply> {
     if (typeof input !== 'string' || input.trim().length > 4000) return Promise.reject(new Error('Use a command of at most 4000 characters.'));
-    const text = normalize(input), epoch = this.epoch, confirmation = this.pending?.id;
+    const text = normalizeAssistantInput(input), epoch = this.epoch, confirmation = this.pending?.id;
     const answer = this.awaitingAnswer ? this.reviewId : undefined;
     if (!text) return Promise.resolve(reply('Tell me what you would like to do.'));
     if (cancel.test(text)) {
