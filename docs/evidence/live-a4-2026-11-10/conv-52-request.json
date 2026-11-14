@@ -1,0 +1,210 @@
+{
+  "requestId": "req-891b0d37",
+  "target": {
+    "experimentId": "5111d485-7e34-4dd1-9fd8-fe132071592f",
+    "versionId": "3108d2eb-87f9-4008-8955-e46283ac7278",
+    "sceneRevision": 0,
+    "sourceId": "ebe1290a-8c88-48e9-865c-526724a881dd",
+    "sourceRevision": 14,
+    "epoch": 60000
+  },
+  "transcript": "make the floor 3 m longer to the right",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Ball rolling down a wedge ramp onto a floor",
+    "scale": 500,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The attached canvas drawing is modeled at the confirmed maximum scale of 500 pixels per meter. The drawn incline is approximately 629 pixels long, so its modeled length is about 1.26 m, rather than the earlier 1 m note.",
+      "The ramp is approximated as a straight, solid triangular-prism wedge. Its drawn incline corresponds to about 1.06 m horizontal run, 0.684 m rise, and 33 degrees above horizontal.",
+      "The note specifies that the ball rests at the top of the ramp, so it is initialized in contact near the upper end even though the sketched ball is visibly separated from the ramp.",
+      "The stated 0.3 m third-dimension width is used for the ramp and ball; the floor is assumed to have the same depth.",
+      "Friction coefficients are assumed, not measured. A coefficient of 1.0 is used to permit rolling without slipping; restitution is set to zero.",
+      "Bodies are rigid. The ramp and floor are fixed, and there is no air drag or powered actuation. The wedge and flat floor are approximate collision geometry."
+    ],
+    "sources": [
+      {
+        "kind": "canvas",
+        "reference": "ebe1290a-8c88-48e9-865c-526724a881dd"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ball",
+        "label": "0.29 m ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0.24690000712871552,
+          "y": 0.8131999969482422,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.29,
+        "height": 0.29,
+        "depth": 0.29,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 1,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "wedge-ramp",
+        "label": "Solid triangular wedge ramp",
+        "kind": "triangular-wedge-ramp",
+        "fixed": true,
+        "position": {
+          "x": 0.5289999842643738,
+          "y": 0.4580000042915344,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.058,
+        "height": 0.684,
+        "depth": 0.3,
+        "mass": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 1,
+        "restitution": 0,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "floor",
+        "label": "Fixed floor",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0.550000011920929,
+          "y": 0.06599999964237213,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.3,
+        "height": 0.1,
+        "depth": 0.3,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 1,
+        "restitution": 0,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "selection": [
+    "floor"
+  ],
+  "answers": []
+}

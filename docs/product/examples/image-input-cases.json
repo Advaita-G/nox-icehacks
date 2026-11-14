@@ -1,0 +1,14 @@
+{
+  "example": "E-08",
+  "description": "Photo intake validation. Every rejection keeps the current source and scene and says how to fix it.",
+  "cases": [
+    { "id": "E-08a", "file": "F6-ramp.jpg", "sniffedType": "image/jpeg", "bytes": 3400000, "decodedPx": [4032, 3024], "exifOrientation": 6, "expected": { "accepted": true, "uploadedPx": [1200, 1600], "uploadedType": "image/jpeg", "exifStripped": true, "next": "A confirm-scale question is shown with 'long edge = 16 m' preselected." } },
+    { "id": "E-08b", "file": "IMG_0042.HEIC", "sniffedType": "image/heic", "expected": { "accepted": false, "code": "HEIC_UNSUPPORTED", "message": "This photo is HEIC. Export or share it as JPEG and upload again." } },
+    { "id": "E-08c", "file": "notes.pdf", "sniffedType": "application/pdf", "expected": { "accepted": false, "code": "UNSUPPORTED_FORMAT", "message": "Upload a JPEG, PNG or WebP photo." } },
+    { "id": "E-08d", "file": "renamed.png", "sniffedType": "text/plain", "expected": { "accepted": false, "code": "UNSUPPORTED_FORMAT", "observation": "The file extension alone is not trusted." } },
+    { "id": "E-08e", "file": "huge.png", "sniffedType": "image/png", "bytes": 14000000, "expected": { "accepted": false, "code": "FILE_TOO_LARGE", "message": "Photos must be 10 MB or smaller." } },
+    { "id": "E-08f", "file": "thumb.jpg", "sniffedType": "image/jpeg", "decodedPx": [320, 240], "expected": { "accepted": false, "code": "IMAGE_TOO_SMALL", "message": "This photo is too small to read (short edge under 640 px)." } },
+    { "id": "E-08g", "file": "panorama.jpg", "sniffedType": "image/jpeg", "bytes": 9000000, "decodedPx": [12000, 4000], "expected": { "accepted": false, "code": "IMAGE_TOO_LARGE", "message": "This photo is over 40 megapixels." } },
+    { "id": "E-08h", "file": "truncated.jpg", "sniffedType": "image/jpeg", "expected": { "accepted": false, "code": "DECODE_FAILED", "message": "This photo could not be opened. It may be damaged." } }
+  ]
+}

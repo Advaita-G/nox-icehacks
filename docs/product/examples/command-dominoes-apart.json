@@ -1,0 +1,25 @@
+{
+  "example": "E-05",
+  "description": "VALID multi-target structural command with no amount. The model asks how far; the chosen space-evenly intent is expanded by the resolver into absolute set-pose ops.",
+  "request": { "requestId": "cmd-02", "origin": "voice", "transcript": "move these dominoes farther apart", "baseSceneRevision": 8, "selection": ["dom-1", "dom-2", "dom-3"] },
+  "baseSceneExcerpt": { "revision": 8, "objects": [{ "id": "dom-1", "x": 4.0, "y": 1.25, "angle": 0 }, { "id": "dom-2", "x": 4.4, "y": 1.25, "angle": 0 }, { "id": "dom-3", "x": 4.8, "y": 1.25, "angle": 0 }] },
+  "intent": {
+    "requestId": "cmd-02",
+    "status": "needs-clarification",
+    "targets": ["dom-1", "dom-2", "dom-3"],
+    "ops": [],
+    "question": {
+      "id": "q-c1",
+      "kind": "amount",
+      "prompt": "How far apart? They are 0.4 m apart now.",
+      "options": [
+        { "id": "a", "label": "0.6 m (1.5×)", "intentOps": [{ "op": "space-evenly", "objectIds": ["dom-1", "dom-2", "dom-3"], "spacing": { "factor": 1.5 } }] },
+        { "id": "b", "label": "0.8 m (2×)", "intentOps": [{ "op": "space-evenly", "objectIds": ["dom-1", "dom-2", "dom-3"], "spacing": { "factor": 2 } }] }
+      ],
+      "allowManual": true
+    }
+  },
+  "afterChoosing": "a",
+  "resolvedBatch": { "batchId": "b-40", "requestId": "cmd-02", "baseSceneRevision": 8, "origin": "voice", "ops": [{ "op": "set-pose", "objectId": "dom-2", "x": 4.6, "y": 1.25, "angle": 0 }, { "op": "set-pose", "objectId": "dom-3", "x": 5.2, "y": 1.25, "angle": 0 }], "summary": ["dom-2 x: 4.4 → 4.6 m", "dom-3 x: 4.8 → 5.2 m"] },
+  "expectedObservation": "The question is shown first. After choosing 0.6 m, the summary is shown with Apply and Cancel. dom-1 keeps its position. What happens to a running experiment follows R-05 (pause and baseline retention)."
+}

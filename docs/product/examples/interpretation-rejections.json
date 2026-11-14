@@ -1,0 +1,26 @@
+{
+  "example": "E-03",
+  "description": "REJECTED and single-value-repaired model outputs. Every case keeps the source and the last valid scene.",
+  "cases": [
+    {
+      "id": "E-03a",
+      "modelOutputRaw": "Sure! Here is the scene: {\"status\": \"ready\", \"scene\": {",
+      "expected": { "accepted": false, "code": "MODEL_OUTPUT_INVALID", "observation": "Status line: 'Interpretation failed: the model returned an unreadable result.' Retry and manual placement are offered; no partial scene is shown." }
+    },
+    {
+      "id": "E-03b",
+      "modelOutput": { "requestId": "req-1", "sourceId": "src-1", "sourceRevision": 2, "status": "ready", "scene": { "schemaVersion": 1, "revision": 1, "metersPerPx": 0.01, "gravity": { "gx": 0, "gy": -9.81 }, "objects": [{ "id": "o1", "kind": "spring", "x": 1, "y": 1 }] }, "relationships": [], "assumptions": [], "questions": [], "warnings": [] },
+      "expected": { "accepted": false, "code": "MODEL_OUTPUT_INVALID", "path": "scene.objects[0].kind", "observation": "An unknown object kind is a schema failure, never silently replaced. A well-formed response would use an unsupported-element question instead." }
+    },
+    {
+      "id": "E-03c",
+      "modelOutput": { "requestId": "req-2", "sourceId": "src-1", "sourceRevision": 2, "status": "ready", "scene": { "schemaVersion": 1, "revision": 1, "metersPerPx": 0.01, "gravity": { "gx": 0, "gy": -9.81 }, "objects": [{ "id": "ball-1", "kind": "ball", "bodyType": "dynamic", "x": 2, "y": 3, "angle": 0, "dims": { "radius": 0.2 }, "mass": -4, "linearVelocity": { "vx": 0, "vy": 0 }, "angularVelocity": 0, "friction": 0.3, "restitution": 0.2, "sourceRefs": [] }] }, "relationships": [], "assumptions": [], "questions": [], "warnings": [] },
+      "expected": { "accepted": true, "repaired": [{ "path": "objects.ball-1.mass", "from": -4, "to": 1.0 }], "addedAssumption": { "path": "objects.ball-1.mass", "value": 1.0, "unit": "kg", "origin": "default" }, "warning": "Mass from the model was invalid (-4 kg); using the default 1 kg.", "observation": "The preview shows the warning next to the ball's mass field. This single-value repair rule is proposed and needs Advaita for physical fields." }
+    },
+    {
+      "id": "E-03d",
+      "modelOutput": { "requestId": "req-3", "sourceId": "src-1", "sourceRevision": 2, "status": "ready", "scene": { "schemaVersion": 1, "revision": 1, "metersPerPx": 0.01, "gravity": { "gx": 0, "gy": -9.81 }, "objects": [] }, "relationships": [{ "id": "rel-1", "kind": "rests-on", "subjectId": "ball-9", "targetId": "ramp-1", "origin": "model", "status": "proposed", "sourceRefs": [] }], "assumptions": [], "questions": [], "warnings": [] },
+      "expected": { "accepted": false, "code": "MODEL_OUTPUT_INVALID", "path": "relationships[0].subjectId", "observation": "A reference to an object that does not exist rejects the whole response." }
+    }
+  ]
+}

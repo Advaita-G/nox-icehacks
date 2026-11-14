@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "fluid": true,
+  "framework": "vite",
+  "functions": {
+    "api/*.ts": {
+      "maxDuration": 150,
+      "supportsCancellation": true
+    }
+  }
+}

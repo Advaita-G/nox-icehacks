@@ -1,0 +1,355 @@
+{
+  "requestId": "req-302fe253",
+  "sourceId": "2ccf05ea-15ab-450f-8b29-4ff80a40f2f7",
+  "sourceRevision": 95,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Upright diamond and free-standing table",
+    "scale": 159,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing scale is estimated from the tabletop's roughly 381 px width and the confirmed 2.4 m width: about 159 px/m. The tabletop depth (1.2 m), top thickness (0.10 m), and overall table height (3.2 m) follow the confirmed provisional dimensions.",
+      "The upright diamond is approximated as one thin, solid convex extrusion, 2.68 m wide, 3.64 m tall, and 0.10 m deep, based on its drawn outline and the confirmed thin-extrusion intent. Internal facet lines are not separate parts.",
+      "The table is one free rigid compound body: a 2.4 m by 1.2 m by 0.10 m top and four 0.14 m square-section legs. The legs and top are rigidly part of the same body, not separate bodies.",
+      "Masses are assumed, not measured: 12 kg for the diamond, 35 kg for the table, and 1 kg for the fixed floor. Compound parts are treated as rigid geometry with mass distributed uniformly for the body's mass properties.",
+      "Contact friction 0.6 and restitution 0.05 are assumed, not measured. Rigid-body contact and the diamond's balance or tipping are numerical approximations."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas drawing, source 2ccf05ea-15ab-450f-8b29-4ff80a40f2f7, revision 95; dimensions and intent from user clarifications"
+      }
+    ],
+    "objects": [
+      {
+        "id": "diamond",
+        "label": "Upright faceted diamond",
+        "kind": "faceted-diamond",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 1.82,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.68,
+        "height": 3.64,
+        "depth": 0.1,
+        "mass": 12,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.15,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.08,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.15,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.08,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "table",
+        "label": "Free rigid table",
+        "kind": "table-structure",
+        "fixed": false,
+        "position": {
+          "x": 3.78,
+          "y": 1.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.4,
+        "height": 3.2,
+        "depth": 1.2,
+        "mass": 35,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.03125,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0.484375,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0583333333,
+              "y": 0.96875,
+              "z": 0.1166666667
+            },
+            "position": {
+              "x": -0.375,
+              "y": -0.015625,
+              "z": -0.3333333333
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0583333333,
+              "y": 0.96875,
+              "z": 0.1166666667
+            },
+            "position": {
+              "x": -0.375,
+              "y": -0.015625,
+              "z": 0.3333333333
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0583333333,
+              "y": 0.96875,
+              "z": 0.1166666667
+            },
+            "position": {
+              "x": 0.375,
+              "y": -0.015625,
+              "z": -0.3333333333
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0583333333,
+              "y": 0.96875,
+              "z": 0.1166666667
+            },
+            "position": {
+              "x": 0.375,
+              "y": -0.015625,
+              "z": 0.3333333333
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "floor",
+        "label": "Fixed floor",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 20,
+        "height": 0.2,
+        "depth": 10,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "diamond",
+      "origin": "sketch",
+      "note": "The left-hand diamond outline is represented as a single thin, upright convex extrusion; interior strokes are treated as facet markings, not distinct rigid parts.",
+      "strokeIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s10",
+        "s11"
+      ]
+    },
+    {
+      "objectId": "table",
+      "origin": "sketch",
+      "note": "The right-hand drawing is represented as one free rigid compound table, with a box tabletop and four approximate legs.",
+      "strokeIds": [
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25",
+        "s26"
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "inferred",
+      "note": "Fixed floor added as requested; it is not drawn."
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The diamond's drawn interior facets and the table's irregular leg outlines are simplified for collision geometry. The diamond starts balanced on its bottom vertex and may tip under gravity or numerical contact effects.",
+    "The objects are placed apart as requested; the floor is a simulation support, not a feature shown in the drawing."
+  ],
+  "message": "Ready. The diamond starts upright at rest on the floor, separate from the free rigid table. Scale, provisional dimensions, assumed masses, and contact coefficients are declared above."
+}

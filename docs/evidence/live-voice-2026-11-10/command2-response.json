@@ -1,0 +1,17 @@
+{
+  "requestId": "req-2af5037a",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "set-property",
+      "id": "a41dc000-c7bf-4077-a55c-686798658e01",
+      "property": "mass",
+      "value": 2
+    }
+  ],
+  "summary": [
+    "Set the selected ball’s mass from 1 kg to 2 kg."
+  ],
+  "questions": [],
+  "message": "The selected ball will be twice as heavy by mass."
+}

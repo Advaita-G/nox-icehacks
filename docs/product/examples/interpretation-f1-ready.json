@@ -1,0 +1,38 @@
+{
+  "example": "E-01",
+  "description": "VALID. F1 rough canvas sketch (ramp, ball near the top, open cup past the exit) interpreted with no consequential ambiguity. Status ready; defaults listed as assumptions. Provisional R-01 frame and shape fields.",
+  "expectedObservation": "Preview shows the floor, ramp, ball and container, each highlighted against its strokes. Relationships are listed as proposed. The assumptions panel lists scale, gravity, ball mass, friction, restitution and initial velocity as defaults. Run is enabled after the user confirms.",
+  "result": {
+    "requestId": "req-7f3a",
+    "sourceId": "src-1",
+    "sourceRevision": 14,
+    "status": "ready",
+    "scene": {
+      "schemaVersion": 1,
+      "revision": 1,
+      "metersPerPx": 0.01,
+      "gravity": { "gx": 0, "gy": -9.81 },
+      "objects": [
+        { "id": "floor-1", "kind": "platform", "bodyType": "fixed", "x": 8.0, "y": 0.5, "angle": 0, "dims": { "width": 16.0, "height": 1.0 }, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s1"] }] },
+        { "id": "ramp-1", "kind": "ramp", "bodyType": "fixed", "x": 2.333, "y": 1.667, "angle": 0, "dims": { "width": 4.0, "height": 2.0, "facing": "right" }, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s2", "s3"] }] },
+        { "id": "ball-1", "kind": "ball", "bodyType": "dynamic", "x": 1.4, "y": 3.05, "angle": 0, "dims": { "radius": 0.2 }, "mass": 1.0, "linearVelocity": { "vx": 0, "vy": 0 }, "angularVelocity": 0, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s4"] }] },
+        { "id": "cup-1", "kind": "container", "bodyType": "fixed", "x": 7.0, "y": 1.425, "angle": 0, "dims": { "innerWidth": 1.0, "innerHeight": 0.8, "wallThickness": 0.05 }, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s5"] }] }
+      ]
+    },
+    "relationships": [
+      { "id": "rel-1", "kind": "rests-on", "subjectId": "ramp-1", "targetId": "floor-1", "origin": "model", "status": "proposed", "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s1", "s2"] }] },
+      { "id": "rel-2", "kind": "rests-on", "subjectId": "ball-1", "targetId": "ramp-1", "origin": "model", "status": "proposed", "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s3", "s4"] }] },
+      { "id": "rel-3", "kind": "rests-on", "subjectId": "cup-1", "targetId": "floor-1", "origin": "model", "status": "proposed", "sourceRefs": [{ "kind": "strokes", "sourceId": "src-1", "strokeIds": ["s1", "s5"] }] }
+    ],
+    "assumptions": [
+      { "id": "as-1", "path": "scene.metersPerPx", "value": 0.01, "unit": "m/px", "origin": "default" },
+      { "id": "as-2", "path": "scene.gravity", "value": { "gx": 0, "gy": -9.81 }, "unit": "m/s^2", "origin": "default" },
+      { "id": "as-3", "path": "objects.ball-1.mass", "value": 1.0, "unit": "kg", "origin": "default" },
+      { "id": "as-4", "path": "objects.*.friction", "value": 0.3, "unit": "", "origin": "default" },
+      { "id": "as-5", "path": "objects.*.restitution", "value": 0.2, "unit": "", "origin": "default" },
+      { "id": "as-6", "path": "objects.ball-1.linearVelocity", "value": { "vx": 0, "vy": 0 }, "unit": "m/s", "origin": "default", "note": "No arrow drawn." }
+    ],
+    "questions": [],
+    "warnings": []
+  }
+}

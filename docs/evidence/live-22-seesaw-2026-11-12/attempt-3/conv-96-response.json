@@ -1,0 +1,40 @@
+{
+  "requestId": "req-7dc9fec4",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "move",
+      "id": "left-box",
+      "position": {
+        "x": -0.7199999928474426,
+        "y": 0.42399999499320984,
+        "z": 0
+      }
+    },
+    {
+      "type": "upsert-constraint",
+      "constraint": {
+        "id": "left-box-attachment",
+        "type": "fixed",
+        "bodyA": "plank",
+        "bodyB": "left-box",
+        "anchorA": {
+          "x": -0.72,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.084,
+          "z": 0
+        },
+        "contactsEnabled": false
+      }
+    }
+  ],
+  "summary": [
+    "Move the selected left box 0.1 m toward +X, keeping its height unchanged and preserving its fixed attachment to the plank."
+  ],
+  "questions": [],
+  "message": "The plank-side attachment anchor is shifted by 0.1 m as well, so the box remains attached at its new position."
+}

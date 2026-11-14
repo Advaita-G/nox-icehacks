@@ -1,0 +1,20 @@
+{
+  "requestId": "req-558c90a0",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "move",
+      "id": "open-cup",
+      "position": {
+        "x": 2.1587499618530273,
+        "y": 0.15000000596046448,
+        "z": 0
+      }
+    }
+  ],
+  "summary": [
+    "Moved the cup 0.40 m farther from the ramp along +X, keeping its height and depth position unchanged."
+  ],
+  "questions": [],
+  "message": "The cup’s gap from the ramp exit increases from 0.05 m to 0.45 m."
+}

@@ -1,0 +1,9 @@
+{
+  "example": "E-04",
+  "description": "VALID voice command with a relative value. The model returns an intent with a factor; the client resolver computes the absolute value; the user confirms.",
+  "request": { "requestId": "cmd-01", "origin": "voice", "transcript": "make this ball twice as heavy", "baseSceneRevision": 5, "selection": ["ball-1"] },
+  "baseSceneExcerpt": { "revision": 5, "objects": [{ "id": "ball-1", "kind": "ball", "mass": 1.5 }] },
+  "intent": { "requestId": "cmd-01", "status": "proposed", "targets": ["ball-1"], "ops": [{ "op": "set-property", "objectId": "ball-1", "property": "mass", "value": { "factor": 2 } }] },
+  "resolvedBatch": { "batchId": "b-31", "requestId": "cmd-01", "baseSceneRevision": 5, "origin": "voice", "ops": [{ "op": "set-property", "objectId": "ball-1", "property": "mass", "value": 3.0 }], "summary": ["ball-1 mass: 1.5 → 3.0 kg"] },
+  "expectedObservation": "The transcript and 'ball-1 mass: 1.5 → 3.0 kg' are shown with Apply and Cancel. Nothing changes until Apply. After Apply the scene revision is 6. Whether this pauses a running experiment follows the mass-edit policy (R-05)."
+}

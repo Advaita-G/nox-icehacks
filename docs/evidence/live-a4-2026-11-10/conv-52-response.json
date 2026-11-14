@@ -1,0 +1,27 @@
+{
+  "requestId": "req-891b0d37",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "resize",
+      "id": "floor",
+      "width": 4.3,
+      "height": 0.1,
+      "depth": 0.3
+    },
+    {
+      "type": "move",
+      "id": "floor",
+      "position": {
+        "x": 2.05,
+        "y": 0.06599999964237213,
+        "z": 0
+      }
+    }
+  ],
+  "summary": [
+    "Extended the floor 3 m toward +X (right), keeping its left edge and height unchanged."
+  ],
+  "questions": [],
+  "message": "The floor’s width changes from 1.3 m to 4.3 m, and its center moves from x=0.55 m to x=2.05 m."
+}

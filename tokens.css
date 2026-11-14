@@ -1,0 +1,24 @@
+/* Hallmark · shape: app screen · theme: custom · tokens for Nox 3D workbench · v2.0.0 */
+/* Hallmark · waive 26b · Nox physics theme variables only; active and disabled controls live in src/style.css · theme tokens contain no buttons or input states */
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.2rem; --text-title: 1rem; --text-lead: 1rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: #f5f6f8; --color-paper-2: #fdfdfe; --color-paper-3: #e2e7ec;
+  --color-ink: #202934; --color-ink-2: #374451; --color-muted: #53616e;
+  --color-rule: #b5bec7;
+  --color-accent: #273c50; --color-accent-ink: #fdfdfe; --color-focus: #365c7c;
+  --color-error: #a32020; --color-success: #23623d;
+  --color-viewport: #e5ebf1; --color-grid: #c7d2df; --color-grid-axis: #a4b3c4;
+  --color-light: #fdfdfe; --color-shadow: #8d9eaf; --color-sphere: #e4ac4a; --color-sphere-mark: #77501b;
+  --color-domino: #7a9f94; --color-edge: #526579; --color-selection: #7f9db7; --color-unselected: #121b23;
+  --color-support: #c0ccd7; --color-body: #89a9bb; --color-body-edge: #345c64; --color-baseline: #8c4167;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --font-body: var(--font-display); --font-outlier: var(--font-body);
+  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
+  --tracking-display: -0.02em;
+}

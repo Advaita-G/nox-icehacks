@@ -1,0 +1,429 @@
+{
+  "requestId": "req-f9c5cbd2",
+  "sourceId": "bee8d719-5c41-40c3-b227-6bdba9a1c27a",
+  "sourceRevision": 14,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Tilted fan blowing on a floor box",
+    "scale": 70,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Use the stated dimensions and distances in the notes rather than measuring scale from the sketch; the drawing scale is set to 70 pixels per meter.",
+      "The fan axis is aimed from the 0.6 m hub toward the box center at (1.0, 0.1, 0) m, a downward angle of about 26.6 degrees. The drawn arrow is treated as airflow indication, not a physical part.",
+      "The stand, motor stator, and hub housing are one fixed rigid body. The three sketched blades and rotor hub are one dynamic rotor on a hinge; the rotor starts at rest and its motor drives it toward 600 rpm.",
+      "The stand base and floor are represented with simple box collision geometry. The drawn fan blades are approximated by three slender rectangular blades; the box is a rigid solid block, not a hollow or deformable box.",
+      "Assumed masses: stand/stator 0.5 kg and rotor 0.05 kg. Assumed contact friction is 0.5 and restitution is 0.05.",
+      "Fan airflow is an ideal actuator-disk model with assumed tip ratio 0.15, wake spread 0.1, and 2 m range. Box drag coefficient 1.0 and reference area 0.04 m² are declared modeling assumptions, not measurements.",
+      "The box is centered 1.0 m horizontally from the hub and aligned with the fan axis. Its center is in the modeled wake; resulting motion also depends on contact and drag."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas sketch with user notes and operating-speed/aim clarifications"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "Floor",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0.5,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 4,
+        "height": 0.1,
+        "depth": 2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "fan-stand-stator",
+        "label": "Fixed fan stand and stator",
+        "kind": "fan-stand-stator-assembly",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.3,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.3,
+        "height": 0.6,
+        "depth": 0.3,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.1333333333,
+              "y": 1,
+              "z": 0.1333333333
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.0666666667,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": -0.4666666667,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "sphere",
+            "size": {
+              "x": 0.2666666667,
+              "y": 0.1333333333,
+              "z": 0.2666666667
+            },
+            "position": {
+              "x": 0,
+              "y": 0.5,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "fan-rotor",
+        "label": "Three-blade fan rotor",
+        "kind": "fan-rotor",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": -0.2297529205,
+          "z": 0,
+          "w": 0.9732489895
+        },
+        "width": 0.3,
+        "height": 0.3,
+        "depth": 0.3,
+        "mass": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "cylinder",
+            "size": {
+              "x": 0.1333333333,
+              "y": 0.2,
+              "z": 0.2
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067812,
+              "w": 0.7071067812
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0333333333,
+              "y": 0.4,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": 0,
+              "y": 0.3,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0333333333,
+              "y": 0.4,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": 0,
+              "y": 0.3,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.8660254038,
+              "y": 0,
+              "z": 0,
+              "w": 0.5
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0333333333,
+              "y": 0.4,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": 0,
+              "y": 0.3,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.8660254038,
+              "y": 0,
+              "z": 0,
+              "w": -0.5
+            }
+          }
+        ]
+      },
+      {
+        "id": "box-target",
+        "label": "Light box",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 1,
+          "y": 0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.2,
+        "height": 0.2,
+        "depth": 0.2,
+        "mass": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "aerodynamics": {
+          "coefficient": 1,
+          "area": 0.04
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "id": "fan-shaft-hinge",
+        "type": "hinge",
+        "bodyA": "fan-stand-stator",
+        "bodyB": "fan-rotor",
+        "anchorA": {
+          "x": 0,
+          "y": 0.3,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0.894427191,
+          "y": -0.4472135955,
+          "z": 0
+        },
+        "axisB": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "contactsEnabled": false,
+        "motor": {
+          "targetVelocity": 62.8318530718,
+          "gain": 10,
+          "maxEffort": 0.2
+        }
+      }
+    ],
+    "forces": [],
+    "fans": [
+      {
+        "id": "fan-airflow",
+        "rotor": "fan-rotor",
+        "stator": "fan-stand-stator",
+        "axis": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.15,
+        "tipRatio": 0.15,
+        "spread": 0.1,
+        "range": 2
+      }
+    ],
+    "assemblies": [
+      {
+        "id": "fan-assembly",
+        "label": "Fan and stand",
+        "bodies": [
+          "fan-stand-stator",
+          "fan-rotor"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "floor",
+      "origin": "sketch",
+      "note": "The long ground line is modeled as a finite supporting floor.",
+      "strokeIds": [
+        "s1"
+      ]
+    },
+    {
+      "objectId": "fan-stand-stator",
+      "origin": "sketch",
+      "note": "The stand post and base are represented with a simple rigid compound; the drawn hub ring is approximated as a fixed stator housing.",
+      "strokeIds": [
+        "s2",
+        "s3",
+        "s4"
+      ]
+    },
+    {
+      "objectId": "fan-rotor",
+      "origin": "sketch",
+      "note": "The three radial blade strokes are modeled as a hub and three rectangular rigid blades; the rotor is mounted to the fixed stator by the shaft hinge.",
+      "strokeIds": [
+        "s5",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "objectId": "box-target",
+      "origin": "sketch",
+      "note": "The sketched box is modeled as a 0.2 m rigid block resting on the floor.",
+      "strokeIds": [
+        "s10"
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The drawn fan outline and blade strokes are only approximate collision geometry. The airflow arrow strokes are treated as annotation, not as a physical part.",
+    "The motor effort, fan wake parameters, drag coefficient, and drag area are assumed model inputs; they are not determined by the drawing. The modeled wake reaches the box center with the clarified downward aim."
+  ],
+  "message": "Ready. The rotor motor target is 600 rpm (62.83 rad/s), within the supported hinge-motor speed limit. The fan is aimed down toward the box as clarified."
+}

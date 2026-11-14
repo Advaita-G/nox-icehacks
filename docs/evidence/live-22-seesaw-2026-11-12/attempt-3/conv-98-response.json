@@ -1,0 +1,47 @@
+{
+  "requestId": "req-bf3c2afb",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "remove-component",
+      "collection": "constraints",
+      "id": "right-box-attachment"
+    },
+    {
+      "type": "upsert-constraint",
+      "constraint": {
+        "id": "right-box-slider",
+        "type": "slider",
+        "bodyA": "plank",
+        "bodyB": "right-box",
+        "anchorA": {
+          "x": 0.77,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.129,
+          "z": 0
+        },
+        "axisA": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "axisB": {
+          "x": 1,
+          "y": 0,
+          "z": 0
+        },
+        "contactsEnabled": true
+      }
+    }
+  ],
+  "summary": [
+    "Replace the right box's fixed attachment with a slider along the plank's length.",
+    "Keep contact enabled so the plank can support the box as it slides; leave travel unrestricted."
+  ],
+  "questions": [],
+  "message": "The slider keeps the box aligned with the plank while allowing translation along its length."
+}

@@ -1,0 +1,121 @@
+{
+  "requestId": "req-55298b83",
+  "sourceId": "af7fa888-6892-4042-97ad-28259ea88095",
+  "sourceRevision": 15,
+  "status": "needs-clarification",
+  "grounding": [
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "The outlined ball at the top of the ramp; modeled as a sphere.",
+      "strokeIds": [
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10",
+        "s11"
+      ],
+      "bbox": [
+        177.2,
+        314.4,
+        92.6,
+        90.1
+      ]
+    },
+    {
+      "objectId": "ramp",
+      "origin": "sketch",
+      "note": "The diagonal ramp surface. Its thickness and out-of-plane depth are not drawn.",
+      "strokeIds": [
+        "s3"
+      ],
+      "bbox": [
+        159.7,
+        404.5,
+        660.8,
+        398
+      ]
+    },
+    {
+      "objectId": "ramp-support",
+      "origin": "sketch",
+      "note": "Vertical line from the upper ramp end down to the floor, interpreted as a support.",
+      "strokeIds": [
+        "s2"
+      ],
+      "bbox": [
+        157.2,
+        404.5,
+        2.5,
+        398
+      ]
+    },
+    {
+      "objectId": "cup",
+      "origin": "sketch",
+      "note": "Open cup sides and floor-level bottom edge; interior depth and wall thickness are not shown.",
+      "strokeIds": [
+        "s12",
+        "s13",
+        "s14"
+      ],
+      "bbox": [
+        1075.8,
+        642.3,
+        222.8,
+        160.2
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "sketch",
+      "note": "Horizontal floor line beneath the ramp and cup.",
+      "strokeIds": [
+        "s1"
+      ],
+      "bbox": [
+        84.6,
+        802.5,
+        1474.3,
+        2.5
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "ramp-length",
+      "prompt": "Does the noted 1.6 m ramp length mean along the sloping surface, or the horizontal run? The sketch proportions suggest about 1.6 m horizontal run and 1 m height.",
+      "options": [
+        "1.6 m along the slope",
+        "1.6 m horizontal run",
+        "Use the sketch proportions; either interpretation is approximate"
+      ]
+    },
+    {
+      "id": "support-and-depth",
+      "prompt": "Should the ramp/support and cup be fixed to the floor? What out-of-plane depth should the ramp and cup have?",
+      "options": [
+        "Fixed; use 0.3 m depth for both",
+        "Fixed; use another depth (please specify)",
+        "Leave them free; use 0.3 m depth for both",
+        "Other (please specify)"
+      ]
+    },
+    {
+      "id": "contact",
+      "prompt": "Rolling and whether the ball stays in the cup depend on contact friction, which the drawing does not specify. Should I use visible, explicitly assumed moderate friction values, or do you have measured values?",
+      "options": [
+        "Use explicitly assumed moderate friction; no rolling resistance",
+        "I will provide measured friction values",
+        "Other (please specify)"
+      ]
+    }
+  ],
+  "warnings": [
+    "The ball diameter (about 0.1 m), ramp height (about 1 m), and cup width (about 0.5 m) come from the notes; the drawing does not establish cup height, wall thickness, depth, or contact coefficients."
+  ],
+  "message": "Please clarify these details so the scene can represent the intended ramp, supports, and ball capture without treating unknown dimensions or contact behavior as measured."
+}

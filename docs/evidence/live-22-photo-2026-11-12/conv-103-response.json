@@ -1,0 +1,386 @@
+{
+  "requestId": "req-ecde2291",
+  "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+  "sourceRevision": 15,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Ball rolling down a ramp toward a cup",
+    "scale": 70,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The stated 1.6 m ramp length is measured along its sloping surface. With a 1.0 m high end and a 0.3 m exit, its horizontal run is approximately 1.439 m.",
+      "The wedge is a rigid trapezoidal prism whose top is the ramp surface; it is fixed to the floor. Its depth is 0.5 m.",
+      "The ball is a uniform solid sphere of diameter 0.10 m, initially at rest and placed in contact with the upper ramp surface.",
+      "The cup's 0.5 m opening and 0.5 m depth are interpreted as interior dimensions. Wall and bottom thickness are assumed to be 0.02 m, giving 0.54 m external width and depth.",
+      "The cup is fixed on the floor, immediately beyond the ramp exit with a 0.05 m gap. A collision with its near wall is intentional and entry into the cup is not guaranteed.",
+      "Masses and contact coefficients are estimates, not measured: ball 0.5 kg, wedge 10 kg, cup 0.5 kg; friction and restitution are declared per object. The floor is an ideal rigid platform. No powered motion or air effects are assumed."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "Attached rough drawing; source 4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ball",
+        "label": "Ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0.15676,
+          "y": 0.97934,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.1,
+        "height": 0.1,
+        "depth": 0.1,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "trapezoidal-wedge",
+        "label": "Fixed trapezoidal ramp wedge",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0.719375,
+          "y": 0.5,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.43875,
+        "height": 1,
+        "depth": 0.5,
+        "mass": 10,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.2,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.2,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "open-cup",
+        "label": "Fixed open cup",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 1.75875,
+          "y": 0.15,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.54,
+        "height": 0.3,
+        "depth": 0.54,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.0666667,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": -0.4666667,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.037037,
+              "y": 0.9333333,
+              "z": 1
+            },
+            "position": {
+              "x": -0.4814815,
+              "y": 0.0333333,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.037037,
+              "y": 0.9333333,
+              "z": 1
+            },
+            "position": {
+              "x": 0.4814815,
+              "y": 0.0333333,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.9259259,
+              "y": 0.9333333,
+              "z": 0.037037
+            },
+            "position": {
+              "x": 0,
+              "y": 0.0333333,
+              "z": -0.4814815
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.9259259,
+              "y": 0.9333333,
+              "z": 0.037037
+            },
+            "position": {
+              "x": 0,
+              "y": 0.0333333,
+              "z": 0.4814815
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "floor",
+        "label": "Horizontal floor",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 1,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 10,
+        "height": 0.1,
+        "depth": 2.5,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "Ball drawn above the upper part of the ramp; placed at rest touching the sloping face.",
+      "bbox": [
+        0.273,
+        0.207,
+        0.081,
+        0.172
+      ]
+    },
+    {
+      "objectId": "trapezoidal-wedge",
+      "origin": "sketch",
+      "note": "Ramp and its solid support are represented as one fixed trapezoidal prism with a sloping top, as clarified.",
+      "bbox": [
+        0.148,
+        0.308,
+        0.42,
+        0.415
+      ]
+    },
+    {
+      "objectId": "open-cup",
+      "origin": "sketch",
+      "note": "Open cup drawn beyond the ramp in the ball's path; its inside opening and height use the clarified estimates.",
+      "bbox": [
+        0.77,
+        0.522,
+        0.127,
+        0.272
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "inferred",
+      "note": "Rigid horizontal floor added to support the fixed wedge and cup."
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The cup is positioned just beyond the ramp exit. The initial rolling path may strike its near wall, as specified; the drawing and dimensions do not imply that the ball enters the opening."
+  ],
+  "message": "Built a rigid-body approximation from the sketch and clarified dimensions. The ramp length is treated as the sloping-surface length; the cup is just beyond its exit."
+}

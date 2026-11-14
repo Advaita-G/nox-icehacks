@@ -1,0 +1,33 @@
+{
+  "requestId": "req-a26b9705",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "upsert-constraint",
+      "constraint": {
+        "id": "return-spring",
+        "type": "spring",
+        "bodyA": "wall",
+        "bodyB": "cart-body",
+        "anchorA": {
+          "x": 0.05,
+          "y": -0.18,
+          "z": 0
+        },
+        "anchorB": {
+          "x": -0.1,
+          "y": 0,
+          "z": 0
+        },
+        "length": 0.3,
+        "stiffness": 40,
+        "damping": 0
+      }
+    }
+  ],
+  "summary": [
+    "Doubled the return spring stiffness from 20 N/m to 40 N/m; its rest length and damping remain unchanged."
+  ],
+  "questions": [],
+  "message": "Review the proposed spring change before applying."
+}

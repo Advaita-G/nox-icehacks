@@ -1,0 +1,364 @@
+{
+  "requestId": "req-88df4d79",
+  "sourceId": "2ccf05ea-15ab-450f-8b29-4ff80a40f2f7",
+  "sourceRevision": 93,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Diamond and free-standing table",
+    "scale": 159.1667,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The tabletop width of 2.4 m calibrates the drawing at approximately 159.17 pixels per meter; the table is centered at world X=0 and the diamond is placed to its left, preserving their drawn separation.",
+      "The table is modeled as one free rigid body: a 2.4 m × 1.2 m × 0.08 m top and four straight 0.10 m square-section legs, with 3.2 m total height. The unusual height follows the user's requested sketch proportions.",
+      "The diamond is a thin, approximately 0.10 m thick extruded panel. Its approximate 2.68 m × 3.64 m outline is scaled from the sketch and tabletop calibration; its broad face is placed flat on the floor.",
+      "The floor is an inferred fixed, level support. The table and diamond begin at rest with their undersides in contact with it.",
+      "Masses and contact coefficients are modeling assumptions, not measurements. Collision geometry is simplified: the diamond outline is a convex hull, and the table has straight box-section legs. Air drag is not configured."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas sketch and user-provided dimensions and clarifications"
+      }
+    ],
+    "objects": [
+      {
+        "id": "diamond-panel",
+        "label": "Thin diamond-shaped panel",
+        "kind": "diamond",
+        "fixed": false,
+        "position": {
+          "x": -4.042,
+          "y": 0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0.7071067812,
+          "y": 0,
+          "z": 0,
+          "w": 0.7071067812
+        },
+        "width": 2.68,
+        "height": 3.64,
+        "depth": 0.1,
+        "mass": 12,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.1931034483,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.1931034483,
+                "z": 0.5
+              },
+              {
+                "x": 0.3849765258,
+                "y": -0.0293103448,
+                "z": -0.5
+              },
+              {
+                "x": 0.3849765258,
+                "y": -0.0293103448,
+                "z": 0.5
+              },
+              {
+                "x": 0.0058685446,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.0058685446,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.0862068966,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.0862068966,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "table",
+        "label": "Free-standing table",
+        "kind": "table",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 1.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.4,
+        "height": 3.2,
+        "depth": 1.2,
+        "mass": 45,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.08,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.025,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0.4875,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0416666667,
+              "y": 0.975,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": -0.3958333333,
+              "y": -0.0125,
+              "z": -0.375
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0416666667,
+              "y": 0.975,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": -0.3958333333,
+              "y": -0.0125,
+              "z": 0.375
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0416666667,
+              "y": 0.975,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": 0.3958333333,
+              "y": -0.0125,
+              "z": -0.375
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.0416666667,
+              "y": 0.975,
+              "z": 0.0833333333
+            },
+            "position": {
+              "x": 0.3958333333,
+              "y": -0.0125,
+              "z": 0.375
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "floor",
+        "label": "Fixed floor support",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 30,
+        "height": 0.1,
+        "depth": 20,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "diamond-panel",
+      "origin": "sketch",
+      "note": "The outer silhouette is approximated as a thin convex diamond-like panel; it is placed flat on the floor, as requested.",
+      "strokeIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s10",
+        "s11"
+      ]
+    },
+    {
+      "objectId": "table",
+      "origin": "sketch",
+      "note": "The tabletop and drawn legs are represented as one rigid compound table, per clarification. Straight box-section legs approximate the sketched supports.",
+      "strokeIds": [
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25",
+        "s26"
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "inferred",
+      "note": "Fixed level support added at the user's request; its extent is assumed large enough to support both separate objects."
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The requested 3.2 m overall table height is unusually tall relative to its 2.4 m tabletop width. Because the table is free to move, it may tip under gravity or contact."
+  ],
+  "message": "Built the separate diamond panel and free rigid table at rest on an inferred fixed floor, using the confirmed dimensions and an explicit sketch-scale assumption."
+}

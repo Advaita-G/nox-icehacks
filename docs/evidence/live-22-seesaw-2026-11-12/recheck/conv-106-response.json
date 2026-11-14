@@ -1,0 +1,428 @@
+{
+  "requestId": "req-6580c281",
+  "sourceId": "8e34189f-78cf-495c-90b0-a384c0bb5474",
+  "sourceRevision": 11,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Weighted seesaw",
+    "scale": 500,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The stated 2 m plank length calibrates the drawing at approximately 500 pixels per meter; the canvas origin for placement is pixel (800, 780), with world Y upward.",
+      "The boxes' widths and heights are estimated from their drawn outlines at that scale; their depths and the plank and pivot depths use the stated 0.2 m.",
+      "The triangular pivot is modeled as a rigid triangular prism, approximately 0.28 m tall and 0.24 m wide, inferred from the drawing and the stated approximate 0.3 m height.",
+      "The drawn floor is modeled as a 0.04 m thick rigid support. Contact friction 0.5 and restitution 0 are assumed, not measured.",
+      "All parts are rigid. The plank is released level from rest; the boxes are fixed to it and the central hinge is unpowered."
+    ],
+    "sources": [
+      {
+        "kind": "canvas",
+        "reference": "8e34189f-78cf-495c-90b0-a384c0bb5474 revision 11"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "Floor support",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.02,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.884,
+        "height": 0.1,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.4,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "pivot",
+        "label": "Triangular pivot",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.14,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.24,
+        "height": 0.28,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "plank",
+        "label": "Seesaw plank",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.3,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2,
+        "height": 0.1,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.4,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "left-box",
+        "label": "Left box",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": -0.82,
+          "y": 0.403,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.2,
+        "height": 0.166,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "right-box",
+        "label": "Right box",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 0.77,
+          "y": 0.448,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.258,
+        "height": 0.256,
+        "depth": 0.2,
+        "mass": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "plank-hinge",
+        "type": "hinge",
+        "bodyA": "pivot",
+        "bodyB": "plank",
+        "anchorA": {
+          "x": 0,
+          "y": 0.14,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.14,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "contactsEnabled": false
+      },
+      {
+        "id": "left-box-attachment",
+        "type": "fixed",
+        "bodyA": "plank",
+        "bodyB": "left-box",
+        "anchorA": {
+          "x": -0.82,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.083,
+          "z": 0
+        },
+        "contactsEnabled": false
+      },
+      {
+        "id": "right-box-attachment",
+        "type": "fixed",
+        "bodyA": "plank",
+        "bodyB": "right-box",
+        "anchorA": {
+          "x": 0.77,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.128,
+          "z": 0
+        },
+        "contactsEnabled": false
+      }
+    ],
+    "forces": [],
+    "fans": [],
+    "assemblies": [
+      {
+        "id": "seesaw-assembly",
+        "label": "Seesaw assembly",
+        "bodies": [
+          "plank",
+          "left-box",
+          "right-box"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "floor",
+      "origin": "sketch",
+      "note": "Fixed floor support line.",
+      "strokeIds": [
+        "s1"
+      ]
+    },
+    {
+      "objectId": "pivot",
+      "origin": "sketch",
+      "note": "Fixed triangular pivot, modeled as a triangular prism.",
+      "strokeIds": [
+        "s2"
+      ]
+    },
+    {
+      "objectId": "plank",
+      "origin": "sketch",
+      "note": "The 2 m horizontal plank, released level at rest.",
+      "strokeIds": [
+        "s3"
+      ]
+    },
+    {
+      "objectId": "left-box",
+      "origin": "sketch",
+      "note": "Box fixed near the left end; its outline dimensions are estimated using the plank-calibrated drawing scale.",
+      "strokeIds": [
+        "s4"
+      ]
+    },
+    {
+      "objectId": "right-box",
+      "origin": "sketch",
+      "note": "Heavier box fixed near the right end; its outline dimensions are estimated using the plank-calibrated drawing scale.",
+      "strokeIds": [
+        "s5"
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The box dimensions and pivot width are drawing-based estimates, not stated measurements. The arrows indicate the intended direction; gravity acting on the specified masses and positions also produces the right side's downward torque."
+  ],
+  "message": "Modeled the plank, fixed triangular support, fixed floor, and attached boxes. The central hinge is free and unpowered; the heavier right-side load tips the plank clockwise under gravity."
+}

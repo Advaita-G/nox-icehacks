@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NOX input lab</title>
+    <link rel="stylesheet" href="/src/ui/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to the workspace</a>
+    <header class="top">
+      <h1>NOX <span>input lab</span></h1>
+      <p class="sub">Sketch or photo → interpretation → clarification → editable scene → commands. Juwon's T2/T3 lane.</p>
+      <ul class="deps" aria-label="Missing dependencies">
+        <li><strong>Physics not connected.</strong> Run waits for Advaita's shared physics interface (R-01, R-05, R-07).</li>
+        <li><strong>No AI model connected.</strong> Interpret and spoken commands need the R-11 provider decision. Manual and fixture paths are labelled.</li>
+      </ul>
+    </header>
+    <main id="main" class="grid">
+      <section class="panel" aria-labelledby="source-h">
+        <h2 id="source-h">1 · Source</h2>
+        <div class="tabs" role="tablist" aria-label="Source type">
+          <button role="tab" id="tab-draw" aria-selected="true" aria-controls="pane-draw">Draw</button>
+          <button role="tab" id="tab-photo" aria-selected="false" aria-controls="pane-photo" tabindex="-1">Photo</button>
+        </div>
+        <div id="pane-draw" role="tabpanel" aria-labelledby="tab-draw">
+          <canvas id="sketch" width="1600" height="900" aria-label="Drawing canvas. Draw with a mouse, pen or finger. Keyboard users can add objects in the scene editor." ></canvas>
+          <div class="row">
+            <button id="undo">Undo stroke</button>
+            <button id="clear">Clear</button>
+            <span class="meta" id="stroke-meta">0 strokes</span>
+          </div>
+        </div>
+        <div id="pane-photo" role="tabpanel" aria-labelledby="tab-photo" hidden>
+          <label class="file">
+            <span>Upload a paper-sketch photo (JPEG, PNG or WebP, up to 10 MB)</span>
+            <input id="photo" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif" />
+          </label>
+          <img id="photo-preview" alt="Uploaded sketch photo" hidden />
+          <p class="meta" id="photo-meta"></p>
+        </div>
+        <div class="row">
+          <button id="interpret" class="primary">Interpret with AI</button>
+          <button id="cancel" disabled>Cancel</button>
+          <button id="new-experiment">New experiment</button>
+        </div>
+        <details class="fixture">
+          <summary>Load a fixture (hand-written example, not AI output)</summary>
+          <div class="row">
+            <label for="fixture-select" class="sr-only">Fixture</label>
+            <select id="fixture-select">
+              <option value="E-01">E-01 · F1 ramp, ball, cup (ready)</option>
+              <option value="E-02">E-02 · F5 unclear contact and arrow (needs clarification)</option>
+            </select>
+            <button id="fixture-load">Load fixture</button>
+          </div>
+        </details>
+        <p id="status" class="status" role="status" aria-live="polite">Draw a sketch or upload a photo.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="scene-h">
+        <h2 id="scene-h">2 · Interpretation and scene</h2>
+        <p id="origin-badge" class="badge" hidden></p>
+        <canvas id="preview" width="1600" height="900" aria-label="Scene preview. Select objects from the list below."></canvas>
+        <div id="question" class="question" hidden></div>
+        <div id="warnings" class="warnings" role="note" hidden></div>
+        <div class="cols">
+          <div>
+            <h3>Objects</h3>
+            <ul id="objects" class="list" aria-label="Objects"></ul>
+            <div class="row add">
+              <label for="add-kind">Add</label>
+              <select id="add-kind">
+                <option>ball</option><option>block</option><option>ramp</option><option>domino</option><option>platform</option><option>container</option>
+              </select>
+              <button id="add-object">Add object</button>
+            </div>
+          </div>
+          <div>
+            <h3>Selected</h3>
+            <form id="editor" class="editor" aria-label="Edit selected object"><p class="meta">Select an object.</p></form>
+          </div>
+        </div>
+        <h3>Relationships</h3>
+        <ul id="relationships" class="list" aria-label="Relationships"></ul>
+        <h3>Assumptions</h3>
+        <table class="assumptions"><thead><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">From</th></tr></thead><tbody id="assumptions"></tbody></table>
+        <div class="row">
+          <button id="run" disabled aria-describedby="run-why">Run</button>
+          <span id="run-why" class="meta"></span>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="cmd-h">
+        <h2 id="cmd-h">3 · Commands</h2>
+        <form id="cmd-form" class="row cmd">
+          <label for="cmd" class="sr-only">Command</label>
+          <input id="cmd" autocomplete="off" placeholder='e.g. "set ball-1 mass x2" or "make this ball twice as heavy"' />
+          <button type="submit">Send</button>
+        </form>
+        <div class="row">
+          <button id="talk" aria-pressed="false">Hold to talk</button>
+          <span id="voice-note" class="meta">Hold the button (or hold Space while it is focused). Speech is transcribed by your browser's speech service.</span>
+        </div>
+        <p id="transcript" class="transcript" aria-live="polite"></p>
+        <div id="confirm" class="confirm" hidden></div>
+        <p class="meta" id="token"></p>
+      </section>
+    </main>
+    <script type="module" src="/src/ui/main.ts"></script>
+  </body>
+</html>

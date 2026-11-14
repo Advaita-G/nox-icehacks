@@ -1,0 +1,17 @@
+{
+  "requestId": "req-cc36a31c",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "set-property",
+      "id": "left-box",
+      "property": "mass",
+      "value": 2
+    }
+  ],
+  "summary": [
+    "Changed the left box's mass from 1 kg to 2 kg, doubling its weight in the same gravity."
+  ],
+  "questions": [],
+  "message": "The left box is now modeled with a mass of 2 kg."
+}

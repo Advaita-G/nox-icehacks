@@ -1,0 +1,44 @@
+{
+  "example": "E-06",
+  "description": "REJECTED commands. Every case applies nothing and leaves the scene revision at 6.",
+  "baseSceneRevision": 6,
+  "cases": [
+    {
+      "id": "E-06a",
+      "batch": { "batchId": "b-50", "baseSceneRevision": 5, "origin": "voice", "ops": [{ "op": "set-property", "objectId": "ball-1", "property": "restitution", "value": 0.1 }] },
+      "expected": { "applied": false, "error": { "code": "STALE_REVISION", "message": "The scene changed while this command was being understood. Say it again." }, "observation": "The model is not called again automatically." }
+    },
+    {
+      "id": "E-06b",
+      "batch": { "batchId": "b-51", "baseSceneRevision": 6, "origin": "typed", "ops": [{ "op": "set-pose", "objectId": "ball-7", "x": 1, "y": 2, "angle": 0 }] },
+      "expected": { "applied": false, "error": { "code": "UNKNOWN_TARGET", "opIndex": 0, "path": "objectId" } }
+    },
+    {
+      "id": "E-06c",
+      "batch": { "batchId": "b-52", "baseSceneRevision": 6, "origin": "voice", "ops": [{ "op": "set-property", "objectId": "ball-1", "property": "mass", "value": 2.0 }, { "op": "set-property", "objectId": "ball-1", "property": "restitution", "value": 1.7 }] },
+      "expected": { "applied": false, "error": { "code": "OUT_OF_RANGE", "opIndex": 1, "path": "value", "message": "Restitution must be between 0 and 1." }, "observation": "The valid first op is not applied either: the batch is atomic." }
+    },
+    {
+      "id": "E-06d",
+      "batch": { "batchId": "b-53", "baseSceneRevision": 6, "origin": "typed", "ops": [{ "op": "set-dimensions", "objectId": "ball-1", "dims": { "radius": "NaN" } }] },
+      "expected": { "applied": false, "error": { "code": "NON_FINITE", "opIndex": 0, "path": "dims.radius" } }
+    },
+    {
+      "id": "E-06e",
+      "batch": { "batchId": "b-54", "baseSceneRevision": 6, "origin": "voice", "ops": [{ "op": "explode", "objectId": "ball-1" }] },
+      "expected": { "applied": false, "error": { "code": "UNKNOWN_OP", "opIndex": 0 } }
+    },
+    {
+      "id": "E-06f",
+      "request": { "requestId": "cmd-09", "origin": "voice", "transcript": "make it bouncier", "baseSceneRevision": 6, "selection": [] },
+      "intent": { "requestId": "cmd-09", "status": "needs-clarification", "targets": [], "ops": [], "question": { "id": "q-t", "kind": "choose-target", "prompt": "Which object? Select one or say its name.", "options": [], "allowManual": true } },
+      "expected": { "applied": false, "observation": "Nothing is selected and the scene has two balls, so the ambiguous target becomes a question instead of a guess." }
+    },
+    {
+      "id": "E-06g",
+      "request": { "requestId": "cmd-10", "origin": "voice", "transcript": "add a magnet under the ball", "baseSceneRevision": 6, "selection": ["ball-1"] },
+      "intent": { "requestId": "cmd-10", "status": "unsupported", "targets": ["ball-1"], "ops": [], "reason": "Magnets are outside supported mechanics." },
+      "expected": { "applied": false, "observation": "The limit is explained and the scene is kept." }
+    }
+  ]
+}

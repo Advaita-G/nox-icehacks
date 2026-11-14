@@ -1,0 +1,30 @@
+{
+  "requestId": "req-1011c5f0",
+  "status": "needs-clarification",
+  "operations": [],
+  "summary": [
+    "I’ll interpret “a box with a ball in it” as an open-top container holding a ball.",
+    "The existing scene has zero gravity; I’ll preserve it unless you ask otherwise."
+  ],
+  "questions": [
+    {
+      "id": "box-ball-spec",
+      "prompt": "Would you like these default dimensions and supports, or different ones?",
+      "options": [
+        {
+          "label": "Use defaults: open-top container 1 × 1 × 1 m with 0.1 m walls; ball 0.2 m diameter; fixed container and free ball, centered on the floor.",
+          "value": "defaults"
+        },
+        {
+          "label": "Use the same dimensions, but make both the container and ball free.",
+          "value": "both-free"
+        },
+        {
+          "label": "Specify different dimensions or support choices.",
+          "value": "custom"
+        }
+      ]
+    }
+  ],
+  "message": "Please choose an option or provide your preferred dimensions and whether the container should be fixed."
+}

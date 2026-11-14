@@ -1,0 +1,131 @@
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { ConvexGeometry } from 'three/addons/geometries/ConvexGeometry.js';
+import { geometryParts } from './physics/geometry.ts';
+import { TransformControls } from 'three/addons/controls/TransformControls.js';
+import type { BodySample, Sample } from './physics/engine.ts';
+import type { Operation, Scene, SceneObject, Vec3 } from './physics/scene.ts';
+
+export const theme = (role: string): string => getComputedStyle(document.documentElement).getPropertyValue(`--color-${role}`).trim();
+export class Viewport {
+  renderer: THREE.WebGLRenderer;
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(38, 1, .05, 5000);
+  controls: OrbitControls;
+  transform: TransformControls;
+  objects = new THREE.Group();
+  ghosts = new THREE.Group();
+  meshes = new Map<string, THREE.Group>();
+  raycaster = new THREE.Raycaster();
+  signature = '';
+  selected = '';
+  assemblyId = '';
+  links = new THREE.Group();
+  constructor(public canvas: HTMLCanvasElement, onSelect: (id: string) => void, onBegin: () => void, onCommit: (operations: Operation[]) => void) {
+    this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); this.renderer.shadowMap.enabled = true; this.renderer.shadowMap.type = THREE.PCFShadowMap;
+    this.renderer.toneMapping = THREE.ACESFilmicToneMapping; this.renderer.toneMappingExposure = 1.25;
+    this.scene.background = new THREE.Color(theme('viewport')); this.scene.fog = new THREE.Fog(theme('viewport'), 60, 180);
+    this.scene.add(new THREE.HemisphereLight(theme('light'), theme('shadow'), 2.5));
+    const light = new THREE.DirectionalLight(theme('light'), 3); light.position.set(-8, 16, 9); light.castShadow = true;
+    light.shadow.mapSize.set(2048, 2048); Object.assign(light.shadow.camera, { left: -18, right: 18, top: 18, bottom: -18, near: .5, far: 80 }); light.shadow.normalBias = .02;
+    this.scene.add(light, this.objects, this.ghosts, this.links);
+    const grid = new THREE.GridHelper(40, 40, theme('grid-axis'), theme('grid')); grid.position.y = -.015; this.scene.add(grid);
+    this.controls = new OrbitControls(this.camera, canvas); this.controls.enableDamping = false; this.controls.minDistance = .5; this.controls.maxDistance = 3000; this.controls.maxPolarAngle = Math.PI * .92;
+    this.transform = new TransformControls(this.camera, canvas); this.transform.setSize(.8); this.scene.add(this.transform.getHelper());
+    this.transform.addEventListener('change', () => this.render());
+    this.transform.addEventListener('dragging-changed', event => { this.controls.enabled = !event.value; });
+    let startPosition = new THREE.Vector3(), startRotation = new THREE.Quaternion();
+    this.transform.addEventListener('mouseDown', () => { const group = this.transform.object; if (group) { startPosition = group.position.clone(); startRotation = group.quaternion.clone(); } onBegin(); });
+    this.transform.addEventListener('mouseUp', () => {
+      const group = this.transform.object; if (!group) return;
+      const id = String(group.userData.id), o = group.userData.setup as SceneObject, q = group.quaternion;
+      if (this.assemblyId) {
+        const assemblyId = this.assemblyId, rotation = group.quaternion.clone().multiply(startRotation.clone().invert()).normalize(), translation = group.position.clone().sub(startPosition); group.scale.set(1, 1, 1);
+        queueMicrotask(() => onCommit([{ type: 'transform-assembly', id: assemblyId, translation: { x: translation.x, y: translation.y, z: translation.z }, rotation: { x: rotation.x, y: rotation.y, z: rotation.z, w: rotation.w }, pivot: { x: startPosition.x, y: startPosition.y, z: startPosition.z } }])); return;
+      }
+      const operations: Operation[] = [{ type: 'move', id, position: { x: group.position.x, y: group.position.y, z: group.position.z } },
+        { type: 'rotate', id, rotation: { x: q.x, y: q.y, z: q.z, w: q.w } },
+        { type: 'resize', id, width: o.width * group.scale.x, height: o.height * group.scale.y, depth: o.depth * group.scale.z }];
+      group.scale.set(1, 1, 1); queueMicrotask(() => onCommit(operations));
+    });
+    this.camera.position.set(12, 9, 16); this.controls.target.set(0, 2, 0); this.controls.update();
+    let down = { x: 0, y: 0 };
+    canvas.addEventListener('pointerdown', e => { down = { x: e.clientX, y: e.clientY }; });
+    canvas.addEventListener('pointerup', e => {
+      if (this.transform.dragging || this.transform.axis || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 5) return;
+      const r = canvas.getBoundingClientRect(); this.raycaster.setFromCamera(new THREE.Vector2((e.clientX - r.left) / r.width * 2 - 1, -(e.clientY - r.top) / r.height * 2 + 1), this.camera);
+      const hit = this.raycaster.intersectObjects(this.objects.children, true).find(hit => hit.object instanceof THREE.Mesh && this.meshes.has(hit.object.userData.id));
+      if (hit) onSelect(hit.object.userData.id as string);
+    });
+    canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); canvas.dispatchEvent(new CustomEvent('viewport-error', { detail: '3D graphics context lost. Save/export your work, then reload.' })); });
+    this.controls.addEventListener('change', () => this.render());
+  }
+  private clear(group: THREE.Group): void {
+    group.traverse(child => { if (child instanceof THREE.Mesh || child instanceof THREE.LineSegments) { child.geometry.dispose(); const materials = Array.isArray(child.material) ? child.material : [child.material]; materials.forEach(m => m.dispose()); } }); group.clear();
+  }
+  private mesh(o: SceneObject, ghost = false): THREE.Group {
+    const group = new THREE.Group(), material = ghost ? new THREE.MeshBasicMaterial({ color: theme('baseline'), wireframe: true, transparent: true, opacity: .35 })
+      : new THREE.MeshStandardMaterial({ color: theme(o.fixed ? 'support' : o.kind === 'ball' ? 'sphere' : o.kind === 'domino' ? 'domino' : 'body'), roughness: .42, metalness: .08 });
+    for (const p of geometryParts(o)) {
+      const { x: w, y: h, z: d } = p.size;
+      const geometry = p.shape === 'sphere' ? new THREE.SphereGeometry(w / 2, ghost ? 12 : 40, ghost ? 8 : 28)
+        : p.shape === 'cylinder' ? new THREE.CylinderGeometry(w / 2, w / 2, h, 40)
+        : p.shape === 'capsule' ? new THREE.CapsuleGeometry(w / 2, h - w, 8, 32)
+        : p.shape === 'convex' ? new ConvexGeometry(p.vertices!.map(v => new THREE.Vector3(v.x, v.y, v.z)))
+        : new THREE.BoxGeometry(w, h, d);
+      const mesh = new THREE.Mesh(geometry, material.clone()); mesh.userData.id = o.id; mesh.position.copy(p.position); mesh.quaternion.copy(p.rotation); mesh.castShadow = !ghost; mesh.receiveShadow = !ghost; group.add(mesh);
+      if (!ghost && p.shape !== 'sphere') { const edges = new THREE.LineSegments(new THREE.EdgesGeometry(geometry, 30), new THREE.LineBasicMaterial({ color: theme('edge'), transparent: true, opacity: .22 })); edges.position.copy(mesh.position); edges.quaternion.copy(mesh.quaternion); group.add(edges); }
+      if (!ghost && p.shape === 'sphere') { const ring = new THREE.Mesh(new THREE.TorusGeometry(w / 2 + .001, w * .012, 6, 48), new THREE.MeshStandardMaterial({ color: theme('sphere-mark'), roughness: .5 })); ring.rotation.y = Math.PI / 2; ring.userData.id = o.id; mesh.add(ring); }
+    }
+    material.dispose(); group.userData.id = o.id; group.userData.setup = o; return group;
+  }
+  update(setup: Scene, sample: Sample, selected: string, baseline?: { scene: Scene; sample: Sample }): void {
+    if (this.transform.dragging) return;
+    const signature = JSON.stringify([setup.objects.map(o => [o.id, o.kind, o.fixed, o.width, o.height, o.depth, o.wallThickness, o.geometry]), baseline?.scene]);
+    if (signature !== this.signature) {
+      this.transform.detach(); this.clear(this.objects); this.clear(this.ghosts); this.meshes.clear(); this.selected = '';
+      setup.objects.forEach(o => { const group = this.mesh(o); this.meshes.set(o.id, group); this.objects.add(group); });
+      baseline?.scene.objects.forEach(o => this.ghosts.add(this.mesh(o, true))); this.signature = signature;
+    }
+    const pose = (group: THREE.Object3D, body: BodySample) => { group.position.copy(body.position); group.quaternion.copy(body.rotation); };
+    sample.bodies.forEach(b => { const group = this.meshes.get(b.objectId); if (group) pose(group, b); });
+    if (baseline) this.ghosts.children.forEach(group => { const b = baseline.sample.bodies.find(b => b.objectId === group.userData.id); if (b) pose(group, b); });
+    if (this.selected !== selected) {
+      this.meshes.forEach((group, id) => group.traverse(child => { if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshStandardMaterial) { child.material.emissive.set(id === selected ? theme('selection') : theme('unselected')); child.material.emissiveIntensity = id === selected ? .18 : 0; } })); this.selected = selected;
+    }
+    const selectedMesh = this.meshes.get(selected);
+    if (selectedMesh && this.transform.object !== selectedMesh) this.transform.attach(selectedMesh);
+    else if (!selectedMesh) this.transform.detach();
+    this.clear(this.links);
+    for (const c of setup.constraints) {
+      const a = sample.bodies.find(b => b.objectId === c.bodyA), b = sample.bodies.find(b => b.objectId === c.bodyB); if (!a || !b) continue;
+      const anchor = (body: BodySample, local: Vec3) => new THREE.Vector3(local.x, local.y, local.z).applyQuaternion(new THREE.Quaternion(body.rotation.x, body.rotation.y, body.rotation.z, body.rotation.w)).add(new THREE.Vector3(body.position.x, body.position.y, body.position.z));
+      const line = new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints([anchor(a, c.anchorA), anchor(b, c.anchorB)]), new THREE.LineDashedMaterial({ color: theme('body-edge'), dashSize: .08, gapSize: .05 })); line.computeLineDistances(); this.links.add(line);
+    }
+    this.transform.getHelper().visible = this.transform.enabled;
+    this.render();
+  }
+  fit(setup: Scene): void {
+    const box = new THREE.Box3();
+    for (const o of setup.objects) {
+      const group = this.meshes.get(o.id); if (o.id !== 'floor' && group) box.expandByObject(group, true);
+    }
+    if (box.isEmpty()) box.setFromCenterAndSize(new THREE.Vector3(0, 1, 0), new THREE.Vector3(8, 4, 8));
+    const center = box.getCenter(new THREE.Vector3()), radius = box.getBoundingSphere(new THREE.Sphere()).radius;
+    const vertical = this.camera.fov * Math.PI / 360, horizontal = Math.atan(Math.tan(vertical) * this.camera.aspect);
+    const distance = Math.max(.5, radius / Math.sin(Math.min(vertical, horizontal)) * 1.1);
+    this.controls.target.copy(center); this.camera.position.copy(center).add(new THREE.Vector3(.75, .6, 1).normalize().multiplyScalar(distance)); this.camera.lookAt(center); this.controls.update(); this.render();
+  }
+
+  front(): void { const target = this.controls.target; const distance = this.camera.position.distanceTo(target); this.camera.position.copy(target).add(new THREE.Vector3(0, .001, distance)); this.controls.update(); this.render(); }
+  focus(position: Vec3): void { const offset = this.camera.position.clone().sub(this.controls.target); this.controls.target.copy(position); this.camera.position.copy(position).add(offset); this.controls.update(); this.render(); }
+  render(): void {
+    const w = this.canvas.clientWidth, h = this.canvas.clientHeight; if (!w || !h) return;
+    const ratio = this.renderer.getPixelRatio();
+    if (this.canvas.width !== Math.floor(w * ratio) || this.canvas.height !== Math.floor(h * ratio)) {
+      this.renderer.setSize(w, h, false); this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
+    }
+    this.renderer.render(this.scene, this.camera);
+  }
+}

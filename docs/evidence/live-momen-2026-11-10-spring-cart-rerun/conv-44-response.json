@@ -1,0 +1,349 @@
+{
+  "requestId": "req-965fef02",
+  "sourceId": "1c39eeef-7338-4e56-9433-695f53f055b3",
+  "sourceRevision": 27,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Spring-return cart",
+    "scale": 70,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The stated 0.30 m spring rest length, 0.20 m initial pull, 0.50 kg total cart mass, and 20 N/m stiffness are used as given. The initial spring length is therefore 0.50 m; the cart is released from rest.",
+      "The cart, track, wall, wheel, and depth dimensions are modeling assumptions, not measurements from the drawing. The track is level and wide enough to support the wheels.",
+      "The 0.50 kg cart mass includes its two wheels: 0.40 kg for the cart body and 0.05 kg per wheel. Wheels are rigid cylinders on freely rotating hinges.",
+      "The spring is modeled as a spring constraint with zero damping. Rolling friction is ignored; contact friction and restitution are set to zero. No motor or additional force is applied.",
+      "Collision geometry is simplified to boxes for the wall, track, and cart body, and cylinders for the wheels. The drawn coil is represented by the spring constraint, not by a rigid coil geometry."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas sketch s11–s16 and user notes"
+      }
+    ],
+    "objects": [
+      {
+        "id": "track",
+        "label": "Straight level track",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 1.3,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3.4,
+        "height": 0.1,
+        "depth": 0.4,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "wall",
+        "label": "Fixed spring wall",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.1,
+        "height": 1.2,
+        "depth": 0.4,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "cart-body",
+        "label": "Cart body",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 0.75,
+          "y": 0.25,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.4,
+        "height": 0.3,
+        "depth": 0.25,
+        "mass": 0.4,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "left-wheel",
+        "label": "Left wheel",
+        "kind": "cylinder",
+        "fixed": false,
+        "position": {
+          "x": 0.64,
+          "y": 0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0.7071067812,
+          "y": 0,
+          "z": 0,
+          "w": 0.7071067812
+        },
+        "width": 0.1,
+        "height": 0.035,
+        "depth": 0.1,
+        "mass": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "right-wheel",
+        "label": "Right wheel",
+        "kind": "cylinder",
+        "fixed": false,
+        "position": {
+          "x": 0.86,
+          "y": 0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0.7071067812,
+          "y": 0,
+          "z": 0,
+          "w": 0.7071067812
+        },
+        "width": 0.1,
+        "height": 0.035,
+        "depth": 0.1,
+        "mass": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0,
+        "restitution": 0,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "cart-spring",
+        "type": "spring",
+        "bodyA": "wall",
+        "bodyB": "cart-body",
+        "anchorA": {
+          "x": 0.05,
+          "y": -0.35,
+          "z": 0
+        },
+        "anchorB": {
+          "x": -0.2,
+          "y": 0,
+          "z": 0
+        },
+        "length": 0.3,
+        "stiffness": 20,
+        "damping": 0
+      },
+      {
+        "id": "left-wheel-hinge",
+        "type": "hinge",
+        "bodyA": "cart-body",
+        "bodyB": "left-wheel",
+        "anchorA": {
+          "x": -0.11,
+          "y": -0.2,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        }
+      },
+      {
+        "id": "right-wheel-hinge",
+        "type": "hinge",
+        "bodyA": "cart-body",
+        "bodyB": "right-wheel",
+        "anchorA": {
+          "x": 0.11,
+          "y": -0.2,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        }
+      }
+    ],
+    "forces": [],
+    "fans": [],
+    "assemblies": [
+      {
+        "id": "cart-assembly",
+        "label": "Cart with freely rotating wheels",
+        "bodies": [
+          "cart-body",
+          "left-wheel",
+          "right-wheel"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "track",
+      "origin": "sketch",
+      "note": "Horizontal straight track; modeled as a fixed level support with assumed width and depth.",
+      "strokeIds": [
+        "s11"
+      ]
+    },
+    {
+      "objectId": "wall",
+      "origin": "sketch",
+      "note": "Upright fixed wall at the left end of the track, anchoring the spring.",
+      "strokeIds": [
+        "s12"
+      ]
+    },
+    {
+      "objectId": "cart-spring",
+      "origin": "sketch",
+      "note": "Drawn coil represented by a spring constraint connecting the wall to the cart; its rest length and stiffness come from the notes.",
+      "strokeIds": [
+        "s13"
+      ]
+    },
+    {
+      "objectId": "cart-body",
+      "origin": "sketch",
+      "note": "Rectangular cart body; dimensions are assumed, while total cart mass is allocated between body and wheels.",
+      "strokeIds": [
+        "s14"
+      ]
+    },
+    {
+      "objectId": "left-wheel",
+      "origin": "sketch",
+      "note": "One of the two drawn wheels; modeled as a cylinder on a free hinge. Dimensions are assumed.",
+      "strokeIds": [
+        "s15"
+      ]
+    },
+    {
+      "objectId": "right-wheel",
+      "origin": "sketch",
+      "note": "One of the two drawn wheels; modeled as a cylinder on a free hinge. Dimensions are assumed.",
+      "strokeIds": [
+        "s16"
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "The cart begins 0.20 m beyond the spring’s rest position, with its wheels on the level track, and is released from rest. The sketch’s arrow and lower marker are interpreted as indicating the pull-and-release displacement, not additional parts."
+}

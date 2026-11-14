@@ -1,0 +1,49 @@
+{
+  "requestId": "req-f2c122b8",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "add",
+      "object": {
+        "id": "ground-floor",
+        "label": "Fixed ground floor",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.2,
+        "height": 0.1,
+        "depth": 0.5,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0,
+        "wallThickness": 0.1
+      }
+    }
+  ],
+  "summary": [
+    "Added a fixed 2.2 × 0.1 × 0.5 m floor centered at y=-0.05 m, so its top is level with the pivot bottom at y=0.",
+    "The floor spans beneath the plank ends; the existing contact settings apply."
+  ],
+  "questions": [],
+  "message": "Review the floor addition before applying."
+}

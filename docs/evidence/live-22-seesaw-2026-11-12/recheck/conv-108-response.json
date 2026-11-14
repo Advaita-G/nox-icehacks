@@ -1,0 +1,373 @@
+{
+  "requestId": "req-3a71803e",
+  "sourceId": "44243261-7b44-49a6-abad-3d63bab8d920",
+  "sourceRevision": 11,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Weighted seesaw",
+    "scale": 500,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The stated 2 m plank length calibrates the drawing scale to 500 pixels per meter.",
+      "Box dimensions and their positions along the plank are estimated from the drawing at that scale; box depths use the stated 0.2 m.",
+      "The pivot height is modeled as 0.28 m, consistent with the stated approximate 0.3 m and drawing.",
+      "The triangular pivot is approximated by two rigid rectangular legs; the drawn ground line is modeled as a finite fixed platform.",
+      "Contact friction 0.5 and restitution 0.1 are assumed, not measured. Parts are rigid; there is no air drag."
+    ],
+    "sources": [
+      {
+        "kind": "canvas",
+        "reference": "Canvas drawing and user notes"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground support",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.9,
+        "height": 0.1,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "pivot",
+        "label": "triangular pivot",
+        "kind": "triangular-pivot",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.14,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.24,
+        "height": 0.28,
+        "depth": 0.2,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.083333333333,
+              "y": 1.08796,
+              "z": 1
+            },
+            "position": {
+              "x": -0.25,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": -0.2011,
+              "w": 0.9796
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.083333333333,
+              "y": 1.08796,
+              "z": 1
+            },
+            "position": {
+              "x": 0.25,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.2011,
+              "w": 0.9796
+            }
+          }
+        ]
+      },
+      {
+        "id": "plank",
+        "label": "seesaw plank",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.3,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2,
+        "height": 0.04,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "left-box",
+        "label": "left box",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": -0.82,
+          "y": 0.402,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.198,
+        "height": 0.164,
+        "depth": 0.2,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "right-box",
+        "label": "right box",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 0.77,
+          "y": 0.448,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.258,
+        "height": 0.256,
+        "depth": 0.2,
+        "mass": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "plank-pivot-hinge",
+        "type": "hinge",
+        "bodyA": "pivot",
+        "bodyB": "plank",
+        "anchorA": {
+          "x": 0,
+          "y": 0.14,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.02,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        }
+      },
+      {
+        "id": "left-box-fixed",
+        "type": "fixed",
+        "bodyA": "plank",
+        "bodyB": "left-box",
+        "anchorA": {
+          "x": -0.82,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.082,
+          "z": 0
+        },
+        "contactsEnabled": false
+      },
+      {
+        "id": "right-box-fixed",
+        "type": "fixed",
+        "bodyA": "plank",
+        "bodyB": "right-box",
+        "anchorA": {
+          "x": 0.77,
+          "y": 0.02,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.128,
+          "z": 0
+        },
+        "contactsEnabled": false
+      }
+    ],
+    "forces": [],
+    "fans": [],
+    "assemblies": [
+      {
+        "id": "seesaw-assembly",
+        "label": "moving seesaw assembly",
+        "bodies": [
+          "plank",
+          "left-box",
+          "right-box"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Finite fixed platform representing the drawn ground line.",
+      "strokeIds": [
+        "s1"
+      ]
+    },
+    {
+      "objectId": "pivot",
+      "origin": "sketch",
+      "note": "Fixed triangular support, approximated by two rigid legs.",
+      "strokeIds": [
+        "s2"
+      ]
+    },
+    {
+      "objectId": "plank",
+      "origin": "sketch",
+      "note": "Horizontal plank; its stated length and thickness are used.",
+      "strokeIds": [
+        "s3"
+      ]
+    },
+    {
+      "objectId": "left-box",
+      "origin": "sketch",
+      "note": "Left box fixed to the plank; size estimated from the calibrated drawing.",
+      "strokeIds": [
+        "s4"
+      ]
+    },
+    {
+      "objectId": "right-box",
+      "origin": "sketch",
+      "note": "Right box fixed to the plank; size estimated from the calibrated drawing.",
+      "strokeIds": [
+        "s5"
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "Box dimensions and along-plank positions are visual estimates, not stated measurements.",
+    "The model starts level and at rest; gravity produces a net clockwise torque in the drawing plane, so the heavier right side tips down. The ground platform can stop the motion when parts contact it."
+  ],
+  "message": "Modeled the drawn ground, fixed triangular pivot, hinged plank, and two boxes fixed near its ends. The 2 m plank length calibrates the drawing scale; the boxes’ dimensions are estimated from their drawn outlines."
+}

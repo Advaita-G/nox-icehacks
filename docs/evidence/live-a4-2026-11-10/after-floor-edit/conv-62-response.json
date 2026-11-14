@@ -1,0 +1,396 @@
+{
+  "requestId": "req-2ebd2f11",
+  "sourceId": "2ccf05ea-15ab-450f-8b29-4ff80a40f2f7",
+  "sourceRevision": 95,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Upright diamond beside a free-standing table",
+    "scale": 159,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The stated 2.4 m tabletop width calibrates the drawing to 159 pixels per meter; the stated and confirmed dimensions take precedence over uncalibrated image proportions.",
+      "The confirmed 1.2 m tabletop depth, 0.10 m tabletop thickness, and 3.2 m overall table height are used. The table is approximated as a rectangular top and four straight legs, rigidly part of one free body.",
+      "The diamond is approximated as one thin, upright convex extrusion with a pointed lower vertex. Its dimensions are estimated from the calibrated sketch: 2.68 m wide, 3.64 m tall, and 0.10 m deep. Facet strokes do not define separate rigid parts.",
+      "The diamond starts with its lower point at floor level and zero velocity; its balance or tipping is determined by gravity and contact, not an imposed stabilizer.",
+      "Masses are illustrative assumptions, not measured: 50 kg for the diamond, 35 kg for the table, and 1 kg for the fixed floor. Contact friction 0.6 and restitution 0.05 are assumed.",
+      "The floor is an inferred fixed support. The drawing does not show a floor; both sketched objects are placed on it as requested."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas sketch and user-provided dimensions and clarifications"
+      }
+    ],
+    "objects": [
+      {
+        "id": "diamond",
+        "label": "Upright diamond (thin convex approximation)",
+        "kind": "custom-diamond",
+        "fixed": false,
+        "position": {
+          "x": -3.8,
+          "y": 1.82,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.68,
+        "height": 3.64,
+        "depth": 0.1,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.12,
+                "y": 0.36,
+                "z": -0.5
+              },
+              {
+                "x": 0.12,
+                "y": 0.36,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.08,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.08,
+                "z": 0.5
+              },
+              {
+                "x": 0.42,
+                "y": -0.08,
+                "z": -0.5
+              },
+              {
+                "x": 0.42,
+                "y": -0.08,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.42,
+                "y": -0.08,
+                "z": -0.5
+              },
+              {
+                "x": -0.42,
+                "y": -0.08,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.08,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.08,
+                "z": 0.5
+              },
+              {
+                "x": -0.12,
+                "y": 0.36,
+                "z": -0.5
+              },
+              {
+                "x": -0.12,
+                "y": 0.36,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "table",
+        "label": "Free-standing table (one rigid body)",
+        "kind": "custom-table",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 1.6,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.4,
+        "height": 3.2,
+        "depth": 1.2,
+        "mass": 35,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.03125,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0.484375,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.96875,
+              "z": 0.1
+            },
+            "position": {
+              "x": -0.375,
+              "y": -0.015625,
+              "z": -0.35
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.96875,
+              "z": 0.1
+            },
+            "position": {
+              "x": -0.375,
+              "y": -0.015625,
+              "z": 0.35
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.96875,
+              "z": 0.1
+            },
+            "position": {
+              "x": 0.375,
+              "y": -0.015625,
+              "z": -0.35
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.96875,
+              "z": 0.1
+            },
+            "position": {
+              "x": 0.375,
+              "y": -0.015625,
+              "z": 0.35
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "floor",
+        "label": "Fixed floor support",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 20,
+        "height": 0.1,
+        "depth": 10,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.05,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "diamond",
+      "origin": "sketch",
+      "note": "Interpreted as the left diamond-shaped object; its outline is simplified to one upright, thin convex extrusion. Facet marks are not modeled as separate parts.",
+      "strokeIds": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s10",
+        "s11"
+      ]
+    },
+    {
+      "objectId": "table",
+      "origin": "sketch",
+      "note": "Interpreted as the right table. Modeled as one rigid free body with a box top and four box legs; this is an approximate collision model.",
+      "strokeIds": [
+        "s12",
+        "s13",
+        "s14",
+        "s15",
+        "s16",
+        "s17",
+        "s18",
+        "s19",
+        "s20",
+        "s21",
+        "s22",
+        "s23",
+        "s24",
+        "s25",
+        "s26"
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "inferred",
+      "note": "Fixed floor added as the support requested by the user; no floor is drawn."
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The diamond starts balanced on its pointed lower edge, so it may tip naturally under gravity and contact dynamics.",
+    "The table's four-leg layout and the diamond's single convex outline simplify the sketch; detailed facets, joints within the table, and surface material properties are not inferred."
+  ],
+  "message": "Created a calibrated scene with the requested provisional dimensions, separate objects, a free rigid table, and a fixed floor. The diamond begins upright at rest and is not artificially stabilized."
+}

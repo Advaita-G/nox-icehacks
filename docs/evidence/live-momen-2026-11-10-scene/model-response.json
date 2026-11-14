@@ -1,0 +1,378 @@
+{
+  "requestId": "req-cd1321c2",
+  "sourceId": "cb72f883-ef7c-4cd7-b510-cd9f926df026",
+  "sourceRevision": 15,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Ball rolling down a ramp into a cup",
+    "scale": 399,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The ramp is a solid triangular wedge, 1.6 m horizontal run and 1.0 m high, as clarified.",
+      "The wedge depth is assumed to be 0.3 m; the drawing does not specify it.",
+      "The cup is assumed to be 0.5 m wide, 0.3 m deep and approximately 0.4 m tall; its height is estimated from the drawing.",
+      "The open cup is approximated by a compound of a bottom and four rigid box walls, including an inferred rear wall. Wall thickness is assumed to be 0.025 m.",
+      "The floor is represented by a fixed 3.8 m by 0.6 m box with its top at Y=0; its depth and thickness are modeling assumptions.",
+      "The ball is a uniform solid sphere of 0.1 m diameter and assumed mass 0.5 kg. The wedge and cup masses are assumed to be 300 kg and 1 kg respectively; these affect dynamics but are not measured.",
+      "Friction and restitution values are assumed contact parameters, not inferred measurements. No rolling resistance or air drag is configured."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Canvas drawing and user notes/clarifications, source cb72f883-ef7c-4cd7-b510-cd9f926df026 revision 15"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "Floor",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3.8,
+        "height": 0.1,
+        "depth": 0.6,
+        "mass": 20,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "ramp-wedge",
+        "label": "Solid triangular ramp wedge",
+        "kind": "wedge",
+        "fixed": true,
+        "position": {
+          "x": -0.8,
+          "y": 0.5,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.6,
+        "height": 1,
+        "depth": 0.3,
+        "mass": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.05,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ball",
+        "label": "Ball",
+        "kind": "sphere",
+        "fixed": false,
+        "position": {
+          "x": -1.574,
+          "y": 1.042,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.1,
+        "height": 0.1,
+        "depth": 0.1,
+        "mass": 0.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "cup",
+        "label": "Open cup",
+        "kind": "cup",
+        "fixed": true,
+        "position": {
+          "x": 0.9,
+          "y": 0.2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.5,
+        "height": 0.4,
+        "depth": 0.3,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.05,
+        "wallThickness": 0.025,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.95,
+              "y": 0.0625,
+              "z": 0.9
+            },
+            "position": {
+              "x": 0,
+              "y": -0.46875,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.95,
+              "z": 0.9
+            },
+            "position": {
+              "x": -0.475,
+              "y": -0.025,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.95,
+              "z": 0.9
+            },
+            "position": {
+              "x": 0.475,
+              "y": -0.025,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.9,
+              "y": 0.95,
+              "z": 0.05
+            },
+            "position": {
+              "x": 0,
+              "y": -0.025,
+              "z": -0.475
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.9,
+              "y": 0.95,
+              "z": 0.05
+            },
+            "position": {
+              "x": 0,
+              "y": -0.025,
+              "z": 0.475
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "floor",
+      "origin": "sketch",
+      "note": "Horizontal ground line represented as a finite fixed floor collider.",
+      "strokeIds": [
+        "s1"
+      ]
+    },
+    {
+      "objectId": "ramp-wedge",
+      "origin": "sketch",
+      "note": "Inclined face and upright edge interpreted as the clarified solid triangular wedge; its depth is assumed.",
+      "strokeIds": [
+        "s2",
+        "s3"
+      ]
+    },
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "The outlined object above the ramp is interpreted as the ball specified in the notes; modeled as a sphere.",
+      "strokeIds": [
+        "s4",
+        "s5",
+        "s6",
+        "s7"
+      ]
+    },
+    {
+      "objectId": "cup",
+      "origin": "sketch",
+      "note": "Open cup outline; width follows the note, height is estimated from the drawing, and depth follows the clarification.",
+      "strokeIds": [
+        "s8",
+        "s9",
+        "s10"
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "The cup’s hidden rear wall and the ramp depth are modeling assumptions; their dimensions are not established by the side-view drawing.",
+    "The ball starts at rest near the upper end of the inclined face. Contact and rolling are subject to the simulator’s numerical contact model."
+  ],
+  "message": "Built a stationary solid wedge, initially stationary ball, fixed open cup, and floor. No drive or external force is added."
+}

@@ -1,0 +1,54 @@
+{
+  "example": "E-02",
+  "description": "VALID, needs clarification. F5: a circle, a short line under it with an unclear gap, and an arrow between the circle and the line. Two consequential ambiguities produce blocking questions; Run stays disabled.",
+  "expectedObservation": "Preview highlights strokes s1 and s2 and asks the first question only. Choosing an option applies its ops as one clarification batch (revision 1 -> 2), then the second question is shown. Manual correction stays available throughout.",
+  "result": {
+    "requestId": "req-91c0",
+    "sourceId": "src-2",
+    "sourceRevision": 3,
+    "status": "needs-clarification",
+    "scene": {
+      "schemaVersion": 1,
+      "revision": 1,
+      "metersPerPx": 0.01,
+      "gravity": { "gx": 0, "gy": -9.81 },
+      "objects": [
+        { "id": "ball-1", "kind": "ball", "bodyType": "dynamic", "x": 5.0, "y": 3.3, "angle": 0, "dims": { "radius": 0.25 }, "mass": 1.0, "linearVelocity": { "vx": 0, "vy": 0 }, "angularVelocity": 0, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-2", "strokeIds": ["s1"] }] },
+        { "id": "platform-1", "kind": "platform", "bodyType": "fixed", "x": 5.2, "y": 2.95, "angle": 0, "dims": { "width": 1.5, "height": 0.05 }, "friction": 0.3, "restitution": 0.2, "sourceRefs": [{ "kind": "strokes", "sourceId": "src-2", "strokeIds": ["s2"] }] }
+      ]
+    },
+    "relationships": [],
+    "assumptions": [
+      { "id": "as-1", "path": "scene.metersPerPx", "value": 0.01, "unit": "m/px", "origin": "default" },
+      { "id": "as-2", "path": "objects.ball-1.mass", "value": 1.0, "unit": "kg", "origin": "default" }
+    ],
+    "questions": [
+      {
+        "id": "q-1",
+        "kind": "confirm-contact",
+        "prompt": "Is the ball resting on the line, or starting above it and falling?",
+        "targetRefs": { "objectIds": ["ball-1", "platform-1"], "relationshipIds": [], "sourceRefs": [{ "kind": "strokes", "sourceId": "src-2", "strokeIds": ["s1", "s2"] }] },
+        "options": [
+          { "id": "q-1-a", "label": "Resting on it", "ops": [{ "op": "add-relationship", "relationship": { "id": "rel-1", "kind": "rests-on", "subjectId": "ball-1", "targetId": "platform-1", "origin": "user", "status": "confirmed", "sourceRefs": [] } }] },
+          { "id": "q-1-b", "label": "Starts above and falls", "ops": [] }
+        ],
+        "allowManual": true
+      },
+      {
+        "id": "q-2",
+        "kind": "choose-arrow-target",
+        "prompt": "Which object does the arrow give a starting velocity to?",
+        "targetRefs": { "objectIds": ["ball-1", "platform-1"], "relationshipIds": [], "sourceRefs": [{ "kind": "strokes", "sourceId": "src-2", "strokeIds": ["s3"] }] },
+        "options": [
+          { "id": "q-2-a", "label": "The ball, 2 m/s to the right", "ops": [
+            { "op": "add-relationship", "relationship": { "id": "rel-2", "kind": "velocity-of", "subjectId": "ball-1", "value": { "vx": 2.0, "vy": 0 }, "origin": "user", "status": "confirmed", "sourceRefs": [{ "kind": "strokes", "sourceId": "src-2", "strokeIds": ["s3"] }] } },
+            { "op": "set-velocity", "objectId": "ball-1", "vx": 2.0, "vy": 0 }
+          ] },
+          { "id": "q-2-b", "label": "Ignore the arrow", "ops": [] }
+        ],
+        "allowManual": true
+      }
+    ],
+    "warnings": []
+  }
+}

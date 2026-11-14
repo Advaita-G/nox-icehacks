@@ -1,0 +1,280 @@
+{
+  "requestId": "req-1011c5f0",
+  "target": {
+    "experimentId": "354e1f18-519b-4df5-bc06-f33643aefff3",
+    "versionId": "aff0e2a1-60bb-41c5-992f-540242fe2ea0",
+    "sceneRevision": 0,
+    "sourceId": "8232cac5-7830-48c8-a2cd-4fae84bac54d",
+    "sourceRevision": 2,
+    "epoch": 10000
+  },
+  "transcript": "hi make a box with a ball in it",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Motor, rotor and airflow",
+    "scale": 70,
+    "gravity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "assumptions": [
+      "Declared ideal actuator-disk fan, finite conical wake; not CFD or measured blade performance.",
+      "Air density 1.225 kg/m³, assumed Cd=1.1 and reference area=0.25 m² for the target.",
+      "Motor target 30 rad/s; proportional gain 0.08 N·m·s/rad, torque cap 0.8 N·m."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Manual physics workbench"
+      }
+    ],
+    "objects": [
+      {
+        "id": "base",
+        "label": "Motor mount",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": -3,
+          "y": 2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.3,
+        "height": 0.3,
+        "depth": 0.3,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "rotor",
+        "label": "Fan rotor",
+        "kind": "fan rotor",
+        "fixed": false,
+        "position": {
+          "x": -3,
+          "y": 2,
+          "z": 0.25
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.5,
+        "height": 1.5,
+        "depth": 0.12,
+        "mass": 0.3,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.12,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.12,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "target",
+        "label": "Light target",
+        "kind": "card",
+        "fixed": false,
+        "position": {
+          "x": -3,
+          "y": 2,
+          "z": 2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.5,
+        "height": 0.5,
+        "depth": 0.1,
+        "mass": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ],
+        "aerodynamics": {
+          "coefficient": 1.1,
+          "area": 0.25
+        }
+      }
+    ],
+    "constraints": [
+      {
+        "id": "shaft",
+        "type": "hinge",
+        "bodyA": "base",
+        "bodyB": "rotor",
+        "anchorA": {
+          "x": 0,
+          "y": 0,
+          "z": 0.25
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "motor": {
+          "targetVelocity": 30,
+          "gain": 0.08,
+          "maxEffort": 0.8
+        }
+      }
+    ],
+    "forces": [],
+    "fans": [
+      {
+        "id": "air",
+        "rotor": "rotor",
+        "stator": "base",
+        "axis": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "radius": 0.75,
+        "tipRatio": 0.08,
+        "spread": 0.15,
+        "range": 8
+      }
+    ],
+    "assemblies": [
+      {
+        "id": "fan",
+        "label": "Electric fan",
+        "bodies": [
+          "base",
+          "rotor"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "selection": [
+    "rotor"
+  ],
+  "answers": []
+}
