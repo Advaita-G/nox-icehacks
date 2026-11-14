@@ -19,7 +19,7 @@ export interface AssistantHost {
 
 const reply = (message: string): AssistantReply => ({ message, reviewRequired: false, changes: [] });
 const normalize = (text: string) => text.trim().toLowerCase().replace(/[.!?]+$/, '').replace(/^(?:hey\s+)?(?:jarvis|nox)[,:]?\s+/, '').replace(/^please\s+|\s+please$/g, '').replace(/\s+/g, ' ');
-const cancel = /^(?:no(?:,? thanks)?|cancel(?: (?:it|that|the change|the proposal|the preview))?|never mind|nevermind|discard(?: (?:it|that|the change))?)$/;
+const cancel = /^(?:no(?:,? thanks)?|cancel(?: (?:it|that|checking|the request|the change|the proposal|the preview))?|stop (?:checking|the request)|never mind|nevermind|discard(?: (?:it|that|the change))?)$/;
 const confirm = /^(?:yes(?:,? (?:apply|confirm)(?: it| that| the change| the changes)?)?(?:,? please)?|yeah|yep|apply(?: (?:it|that|the change|the changes|the preview))?|confirm(?: (?:it|that|the change|the changes|the preview))?|go ahead|do it)$/;
 const builtin = '(spring(?: cart)?|pendulum|collision|fan)';
 

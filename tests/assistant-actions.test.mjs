@@ -93,6 +93,16 @@ test('cancel interrupts pending work and a late result cannot create a ghost App
   assert.deepEqual(calls, [['cancel']]);
 });
 
+test('request cancellation phrases cancel a pending critical question instead of submitting an answer', async () => {
+  for (const words of ['cancel the request', 'cancel checking', 'stop checking', 'stop the request', 'Jarvis, cancel the request.']) {
+    const { actions, calls, host } = fixture();
+    host.interpret = async () => { calls.push(['interpret']); return { message: 'Is this support fixed?', reviewRequired: false, changes: [] }; };
+    await actions.handle('interpret my photo');
+    await actions.handle(words); await actions.handle('yes');
+    assert.deepEqual(calls, [['interpret'], ['cancel']], words);
+  }
+});
+
 test('a local action cancels an earlier proposal and queued callbacks execute serially', async () => {
   let finish;
   const { actions, calls } = fixture({ demo: () => new Promise(resolve => { finish = resolve; }) });

@@ -1,0 +1,439 @@
+{
+  "evidence": "Reused existing paper-photo input; conv103/104 captured real replies with request/source identity mapping. SpeechRecognition/TTS are explicit device fakes. Actual browser, image normalization, validation, solver and browser storage. NO fresh model inference, new photo, human microphone/speaker acceptance, screenshot, video or UI image capture.",
+  "url": "http://127.0.0.1:5201",
+  "photoFirst": true,
+  "photoFirstSmoke": true,
+  "started": 1794687553.507812,
+  "checks": [
+    {
+      "viewport": "1280x800",
+      "cases": [
+        {
+          "case": "upload-before-mic-start-talk-while-checking-auto-confirm-real-run-and-save",
+          "result": "PASS"
+        }
+      ],
+      "requests": [
+        {
+          "kind": "interpret",
+          "requestId": "req-9f4152a7",
+          "target": {
+            "experimentId": "129244ea-61fe-4160-8ae0-ea42394e93c5",
+            "versionId": "4d9d1174-3456-43fa-90c8-520e5b49ebc7",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10000
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        }
+      ],
+      "failures": [],
+      "assets": [
+        "http://127.0.0.1:5201/assets/index-BbybbNUO.js"
+      ],
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "pending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "thinking",
+        "panelPhoto": "checking",
+        "phase": "Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": "",
+        "elapsedWaitBeforeReplySeconds": 0.25
+      },
+      "talkEnabledDuringPhotoCheck": true,
+      "autoClock": 1.108,
+      "saved": {
+        "libraryHash": "6a5828845db22f2347ded8b80dc311dae7781d3e2dfdfcc015bbbed6283ea2c4",
+        "id": "0469f05a-24de-4b8a-bf8f-40f4731bedc7",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "946ca5fb-c6ca-4de0-9b2b-f8e02a23a96f",
+        "versions": [
+          {
+            "id": "946ca5fb-c6ca-4de0-9b2b-f8e02a23a96f",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "ca141461b457fbbe11c7584cd99153c9be687566299b71e58663c95533fec731",
+            "samples": 35,
+            "end": 1.1083333333333334,
+            "checkpoint": true,
+            "checkpointHash": "8c07a321342109ffc7f9dd1f4e95b3b2b43d12ec3f148fa6bf502163524d422f",
+            "cupX": 1.75875
+          }
+        ],
+        "baseline": null,
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "result": "PASS",
+      "transcript": [
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing has become a validated 3D scene. I am starting the experiment automatically.\nBall: Ball drawn above the upper part of the ramp; placed at rest touching the sloping face.\nFixed trapezoidal ramp wedge: Ramp and its solid support are represented as one fixed trapezoidal prism with a sloping top, as clarified.\nFixed open cup: Open cup drawn beyond the ramp in the ball's path; its inside opening and height use the clarified estimates.\nHorizontal floor: Assumed part. Rigid horizontal floor added to support the fixed wedge and cup.\nThe cup is positioned just beyond the ramp exit. The initial rolling path may strike its near wall, as specified; the drawing and dimensions do not imply that the ball enters the opening.\nThe stated 1.6 m ramp length is measured along its sloping surface. With a 1.0 m high end and a 0.3 m exit, its horizontal run is approximately 1.439 m.\nThe wedge is a rigid trapezoidal prism whose top is the ramp surface; it is fixed to the floor. Its depth is 0.5 m.\nThe ball is a uniform solid sphere of diameter 0.10 m, initially at rest and placed in contact with the upper ramp surface.\nThe cup's 0.5 m opening and 0.5 m depth are interpreted as interior dimensions. Wall and bottom thickness are assumed to be 0.02 m, giving 0.54 m external width and depth.\nThe cup is fixed on the floor, immediately beyond the ramp exit with a 0.05 m gap. A collision with its near wall is intentional and entry into the cup is not guaranteed.\nMasses and contact coefficients are estimates, not measured: ball 0.5 kg, wedge 10 kg, cup 0.5 kg; friction and restitution are declared per object. The floor is an ideal rigid platform. No powered motion or air effects are assumed.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "pause",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Paused at 1.11 simulated seconds.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "save it",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+          "failed": false
+        }
+      ],
+      "state": "listening",
+      "appError": "",
+      "speech": [
+        {
+          "text": "I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.",
+          "at": 1133.5
+        },
+        {
+          "text": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+          "at": 3328.2999999523163
+        },
+        {
+          "text": "Paused at 1.11 simulated seconds.",
+          "at": 4280.399999976158
+        },
+        {
+          "text": "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+          "at": 5059.399999976158
+        }
+      ],
+      "events": [
+        {
+          "event": "listen",
+          "at": 1130.3999999761581
+        },
+        {
+          "event": "abort",
+          "at": 1133.3999999761581
+        },
+        {
+          "event": "listen",
+          "at": 1865.2999999523163
+        },
+        {
+          "event": "abort",
+          "at": 1943
+        },
+        {
+          "event": "listen",
+          "at": 4056.600000023842
+        },
+        {
+          "event": "utterance",
+          "text": "pause",
+          "at": 4272.200000047684
+        },
+        {
+          "event": "abort",
+          "at": 4272.299999952316
+        },
+        {
+          "event": "listen",
+          "at": 5014.100000023842
+        },
+        {
+          "event": "utterance",
+          "text": "save it",
+          "at": 5043
+        },
+        {
+          "event": "abort",
+          "at": 5043
+        },
+        {
+          "event": "listen",
+          "at": 5791.600000023842
+        }
+      ],
+      "longFrames": [],
+      "finalClock": "1.108 s",
+      "finalMode": "Paused"
+    },
+    {
+      "viewport": "375x667",
+      "cases": [
+        {
+          "case": "upload-before-mic-start-talk-while-checking-auto-confirm-real-run-and-save",
+          "result": "PASS"
+        }
+      ],
+      "requests": [
+        {
+          "kind": "interpret",
+          "requestId": "req-c063c168",
+          "target": {
+            "experimentId": "50ba0bd8-d6ab-4e28-836f-eca186c272a7",
+            "versionId": "fd242424-d583-42d4-8c89-4da22c5377da",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10000
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        }
+      ],
+      "failures": [],
+      "assets": [
+        "http://127.0.0.1:5201/assets/index-BbybbNUO.js"
+      ],
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "pending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "thinking",
+        "panelPhoto": "checking",
+        "phase": "Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": "",
+        "elapsedWaitBeforeReplySeconds": 0.25
+      },
+      "talkEnabledDuringPhotoCheck": true,
+      "autoClock": 1.042,
+      "saved": {
+        "libraryHash": "d975b34bc511dceff3a5bcaa48bcfafb258189ae943bd181f29e9f382c34cc62",
+        "id": "3e042daf-c12f-407b-89c8-2743ca5a4559",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "230c49d1-f709-4abb-a63e-35192c603b13",
+        "versions": [
+          {
+            "id": "230c49d1-f709-4abb-a63e-35192c603b13",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "0f797951cbd4a1ee2be3c9cf2dc6e3bf39b3a6e81188b7ba5729f16d5774b833",
+            "samples": 33,
+            "end": 1.0416666666666667,
+            "checkpoint": true,
+            "checkpointHash": "f13972810b410dbb3bd963125808d81e183901d5cca0330a1a700473067a47f3",
+            "cupX": 1.75875
+          }
+        ],
+        "baseline": null,
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "result": "PASS",
+      "transcript": [
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing has become a validated 3D scene. I am starting the experiment automatically.\nBall: Ball drawn above the upper part of the ramp; placed at rest touching the sloping face.\nFixed trapezoidal ramp wedge: Ramp and its solid support are represented as one fixed trapezoidal prism with a sloping top, as clarified.\nFixed open cup: Open cup drawn beyond the ramp in the ball's path; its inside opening and height use the clarified estimates.\nHorizontal floor: Assumed part. Rigid horizontal floor added to support the fixed wedge and cup.\nThe cup is positioned just beyond the ramp exit. The initial rolling path may strike its near wall, as specified; the drawing and dimensions do not imply that the ball enters the opening.\nThe stated 1.6 m ramp length is measured along its sloping surface. With a 1.0 m high end and a 0.3 m exit, its horizontal run is approximately 1.439 m.\nThe wedge is a rigid trapezoidal prism whose top is the ramp surface; it is fixed to the floor. Its depth is 0.5 m.\nThe ball is a uniform solid sphere of diameter 0.10 m, initially at rest and placed in contact with the upper ramp surface.\nThe cup's 0.5 m opening and 0.5 m depth are interpreted as interior dimensions. Wall and bottom thickness are assumed to be 0.02 m, giving 0.54 m external width and depth.\nThe cup is fixed on the floor, immediately beyond the ramp exit with a 0.05 m gap. A collision with its near wall is intentional and entry into the cup is not guaranteed.\nMasses and contact coefficients are estimates, not measured: ball 0.5 kg, wedge 10 kg, cup 0.5 kg; friction and restitution are declared per object. The floor is an ideal rigid platform. No powered motion or air effects are assumed.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "pause",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Paused at 1.04 simulated seconds.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "save it",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+          "failed": false
+        }
+      ],
+      "state": "listening",
+      "appError": "",
+      "speech": [
+        {
+          "text": "I am checking your drawing. You can say cancel while it builds, and I will ask if I need a detail from you.",
+          "at": 992.1999999284744
+        },
+        {
+          "text": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+          "at": 3181.1999999284744
+        },
+        {
+          "text": "Paused at 1.04 simulated seconds.",
+          "at": 4068.2999999523163
+        },
+        {
+          "text": "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+          "at": 4840.399999976158
+        }
+      ],
+      "events": [
+        {
+          "event": "listen",
+          "at": 989.5999999046326
+        },
+        {
+          "event": "abort",
+          "at": 992.0999999046326
+        },
+        {
+          "event": "listen",
+          "at": 1721.8999999761581
+        },
+        {
+          "event": "abort",
+          "at": 1788.8999999761581
+        },
+        {
+          "event": "listen",
+          "at": 3908.7999999523163
+        },
+        {
+          "event": "utterance",
+          "text": "pause",
+          "at": 4060.899999976158
+        },
+        {
+          "event": "abort",
+          "at": 4061
+        },
+        {
+          "event": "listen",
+          "at": 4798.399999976158
+        },
+        {
+          "event": "utterance",
+          "text": "save it",
+          "at": 4832.199999928474
+        },
+        {
+          "event": "abort",
+          "at": 4832.199999928474
+        },
+        {
+          "event": "listen",
+          "at": 5567.399999976158
+        }
+      ],
+      "longFrames": [],
+      "finalClock": "1.042 s",
+      "finalMode": "Paused"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "fixture": {
+    "sha256": "7f55cbbd67a63b5f0185dd449af86d0bb9d23f0939e00937d14c303af3698d59",
+    "bytes": 145204,
+    "description": "Reused paper-drawing photograph from the earlier captured case; not a newly captured photo."
+  },
+  "sourceHashes": {
+    "src/main.ts": "7c39e5822fc75ae38cda6492897c359569b1121549f061dd11b32b76414c674b",
+    "src/input/ui.ts": "75ab3acfd959704891951c202a67c00539dd1ab5817430df2d5346b55e1e64cf",
+    "src/ui/shell.ts": "b0964aea44997c75d83fa3bd3dec243f295edcc7d018d0035dfa620e16b2473f",
+    "src/assistant/panel.ts": "b88ee541352ae2bec64a8ded5b28c6967b1b61a864ce99244abed4cd42090bd2",
+    "src/assistant/panel.css": "f1e4cb9ee94aa2154daa0f8f326ee0d1d505fdf16f5f711db1bc34aa14de8254",
+    "src/assistant/actions.ts": "e07cb41ec0b89d1ed1c18a07fd4efecbc690324a0a84302fd806cae76aad2366",
+    "src/assistant/voice.ts": "571bb6d5140003e65d93943fc11f99fdeb00a291945be998524e96c754b22696",
+    "src/viewport.ts": "49cd37755cd83ad334524e98328f6b1900425fd60979962c8e30b4010972c5cb"
+  },
+  "fakeDeviceHarnessSha256": "de44f1e640db2d1e77b303b30b0667efd58e7f3db357fb8a1a4350aae5b13a87",
+  "finished": 1794687566.8992372,
+  "exportNote": "Public receipt copy of results-20261114-121926.json. Only the private local fixture path was omitted; recorded checks, hashes and results are unchanged."
+}

@@ -2,21 +2,21 @@
 
 **A talking Jarvis for real 3D physics experiments.** Built for IceHacks 2026 by Advaita Gupta and Juwon.
 
-Tell Nox what to do. It talks back, builds experiments, runs the real solver, reviews changes with you, compares measurements and saves the result. Drawing and photo input remain available for ideas that are easier to show.
+Start with a photo of your paper drawing or upload an image. With the live model service configured, Nox checks it automatically, builds a validated 3D experiment and starts the real solver. Then talk to move parts, change properties, compare measurements and save the result.
 
 ## Try it
 
-1. Choose **Talk to Nox** and allow microphone access once for spoken replies and hands-free edits.
-2. Choose **Take a photo** to use a phone camera, or **Upload drawing** for an existing image. Nox normalizes the image and automatically starts checking it. The source and animated checking state stay visible; model work is bounded to 120 seconds.
-3. A validated scene appears and starts running in the same workspace. Missing noncritical values become visible, estimated assumptions. If the structure is genuinely ambiguous, Nox asks a question that you can answer by voice.
+1. Choose **Take a photo** to use a phone camera, or **Upload drawing** for an existing image. Nox normalizes the image and automatically starts checking it; the source and real checking state stay visible.
+2. A validated scene appears and starts running in the same workspace. There is no required Library, Build or Confirm click for a ready photo result. Missing values can become visible assumptions; genuine ambiguity produces a clarification.
+3. Choose **Talk to Nox** and allow microphone access when prompted. You can start talking during checking or after the model appears; typing also works.
 4. Tell it what to change: **“Move the cup farther right”** or **“make this part twice as heavy.”** Nox explains the proposed operations. Say **“yes, apply”** to commit them, or **“cancel”** to retain the current experiment.
 5. Continue with **“run it,” “pause,” “keep a baseline,” “compare,”** and **“save.”** Nox listens again between replies. Say **“stop listening”** to turn voice off.
 
-Fresh drawing recognition and free-form model edits need the configured live Momen service and private judge access. A static build alone cannot interpret a new image. The application reports unavailable service, invalid images and unsupported requests; it does not replace failed recognition with a stored scene.
+The intended photo-to-running-model response is **120–180 seconds**, an aim rather than a measured guarantee. Each model request has a 120-second deadline; image preparation, clarification rounds and service latency affect total time. Fresh drawing recognition and free-form model edits need the configured live Momen service and private judge access. A static build alone cannot interpret a new image. The application reports unavailable service, invalid images and unsupported requests; it does not replace failed recognition with a stored scene.
 
 **Without a model account**, say **“Show me what you can do.”** Nox builds a declared spring example, computes two new solver runs, doubles its mass from the same initial setup, compares measured periods and saves the result. You do not navigate Library or click experiment controls. This is a built-in demonstration, not fresh model inference. Local creation of known examples, numerical edits and simulation controls also work without a model key.
 
-Typing uses the same assistant when speech is unavailable. Browser speech needs its recognition service, microphone permission and audio output; denied permission and service failures are reported. Stop remains available during checking. Conversation stays only in the current page; **Save** stores the experiment in this browser and **Export** creates a portable backup. Draw, Parts, Measure and the three labelled Library replays remain optional advanced tools.
+Typing uses the same assistant when speech is unavailable. Spoken input uses the browser’s recognition service and microphone permission; narration uses browser speech synthesis. Denied permission and service failures are reported. Stop remains available during checking. The recent transcript is held only in this page’s memory; **Save** stores the experiment in this browser and **Export** creates a portable backup. Draw, Parts, Measure and the three labelled Library replays remain optional advanced tools.
 
 ## Run locally
 
@@ -46,7 +46,7 @@ Use the root app for Nox's 3D interface. The standalone input-package UI is a pr
 | Layer | Implementation |
 | --- | --- |
 | Sketch/photo and speech | Shared input modules normalize images, retain source identity, transcribe speech and cancel obsolete requests. |
-| Interpretation and edits | Server-side provider calls return data; strict validation checks the 3D scene and atomic operations. Preview/Review waits for Confirm/Apply. |
+| Interpretation and edits | Server-side calls return validated 3D scene data and operations. Ready photo results are confirmed/run automatically; ordinary edits wait for reviewed spoken yes or Apply. Manual canvas previews retain Confirm/Cancel. |
 | Physics and rendering | Rapier3D 0.21.0 advances rigid bodies at 120 fixed steps/s. Three.js 0.186.0 renders the same geometry used for collision. |
 | Measurement and recovery | Selected-body samples drive plots; baseline, versions, source and checkpoints survive Save/reload and portable export. |
 

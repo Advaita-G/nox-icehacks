@@ -1,0 +1,14 @@
+.git
+.serena
+.vercel
+.env*
+!.env.example
+node_modules
+**/node_modules
+dist
+**/dist
+*.log
+.venv
+__pycache__
+artifacts
+.DS_Store

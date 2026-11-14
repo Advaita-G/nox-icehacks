@@ -1,0 +1,1031 @@
+{
+  "evidence": "Reused existing paper-photo input; conv103/104 captured real replies with request/source identity mapping. SpeechRecognition/TTS are explicit device fakes. Actual browser, image normalization, validation, solver and browser storage. NO fresh model inference, new photo, human microphone/speaker acceptance, screenshot, video or UI image capture.",
+  "url": "http://127.0.0.1:5201",
+  "started": 1794687357.880203,
+  "checks": [
+    {
+      "viewport": "1280x800",
+      "cases": [
+        {
+          "case": "upload-auto-confirm-real-run-spoken-model-review-yes-compare-save",
+          "result": "PASS"
+        },
+        {
+          "case": "actual-reload-original-source-baseline-version-checkpoint",
+          "result": "PASS"
+        },
+        {
+          "case": "cancel-checking-and-ignore-late-reply-retains-valid-experiment",
+          "result": "PASS",
+          "release": "fulfilled"
+        },
+        {
+          "case": "bad-file-visible-error-zero-inference-prior-experiment-retained",
+          "result": "PASS"
+        },
+        {
+          "case": "provider-error-visible-source-and-valid-experiment-retained",
+          "result": "PASS"
+        },
+        {
+          "case": "stop-during-reveal-prevents-delayed-auto-run-and-turns-mic-off",
+          "result": "PASS"
+        }
+      ],
+      "requests": [
+        {
+          "kind": "interpret",
+          "requestId": "req-09728f47",
+          "target": {
+            "experimentId": "d2583f86-624f-464f-a70f-777632b4cf7c",
+            "versionId": "fa7311c5-dc55-4526-90a9-26d725a7c74a",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10000
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "command",
+          "requestId": "req-c6efa6ce",
+          "target": {
+            "experimentId": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+            "versionId": "1a99b3da-3ec5-4496-8869-bd59a13415b5",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 4,
+            "epoch": 40000
+          },
+          "source": {
+            "id": null,
+            "revision": null,
+            "kind": null,
+            "widthPx": null,
+            "heightPx": null
+          },
+          "sourceImageSha256": null,
+          "command": "slide the cup 40 centimeters further away from the ramp",
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-c414ba58",
+          "target": {
+            "experimentId": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+            "versionId": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-06680a80",
+          "target": {
+            "experimentId": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+            "versionId": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 6,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 6,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-6820c501",
+          "target": {
+            "experimentId": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+            "versionId": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 8,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 8,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        }
+      ],
+      "failures": [],
+      "assets": [
+        "http://127.0.0.1:5201/assets/index-BbybbNUO.js"
+      ],
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "pending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "thinking",
+        "panelPhoto": "checking",
+        "phase": "Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": "",
+        "elapsedWaitBeforeReplySeconds": 0.25
+      },
+      "autoClock": 1.008,
+      "beforeCupX": 1.75875,
+      "review": {
+        "role": "assistant",
+        "text": "The cup\u2019s gap from the ramp exit increases from 0.05 m to 0.45 m.\nFixed open cup \u00b7 position x/y/z: (1.7587499618530273, 0.15000000596046448, 0) \u2192 (2.1587499618530273, 0.15000000596046448, 0) m",
+        "failed": false
+      },
+      "afterCupX": 2.1587501,
+      "saved": {
+        "libraryHash": "3c505e2f9168753d54969e5414b361ce354240d65f521ec66c62ff38d4d9683f",
+        "id": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+        "versions": [
+          {
+            "id": "e64861cf-c1a0-43c3-a399-6587f0d8970c",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "be9c44a70462a38160f05cafcd7458f8ce289e3de67e1608886146e2440bbdc1",
+            "samples": 32,
+            "end": 1.0083333333333333,
+            "checkpoint": true,
+            "checkpointHash": "c11bfb3aff8babac4b1aad12d5bd3bbb9a39b7dab30e4383b67c1f5ceb465685",
+            "cupX": 1.75875
+          },
+          {
+            "id": "1a99b3da-3ec5-4496-8869-bd59a13415b5",
+            "name": "Reset 2",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "c97c439bc98579949f8a1f5ff889606a8babd36c3a9c72f7d27c77d76f744bb9",
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true,
+            "checkpointHash": "aca06fff20df87e28ba6546fdf00d94a0c74161b37e9e10a736cc66f3aa7448d",
+            "cupX": 1.75875
+          },
+          {
+            "id": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+            "name": "Version 3",
+            "sceneHash": "db63fd3e94fee1cdfead4353842490d8107579150088f7d8630aff673255c71e",
+            "runHash": "d1859f1402f8ae1453720aede9bc0b14578061e1abd52640e2ab16e857bb35a1",
+            "samples": 33,
+            "end": 1.0416666666666667,
+            "checkpoint": true,
+            "checkpointHash": "7a4870f4b748696a870aa05329d8333fdf6c61a15b30f8ed2a4b8a72008320a4",
+            "cupX": 2.1587499618530273
+          }
+        ],
+        "baseline": {
+          "id": "e64861cf-c1a0-43c3-a399-6587f0d8970c",
+          "name": "Initial setup",
+          "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+          "runHash": "be9c44a70462a38160f05cafcd7458f8ce289e3de67e1608886146e2440bbdc1",
+          "samples": 32,
+          "end": 1.0083333333333333,
+          "checkpoint": true,
+          "checkpointHash": "c11bfb3aff8babac4b1aad12d5bd3bbb9a39b7dab30e4383b67c1f5ceb465685",
+          "cupX": 1.75875
+        },
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "clicksBeforeReload": [
+        "assistant-start"
+      ],
+      "restored": {
+        "libraryHash": "3c505e2f9168753d54969e5414b361ce354240d65f521ec66c62ff38d4d9683f",
+        "id": "4f09e1a6-4ff8-42e0-9f80-209f7c8d9da6",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+        "versions": [
+          {
+            "id": "e64861cf-c1a0-43c3-a399-6587f0d8970c",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "be9c44a70462a38160f05cafcd7458f8ce289e3de67e1608886146e2440bbdc1",
+            "samples": 32,
+            "end": 1.0083333333333333,
+            "checkpoint": true,
+            "checkpointHash": "c11bfb3aff8babac4b1aad12d5bd3bbb9a39b7dab30e4383b67c1f5ceb465685",
+            "cupX": 1.75875
+          },
+          {
+            "id": "1a99b3da-3ec5-4496-8869-bd59a13415b5",
+            "name": "Reset 2",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "c97c439bc98579949f8a1f5ff889606a8babd36c3a9c72f7d27c77d76f744bb9",
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true,
+            "checkpointHash": "aca06fff20df87e28ba6546fdf00d94a0c74161b37e9e10a736cc66f3aa7448d",
+            "cupX": 1.75875
+          },
+          {
+            "id": "9f3c307e-cc7b-4b18-a1b5-808ae2fa2223",
+            "name": "Version 3",
+            "sceneHash": "db63fd3e94fee1cdfead4353842490d8107579150088f7d8630aff673255c71e",
+            "runHash": "d1859f1402f8ae1453720aede9bc0b14578061e1abd52640e2ab16e857bb35a1",
+            "samples": 33,
+            "end": 1.0416666666666667,
+            "checkpoint": true,
+            "checkpointHash": "7a4870f4b748696a870aa05329d8333fdf6c61a15b30f8ed2a4b8a72008320a4",
+            "cupX": 2.1587499618530273
+          }
+        ],
+        "baseline": {
+          "id": "e64861cf-c1a0-43c3-a399-6587f0d8970c",
+          "name": "Initial setup",
+          "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+          "runHash": "be9c44a70462a38160f05cafcd7458f8ce289e3de67e1608886146e2440bbdc1",
+          "samples": 32,
+          "end": 1.0083333333333333,
+          "checkpoint": true,
+          "checkpointHash": "c11bfb3aff8babac4b1aad12d5bd3bbb9a39b7dab30e4383b67c1f5ceb465685",
+          "cupX": 1.75875
+        },
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "cancelPending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "idle",
+        "panelPhoto": "checking",
+        "phase": "Checking the drawing. You can say cancel while it builds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": ""
+      },
+      "badFileError": "Nox\n\nUpload a JPEG, PNG or WebP photo.",
+      "providerFailure": "Nox\n\nThe AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "stopDuringReveal": {
+        "beforeClock": 0.0,
+        "beforeState": "thinking",
+        "afterClock": 0.0,
+        "afterState": "idle",
+        "mode": "Paused",
+        "recognitionActive": false
+      },
+      "result": "PASS",
+      "transcript": [
+        {
+          "role": "assistant",
+          "text": "I am Nox. Tell me what you want to build, or say show me what you can do.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "select the cup",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Selected Fixed open cup. Tell me what to change.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "cancel",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Cancelled. Valid experiments and saved work are retained.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Upload a JPEG, PNG or WebP photo.",
+          "failed": true
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+          "failed": true
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing has become a validated 3D scene. I am starting the experiment automatically.\nBall: Ball drawn above the upper part of the ramp; placed at rest touching the sloping face.\nFixed trapezoidal ramp wedge: Ramp and its solid support are represented as one fixed trapezoidal prism with a sloping top, as clarified.\nFixed open cup: Open cup drawn beyond the ramp in the ball's path; its inside opening and height use the clarified estimates.\nHorizontal floor: Assumed part. Rigid horizontal floor added to support the fixed wedge and cup.\nThe cup is positioned just beyond the ramp exit. The initial rolling path may strike its near wall, as specified; the drawing and dimensions do not imply that the ball enters the opening.\nThe stated 1.6 m ramp length is measured along its sloping surface. With a 1.0 m high end and a 0.3 m exit, its horizontal run is approximately 1.439 m.\nThe wedge is a rigid trapezoidal prism whose top is the ramp surface; it is fixed to the floor. Its depth is 0.5 m.\nThe ball is a uniform solid sphere of diameter 0.10 m, initially at rest and placed in contact with the upper ramp surface.\nThe cup's 0.5 m opening and 0.5 m depth are interpreted as interior dimensions. Wall and bottom thickness are assumed to be 0.02 m, giving 0.54 m external width and depth.\nThe cup is fixed on the floor, immediately beyond the ramp exit with a 0.05 m gap. A collision with its near wall is intentional and entry into the cup is not guaranteed.\nMasses and contact coefficients are estimates, not measured: ball 0.5 kg, wedge 10 kg, cup 0.5 kg; friction and restitution are declared per object. The floor is an ideal rigid platform. No powered motion or air effects are assumed.",
+          "failed": false
+        }
+      ],
+      "state": "idle",
+      "appError": "",
+      "speech": [
+        {
+          "text": "I am Nox. Tell me what you want to build, or say show me what you can do.",
+          "at": 794.3000000715256
+        },
+        {
+          "text": "Selected Fixed open cup. Tell me what to change.",
+          "at": 1556.7000000476837
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 2319.8000000715256
+        },
+        {
+          "text": "Cancelled. Valid experiments and saved work are retained.",
+          "at": 3079.600000023842
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 4153.300000071526
+        },
+        {
+          "text": "Upload a JPEG, PNG or WebP photo.",
+          "at": 4157.400000095367
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 4447.600000023842
+        },
+        {
+          "text": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+          "at": 4478.200000047684
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 5239.900000095367
+        }
+      ],
+      "events": [
+        {
+          "event": "listen",
+          "at": 792.6000000238419
+        },
+        {
+          "event": "abort",
+          "at": 794.2000000476837
+        },
+        {
+          "event": "listen",
+          "at": 1524
+        },
+        {
+          "event": "utterance",
+          "text": "select the cup",
+          "at": 1546
+        },
+        {
+          "event": "abort",
+          "at": 1546.1000000238419
+        },
+        {
+          "event": "listen",
+          "at": 2289.7000000476837
+        },
+        {
+          "event": "abort",
+          "at": 2318.2000000476837
+        },
+        {
+          "event": "listen",
+          "at": 3058.2000000476837
+        },
+        {
+          "event": "utterance",
+          "text": "cancel",
+          "at": 3075.100000023842
+        },
+        {
+          "event": "abort",
+          "at": 3075.100000023842
+        },
+        {
+          "event": "listen",
+          "at": 3808.7000000476837
+        },
+        {
+          "event": "abort",
+          "at": 4151.200000047684
+        },
+        {
+          "event": "listen",
+          "at": 5205.400000095367
+        },
+        {
+          "event": "abort",
+          "at": 5237.400000095367
+        }
+      ],
+      "longFrames": [],
+      "finalClock": "0.000 s",
+      "finalMode": "Paused"
+    },
+    {
+      "viewport": "375x667",
+      "cases": [
+        {
+          "case": "upload-auto-confirm-real-run-spoken-model-review-yes-compare-save",
+          "result": "PASS"
+        },
+        {
+          "case": "actual-reload-original-source-baseline-version-checkpoint",
+          "result": "PASS"
+        },
+        {
+          "case": "cancel-checking-and-ignore-late-reply-retains-valid-experiment",
+          "result": "PASS",
+          "release": "fulfilled"
+        },
+        {
+          "case": "bad-file-visible-error-zero-inference-prior-experiment-retained",
+          "result": "PASS"
+        },
+        {
+          "case": "provider-error-visible-source-and-valid-experiment-retained",
+          "result": "PASS"
+        },
+        {
+          "case": "stop-during-reveal-prevents-delayed-auto-run-and-turns-mic-off",
+          "result": "PASS"
+        }
+      ],
+      "requests": [
+        {
+          "kind": "interpret",
+          "requestId": "req-b60c3e4d",
+          "target": {
+            "experimentId": "6f2eb902-64fa-4678-a06d-aad070d4e16e",
+            "versionId": "5a5a8012-5477-46d3-9258-40e6952409b0",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10000
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "command",
+          "requestId": "req-0fff4f4e",
+          "target": {
+            "experimentId": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+            "versionId": "771de9dd-9d66-408a-a805-8e662b1739ee",
+            "sceneRevision": 0,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 4,
+            "epoch": 40000
+          },
+          "source": {
+            "id": null,
+            "revision": null,
+            "kind": null,
+            "widthPx": null,
+            "heightPx": null
+          },
+          "sourceImageSha256": null,
+          "command": "slide the cup 40 centimeters further away from the ramp",
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-9205b94d",
+          "target": {
+            "experimentId": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+            "versionId": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 3,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 3,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-75097bc8",
+          "target": {
+            "experimentId": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+            "versionId": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 6,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 6,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        },
+        {
+          "kind": "interpret",
+          "requestId": "req-9447fa43",
+          "target": {
+            "experimentId": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+            "versionId": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+            "sceneRevision": 1,
+            "sourceId": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "sourceRevision": 8,
+            "epoch": 10125
+          },
+          "source": {
+            "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+            "revision": 8,
+            "kind": "photo",
+            "widthPx": 1280,
+            "heightPx": 720
+          },
+          "sourceImageSha256": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "command": null,
+          "release": "fulfilled",
+          "releaseError": null
+        }
+      ],
+      "failures": [],
+      "assets": [
+        "http://127.0.0.1:5201/assets/index-BbybbNUO.js"
+      ],
+      "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+      "pending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "thinking",
+        "panelPhoto": "checking",
+        "phase": "Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": "",
+        "elapsedWaitBeforeReplySeconds": 0.25
+      },
+      "autoClock": 1.025,
+      "beforeCupX": 1.75875,
+      "review": {
+        "role": "assistant",
+        "text": "The cup\u2019s gap from the ramp exit increases from 0.05 m to 0.45 m.\nFixed open cup \u00b7 position x/y/z: (1.7587499618530273, 0.15000000596046448, 0) \u2192 (2.1587499618530273, 0.15000000596046448, 0) m",
+        "failed": false
+      },
+      "afterCupX": 2.1587501,
+      "saved": {
+        "libraryHash": "4296d5119d2b582d769f86ba77edbbbbccc53c48247f4e7ce45e33d082b66729",
+        "id": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+        "versions": [
+          {
+            "id": "c5c1aff2-3c3d-44b7-8e6f-6b3512da22e4",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "9a6a1fc6c3a0ee535f61ad4655730d4c5bde7c57e92e39b809992c4db1ebcdae",
+            "samples": 32,
+            "end": 1.025,
+            "checkpoint": true,
+            "checkpointHash": "441515240d897d7b4d67b25c7b31bfdfb112fc62db0436f301133054c240a78a",
+            "cupX": 1.75875
+          },
+          {
+            "id": "771de9dd-9d66-408a-a805-8e662b1739ee",
+            "name": "Reset 2",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "d19dee18ad91f56e907536593097286130748021b37844ec4097dc722c802ba3",
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true,
+            "checkpointHash": "aca06fff20df87e28ba6546fdf00d94a0c74161b37e9e10a736cc66f3aa7448d",
+            "cupX": 1.75875
+          },
+          {
+            "id": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+            "name": "Version 3",
+            "sceneHash": "db63fd3e94fee1cdfead4353842490d8107579150088f7d8630aff673255c71e",
+            "runHash": "821fc6e0f3c7a43b4b0a85d925f5058ed5b9c4e8b31171cfe0844cf1a1095466",
+            "samples": 33,
+            "end": 1.0416666666666667,
+            "checkpoint": true,
+            "checkpointHash": "7a4870f4b748696a870aa05329d8333fdf6c61a15b30f8ed2a4b8a72008320a4",
+            "cupX": 2.1587499618530273
+          }
+        ],
+        "baseline": {
+          "id": "c5c1aff2-3c3d-44b7-8e6f-6b3512da22e4",
+          "name": "Initial setup",
+          "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+          "runHash": "9a6a1fc6c3a0ee535f61ad4655730d4c5bde7c57e92e39b809992c4db1ebcdae",
+          "samples": 32,
+          "end": 1.025,
+          "checkpoint": true,
+          "checkpointHash": "441515240d897d7b4d67b25c7b31bfdfb112fc62db0436f301133054c240a78a",
+          "cupX": 1.75875
+        },
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "clicksBeforeReload": [
+        "assistant-start"
+      ],
+      "restored": {
+        "libraryHash": "4296d5119d2b582d769f86ba77edbbbbccc53c48247f4e7ce45e33d082b66729",
+        "id": "73735192-1ddd-4395-9f47-14db8cc0b7c1",
+        "name": "Ball rolling down a ramp toward a cup",
+        "selectedVersionId": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+        "versions": [
+          {
+            "id": "c5c1aff2-3c3d-44b7-8e6f-6b3512da22e4",
+            "name": "Initial setup",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "9a6a1fc6c3a0ee535f61ad4655730d4c5bde7c57e92e39b809992c4db1ebcdae",
+            "samples": 32,
+            "end": 1.025,
+            "checkpoint": true,
+            "checkpointHash": "441515240d897d7b4d67b25c7b31bfdfb112fc62db0436f301133054c240a78a",
+            "cupX": 1.75875
+          },
+          {
+            "id": "771de9dd-9d66-408a-a805-8e662b1739ee",
+            "name": "Reset 2",
+            "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+            "runHash": "d19dee18ad91f56e907536593097286130748021b37844ec4097dc722c802ba3",
+            "samples": 1,
+            "end": 0,
+            "checkpoint": true,
+            "checkpointHash": "aca06fff20df87e28ba6546fdf00d94a0c74161b37e9e10a736cc66f3aa7448d",
+            "cupX": 1.75875
+          },
+          {
+            "id": "02eec493-7c41-4eab-8249-0cc3a37d5a37",
+            "name": "Version 3",
+            "sceneHash": "db63fd3e94fee1cdfead4353842490d8107579150088f7d8630aff673255c71e",
+            "runHash": "821fc6e0f3c7a43b4b0a85d925f5058ed5b9c4e8b31171cfe0844cf1a1095466",
+            "samples": 33,
+            "end": 1.0416666666666667,
+            "checkpoint": true,
+            "checkpointHash": "7a4870f4b748696a870aa05329d8333fdf6c61a15b30f8ed2a4b8a72008320a4",
+            "cupX": 2.1587499618530273
+          }
+        ],
+        "baseline": {
+          "id": "c5c1aff2-3c3d-44b7-8e6f-6b3512da22e4",
+          "name": "Initial setup",
+          "sceneHash": "373ae9f61da22e90a5bf50f9d3247bcd2d75a3385f60462d1ccfe10d13d70307",
+          "runHash": "9a6a1fc6c3a0ee535f61ad4655730d4c5bde7c57e92e39b809992c4db1ebcdae",
+          "samples": 32,
+          "end": 1.025,
+          "checkpoint": true,
+          "checkpointHash": "441515240d897d7b4d67b25c7b31bfdfb112fc62db0436f301133054c240a78a",
+          "cupX": 1.75875
+        },
+        "source": {
+          "kind": "photo",
+          "id": "4846727039dd10a4715226ce5007237da95b06538a72ae75fa6ee660546e4ea5",
+          "revision": 3,
+          "width": 1280,
+          "height": 720,
+          "sourceHash": "1399efcd8e3b4b3a4d00ca2ba64e2418518e2b7f0b4872d668d325a7d8520255",
+          "imageHash": "129da41f406ff0d28cd163d1022073bf4672a52a415e9e4ae4f4a2f2a0b937f8",
+          "notes": ""
+        }
+      },
+      "cancelPending": {
+        "sourceOpen": true,
+        "sourceState": "thinking",
+        "normalizedImageVisible": true,
+        "imageWidth": 1280,
+        "imageHeight": 720,
+        "imageType": "data:image/jpeg;base64,/",
+        "panelState": "idle",
+        "panelPhoto": "checking",
+        "phase": "Checking the drawing. You can say cancel while it builds.",
+        "scan": {
+          "display": "block",
+          "opacity": "1",
+          "animation": "scan",
+          "duration": "1.8s"
+        },
+        "stopVisible": true,
+        "questions": ""
+      },
+      "badFileError": "Nox\n\nUpload a JPEG, PNG or WebP photo.",
+      "providerFailure": "Nox\n\nThe AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "stopDuringReveal": {
+        "beforeClock": 0.0,
+        "beforeState": "thinking",
+        "afterClock": 0.0,
+        "afterState": "idle",
+        "mode": "Paused",
+        "recognitionActive": false
+      },
+      "result": "PASS",
+      "transcript": [
+        {
+          "role": "assistant",
+          "text": "I am Nox. Tell me what you want to build, or say show me what you can do.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "select the cup",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Selected Fixed open cup. Tell me what to change.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "user",
+          "text": "cancel",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Cancelled. Valid experiments and saved work are retained.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Upload a JPEG, PNG or WebP photo.",
+          "failed": true
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+          "failed": true
+        },
+        {
+          "role": "assistant",
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "failed": false
+        },
+        {
+          "role": "assistant",
+          "text": "Your drawing has become a validated 3D scene. I am starting the experiment automatically.\nBall: Ball drawn above the upper part of the ramp; placed at rest touching the sloping face.\nFixed trapezoidal ramp wedge: Ramp and its solid support are represented as one fixed trapezoidal prism with a sloping top, as clarified.\nFixed open cup: Open cup drawn beyond the ramp in the ball's path; its inside opening and height use the clarified estimates.\nHorizontal floor: Assumed part. Rigid horizontal floor added to support the fixed wedge and cup.\nThe cup is positioned just beyond the ramp exit. The initial rolling path may strike its near wall, as specified; the drawing and dimensions do not imply that the ball enters the opening.\nThe stated 1.6 m ramp length is measured along its sloping surface. With a 1.0 m high end and a 0.3 m exit, its horizontal run is approximately 1.439 m.\nThe wedge is a rigid trapezoidal prism whose top is the ramp surface; it is fixed to the floor. Its depth is 0.5 m.\nThe ball is a uniform solid sphere of diameter 0.10 m, initially at rest and placed in contact with the upper ramp surface.\nThe cup's 0.5 m opening and 0.5 m depth are interpreted as interior dimensions. Wall and bottom thickness are assumed to be 0.02 m, giving 0.54 m external width and depth.\nThe cup is fixed on the floor, immediately beyond the ramp exit with a 0.05 m gap. A collision with its near wall is intentional and entry into the cup is not guaranteed.\nMasses and contact coefficients are estimates, not measured: ball 0.5 kg, wedge 10 kg, cup 0.5 kg; friction and restitution are declared per object. The floor is an ideal rigid platform. No powered motion or air effects are assumed.",
+          "failed": false
+        }
+      ],
+      "state": "idle",
+      "appError": "",
+      "speech": [
+        {
+          "text": "I am Nox. Tell me what you want to build, or say show me what you can do.",
+          "at": 790.3999999761581
+        },
+        {
+          "text": "Selected Fixed open cup. Tell me what to change.",
+          "at": 1556.2000000476837
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 2330.899999976158
+        },
+        {
+          "text": "Cancelled. Valid experiments and saved work are retained.",
+          "at": 3097.5
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 4180.299999952316
+        },
+        {
+          "text": "Upload a JPEG, PNG or WebP photo.",
+          "at": 4182.399999976158
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 4459.399999976158
+        },
+        {
+          "text": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+          "at": 4493.200000047684
+        },
+        {
+          "text": "I am preparing the photo. Then I will check the drawing and build its physical scene.",
+          "at": 5247.700000047684
+        }
+      ],
+      "events": [
+        {
+          "event": "listen",
+          "at": 789
+        },
+        {
+          "event": "abort",
+          "at": 790.3999999761581
+        },
+        {
+          "event": "listen",
+          "at": 1522.1000000238419
+        },
+        {
+          "event": "utterance",
+          "text": "select the cup",
+          "at": 1544.1000000238419
+        },
+        {
+          "event": "abort",
+          "at": 1544.1000000238419
+        },
+        {
+          "event": "listen",
+          "at": 2289.2000000476837
+        },
+        {
+          "event": "abort",
+          "at": 2328.899999976158
+        },
+        {
+          "event": "listen",
+          "at": 3072.399999976158
+        },
+        {
+          "event": "utterance",
+          "text": "cancel",
+          "at": 3093.2999999523163
+        },
+        {
+          "event": "abort",
+          "at": 3093.2999999523163
+        },
+        {
+          "event": "listen",
+          "at": 3824.5
+        },
+        {
+          "event": "abort",
+          "at": 4177.399999976158
+        },
+        {
+          "event": "listen",
+          "at": 5222.299999952316
+        },
+        {
+          "event": "abort",
+          "at": 5246
+        }
+      ],
+      "longFrames": [],
+      "finalClock": "0.000 s",
+      "finalMode": "Paused"
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "fixture": {
+    "sha256": "7f55cbbd67a63b5f0185dd449af86d0bb9d23f0939e00937d14c303af3698d59",
+    "bytes": 145204,
+    "description": "Reused paper-drawing photograph from the earlier captured case; not a newly captured photo."
+  },
+  "sourceHashes": {
+    "src/main.ts": "7c39e5822fc75ae38cda6492897c359569b1121549f061dd11b32b76414c674b",
+    "src/input/ui.ts": "75ab3acfd959704891951c202a67c00539dd1ab5817430df2d5346b55e1e64cf",
+    "src/ui/shell.ts": "b0964aea44997c75d83fa3bd3dec243f295edcc7d018d0035dfa620e16b2473f",
+    "src/assistant/panel.ts": "b88ee541352ae2bec64a8ded5b28c6967b1b61a864ce99244abed4cd42090bd2",
+    "src/assistant/panel.css": "f1e4cb9ee94aa2154daa0f8f326ee0d1d505fdf16f5f711db1bc34aa14de8254",
+    "src/assistant/actions.ts": "e07cb41ec0b89d1ed1c18a07fd4efecbc690324a0a84302fd806cae76aad2366",
+    "src/assistant/voice.ts": "571bb6d5140003e65d93943fc11f99fdeb00a291945be998524e96c754b22696",
+    "src/viewport.ts": "49cd37755cd83ad334524e98328f6b1900425fd60979962c8e30b4010972c5cb"
+  },
+  "fakeDeviceHarnessSha256": "de44f1e640db2d1e77b303b30b0667efd58e7f3db357fb8a1a4350aae5b13a87",
+  "finished": 1794687398.421053,
+  "exportNote": "Public receipt copy of results-20261114-121638.json. Only the private local fixture path was omitted; recorded checks, hashes and results are unchanged."
+}

@@ -8,11 +8,11 @@ We wanted to test a rough physical idea without rebuilding it through a long ser
 
 ## What it does
 
-Take a photo of a paper mechanism or upload a drawing. Nox prepares the image and starts checking it automatically. The normalized source stays visible while the assistant reports its actual progress. A valid interpretation becomes a 3D model and starts running in the same dark assistant workspace. If the drawing leaves a physical detail unclear, Nox asks about it.
+Take a photo of a paper mechanism or upload a drawing. With its live model service configured, Nox prepares the image and starts checking it automatically. The normalized source stays visible while the assistant reports its actual progress. A valid interpretation becomes a 3D model and starts running in the same dark assistant workspace. If the drawing leaves a physical detail unclear, Nox asks about it.
 
 Allow the microphone once to continue by voice, or use the typed fallback. Ask Nox to select a part, move an object or change a property. It explains the proposed physical changes and waits for “yes” before applying an edit. You can pause, reset, retain a baseline, compare measured motion and save the experiment with its source, versions and paused checkpoint.
 
-Photo interpretation and free-form edits use the configured Momen service. Local actions and a clearly identified built-in spring demonstration also run without a model call. That demonstration measures two real five-second runs before and after doubling mass and explains the sampled change in period. Recorded Library experiments are optional examples.
+Photo interpretation and free-form edits use the configured Momen service. The intended photo-to-running-model response is two to three minutes; this is a design aim, not a measured latency guarantee. Each model request is bounded to 120 seconds, and clarification rounds can take longer. Local actions and a clearly identified built-in spring demonstration also run without a model call. That demonstration measures two real five-second runs before and after doubling mass and explains the sampled change in period. Recorded Library experiments are optional examples.
 
 ## How we built it
 
