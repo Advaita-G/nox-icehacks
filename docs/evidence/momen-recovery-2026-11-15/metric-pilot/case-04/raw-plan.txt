@@ -1,0 +1,195 @@
+{
+  "status": "ready",
+  "name": "tree_sketch",
+  "assumptions": [
+    "Drawing depicts a stylized tree standing on a level ground line.",
+    "Tree trunk, branches, and foliage clumps are modeled as a single fixed scenery body.",
+    "Foliage clusters are modeled as three overlapping spherical volumes.",
+    "Depth along Z is inferred for 3D stability and visualization."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid model of the tree and ground line.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground line",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 3,
+            "y": 0.05,
+            "z": 0.4
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal ground baseline",
+        "region": {
+          "left": 0.187,
+          "top": 0.785,
+          "right": 0.788,
+          "bottom": 0.802
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "tree",
+      "label": "tree",
+      "fixed": true,
+      "position": {
+        "x": -0.02,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -0.22, "y": 0, "z": -0.1 },
+            { "x": 0.22, "y": 0, "z": -0.1 },
+            { "x": 0.22, "y": 0, "z": 0.1 },
+            { "x": -0.22, "y": 0, "z": 0.1 },
+            { "x": -0.115, "y": 0.95, "z": -0.1 },
+            { "x": 0.115, "y": 0.95, "z": -0.1 },
+            { "x": 0.115, "y": 0.95, "z": 0.1 },
+            { "x": -0.115, "y": 0.95, "z": 0.1 }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.04,
+            "y": 0.64,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.325,
+            "y": 0.955,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 42.5
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.04,
+            "y": 0.66,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.335,
+            "y": 0.93,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -50.5
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "position": {
+            "x": -0.51,
+            "y": 1.42,
+            "z": 0
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 1.1,
+            "y": 1.1,
+            "z": 1.1
+          },
+          "position": {
+            "x": 0.3,
+            "y": 1.62,
+            "z": 0
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.94,
+            "y": 0.94,
+            "z": 0.94
+          },
+          "position": {
+            "x": 0.8,
+            "y": 1.21,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "tree trunk, branches, and three circular foliage clusters",
+        "region": {
+          "left": 0.268,
+          "top": 0.088,
+          "right": 0.738,
+          "bottom": 0.793
+        }
+      },
+      "stackAbove": "ground"
+    }
+  ]
+}

@@ -1,0 +1,444 @@
+{
+  "requestId": "momen-case-07",
+  "sourceId": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "ground line at base",
+      "objectId": "floor",
+      "bbox": [
+        0.16,
+        0.9,
+        0.72,
+        0.020000000000000018
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "tabletop and supporting legs",
+      "objectId": "table",
+      "bbox": [
+        0.21,
+        0.685,
+        0.5950000000000001,
+        0.22999999999999998
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "triangular pyramid resting on table",
+      "objectId": "pyramid",
+      "bbox": [
+        0.255,
+        0.352,
+        0.263,
+        0.33999999999999997
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "square box behind the pyramid",
+      "objectId": "cube",
+      "bbox": [
+        0.448,
+        0.548,
+        0.08400000000000002,
+        0.1439999999999999
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "circular sphere resting on table",
+      "objectId": "sphere",
+      "bbox": [
+        0.56,
+        0.488,
+        0.1299999999999999,
+        0.20399999999999996
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Rigid model of table with geometric pyramid, cube, and sphere resting on it.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "geometric-still-life",
+    "scale": 400,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Scene depicts a line drawing of classic geometric solids (pyramid, cube, sphere) on a table above a ground floor.",
+      "The pyramid visually overlaps the cube in elevation, so they are slightly separated along the Z-axis to prevent collision.",
+      "The table and ground floor are modeled as fixed scenery, while the three shapes are dynamic bodies resting on the tabletop.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "floor",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0.075,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.9,
+        "height": 0.1,
+        "depth": 1.5,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "table",
+        "label": "table",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0.038,
+          "y": 0.275,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.35,
+        "height": 0.55,
+        "depth": 1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.3863636363636363,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.22727272727272727,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.3872340425531915,
+              "y": -0.11363636363636363,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.03404255319148936,
+              "y": 0.7727272727272726,
+              "z": 0.6
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.37872340425531914,
+              "y": -0.11363636363636363,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.03404255319148936,
+              "y": 0.7727272727272726,
+              "z": 0.6
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "pyramid",
+        "label": "pyramid",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": -0.45,
+          "y": 0.9675010707554983,
+          "z": 0.2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.015,
+        "height": 0.835,
+        "depth": 0.4,
+        "geometry": [
+          {
+            "shape": "convex",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "vertices": [
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ],
+        "mass": 2,
+        "friction": 0.6,
+        "restitution": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "cube",
+        "label": "cube",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": -0.041,
+          "y": 0.7249998821264867,
+          "z": -0.2
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.31,
+        "height": 0.35,
+        "depth": 0.31,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1.5,
+        "friction": 0.6,
+        "restitution": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "sphere",
+        "label": "sphere",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0.5,
+          "y": 0.7999997838408492,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.5,
+        "height": 0.5,
+        "depth": 0.5,
+        "geometry": [
+          {
+            "shape": "sphere",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.4,
+        "restitution": 0.2,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

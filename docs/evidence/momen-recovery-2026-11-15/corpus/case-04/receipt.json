@@ -1,0 +1,405 @@
+{
+  "id": "case-04",
+  "subject": "tree",
+  "expected": "Narrow trunk, broad rounded canopy and support; rigid scenery, no invented biological motion.",
+  "inputSha256": "3ae8cf663ef5a2928f3306df41d619deeaeb73905fa507e0d5df1619ce9e4b53",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:37:47.998Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 10
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "The drawing represents a stylized tree on a horizontal ground line. It has been modeled as a fixed support ground platform with a static compound tree consisting of extruded rigid trunk, branches, and cylindrical foliage disks.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.20000000298023224,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.20000000298023224,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "tree",
+          "position": {
+            "x": 0,
+            "y": 3.5,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.38944074511528015,
+            "y": 4.28283166885376,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "kineticEnergy": 0,
+      "potentialEnergy": 0,
+      "momentum": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground platform",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": -0.2,
+        "z": 0
+      },
+      "dimensions": [
+        10,
+        0.4,
+        2
+      ],
+      "fixed": true
+    },
+    {
+      "id": "tree",
+      "label": "tree structure",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 3.5,
+        "z": 0
+      },
+      "dimensions": [
+        8,
+        8,
+        8
+      ],
+      "fixed": true,
+      "parts": 6
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "bbox": [
+        0.18,
+        0.78,
+        0.61,
+        0.03
+      ],
+      "note": "Horizontal ground line drawn at the base of the tree"
+    },
+    {
+      "objectId": "tree",
+      "origin": "sketch",
+      "bbox": [
+        0.27,
+        0.08,
+        0.47,
+        0.71
+      ],
+      "note": "Tree figure comprising trunk, two angled branches, and three overlapping circular foliage crowns"
+    }
+  ],
+  "elapsedSeconds": 72.741,
+  "requests": 1
+}

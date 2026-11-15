@@ -1,0 +1,164 @@
+{
+  "valid": true,
+  "value": {
+    "requestId": "req-022817ba",
+    "status": "proposed",
+    "operations": [
+      {
+        "type": "set-property",
+        "id": "ball",
+        "property": "velocity",
+        "value": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    "summary": [
+      "Set ball initial horizontal velocity to 2 m/s to the right (X: 2, Y: 0, Z: 0)."
+    ],
+    "questions": [],
+    "message": "Assigned an initial velocity of 2 m/s along the +X axis (to the right) to the ball."
+  },
+  "candidateScene": {
+    "schemaVersion": 2,
+    "revision": 1,
+    "name": "Ball on Fixed Plank and Ground",
+    "scale": 170,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Ball diameter (1.0 m) and mass (1.0 kg) taken from sketch annotations.",
+      "Plank length (3.0 m) taken from sketch annotation; plank thickness (0.2 m) and depth (1.0 m) estimated from proportions.",
+      "Plank and ground are fixed bodies as labeled.",
+      "Ball rests atop the plank at start with zero initial velocity.",
+      "Contact friction (0.3) and restitution (0.2) are assumed default physical parameters."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.25,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 0.5,
+        "depth": 2,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "plank",
+        "label": "fixed plank",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.10000000149011612,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3,
+        "height": 0.2,
+        "depth": 1,
+        "mass": 15,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "ball",
+        "label": "ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.6999337077140808,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "mass": 1,
+        "velocity": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,446 @@
+{
+  "id": "case-06",
+  "subject": "car",
+  "expected": "Car cabin, two round wheels and ground; coherent rigid approximation without invented motor.",
+  "inputSha256": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "8d12752 metric compiler with restored Momen; temporary schema-in-prompt adaptation; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:54:05.928Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 21
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Rigid 3D model of the drawn car with chassis, trapezoidal cabin, B-pillar divider, and wheels resting on the ground plane.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0.03999999910593033,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.03999999910593033,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "car",
+          "position": {
+            "x": 0.000004381407052278519,
+            "y": 0.3749299943447113,
+            "z": -0.0000421582481067162
+          },
+          "centerOfMass": {
+            "x": 0.005446210037916899,
+            "y": 0.756120502948761,
+            "z": -0.000041553030314389616
+          },
+          "rotation": {
+            "x": 7.632134497725929e-7,
+            "y": -0.0000021307612314558355,
+            "z": 0.000020938050511176698,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0.0000013929304714110913,
+            "y": 0.000005510086793947266,
+            "z": -0.0000203868949029129
+          },
+          "angularVelocity": {
+            "x": -0.00002694355498533696,
+            "y": 2.2424893941774826e-8,
+            "z": -0.0000018335102822675253
+          },
+          "speed": 0.000021164281125458374,
+          "mass": 25.000003814697266,
+          "inertia": {
+            "x": 3.7862589359283447,
+            "y": 17.78926658630371,
+            "z": 20.511194229125977
+          }
+        }
+      ],
+      "kineticEnergy": 7.014006872798516e-9,
+      "potentialEnergy": 185.43858164386134,
+      "momentum": {
+        "x": 0.00003482326709888534,
+        "y": 0.0001377521908679947,
+        "z": -0.0005096724503426547
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "kind": "custom-part",
+      "position": {
+        "x": 0.04,
+        "y": -0.05,
+        "z": 0
+      },
+      "dimensions": [
+        5,
+        0.1,
+        1
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "car",
+      "label": "Car",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 0.3749999909202497,
+        "z": 0
+      },
+      "dimensions": [
+        3.2,
+        2.42,
+        0.5200000000000001
+      ],
+      "fixed": false,
+      "parts": 5
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "Horizontal ground line beneath the car",
+      "objectId": "ground",
+      "bbox": [
+        0.15,
+        0.778,
+        0.72,
+        0.010000000000000009
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Car body with chassis, cabin, window divider, and front/rear wheels",
+      "objectId": "car",
+      "bbox": [
+        0.224,
+        0.328,
+        0.559,
+        0.441
+      ]
+    }
+  ],
+  "elapsedSeconds": 86.252,
+  "requests": 1
+}

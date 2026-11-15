@@ -1,0 +1,359 @@
+{
+  "id": "case-01",
+  "subject": "unlabelled-house",
+  "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+  "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:36:24.280Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 8
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Interpreted the line drawing as a 3D house structure with a pitched gable roof, facade walls, door, and windows, resting on an inferred supporting ground plane.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground-1",
+          "position": {
+            "x": 0,
+            "y": -0.25,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.25,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "house-1",
+          "position": {
+            "x": 0,
+            "y": 2.6549999713897705,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": -7.450580430390374e-11,
+            "y": 2.2742106914520264,
+            "z": 0.0077401986345648766
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "kineticEnergy": 0,
+      "potentialEnergy": 0,
+      "momentum": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground-1",
+      "label": "ground",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": -0.25,
+        "z": 0
+      },
+      "dimensions": [
+        12,
+        0.5,
+        12
+      ],
+      "fixed": true
+    },
+    {
+      "id": "house-1",
+      "label": "house",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 2.655,
+        "z": 0
+      },
+      "dimensions": [
+        6,
+        5.31,
+        5
+      ],
+      "fixed": true,
+      "parts": 5
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "objectId": "house-1",
+      "origin": "sketch",
+      "bbox": [
+        0.262,
+        0.178,
+        0.476,
+        0.672
+      ],
+      "note": "Gabled house with triangular pitched roof, rectangular facade, central door, and two pane windows."
+    },
+    {
+      "objectId": "ground-1",
+      "origin": "inferred",
+      "note": "Horizontal ground platform supporting the house at its foundation."
+    }
+  ],
+  "elapsedSeconds": 60.057,
+  "requests": 1
+}

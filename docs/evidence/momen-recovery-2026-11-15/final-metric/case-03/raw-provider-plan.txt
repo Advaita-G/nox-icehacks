@@ -1,0 +1,275 @@
+```json
+{
+  "status": "ready",
+  "name": "Wireframe Chair",
+  "assumptions": [
+    "Perspective line drawing depicts a four-legged chair with backrest resting on a flat floor.",
+    "Constructed as a rigid tubular frame consisting of 9 frame members matching each drawn line.",
+    "Ground line represents a stable horizontal supporting floor."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid wireframe chair standing upright on a fixed ground support.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": -0.025,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.2,
+            "y": 0.05,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ground line support",
+        "region": {
+          "left": 0.175,
+          "top": 0.847,
+          "right": 0.751,
+          "bottom": 0.853
+        }
+      },
+      "stackAbove": null,
+      "friction": 0.5,
+      "restitution": 0.1
+    },
+    {
+      "id": "chair",
+      "label": "chair",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.45,
+            "z": 0.02
+          },
+          "position": {
+            "x": -0.22,
+            "y": 0.225,
+            "z": 0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.45,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0.22,
+            "y": 0.225,
+            "z": 0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.9,
+            "z": 0.02
+          },
+          "position": {
+            "x": -0.22,
+            "y": 0.45,
+            "z": -0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.9,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0.22,
+            "y": 0.45,
+            "z": -0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.42,
+            "y": 0.02,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0,
+            "y": 0.44,
+            "z": 0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.42,
+            "y": 0.02,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0,
+            "y": 0.44,
+            "z": -0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.02,
+            "z": 0.4
+          },
+          "position": {
+            "x": -0.22,
+            "y": 0.44,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.02,
+            "y": 0.02,
+            "z": 0.4
+          },
+          "position": {
+            "x": 0.22,
+            "y": 0.44,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.42,
+            "y": 0.02,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0,
+            "y": 0.89,
+            "z": -0.21
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "wireframe chair body",
+        "region": {
+          "left": 0.279,
+          "top": 0.191,
+          "right": 0.631,
+          "bottom": 0.842
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 4.5,
+      "friction": 0.5,
+      "restitution": 0.1
+    }
+  ]
+}
+```

@@ -1,0 +1,416 @@
+{
+  "requestId": "momen-case-07",
+  "sourceId": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Geometric solids on table",
+    "scale": 200,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Still life composition featuring a triangular prism, a cube, and a sphere resting on a tabletop.",
+      "The table and ground floor line are modeled as fixed rigid support structures.",
+      "The triangular prism and cube overlap along the horizontal axis in the 2D sketch; the cube is positioned slightly behind along the Z axis to prevent initial collision.",
+      "Scale is inferred at 200 pixels per meter, and rigid body depths, masses, and contact friction values are declared reasonable defaults."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Line drawing of geometric solids on table"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground floor",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 0.1,
+        "depth": 3,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "table-leg-left",
+        "label": "table left leg",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": -1.84,
+          "y": 0.42,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.12,
+        "height": 0.84,
+        "depth": 1.2,
+        "mass": 20,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "table-leg-right",
+        "label": "table right leg",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 1.76,
+          "y": 0.42,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.12,
+        "height": 0.84,
+        "depth": 1.2,
+        "mass": 20,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "table-top",
+        "label": "table top",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.965,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 4.64,
+        "height": 0.25,
+        "depth": 1.4,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "triangular-prism",
+        "label": "triangular prism",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": -0.98,
+          "y": 1.92,
+          "z": 0.25
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.04,
+        "height": 1.66,
+        "depth": 0.8,
+        "mass": 8,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "cube",
+        "label": "cube block",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": -0.15,
+          "y": 1.4,
+          "z": -0.5
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.62,
+        "height": 0.62,
+        "depth": 0.62,
+        "mass": 3,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "sphere",
+        "label": "sphere ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0.92,
+          "y": 1.59,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "mass": 2,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.3,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Horizontal ground baseline below the table",
+      "bbox": [
+        0.16,
+        0.9,
+        0.68,
+        0.02
+      ]
+    },
+    {
+      "objectId": "table-leg-left",
+      "origin": "sketch",
+      "note": "Left vertical table support leg",
+      "bbox": [
+        0.275,
+        0.74,
+        0.015,
+        0.168
+      ]
+    },
+    {
+      "objectId": "table-leg-right",
+      "origin": "sketch",
+      "note": "Right vertical table support leg",
+      "bbox": [
+        0.725,
+        0.74,
+        0.015,
+        0.168
+      ]
+    },
+    {
+      "objectId": "table-top",
+      "origin": "sketch",
+      "note": "Horizontal tabletop rectangle resting on the legs",
+      "bbox": [
+        0.219,
+        0.69,
+        0.581,
+        0.05
+      ]
+    },
+    {
+      "objectId": "triangular-prism",
+      "origin": "sketch",
+      "note": "Triangular shape modeled as a convex symmetric prism",
+      "bbox": [
+        0.26,
+        0.358,
+        0.255,
+        0.332
+      ]
+    },
+    {
+      "objectId": "cube",
+      "origin": "sketch",
+      "note": "Square shape modeled as a rigid cube block",
+      "bbox": [
+        0.452,
+        0.551,
+        0.078,
+        0.139
+      ]
+    },
+    {
+      "objectId": "sphere",
+      "origin": "sketch",
+      "note": "Circular shape modeled as a solid sphere",
+      "bbox": [
+        0.563,
+        0.491,
+        0.124,
+        0.199
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the line drawing as a geometric still life setup featuring a triangular prism, a cube, and a sphere resting atop a table supported above the ground. The cube is staggered behind the triangle in depth to match the visual overlap without collider penetration."
+}

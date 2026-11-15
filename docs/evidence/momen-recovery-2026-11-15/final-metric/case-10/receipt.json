@@ -1,0 +1,440 @@
+{
+  "id": "case-10",
+  "subject": "pivoting-lever",
+  "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+  "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+  "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+  "provider": "momen",
+  "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T17:04:08.851Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 27
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Rigid body model generated with a free hinge constraint at the pivot and a dynamic ball resting on the left side of the lever.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.019999999552965164,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.019999999552965164,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "fulcrum",
+          "position": {
+            "x": 0,
+            "y": 0.2750000059604645,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": -1.6121869395036015e-9,
+            "y": 0.20877093076705933,
+            "z": -1.465624566154844e-10
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "lever",
+          "position": {
+            "x": 0,
+            "y": 0.550000011920929,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 0.550000011920929,
+            "z": 0
+          },
+          "rotation": {
+            "x": -1.9329599032502642e-10,
+            "y": 1.0581056031355729e-8,
+            "z": 0.48142576217651367,
+            "w": 0.8764869570732117
+          },
+          "velocity": {
+            "x": 0,
+            "y": -4.656612873077393e-10,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 6.390606369406109e-23,
+            "y": 2.040274504295071e-23,
+            "z": -0.007214726880192757
+          },
+          "speed": 4.656612873077393e-10,
+          "mass": 2,
+          "inertia": {
+            "x": 0.007733333855867386,
+            "y": 0.2670833170413971,
+            "z": 0.2614833116531372
+          }
+        },
+        {
+          "objectId": "ball",
+          "position": {
+            "x": -1.191209077835083,
+            "y": -0.18609805405139923,
+            "z": -1.6599574337305967e-7
+          },
+          "centerOfMass": {
+            "x": -1.191209077835083,
+            "y": -0.18609805405139923,
+            "z": -1.6599574337305967e-7
+          },
+          "rotation": {
+            "x": 3.129721903860627e-7,
+            "y": 0.0000018794902416630066,
+            "z": 0.6827970743179321,
+            "w": -0.7306080460548401
+          },
+          "velocity": {
+            "x": -1.3914542198181152,
+            "y": -2.7121710777282715,
+            "z": -1.4428816541567357e-7
+          },
+          "angularVelocity": {
+            "x": -7.599653599754674e-7,
+            "y": 0.00001310006518906448,
+            "z": 7.32876443862915
+          },
+          "speed": 3.048280958296888,
+          "mass": 1.5,
+          "inertia": {
+            "x": 0.021660001948475838,
+            "y": 0.021660001948475838,
+            "z": 0.021660001948475838
+          }
+        }
+      ],
+      "kineticEnergy": 7.550707244420141,
+      "potentialEnergy": 8.052567368522286,
+      "momentum": {
+        "x": -2.087181329727173,
+        "y": -4.06825661752373,
+        "z": -2.1643224812351036e-7
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [
+          {
+            "id": "pivot_hinge",
+            "separation": 5.960464455334602e-9,
+            "relativeVelocity": -0.007214726880192757,
+            "effort": 0,
+            "power": 0
+          }
+        ],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground line",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": -0.02,
+        "z": 0
+      },
+      "dimensions": [
+        1.6,
+        0.1,
+        0.4
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "fulcrum",
+      "label": "triangular fulcrum stand",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 0.275,
+        "z": 0
+      },
+      "dimensions": [
+        0.4,
+        0.6100000000000001,
+        0.21999999999999997
+      ],
+      "fixed": true,
+      "parts": 2
+    },
+    {
+      "id": "lever",
+      "label": "lever arm",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 0.55,
+        "z": 0
+      },
+      "dimensions": [
+        1.25,
+        0.1,
+        0.2
+      ],
+      "fixed": false,
+      "parts": 1
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "kind": "ball",
+      "position": {
+        "x": -0.42,
+        "y": 0.7799976847500303,
+        "z": 0
+      },
+      "dimensions": [
+        0.38,
+        0.38,
+        0.38
+      ],
+      "fixed": false,
+      "parts": 1
+    }
+  ],
+  "constraints": [
+    {
+      "id": "pivot_hinge",
+      "type": "hinge",
+      "bodyA": "fulcrum",
+      "bodyB": "lever",
+      "anchorA": {
+        "x": 0,
+        "y": 0.275,
+        "z": 0
+      },
+      "anchorB": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "axisA": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "axisB": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "contactsEnabled": false
+    }
+  ],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "horizontal ground baseline",
+      "objectId": "ground",
+      "bbox": [
+        0.156,
+        0.798,
+        0.6759999999999999,
+        0.014000000000000012
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "triangular pivot base with circular pin",
+      "objectId": "fulcrum",
+      "bbox": [
+        0.398,
+        0.537,
+        0.17999999999999994,
+        0.267
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "horizontal lever beam",
+      "objectId": "lever",
+      "bbox": [
+        0.228,
+        0.516,
+        0.52,
+        0.04799999999999993
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "circular ball resting on the left side of the lever",
+      "objectId": "ball",
+      "bbox": [
+        0.26,
+        0.358,
+        0.10399999999999998,
+        0.16400000000000003
+      ]
+    }
+  ],
+  "elapsedSeconds": 30.205,
+  "requests": 1
+}

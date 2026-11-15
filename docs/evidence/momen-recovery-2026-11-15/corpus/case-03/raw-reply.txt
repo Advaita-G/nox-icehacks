@@ -1,0 +1,292 @@
+{
+  "requestId": "momen-case-03",
+  "sourceId": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Perspective Chair on Floor",
+    "scale": 200,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The line drawing represents a standard straight-backed four-legged chair resting on a level floor plane.",
+      "The chair is modeled as a unified rigid compound body with typical furniture proportions (seat height ~0.45 m, backrest height ~0.90 m, seat width/depth ~0.46 m).",
+      "The horizontal line below the front legs represents a fixed horizontal floor support.",
+      "Material density, friction, and restitution coefficients are estimated for painted wood on a flat surface."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Line drawing of chair on ground plane"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "floor support",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.05,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.6,
+        "height": 0.1,
+        "depth": 1.2,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.6,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "chair",
+        "label": "chair",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.45,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.48,
+        "height": 0.9,
+        "depth": 0.48,
+        "mass": 4.5,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.96,
+              "y": 0.044,
+              "z": 0.96
+            },
+            "position": {
+              "x": 0,
+              "y": -0.01,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.478,
+              "z": 0.07
+            },
+            "position": {
+              "x": -0.44,
+              "y": -0.5,
+              "z": 0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.478,
+              "z": 0.07
+            },
+            "position": {
+              "x": 0.44,
+              "y": -0.5,
+              "z": 0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.478,
+              "z": 0.07
+            },
+            "position": {
+              "x": -0.44,
+              "y": -0.5,
+              "z": -0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.478,
+              "z": 0.07
+            },
+            "position": {
+              "x": 0.44,
+              "y": -0.5,
+              "z": -0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.51,
+              "z": 0.07
+            },
+            "position": {
+              "x": -0.44,
+              "y": 0.49,
+              "z": -0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.07,
+              "y": 0.51,
+              "z": 0.07
+            },
+            "position": {
+              "x": 0.44,
+              "y": 0.49,
+              "z": -0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.95,
+              "y": 0.07,
+              "z": 0.07
+            },
+            "position": {
+              "x": 0,
+              "y": 0.93,
+              "z": -0.44
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "chair",
+      "origin": "sketch",
+      "note": "Line drawing of the chair including four legs, seat frame, and rectangular backrest",
+      "bbox": [
+        0.279,
+        0.188,
+        0.354,
+        0.655
+      ]
+    },
+    {
+      "objectId": "floor",
+      "origin": "sketch",
+      "note": "Horizontal ground line supporting the chair",
+      "bbox": [
+        0.174,
+        0.844,
+        0.578,
+        0.015
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the line drawing as a 3D chair resting on a level floor support plane. The chair is structured as a rigid compound assembly (legs, seat platform, upright posts, and back rail) with standard furniture dimensions."
+}

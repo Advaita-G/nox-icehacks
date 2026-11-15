@@ -1,5 +1,13 @@
 # Verification and evidence boundaries
 
+## November 15: Momen service recovery and metric drawing candidate
+
+The original already participant-funded Momen runtime is restored. An actual current-UI local image → reviewed model edit → physics → exact Save/reload session passed on `d1ed836`; its silent raw film and integrity-checked evidence are [released](https://github.com/Advaita-G/nox-icehacks/releases/tag/momen-recovery-2026-11-15). No purchase, model switch or production environment change was needed for this recovery test.
+
+Direct canonical generation then exposed a chair geometry defect. Candidate [PR #3](https://github.com/Advaita-G/nox-icehacks/pull/3), `59793ca`, reuses the earlier metric compiler for Momen only. It passes **263 root tests, 110 input tests and both typecheck/builds**. Four final-adapter fresh cases (chair, house, character, free-pivot lever) and both identical-contract house/character repeats passed strict validation and one second of real solver execution. Actual app interpretation (14.790 s), model-backed velocity edit (7.293 s), explicit yes, physical motion and exact Save/reload passed separately. Every ready response still requires geometry/intent review; solver success alone is not fidelity acceptance. Independent review is tracked with the [full raw evidence and geometry findings](evidence/momen-recovery-2026-11-15/README.md).
+
+Stable deployment remains the historical Cloudflare `0784006` checkpoint described below. Juwon's Claude is producing the final reference-led HyperFrames film and owns its channel upload/access; Codex owns the original Momen project and integration. A comment assigning work is not proof of delivery. Devpost remains unsubmitted, with final account saves and physical mic/camera acceptance unresolved. The historical sections below preserve their original provider failures and do not override this recovery update.
+
 Updated November 14, 2026 (Pacific). The stable [Nox application](https://nox-icehacks.vercel.app) is promoted to **`078400677d1a110b0134f6eee4da209d117c249c`**, [pinned deployment](https://nox-icehacks-5l8utqnu3-idk-41a8.vercel.app), deployment `dpl_Hg5bT9m2FLNmGgMUDxSV4u7a1dWU`. Independent stable-alias HTTP/access checks matched all four page/JS/CSS assets; authenticated status reported direct Cloudflare Gemma 4 and observed region `sfo1`. No inference was made by those HTTP checks, and region is not claimed to have caused success.
 
 ## Current candidate and release gates

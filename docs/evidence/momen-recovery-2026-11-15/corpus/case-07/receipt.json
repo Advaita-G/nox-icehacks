@@ -1,0 +1,720 @@
+{
+  "id": "case-07",
+  "subject": "abstract-shapes",
+  "expected": "Triangular prism, sphere and box supported by drawn table/legs and ground; preserve relative order.",
+  "inputSha256": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:41:32.536Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 13
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Interpreted the line drawing as a geometric still life setup featuring a triangular prism, a cube, and a sphere resting atop a table supported above the ground. The cube is staggered behind the triangle in depth to match the visual overlap without collider penetration.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "table-leg-left",
+          "position": {
+            "x": -1.840000033378601,
+            "y": 0.41999998688697815,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": -1.840000033378601,
+            "y": 0.41999998688697815,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "table-leg-right",
+          "position": {
+            "x": 1.7599999904632568,
+            "y": 0.41999998688697815,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 1.7599999904632568,
+            "y": 0.41999998688697815,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "table-top",
+          "position": {
+            "x": 0,
+            "y": 0.9649999737739563,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 0.9649999737739563,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "triangular-prism",
+          "position": {
+            "x": -0.9800226092338562,
+            "y": 1.9199204444885254,
+            "z": 0.24995838105678558
+          },
+          "centerOfMass": {
+            "x": -0.980023205280304,
+            "y": 1.6432538032531738,
+            "z": 0.2499578893184662
+          },
+          "rotation": {
+            "x": 8.844837680044293e-7,
+            "y": -4.645009724080218e-11,
+            "z": -0.0000010334440503356745,
+            "w": 1
+          },
+          "velocity": {
+            "x": -0.00002251750265713781,
+            "y": -0.00002346094697713852,
+            "z": -0.000024866978492354974
+          },
+          "angularVelocity": {
+            "x": -0.00004494031600188464,
+            "y": 1.0887250573732993e-13,
+            "z": 0.000040694278141018
+          },
+          "speed": 0.000040936787591572915,
+          "mass": 8,
+          "inertia": {
+            "x": 1.6513772010803223,
+            "y": 1.8138669729232788,
+            "z": 2.611910820007324
+          }
+        },
+        {
+          "objectId": "cube",
+          "position": {
+            "x": -0.1500057429075241,
+            "y": 1.3999443054199219,
+            "z": -0.49999603629112244
+          },
+          "centerOfMass": {
+            "x": -0.1500057429075241,
+            "y": 1.3999443054199219,
+            "z": -0.49999603629112244
+          },
+          "rotation": {
+            "x": -0.000011548930160643067,
+            "y": -2.6535230610025273e-11,
+            "z": -7.072712264744041e-7,
+            "w": 1
+          },
+          "velocity": {
+            "x": -0.000009709176083561033,
+            "y": -0.0000022880558390170336,
+            "z": 0.000007421522241202183
+          },
+          "angularVelocity": {
+            "x": 0.000023940388928167522,
+            "y": -4.4905792973004566e-10,
+            "z": 0.0000313199961965438
+          },
+          "speed": 0.00001243311272854518,
+          "mass": 3,
+          "inertia": {
+            "x": 0.19220001995563507,
+            "y": 0.19220001995563507,
+            "z": 0.19220001995563507
+          }
+        },
+        {
+          "objectId": "sphere",
+          "position": {
+            "x": 0.9200000166893005,
+            "y": 1.5899362564086914,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.9200000166893005,
+            "y": 1.5899362564086914,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 2,
+          "inertia": {
+            "x": 0.20000000298023224,
+            "y": 0.20000000298023224,
+            "z": 0.20000000298023224
+          }
+        }
+      ],
+      "kineticEnergy": 1.0914784454431672e-8,
+      "potentialEnergy": 201.35746873855592,
+      "momentum": {
+        "x": -0.0002092675495077856,
+        "y": -0.00019455174333415926,
+        "z": -0.00017667126121523324
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground floor",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": -0.05,
+        "z": 0
+      },
+      "dimensions": [
+        6,
+        0.1,
+        3
+      ],
+      "fixed": true
+    },
+    {
+      "id": "table-leg-left",
+      "label": "table left leg",
+      "kind": "block",
+      "position": {
+        "x": -1.84,
+        "y": 0.42,
+        "z": 0
+      },
+      "dimensions": [
+        0.12,
+        0.84,
+        1.2
+      ],
+      "fixed": true
+    },
+    {
+      "id": "table-leg-right",
+      "label": "table right leg",
+      "kind": "block",
+      "position": {
+        "x": 1.76,
+        "y": 0.42,
+        "z": 0
+      },
+      "dimensions": [
+        0.12,
+        0.84,
+        1.2
+      ],
+      "fixed": true
+    },
+    {
+      "id": "table-top",
+      "label": "table top",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": 0.965,
+        "z": 0
+      },
+      "dimensions": [
+        4.64,
+        0.25,
+        1.4
+      ],
+      "fixed": true
+    },
+    {
+      "id": "triangular-prism",
+      "label": "triangular prism",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.98,
+        "y": 1.92,
+        "z": 0.25
+      },
+      "dimensions": [
+        2.04,
+        1.66,
+        0.8
+      ],
+      "fixed": false,
+      "parts": 1
+    },
+    {
+      "id": "cube",
+      "label": "cube block",
+      "kind": "block",
+      "position": {
+        "x": -0.15,
+        "y": 1.4,
+        "z": -0.5
+      },
+      "dimensions": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "fixed": false
+    },
+    {
+      "id": "sphere",
+      "label": "sphere ball",
+      "kind": "ball",
+      "position": {
+        "x": 0.92,
+        "y": 1.59,
+        "z": 0
+      },
+      "dimensions": [
+        1,
+        1,
+        1
+      ],
+      "fixed": false
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Horizontal ground baseline below the table",
+      "bbox": [
+        0.16,
+        0.9,
+        0.68,
+        0.02
+      ]
+    },
+    {
+      "objectId": "table-leg-left",
+      "origin": "sketch",
+      "note": "Left vertical table support leg",
+      "bbox": [
+        0.275,
+        0.74,
+        0.015,
+        0.168
+      ]
+    },
+    {
+      "objectId": "table-leg-right",
+      "origin": "sketch",
+      "note": "Right vertical table support leg",
+      "bbox": [
+        0.725,
+        0.74,
+        0.015,
+        0.168
+      ]
+    },
+    {
+      "objectId": "table-top",
+      "origin": "sketch",
+      "note": "Horizontal tabletop rectangle resting on the legs",
+      "bbox": [
+        0.219,
+        0.69,
+        0.581,
+        0.05
+      ]
+    },
+    {
+      "objectId": "triangular-prism",
+      "origin": "sketch",
+      "note": "Triangular shape modeled as a convex symmetric prism",
+      "bbox": [
+        0.26,
+        0.358,
+        0.255,
+        0.332
+      ]
+    },
+    {
+      "objectId": "cube",
+      "origin": "sketch",
+      "note": "Square shape modeled as a rigid cube block",
+      "bbox": [
+        0.452,
+        0.551,
+        0.078,
+        0.139
+      ]
+    },
+    {
+      "objectId": "sphere",
+      "origin": "sketch",
+      "note": "Circular shape modeled as a solid sphere",
+      "bbox": [
+        0.563,
+        0.491,
+        0.124,
+        0.199
+      ]
+    }
+  ],
+  "elapsedSeconds": 72.742,
+  "requests": 1
+}

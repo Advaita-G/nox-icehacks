@@ -1,0 +1,1692 @@
+[
+  {
+    "id": "case-03",
+    "subject": "chair",
+    "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+    "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+    "notes": "",
+    "provider": "momen",
+    "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+    "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+    "startedAt": "2026-11-15T17:01:21.586Z",
+    "retries": 0,
+    "trace": [
+      {
+        "operation": "NoxImageUpload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "image-upload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "NoxCreateConversation",
+        "httpStatus": 200,
+        "conversationId": 24
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "COMPLETED"
+      }
+    ],
+    "providerStatus": "COMPLETED",
+    "canonicalStatus": "ready",
+    "questions": [],
+    "message": "Rigid wireframe chair standing upright on a fixed ground support.",
+    "solver": {
+      "time": 1,
+      "sample": {
+        "simulationTime": 1,
+        "bodies": [
+          {
+            "objectId": "ground",
+            "position": {
+              "x": 0,
+              "y": -0.02500000037252903,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": -0.02500000037252903,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "chair",
+            "position": {
+              "x": 0.000010016169653681573,
+              "y": -0.000007599592208862305,
+              "z": 0.000012967735528945923
+            },
+            "centerOfMass": {
+              "x": 0.000010280139576934744,
+              "y": 0.44282814860343933,
+              "z": -0.058225300163030624
+            },
+            "rotation": {
+              "x": -0.0000033640212677710224,
+              "y": -0.0000044568719204107765,
+              "z": 2.918118013894855e-7,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0.000010110111361427698,
+              "y": 0.000004915228146273876,
+              "z": 0.00000990021180768963
+            },
+            "angularVelocity": {
+              "x": 0.000008748444088269025,
+              "y": -0.0000059909648371103685,
+              "z": -0.000011651937711576466
+            },
+            "speed": 0.000014979586553290096,
+            "mass": 4.5,
+            "inertia": {
+              "x": 0.2918718457221985,
+              "y": 0.4091998040676117,
+              "z": 0.4728635549545288
+            }
+          }
+        ],
+        "kineticEnergy": 5.610741590852413e-10,
+        "potentialEnergy": 19.548648620098827,
+        "momentum": {
+          "x": 0.00004549550112642464,
+          "y": 0.00002211852665823244,
+          "z": 0.00004455095313460333
+        },
+        "mechanisms": {
+          "springEnergy": 0,
+          "connections": [],
+          "fans": []
+        }
+      }
+    },
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": -0.025,
+          "z": 0
+        },
+        "dimensions": [
+          1.2,
+          0.1,
+          1
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "chair",
+        "label": "chair",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 3.1627081642504606e-7,
+          "z": 0
+        },
+        "dimensions": [
+          0.46,
+          1.8,
+          0.44
+        ],
+        "fixed": false,
+        "parts": 9
+      }
+    ],
+    "constraints": [],
+    "grounding": [
+      {
+        "origin": "sketch",
+        "note": "ground line support",
+        "objectId": "ground",
+        "bbox": [
+          0.175,
+          0.847,
+          0.5760000000000001,
+          0.006000000000000005
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "wireframe chair body",
+        "objectId": "chair",
+        "bbox": [
+          0.279,
+          0.191,
+          0.352,
+          0.651
+        ]
+      }
+    ],
+    "elapsedSeconds": 33.108,
+    "requests": 1
+  },
+  {
+    "id": "case-01",
+    "subject": "unlabelled-house",
+    "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+    "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+    "notes": "",
+    "provider": "momen",
+    "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+    "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+    "startedAt": "2026-11-15T17:01:54.698Z",
+    "retries": 0,
+    "trace": [
+      {
+        "operation": "NoxImageUpload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "image-upload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "NoxCreateConversation",
+        "httpStatus": 200,
+        "conversationId": 25
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "COMPLETED"
+      }
+    ],
+    "providerStatus": "COMPLETED",
+    "canonicalStatus": "ready",
+    "questions": [],
+    "message": "Rigid 3D model of the drawn house with stacked gable roof, central front door, and four-pane windows.",
+    "solver": {
+      "time": 1,
+      "sample": {
+        "simulationTime": 1,
+        "bodies": [
+          {
+            "objectId": "house_base",
+            "position": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": 1.5,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "roof",
+            "position": {
+              "x": -0.00005261762998998165,
+              "y": 4.024956703186035,
+              "z": -0.00007669957994949073
+            },
+            "centerOfMass": {
+              "x": -0.00003289361848146655,
+              "y": 3.6832900047302246,
+              "z": -0.000051581890147645026
+            },
+            "rotation": {
+              "x": -0.00003678902066894807,
+              "y": 8.413127833284406e-11,
+              "z": 0.000028856549761258066,
+              "w": 1
+            },
+            "velocity": {
+              "x": -0.00003331084008095786,
+              "y": 0.00002197657522629015,
+              "z": -0.0000514095117978286
+            },
+            "angularVelocity": {
+              "x": -0.00007523342355852947,
+              "y": -2.283285539805835e-12,
+              "z": 0.00004874756632489152
+            },
+            "speed": 0.00006508087145134902,
+            "mass": 25,
+            "inertia": {
+              "x": 35.92013931274414,
+              "y": 39.6805534362793,
+              "z": 63.92707824707031
+            }
+          },
+          {
+            "objectId": "door",
+            "position": {
+              "x": 0,
+              "y": 0.7599999904632568,
+              "z": 1.7599999904632568
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": 0.7599999904632568,
+              "z": 1.7599999904632568
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "left_window",
+            "position": {
+              "x": -1.3200000524520874,
+              "y": 1.9600000381469727,
+              "z": 1.7599999904632568
+            },
+            "centerOfMass": {
+              "x": -1.3200000524520874,
+              "y": 1.9600000381469727,
+              "z": 1.760733962059021
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "right_window",
+            "position": {
+              "x": 1.3200000524520874,
+              "y": 1.9600000381469727,
+              "z": 1.7599999904632568
+            },
+            "centerOfMass": {
+              "x": 1.3200000524520874,
+              "y": 1.9600000381469727,
+              "z": 1.760733962059021
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "kineticEnergy": 2.0174614999482608e-7,
+        "potentialEnergy": 903.3268736600876,
+        "momentum": {
+          "x": -0.0008327710020239465,
+          "y": 0.0005494143806572538,
+          "z": -0.001285237794945715
+        },
+        "mechanisms": {
+          "springEnergy": 0,
+          "connections": [],
+          "fans": []
+        }
+      }
+    },
+    "objects": [
+      {
+        "id": "house_base",
+        "label": "walls",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 1.5,
+          "z": 0
+        },
+        "dimensions": [
+          4.5,
+          3,
+          3.5
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "roof",
+        "label": "roof",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 4.024999707847771,
+          "z": 0
+        },
+        "dimensions": [
+          5.7,
+          2.05,
+          3.8
+        ],
+        "fixed": false,
+        "parts": 1
+      },
+      {
+        "id": "door",
+        "label": "door",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 0.76,
+          "z": 1.76
+        },
+        "dimensions": [
+          0.82,
+          1.52,
+          0.1
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "left_window",
+        "label": "window",
+        "kind": "custom-part",
+        "position": {
+          "x": -1.32,
+          "y": 1.96,
+          "z": 1.76
+        },
+        "dimensions": [
+          0.92,
+          0.94,
+          0.1
+        ],
+        "fixed": true,
+        "parts": 3
+      },
+      {
+        "id": "right_window",
+        "label": "window",
+        "kind": "custom-part",
+        "position": {
+          "x": 1.32,
+          "y": 1.96,
+          "z": 1.76
+        },
+        "dimensions": [
+          0.92,
+          0.94,
+          0.1
+        ],
+        "fixed": true,
+        "parts": 3
+      }
+    ],
+    "constraints": [],
+    "grounding": [
+      {
+        "origin": "sketch",
+        "note": "Main rectangular body and walls of the house",
+        "objectId": "house_base",
+        "bbox": [
+          0.311,
+          0.448,
+          0.37899999999999995,
+          0.40599999999999997
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Gabled triangular roof with overhanging eaves",
+        "objectId": "roof",
+        "bbox": [
+          0.26,
+          0.174,
+          0.48,
+          0.278
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Rectangular front door centered on the ground floor",
+        "objectId": "door",
+        "bbox": [
+          0.464,
+          0.647,
+          0.07200000000000001,
+          0.20699999999999996
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Left four-pane square window with mullions",
+        "objectId": "left_window",
+        "bbox": [
+          0.35,
+          0.524,
+          0.08000000000000002,
+          0.13
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Right four-pane square window with mullions",
+        "objectId": "right_window",
+        "bbox": [
+          0.57,
+          0.524,
+          0.08000000000000007,
+          0.13
+        ]
+      }
+    ],
+    "elapsedSeconds": 41.881,
+    "requests": 1
+  },
+  {
+    "id": "case-05",
+    "subject": "character",
+    "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+    "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+    "notes": "",
+    "provider": "momen",
+    "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+    "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+    "startedAt": "2026-11-15T17:02:36.582Z",
+    "retries": 0,
+    "trace": [
+      {
+        "operation": "NoxImageUpload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "image-upload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "NoxCreateConversation",
+        "httpStatus": 200,
+        "conversationId": 26
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "COMPLETED"
+      }
+    ],
+    "providerStatus": "COMPLETED",
+    "canonicalStatus": "ready",
+    "questions": [],
+    "message": "Rigid stick figure character standing on a fixed ground support line.",
+    "solver": {
+      "time": 1,
+      "sample": {
+        "simulationTime": 1,
+        "bodies": [
+          {
+            "objectId": "ground",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "character",
+            "position": {
+              "x": 0.00012757159129250795,
+              "y": 0.692607581615448,
+              "z": 0.001120394328609109
+            },
+            "centerOfMass": {
+              "x": 0.00012753592454828322,
+              "y": 1.0031278133392334,
+              "z": 0.001995149999856949
+            },
+            "rotation": {
+              "x": 0.0008326415554620326,
+              "y": 8.395019079898702e-8,
+              "z": 5.744261954987451e-8,
+              "w": 0.9999996423721313
+            },
+            "velocity": {
+              "x": -0.00004976249692845158,
+              "y": -0.000024517939891666174,
+              "z": 0.0032726943027228117
+            },
+            "angularVelocity": {
+              "x": 0.003328821389004588,
+              "y": -2.170059332229357e-7,
+              "z": 0.000050615821237443015
+            },
+            "speed": 0.0032731644374445097,
+            "mass": 10,
+            "inertia": {
+              "x": 0.2630796432495117,
+              "y": 0.8736218810081482,
+              "z": 0.9646709561347961
+            }
+          }
+        ],
+        "kineticEnergy": 0.00005840958660585293,
+        "potentialEnergy": 98.4068384885788,
+        "momentum": {
+          "x": -0.0004976249692845158,
+          "y": -0.00024517939891666174,
+          "z": 0.03272694302722812
+        },
+        "mechanisms": {
+          "springEnergy": 0,
+          "connections": [],
+          "fans": []
+        }
+      }
+    },
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "dimensions": [
+          1.8,
+          0.1,
+          0.4
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "character",
+        "label": "figure",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 0.6926370962788906,
+          "z": 0
+        },
+        "dimensions": [
+          1.3080634300121472,
+          1.5,
+          0.52
+        ],
+        "fixed": false,
+        "parts": 9
+      }
+    ],
+    "constraints": [],
+    "grounding": [
+      {
+        "origin": "sketch",
+        "note": "Drawn horizontal ground line",
+        "objectId": "ground",
+        "bbox": [
+          0.218,
+          0.872,
+          0.547,
+          0.01200000000000001
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Drawn stick figure including circular head, facial features, square torso, arms, and legs",
+        "objectId": "character",
+        "bbox": [
+          0.292,
+          0.14,
+          0.39100000000000007,
+          0.722
+        ]
+      }
+    ],
+    "elapsedSeconds": 92.266,
+    "requests": 1
+  },
+  {
+    "id": "case-10",
+    "subject": "pivoting-lever",
+    "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+    "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+    "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+    "provider": "momen",
+    "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+    "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+    "startedAt": "2026-11-15T17:04:08.851Z",
+    "retries": 0,
+    "trace": [
+      {
+        "operation": "NoxImageUpload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "image-upload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "NoxCreateConversation",
+        "httpStatus": 200,
+        "conversationId": 27
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "COMPLETED"
+      }
+    ],
+    "providerStatus": "COMPLETED",
+    "canonicalStatus": "ready",
+    "questions": [],
+    "message": "Rigid body model generated with a free hinge constraint at the pivot and a dynamic ball resting on the left side of the lever.",
+    "solver": {
+      "time": 1,
+      "sample": {
+        "simulationTime": 1,
+        "bodies": [
+          {
+            "objectId": "ground",
+            "position": {
+              "x": 0,
+              "y": -0.019999999552965164,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": -0.019999999552965164,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "fulcrum",
+            "position": {
+              "x": 0,
+              "y": 0.2750000059604645,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": -1.6121869395036015e-9,
+              "y": 0.20877093076705933,
+              "z": -1.465624566154844e-10
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "lever",
+            "position": {
+              "x": 0,
+              "y": 0.550000011920929,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": 0.550000011920929,
+              "z": 0
+            },
+            "rotation": {
+              "x": -1.9329599032502642e-10,
+              "y": 1.0581056031355729e-8,
+              "z": 0.48142576217651367,
+              "w": 0.8764869570732117
+            },
+            "velocity": {
+              "x": 0,
+              "y": -4.656612873077393e-10,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 6.390606369406109e-23,
+              "y": 2.040274504295071e-23,
+              "z": -0.007214726880192757
+            },
+            "speed": 4.656612873077393e-10,
+            "mass": 2,
+            "inertia": {
+              "x": 0.007733333855867386,
+              "y": 0.2670833170413971,
+              "z": 0.2614833116531372
+            }
+          },
+          {
+            "objectId": "ball",
+            "position": {
+              "x": -1.191209077835083,
+              "y": -0.18609805405139923,
+              "z": -1.6599574337305967e-7
+            },
+            "centerOfMass": {
+              "x": -1.191209077835083,
+              "y": -0.18609805405139923,
+              "z": -1.6599574337305967e-7
+            },
+            "rotation": {
+              "x": 3.129721903860627e-7,
+              "y": 0.0000018794902416630066,
+              "z": 0.6827970743179321,
+              "w": -0.7306080460548401
+            },
+            "velocity": {
+              "x": -1.3914542198181152,
+              "y": -2.7121710777282715,
+              "z": -1.4428816541567357e-7
+            },
+            "angularVelocity": {
+              "x": -7.599653599754674e-7,
+              "y": 0.00001310006518906448,
+              "z": 7.32876443862915
+            },
+            "speed": 3.048280958296888,
+            "mass": 1.5,
+            "inertia": {
+              "x": 0.021660001948475838,
+              "y": 0.021660001948475838,
+              "z": 0.021660001948475838
+            }
+          }
+        ],
+        "kineticEnergy": 7.550707244420141,
+        "potentialEnergy": 8.052567368522286,
+        "momentum": {
+          "x": -2.087181329727173,
+          "y": -4.06825661752373,
+          "z": -2.1643224812351036e-7
+        },
+        "mechanisms": {
+          "springEnergy": 0,
+          "connections": [
+            {
+              "id": "pivot_hinge",
+              "separation": 5.960464455334602e-9,
+              "relativeVelocity": -0.007214726880192757,
+              "effort": 0,
+              "power": 0
+            }
+          ],
+          "fans": []
+        }
+      }
+    },
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground line",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": -0.02,
+          "z": 0
+        },
+        "dimensions": [
+          1.6,
+          0.1,
+          0.4
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "fulcrum",
+        "label": "triangular fulcrum stand",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 0.275,
+          "z": 0
+        },
+        "dimensions": [
+          0.4,
+          0.6100000000000001,
+          0.21999999999999997
+        ],
+        "fixed": true,
+        "parts": 2
+      },
+      {
+        "id": "lever",
+        "label": "lever arm",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 0.55,
+          "z": 0
+        },
+        "dimensions": [
+          1.25,
+          0.1,
+          0.2
+        ],
+        "fixed": false,
+        "parts": 1
+      },
+      {
+        "id": "ball",
+        "label": "ball",
+        "kind": "ball",
+        "position": {
+          "x": -0.42,
+          "y": 0.7799976847500303,
+          "z": 0
+        },
+        "dimensions": [
+          0.38,
+          0.38,
+          0.38
+        ],
+        "fixed": false,
+        "parts": 1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "pivot_hinge",
+        "type": "hinge",
+        "bodyA": "fulcrum",
+        "bodyB": "lever",
+        "anchorA": {
+          "x": 0,
+          "y": 0.275,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "contactsEnabled": false
+      }
+    ],
+    "grounding": [
+      {
+        "origin": "sketch",
+        "note": "horizontal ground baseline",
+        "objectId": "ground",
+        "bbox": [
+          0.156,
+          0.798,
+          0.6759999999999999,
+          0.014000000000000012
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "triangular pivot base with circular pin",
+        "objectId": "fulcrum",
+        "bbox": [
+          0.398,
+          0.537,
+          0.17999999999999994,
+          0.267
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "horizontal lever beam",
+        "objectId": "lever",
+        "bbox": [
+          0.228,
+          0.516,
+          0.52,
+          0.04799999999999993
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "circular ball resting on the left side of the lever",
+        "objectId": "ball",
+        "bbox": [
+          0.26,
+          0.358,
+          0.10399999999999998,
+          0.16400000000000003
+        ]
+      }
+    ],
+    "elapsedSeconds": 30.205,
+    "requests": 1
+  }
+]

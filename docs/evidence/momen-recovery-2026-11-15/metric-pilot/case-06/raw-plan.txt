@@ -1,0 +1,211 @@
+{
+  "status": "ready",
+  "name": "Car sketch",
+  "assumptions": [
+    "Interpreted 2D line drawing as a 3D rigid model of a passenger car resting on the ground line.",
+    "Car depth set to 0.5 m along the Z axis for stable standing and display.",
+    "No motion or actuator requested; car is modeled as a dynamic rigid assembly resting on the fixed ground."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid 3D model of the drawn car with chassis, trapezoidal cabin, B-pillar divider, and wheels resting on the ground plane.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 30,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "fixed": true,
+      "position": {
+        "x": 0.04,
+        "y": -0.05,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 5,
+            "y": 0.1,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Horizontal ground line beneath the car",
+        "region": {
+          "left": 0.15,
+          "top": 0.778,
+          "right": 0.87,
+          "bottom": 0.788
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "car",
+      "label": "Car",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0.375,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -1.6, "y": 0.06, "z": -0.25 },
+            { "x": -1.6, "y": 0.06, "z": 0.25 },
+            { "x": -1.6, "y": 0.6, "z": -0.25 },
+            { "x": -1.6, "y": 0.6, "z": 0.25 },
+            { "x": 0.91, "y": 0.6, "z": -0.25 },
+            { "x": 0.91, "y": 0.6, "z": 0.25 },
+            { "x": 1.56, "y": 0.5, "z": -0.25 },
+            { "x": 1.56, "y": 0.5, "z": 0.25 },
+            { "x": 1.6, "y": 0.06, "z": -0.25 },
+            { "x": 1.6, "y": 0.06, "z": 0.25 }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -0.95, "y": 0.6, "z": -0.25 },
+            { "x": -0.95, "y": 0.6, "z": 0.25 },
+            { "x": -0.56, "y": 1.21, "z": -0.25 },
+            { "x": -0.56, "y": 1.21, "z": 0.25 },
+            { "x": 0.45, "y": 1.21, "z": -0.25 },
+            { "x": 0.45, "y": 1.21, "z": 0.25 },
+            { "x": 0.91, "y": 0.6, "z": -0.25 },
+            { "x": 0.91, "y": 0.6, "z": 0.25 }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.04,
+            "y": 0.61,
+            "z": 0.51
+          },
+          "position": {
+            "x": -0.02,
+            "y": 0.905,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.75,
+            "y": 0.52,
+            "z": 0.75
+          },
+          "position": {
+            "x": -0.82,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.75,
+            "y": 0.52,
+            "z": 0.75
+          },
+          "position": {
+            "x": 1.07,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Car body with chassis, cabin, window divider, and front/rear wheels",
+        "region": {
+          "left": 0.224,
+          "top": 0.328,
+          "right": 0.783,
+          "bottom": 0.769
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 25,
+      "friction": 0.6,
+      "restitution": 0.05
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "case-09",
+  "subject": "fluid-intent",
+  "expected": "Ask about a rigid proxy or reject essential actual fluid behavior; no fake fluid simulation.",
+  "inputSha256": "94a92b992b0e55d9531e7319f73ea6d0c3ef88c60d6e39ec09be43f847d4e966",
+  "notes": "Simulate the water flowing out when the glass is tilted. Actual fluid flow is essential.",
+  "provider": "momen",
+  "sourceCommit": "8d12752 metric compiler with restored Momen; temporary schema-in-prompt adaptation; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:56:48.339Z",
+  "retries": 0,
+  "trace": [],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "needs-clarification",
+  "questions": [
+    {
+      "id": "rigid-proxy",
+      "prompt": "Nox supports rigid bodies, not fluid flow. Use a rigid visual proxy for the liquid instead?",
+      "options": [
+        "Use a rigid visual proxy",
+        "Actual fluid flow is required"
+      ]
+    }
+  ],
+  "message": "The requested fluid behavior cannot be simulated by the rigid-body solver. A visual proxy needs your agreement.",
+  "elapsedSeconds": 0.002,
+  "requests": 0
+}

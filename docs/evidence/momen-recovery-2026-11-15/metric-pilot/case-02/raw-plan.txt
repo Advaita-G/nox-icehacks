@@ -1,0 +1,174 @@
+{
+  "status": "ready",
+  "name": "Ball Resting on Fixed Plank",
+  "assumptions": [
+    "The ball is modeled as a dynamic rigid sphere with a diameter of 1.0 m and mass of 1.0 kg.",
+    "The plank is 3.0 m long along X, 0.3 m high along Y, and 1.0 m deep along Z, fixed in place as labeled.",
+    "The ground is modeled as a fixed horizontal slab beneath the plank.",
+    "Standard gravity of 9.81 m/s^2 acts downward."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid body model constructed with a 1 m diameter sphere resting on a 3 m long fixed plank above the ground.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": -0.1,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 6,
+            "y": 0.2,
+            "z": 2
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "fixed ground line with hatch marks",
+        "region": {
+          "left": 0.15,
+          "top": 0.58,
+          "right": 0.85,
+          "bottom": 0.62
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "plank",
+      "label": "plank",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0.15,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 3,
+            "y": 0.3,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "fixed plank 3 m in length",
+        "region": {
+          "left": 0.312,
+          "top": 0.52,
+          "right": 0.688,
+          "bottom": 0.582
+        }
+      },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0.8,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ball with diameter 1 m and mass 1 kg",
+        "region": {
+          "left": 0.437,
+          "top": 0.318,
+          "right": 0.563,
+          "bottom": 0.52
+        }
+      },
+      "stackAbove": "plank",
+      "mass": 1,
+      "friction": 0.5,
+      "restitution": 0.1
+    }
+  ],
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": []
+}

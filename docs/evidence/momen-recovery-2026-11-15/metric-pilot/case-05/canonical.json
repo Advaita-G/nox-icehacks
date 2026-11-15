@@ -1,0 +1,334 @@
+{
+  "requestId": "momen-case-05",
+  "sourceId": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "horizontal ground baseline",
+      "objectId": "ground",
+      "bbox": [
+        0.218,
+        0.875,
+        0.546,
+        0.009000000000000008
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "stick figure with head, torso, arms, and legs",
+      "objectId": "figure",
+      "bbox": [
+        0.292,
+        0.141,
+        0.39100000000000007,
+        0.72
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Rigid proxy model of the stick figure standing on the ground line.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Stick Figure on Ground",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The drawn character is modeled as a single rigid proxy figure.",
+      "The figure stands approximately 1.7 m tall above the ground line.",
+      "A depth thickness of 0.12 m along Z is assigned to 2D line and polygon features.",
+      "The horizontal line at the base acts as a fixed ground support.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.2,
+        "height": 0.1,
+        "depth": 0.4,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.39999999999999997,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.6,
+        "restitution": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "figure",
+        "label": "character",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.7863111081211742,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.249854880470805,
+        "height": 1.6300000000000001,
+        "depth": 0.275,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.41604830138689575,
+              "y": 0.31901840490797545,
+              "z": 0.4363636363636363
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0,
+              "y": 0.3312883435582822,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.7071067811865475,
+              "y": 0,
+              "z": 0,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.4400510880053705,
+              "y": 0.07361963190184048,
+              "z": 2
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": -0.09601114647389901,
+              "y": 0.34969325153374226,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.7071067811865475,
+              "y": 0,
+              "z": 0,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.04000464436412459,
+              "y": 0.07975460122699386,
+              "z": 0.18181818181818182
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0.09601114647389901,
+              "y": 0.34969325153374226,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.7071067811865475,
+              "y": 0,
+              "z": 0,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.04000464436412459,
+              "y": 0.07975460122699386,
+              "z": 0.18181818181818182
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.2576687116564417,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.1760204352021482,
+              "y": 0.015337423312883436,
+              "z": 0.4727272727272727
+            }
+          },
+          {
+            "shape": "capsule",
+            "position": {
+              "x": -0.33603901265864655,
+              "y": 0.03067484662576687,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.40673664307580015,
+              "w": 0.9135454576426009
+            },
+            "size": {
+              "x": 0.028003251054887216,
+              "y": 0.31901840490797545,
+              "z": 0.1272727272727273
+            }
+          },
+          {
+            "shape": "capsule",
+            "position": {
+              "x": 0.33603901265864655,
+              "y": 0.03067484662576687,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": -0.40673664307580015,
+              "w": 0.9135454576426009
+            },
+            "size": {
+              "x": 0.028003251054887216,
+              "y": 0.31901840490797545,
+              "z": 0.1272727272727273
+            }
+          },
+          {
+            "shape": "capsule",
+            "position": {
+              "x": -0.13601579083802362,
+              "y": -0.3067484662576687,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.13052619222005157,
+              "w": 0.9914448613738104
+            },
+            "size": {
+              "x": 0.03200371549129967,
+              "y": 0.3374233128834356,
+              "z": 0.14545454545454545
+            }
+          },
+          {
+            "shape": "capsule",
+            "position": {
+              "x": 0.13601579083802362,
+              "y": -0.3067484662576687,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": -0.13052619222005157,
+              "w": 0.9914448613738104
+            },
+            "size": {
+              "x": 0.03200371549129967,
+              "y": 0.3374233128834356,
+              "z": 0.14545454545454545
+            }
+          }
+        ],
+        "mass": 12,
+        "friction": 0.6,
+        "restitution": 0.05,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.2,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

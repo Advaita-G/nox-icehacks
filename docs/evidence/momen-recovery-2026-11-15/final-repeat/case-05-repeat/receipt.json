@@ -1,0 +1,316 @@
+{
+  "id": "case-05-repeat",
+  "subject": "character",
+  "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+  "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T17:07:04.763Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 31
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Modeled the geometric stick figure standing on the horizontal ground support.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": -0.035999998450279236,
+            "y": -0.949999988079071,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": -0.035999998450279236,
+            "y": -0.949999988079071,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "character",
+          "position": {
+            "x": -0.02998117357492447,
+            "y": -0.034049779176712036,
+            "z": -4.5665596304367284e-10
+          },
+          "centerOfMass": {
+            "x": -0.027597492560744286,
+            "y": 0.20344288647174835,
+            "z": -5.619989473792941e-10
+          },
+          "rotation": {
+            "x": -2.2204253713464794e-10,
+            "y": -2.6003610723024373e-11,
+            "z": 4.508226822963479e-7,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0.000006971786206122488,
+            "y": 7.73157069033914e-7,
+            "z": -1.1290554047249657e-9
+          },
+          "angularVelocity": {
+            "x": -9.945536616484674e-10,
+            "y": -8.949267542301964e-12,
+            "z": -0.000006150527951831464
+          },
+          "speed": 0.000007014526073231392,
+          "mass": 10.000000953674316,
+          "inertia": {
+            "x": 0.348330020904541,
+            "y": 1.4217371940612793,
+            "z": 1.7283411026000977
+          }
+        }
+      ],
+      "kineticEnergy": 2.7870860925479317e-10,
+      "potentialEnergy": 19.957749066197604,
+      "momentum": {
+        "x": 0.00006971786871003832,
+        "y": 0.00000773157142767918,
+        "z": -1.1290555124000798e-8
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground support",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.036,
+        "y": -0.95,
+        "z": 0
+      },
+      "dimensions": [
+        2.2,
+        0.1,
+        0.4
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "character",
+      "label": "geometric figure",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.03,
+        "y": -0.03403150571758884,
+        "z": 0
+      },
+      "dimensions": [
+        1.604600451503536,
+        1.8199999999999998,
+        0.33
+      ],
+      "fixed": false,
+      "parts": 9
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "horizontal ground line beneath the figure",
+      "objectId": "ground",
+      "bbox": [
+        0.218,
+        0.875,
+        0.546,
+        0.010000000000000009
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "stick figure with circular head, facial features, square torso, angled arms, and legs",
+      "objectId": "character",
+      "bbox": [
+        0.293,
+        0.14,
+        0.38900000000000007,
+        0.725
+      ]
+    }
+  ],
+  "elapsedSeconds": 43.258,
+  "requests": 1
+}

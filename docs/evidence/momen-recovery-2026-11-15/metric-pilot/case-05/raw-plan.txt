@@ -1,0 +1,274 @@
+{
+  "status": "ready",
+  "name": "Stick Figure on Ground",
+  "assumptions": [
+    "The drawn character is modeled as a single rigid proxy figure.",
+    "The figure stands approximately 1.7 m tall above the ground line.",
+    "A depth thickness of 0.12 m along Z is assigned to 2D line and polygon features.",
+    "The horizontal line at the base acts as a fixed ground support."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid proxy model of the stick figure standing on the ground line.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 2.2,
+            "y": 0.04,
+            "z": 0.4
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal ground baseline",
+        "region": {
+          "left": 0.218,
+          "top": 0.875,
+          "right": 0.764,
+          "bottom": 0.884
+        }
+      },
+      "stackAbove": null,
+      "friction": 0.6,
+      "restitution": 0.05
+    },
+    {
+      "id": "figure",
+      "label": "character",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0.87,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.52,
+            "y": 0.52,
+            "z": 0.12
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.55,
+            "y": 0.12,
+            "z": 0.55
+          },
+          "position": {
+            "x": 0,
+            "y": 0.54,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 0.13,
+            "z": 0.05
+          },
+          "position": {
+            "x": -0.12,
+            "y": 0.57,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 0.13,
+            "z": 0.05
+          },
+          "position": {
+            "x": 0.12,
+            "y": 0.57,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.22,
+            "y": 0.025,
+            "z": 0.13
+          },
+          "position": {
+            "x": 0,
+            "y": 0.42,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.035,
+            "y": 0.52,
+            "z": 0.035
+          },
+          "position": {
+            "x": -0.42,
+            "y": 0.05,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 48
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.035,
+            "y": 0.52,
+            "z": 0.035
+          },
+          "position": {
+            "x": 0.42,
+            "y": 0.05,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -48
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.55,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.17,
+            "y": -0.5,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 15
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.55,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.17,
+            "y": -0.5,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -15
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "stick figure with head, torso, arms, and legs",
+        "region": {
+          "left": 0.292,
+          "top": 0.141,
+          "right": 0.683,
+          "bottom": 0.861
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 12.0,
+      "friction": 0.6,
+      "restitution": 0.05
+    }
+  ]
+}

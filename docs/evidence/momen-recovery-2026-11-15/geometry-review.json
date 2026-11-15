@@ -1,0 +1,70 @@
+{
+  "scope": "Exact preserved-chair box connectivity, roof contact, supplied ball/plank dimensions/contact, free-hinge alignment and essential-fluid guard; no population or physical-device accuracy claim.",
+  "originalChair": {
+    "parts": 8,
+    "reached": 1,
+    "connected": false
+  },
+  "pilotChair": {
+    "parts": 6,
+    "reached": 6,
+    "connected": true
+  },
+  "finalChair": {
+    "parts": 9,
+    "reached": 9,
+    "connected": true
+  },
+  "houses": [
+    {
+      "path": "final-metric/case-01/canonical.json",
+      "roofWallGapMeters": -2.921522290755263e-7,
+      "facadeParts": [
+        {
+          "id": "door",
+          "parts": 1
+        },
+        {
+          "id": "left_window",
+          "parts": 3
+        },
+        {
+          "id": "right_window",
+          "parts": 3
+        }
+      ]
+    },
+    {
+      "path": "final-repeat/case-01-repeat/canonical.json",
+      "roofWallGapMeters": 5.159551363931314e-8,
+      "facadeParts": [
+        {
+          "id": "door",
+          "parts": 1
+        },
+        {
+          "id": "window_left",
+          "parts": 1
+        },
+        {
+          "id": "window_right",
+          "parts": 1
+        }
+      ]
+    }
+  ],
+  "annotated": {
+    "ballDiameterMeters": 1,
+    "ballMassKg": 1,
+    "plankLengthMeters": 3,
+    "contactGapMeters": -0.00013609298700523187
+  },
+  "lever": {
+    "actualFreeHinge": true,
+    "anchorGapMeters": 0
+  },
+  "essentialFluid": {
+    "status": "needs-clarification",
+    "modelCalls": 0
+  }
+}

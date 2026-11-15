@@ -1,0 +1,56 @@
+{
+  "requestId": "momen-case-09",
+  "sourceId": "94a92b992b0e55d9531e7319f73ea6d0c3ef88c60d6e39ec09be43f847d4e966",
+  "sourceRevision": 1,
+  "status": "needs-clarification",
+  "grounding": [
+    {
+      "objectId": "glass",
+      "origin": "sketch",
+      "note": "Tapered open cup or glass resting on the surface",
+      "bbox": [
+        0.342,
+        0.248,
+        0.334,
+        0.544
+      ]
+    },
+    {
+      "objectId": "water",
+      "origin": "sketch",
+      "note": "Liquid indicated filling the lower half of the glass",
+      "bbox": [
+        0.366,
+        0.498,
+        0.292,
+        0.292
+      ]
+    },
+    {
+      "objectId": "surface",
+      "origin": "sketch",
+      "note": "Horizontal support surface beneath the glass",
+      "bbox": [
+        0.218,
+        0.798,
+        0.564,
+        0.012
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "fluid_representation",
+      "prompt": "The simulation engine is restricted to rigid-body mechanics and cannot simulate actual continuous fluid dynamics (CFD), surface tension, or Navier-Stokes flow. How would you like to handle the water?",
+      "options": [
+        "Approximate the water using dynamic rigid spheres that spill when tilted",
+        "Model the water as a single rigid block proxy",
+        "Cancel simulation because actual fluid flow is strictly required"
+      ]
+    }
+  ],
+  "warnings": [
+    "Continuous fluid flow and computational fluid dynamics (CFD) are outside the capabilities of this rigid-body physics engine."
+  ],
+  "message": "The system only supports rigid body mechanics; continuous fluids and CFD cannot be simulated. Please clarify whether a rigid-particle proxy is acceptable or if actual fluid dynamics are strictly required."
+}

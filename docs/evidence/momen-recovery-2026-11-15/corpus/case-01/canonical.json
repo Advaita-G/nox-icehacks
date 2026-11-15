@@ -1,0 +1,261 @@
+{
+  "requestId": "momen-case-01",
+  "sourceId": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "House Illustration",
+    "scale": 70,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Rigid bodies; house is modeled as a stationary fixed architectural structure.",
+      "Depth is estimated at 5.0 meters with an extruded gable roof silhouette.",
+      "An inferred flat ground plane is added beneath the house base.",
+      "Material friction and restitution are standard assumed engineering values."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground-1",
+        "label": "ground",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.25,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 12,
+        "height": 0.5,
+        "depth": 12,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "house-1",
+        "label": "house",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 2.655,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 5.31,
+        "depth": 5,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.79,
+              "y": 0.600753,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": -0.199623,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 0.399247,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0.300377,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.1447,
+              "y": 0.3004,
+              "z": 0.02
+            },
+            "position": {
+              "x": 0,
+              "y": -0.3498,
+              "z": 0.505
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.1632,
+              "y": 0.1844,
+              "z": 0.02
+            },
+            "position": {
+              "x": -0.2316,
+              "y": -0.1105,
+              "z": 0.505
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.1632,
+              "y": 0.1844,
+              "z": 0.02
+            },
+            "position": {
+              "x": 0.2316,
+              "y": -0.1105,
+              "z": 0.505
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "house-1",
+      "origin": "sketch",
+      "bbox": [
+        0.262,
+        0.178,
+        0.476,
+        0.672
+      ],
+      "note": "Gabled house with triangular pitched roof, rectangular facade, central door, and two pane windows."
+    },
+    {
+      "objectId": "ground-1",
+      "origin": "inferred",
+      "note": "Horizontal ground platform supporting the house at its foundation."
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the line drawing as a 3D house structure with a pitched gable roof, facade walls, door, and windows, resting on an inferred supporting ground plane."
+}

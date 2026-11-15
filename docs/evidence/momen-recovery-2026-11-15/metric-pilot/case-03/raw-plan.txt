@@ -1,0 +1,215 @@
+{
+  "status": "ready",
+  "name": "chair",
+  "assumptions": [
+    "Interpreted oblique wireframe drawing as a standard 3D four-legged chair resting on a level floor.",
+    "Modeled rear legs and backrest uprights as continuous vertical posts connected by a top rail.",
+    "Estimated human-scale dining/desk chair proportions with seat height ~0.44 m and total height ~0.88 m."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Modeled a rigid 3D chair standing on the drawn ground line.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "floor",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": -0.02,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.4,
+            "y": 0.04,
+            "z": 1.0
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Horizontal ground baseline beneath the chair legs",
+        "region": {
+          "left": 0.175,
+          "top": 0.84,
+          "right": 0.752,
+          "bottom": 0.86
+        }
+      },
+      "stackAbove": null,
+      "friction": 0.6,
+      "restitution": 0.1
+    },
+    {
+      "id": "chair",
+      "label": "chair",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.44,
+            "y": 0.03,
+            "z": 0.42
+          },
+          "position": {
+            "x": 0,
+            "y": 0.44,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.03,
+            "y": 0.425,
+            "z": 0.03
+          },
+          "position": {
+            "x": -0.205,
+            "y": 0.2125,
+            "z": 0.195
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.03,
+            "y": 0.425,
+            "z": 0.03
+          },
+          "position": {
+            "x": 0.205,
+            "y": 0.2125,
+            "z": 0.195
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.03,
+            "y": 0.875,
+            "z": 0.03
+          },
+          "position": {
+            "x": -0.205,
+            "y": 0.4375,
+            "z": -0.195
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.03,
+            "y": 0.875,
+            "z": 0.03
+          },
+          "position": {
+            "x": 0.205,
+            "y": 0.4375,
+            "z": -0.195
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.44,
+            "y": 0.03,
+            "z": 0.03
+          },
+          "position": {
+            "x": 0,
+            "y": 0.86,
+            "z": -0.195
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Four-legged chair with seat frame and upright backrest",
+        "region": {
+          "left": 0.279,
+          "top": 0.188,
+          "right": 0.633,
+          "bottom": 0.846
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 4.5,
+      "friction": 0.5,
+      "restitution": 0.1
+    }
+  ]
+}

@@ -1,0 +1,608 @@
+{
+  "id": "case-07",
+  "subject": "abstract-shapes",
+  "expected": "Triangular prism, sphere and box supported by drawn table/legs and ground; preserve relative order.",
+  "inputSha256": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "8d12752 metric compiler with restored Momen; temporary schema-in-prompt adaptation; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:55:32.187Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 22
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Rigid model of table with geometric pyramid, cube, and sphere resting on it.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "floor",
+          "position": {
+            "x": 0.07500000298023224,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.07500000298023224,
+            "y": -0.05000000074505806,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "table",
+          "position": {
+            "x": 0.03799999877810478,
+            "y": 0.2750000059604645,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.03678044304251671,
+            "y": 0.45396244525909424,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "pyramid",
+          "position": {
+            "x": -0.45002061128616333,
+            "y": 0.967408299446106,
+            "z": 0.1999741494655609
+          },
+          "centerOfMass": {
+            "x": -0.45002105832099915,
+            "y": 0.7586582899093628,
+            "z": 0.1999737173318863
+          },
+          "rotation": {
+            "x": 0.0000010380241519669653,
+            "y": -5.739969610729645e-10,
+            "z": -0.0000010362363127569552,
+            "w": 1
+          },
+          "velocity": {
+            "x": -0.000008757199793762993,
+            "y": -0.000011819298379123211,
+            "z": -0.000009882913218461908
+          },
+          "angularVelocity": {
+            "x": -0.000047343175538117066,
+            "y": -9.088643195247909e-15,
+            "z": 0.000041950544982682914
+          },
+          "speed": 0.000017721634690013116,
+          "mass": 2,
+          "inertia": {
+            "x": 0.06829188019037247,
+            "y": 0.11902250349521637,
+            "z": 0.1553143858909607
+          }
+        },
+        {
+          "objectId": "cube",
+          "position": {
+            "x": -0.04101158306002617,
+            "y": 0.72493976354599,
+            "z": -0.20000895857810974
+          },
+          "centerOfMass": {
+            "x": -0.04101158306002617,
+            "y": 0.72493976354599,
+            "z": -0.20000895857810974
+          },
+          "rotation": {
+            "x": 7.758575861771533e-7,
+            "y": 1.2299735882570495e-11,
+            "z": -6.506995759991696e-7,
+            "w": 1
+          },
+          "velocity": {
+            "x": -0.000004878822437603958,
+            "y": 0.0000010730382200563326,
+            "z": -0.000006091002433095127
+          },
+          "angularVelocity": {
+            "x": -0.000034805736504495144,
+            "y": -7.055225408883134e-16,
+            "z": 0.000027878993932972662
+          },
+          "speed": 0.000007877476121153287,
+          "mass": 1.5,
+          "inertia": {
+            "x": 0.027324996888637543,
+            "y": 0.024024998769164085,
+            "z": 0.027324996888637543
+          }
+        },
+        {
+          "objectId": "sphere",
+          "position": {
+            "x": 0.5,
+            "y": 0.799933671951294,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0.5,
+            "y": 0.799933671951294,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 1,
+          "inertia": {
+            "x": 0.02500000037252903,
+            "y": 0.02500000037252903,
+            "z": 0.02500000037252903
+          }
+        }
+      ],
+      "kineticEnergy": 6.009663739682609e-10,
+      "potentialEnergy": 33.399713590443135,
+      "momentum": {
+        "x": -0.000024832633243931923,
+        "y": -0.000022029039428161923,
+        "z": -0.000028902330086566508
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "floor",
+      "label": "floor",
+      "kind": "custom-part",
+      "position": {
+        "x": 0.075,
+        "y": -0.05,
+        "z": 0
+      },
+      "dimensions": [
+        2.9,
+        0.1,
+        1.5
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "table",
+      "label": "table",
+      "kind": "custom-part",
+      "position": {
+        "x": 0.038,
+        "y": 0.275,
+        "z": 0
+      },
+      "dimensions": [
+        2.35,
+        0.55,
+        1
+      ],
+      "fixed": true,
+      "parts": 3
+    },
+    {
+      "id": "pyramid",
+      "label": "pyramid",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.45,
+        "y": 0.9675010707554983,
+        "z": 0.2
+      },
+      "dimensions": [
+        1.015,
+        0.835,
+        0.4
+      ],
+      "fixed": false,
+      "parts": 1
+    },
+    {
+      "id": "cube",
+      "label": "cube",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.041,
+        "y": 0.7249998821264867,
+        "z": -0.2
+      },
+      "dimensions": [
+        0.31,
+        0.35,
+        0.31
+      ],
+      "fixed": false,
+      "parts": 1
+    },
+    {
+      "id": "sphere",
+      "label": "sphere",
+      "kind": "ball",
+      "position": {
+        "x": 0.5,
+        "y": 0.7999997838408492,
+        "z": 0
+      },
+      "dimensions": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "fixed": false,
+      "parts": 1
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "ground line at base",
+      "objectId": "floor",
+      "bbox": [
+        0.16,
+        0.9,
+        0.72,
+        0.020000000000000018
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "tabletop and supporting legs",
+      "objectId": "table",
+      "bbox": [
+        0.21,
+        0.685,
+        0.5950000000000001,
+        0.22999999999999998
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "triangular pyramid resting on table",
+      "objectId": "pyramid",
+      "bbox": [
+        0.255,
+        0.352,
+        0.263,
+        0.33999999999999997
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "square box behind the pyramid",
+      "objectId": "cube",
+      "bbox": [
+        0.448,
+        0.548,
+        0.08400000000000002,
+        0.1439999999999999
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "circular sphere resting on table",
+      "objectId": "sphere",
+      "bbox": [
+        0.56,
+        0.488,
+        0.1299999999999999,
+        0.20399999999999996
+      ]
+    }
+  ],
+  "elapsedSeconds": 76.148,
+  "requests": 1
+}

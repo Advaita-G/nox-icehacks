@@ -1,0 +1,237 @@
+{
+  "status": "ready",
+  "name": "geometric-still-life",
+  "assumptions": [
+    "Scene depicts a line drawing of classic geometric solids (pyramid, cube, sphere) on a table above a ground floor.",
+    "The pyramid visually overlaps the cube in elevation, so they are slightly separated along the Z-axis to prevent collision.",
+    "The table and ground floor are modeled as fixed scenery, while the three shapes are dynamic bodies resting on the tabletop."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid model of table with geometric pyramid, cube, and sphere resting on it.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 400,
+  "bodies": [
+    {
+      "id": "floor",
+      "label": "floor",
+      "fixed": true,
+      "position": {
+        "x": 0.075,
+        "y": -0.05,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 2.9,
+            "y": 0.1,
+            "z": 1.5
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ground line at base",
+        "region": {
+          "left": 0.16,
+          "top": 0.9,
+          "right": 0.88,
+          "bottom": 0.92
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "table",
+      "label": "table",
+      "fixed": true,
+      "position": {
+        "x": 0.038,
+        "y": 0.275,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 2.35,
+            "y": 0.125,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0.2125,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.08,
+            "y": 0.425,
+            "z": 0.6
+          },
+          "position": {
+            "x": -0.91,
+            "y": -0.0625,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.08,
+            "y": 0.425,
+            "z": 0.6
+          },
+          "position": {
+            "x": 0.89,
+            "y": -0.0625,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "tabletop and supporting legs",
+        "region": {
+          "left": 0.21,
+          "top": 0.685,
+          "right": 0.805,
+          "bottom": 0.915
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "pyramid",
+      "label": "pyramid",
+      "fixed": false,
+      "position": {
+        "x": -0.45,
+        "y": 0.968,
+        "z": 0.2
+      },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {
+              "x": 0,
+              "y": 0.4175,
+              "z": 0
+            },
+            {
+              "x": -0.5075,
+              "y": -0.4175,
+              "z": -0.2
+            },
+            {
+              "x": 0.5075,
+              "y": -0.4175,
+              "z": -0.2
+            },
+            {
+              "x": 0.5075,
+              "y": -0.4175,
+              "z": 0.2
+            },
+            {
+              "x": -0.5075,
+              "y": -0.4175,
+              "z": 0.2
+            }
+          ]
+        }
+      ],
+      "mass": 2,
+      "friction": 0.6,
+      "restitution": 0.05,
+      "grounding": {
+        "origin": "sketch",
+        "note": "triangular pyramid resting on table",
+        "region": {
+          "left": 0.255,
+          "top": 0.352,
+          "right": 0.518,
+          "bottom": 0.692
+        }
+      },
+      "stackAbove": "table"
+    },
+    {
+      "id": "cube",
+      "label": "cube",
+      "fixed": false,
+      "position": {
+        "x": -0.041,
+        "y": 0.725,
+        "z": -0.2
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.31,
+            "y": 0.35,
+            "z": 0.31
+          }
+        }
+      ],
+      "mass": 1.5,
+      "friction": 0.6,
+      "restitution": 0.05,
+      "grounding": {
+        "origin": "sketch",
+        "note": "square box behind the pyramid",
+        "region": {
+          "left": 0.448,
+          "top": 0.548,
+          "right": 0.532,
+          "bottom": 0.692
+        }
+      },
+      "stackAbove": "table"
+    },
+    {
+      "id": "sphere",
+      "label": "sphere",
+      "fixed": false,
+      "position": {
+        "x": 0.5,
+        "y": 0.8,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 0.5
+          }
+        }
+      ],
+      "mass": 1,
+      "friction": 0.4,
+      "restitution": 0.2,
+      "grounding": {
+        "origin": "sketch",
+        "note": "circular sphere resting on table",
+        "region": {
+          "left": 0.56,
+          "top": 0.488,
+          "right": 0.69,
+          "bottom": 0.692
+        }
+      },
+      "stackAbove": "table"
+    }
+  ]
+}

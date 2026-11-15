@@ -1,0 +1,303 @@
+[
+  {
+    "id": "case-03",
+    "subject": "chair",
+    "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+    "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+    "notes": "",
+    "provider": "momen",
+    "sourceCommit": "8d12752 metric compiler with restored Momen; temporary schema-in-prompt adaptation; not production",
+    "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+    "startedAt": "2026-11-15T16:47:30.779Z",
+    "retries": 0,
+    "trace": [
+      {
+        "operation": "NoxImageUpload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "image-upload",
+        "httpStatus": 200
+      },
+      {
+        "operation": "NoxCreateConversation",
+        "httpStatus": 200,
+        "conversationId": 16
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "IN_PROGRESS"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "STREAMING"
+      },
+      {
+        "operation": "NoxResult",
+        "httpStatus": 200,
+        "status": "COMPLETED"
+      }
+    ],
+    "providerStatus": "COMPLETED",
+    "canonicalStatus": "ready",
+    "questions": [],
+    "message": "Modeled a rigid 3D chair standing on the drawn ground line.",
+    "solver": {
+      "time": 1,
+      "sample": {
+        "simulationTime": 1,
+        "bodies": [
+          {
+            "objectId": "ground",
+            "position": {
+              "x": 0,
+              "y": -0.019999999552965164,
+              "z": 0
+            },
+            "centerOfMass": {
+              "x": 0,
+              "y": -0.019999999552965164,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "angularVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "speed": 0,
+            "mass": 0,
+            "inertia": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "objectId": "chair",
+            "position": {
+              "x": 0.000005534200226975372,
+              "y": -0.000010281801223754883,
+              "z": 0.00001409091055393219
+            },
+            "centerOfMass": {
+              "x": 0.000006547838438564213,
+              "y": 0.4385819137096405,
+              "z": -0.02838980033993721
+            },
+            "rotation": {
+              "x": -0.000001968561718967976,
+              "y": -0.000016266161765088327,
+              "z": -1.021698636805013e-7,
+              "w": 1
+            },
+            "velocity": {
+              "x": 0.000004946616172674112,
+              "y": 0.0000022557508145837346,
+              "z": 0.000009900159056996927
+            },
+            "angularVelocity": {
+              "x": 0.000008089261427812744,
+              "y": -0.000030986720958026126,
+              "z": 0.000004505108790908707
+            },
+            "speed": 0.000011294714367840141,
+            "mass": 4.500000953674316,
+            "inertia": {
+              "x": 0.17690053582191467,
+              "y": 0.21790707111358643,
+              "z": 0.25225237011909485
+            }
+          }
+        ],
+        "kineticEnergy": 3.8888512002181044e-10,
+        "potentialEnergy": 19.36120268388493,
+        "momentum": {
+          "x": 0.0000222597774944943,
+          "y": 0.000010150880816878422,
+          "z": 0.00004455072519801359
+        },
+        "mechanisms": {
+          "springEnergy": 0,
+          "connections": [],
+          "fans": []
+        }
+      }
+    },
+    "objects": [
+      {
+        "id": "ground",
+        "label": "floor",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": -0.02,
+          "z": 0
+        },
+        "dimensions": [
+          1.4,
+          0.1,
+          1
+        ],
+        "fixed": true,
+        "parts": 1
+      },
+      {
+        "id": "chair",
+        "label": "chair",
+        "kind": "custom-part",
+        "position": {
+          "x": 0,
+          "y": 8.76707339170224e-7,
+          "z": 0
+        },
+        "dimensions": [
+          0.44,
+          1.75,
+          0.42000000000000004
+        ],
+        "fixed": false,
+        "parts": 6
+      }
+    ],
+    "constraints": [],
+    "grounding": [
+      {
+        "origin": "sketch",
+        "note": "Horizontal ground baseline beneath the chair legs",
+        "objectId": "ground",
+        "bbox": [
+          0.175,
+          0.84,
+          0.577,
+          0.020000000000000018
+        ]
+      },
+      {
+        "origin": "sketch",
+        "note": "Four-legged chair with seat frame and upright backrest",
+        "objectId": "chair",
+        "bbox": [
+          0.279,
+          0.188,
+          0.354,
+          0.6579999999999999
+        ]
+      }
+    ],
+    "elapsedSeconds": 38.853,
+    "requests": 1
+  }
+]

@@ -1,0 +1,272 @@
+{
+  "status": "ready",
+  "name": "Seesaw lever with ball on pivot",
+  "assumptions": [
+    "Scale inferred with fulcrum height at 1.0 m above the ground line.",
+    "Fulcrum and ground are fixed rigid structures.",
+    "Lever is hinged to the fulcrum at the circular pivot along the Z axis.",
+    "Ball is free to roll and fall under gravity with no motor applied."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "A seesaw lever hinged to a triangular fulcrum stand with a ball resting on its left side, free to tip and roll off under gravity.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground surface",
+      "fixed": true,
+      "position": {
+        "x": 0.04,
+        "y": -0.05,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 5.0,
+            "y": 0.1,
+            "z": 1.0
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal ground line",
+        "region": {
+          "left": 0.156,
+          "top": 0.798,
+          "right": 0.831,
+          "bottom": 0.808
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "fulcrum",
+      "label": "triangular fulcrum stand",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -0.59, "y": 0, "z": -0.15 },
+            { "x": 0.59, "y": 0, "z": -0.15 },
+            { "x": 0, "y": 1.0, "z": -0.15 },
+            { "x": -0.59, "y": 0, "z": 0.15 },
+            { "x": 0.59, "y": 0, "z": 0.15 },
+            { "x": 0, "y": 1.0, "z": 0.15 }
+          ],
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.16,
+            "y": 0.32,
+            "z": 0.16
+          },
+          "position": {
+            "x": 0,
+            "y": 1.0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "triangular fulcrum stand with apex pivot",
+        "region": {
+          "left": 0.398,
+          "top": 0.535,
+          "right": 0.578,
+          "bottom": 0.803
+        }
+      },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "lever",
+      "label": "lever beam",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 1.09,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 3.4,
+            "y": 0.18,
+            "z": 0.25
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal lever beam",
+        "region": {
+          "left": 0.229,
+          "top": 0.518,
+          "right": 0.745,
+          "bottom": 0.563
+        }
+      },
+      "stackAbove": null,
+      "mass": 5.0,
+      "friction": 0.4,
+      "restitution": 0.1
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "fixed": false,
+      "position": {
+        "x": -1.16,
+        "y": 1.505,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.65,
+            "y": 0.65,
+            "z": 0.65
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ball resting on the lever beam",
+        "region": {
+          "left": 0.262,
+          "top": 0.36,
+          "right": 0.362,
+          "bottom": 0.518
+        }
+      },
+      "stackAbove": "lever",
+      "mass": 2.0,
+      "friction": 0.3,
+      "restitution": 0.2
+    }
+  ],
+  "constraints": [
+    {
+      "id": "pivot_hinge",
+      "type": "hinge",
+      "bodyA": "fulcrum",
+      "bodyB": "lever",
+      "anchorA": {
+        "x": 0,
+        "y": 1.0,
+        "z": 0
+      },
+      "anchorB": {
+        "x": 0,
+        "y": -0.09,
+        "z": 0
+      },
+      "axisA": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "axisB": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "contactsEnabled": false
+    }
+  ],
+  "forces": [],
+  "fans": [],
+  "assemblies": []
+}

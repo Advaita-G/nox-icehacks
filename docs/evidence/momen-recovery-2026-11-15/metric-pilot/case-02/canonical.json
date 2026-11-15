@@ -1,0 +1,248 @@
+{
+  "requestId": "momen-case-02",
+  "sourceId": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "fixed ground line with hatch marks",
+      "objectId": "ground",
+      "bbox": [
+        0.15,
+        0.58,
+        0.7,
+        0.040000000000000036
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "fixed plank 3 m in length",
+      "objectId": "plank",
+      "bbox": [
+        0.312,
+        0.52,
+        0.37599999999999995,
+        0.061999999999999944
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "ball with diameter 1 m and mass 1 kg",
+      "objectId": "ball",
+      "bbox": [
+        0.437,
+        0.318,
+        0.12599999999999995,
+        0.202
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Rigid body model constructed with a 1 m diameter sphere resting on a 3 m long fixed plank above the ground.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Ball Resting on Fixed Plank",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The ball is modeled as a dynamic rigid sphere with a diameter of 1.0 m and mass of 1.0 kg.",
+      "The plank is 3.0 m long along X, 0.3 m high along Y, and 1.0 m deep along Z, fixed in place as labeled.",
+      "The ground is modeled as a fixed horizontal slab beneath the plank.",
+      "Standard gravity of 9.81 m/s^2 acts downward.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 0.2,
+        "depth": 2,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "plank",
+        "label": "plank",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.14999986372094654,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3,
+        "height": 0.3,
+        "depth": 1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "ball",
+        "label": "ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.7998637707339413,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "geometry": [
+          {
+            "shape": "sphere",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.2,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

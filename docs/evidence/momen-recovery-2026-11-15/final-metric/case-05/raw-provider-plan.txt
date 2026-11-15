@@ -1,0 +1,257 @@
+```json
+{
+  "status": "ready",
+  "name": "Stick Figure on Ground",
+  "assumptions": [
+    "Interpreted drawing as a stylized humanoid stick figure standing on a flat ground line.",
+    "Estimated total figure height at approximately 1.45 m with a ground line spanning 1.8 m.",
+    "Modeled the figure as a rigid body proxy with 0.15 m depth in Z to allow stable display and dynamic manipulation.",
+    "Modeled eyes and mouth as decorative surface elements on the circular head.",
+    "Ground line is treated as a fixed support slab; the figure is dynamic and stacked above it."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid stick figure character standing on a fixed ground support line.",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.8,
+            "y": 0.04,
+            "z": 0.4
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Drawn horizontal ground line",
+        "region": {
+          "left": 0.218,
+          "top": 0.872,
+          "right": 0.765,
+          "bottom": 0.884
+        }
+      },
+      "stackAbove": null,
+      "friction": 0.6
+    },
+    {
+      "id": "character",
+      "label": "figure",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0.72,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.48,
+            "y": 0.5,
+            "z": 0.15
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.5,
+            "y": 0.5,
+            "z": 0.5
+          },
+          "position": {
+            "x": 0,
+            "y": 0.5,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.04,
+            "y": 0.04,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.14,
+            "y": 0.53,
+            "z": 0.24
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.04,
+            "y": 0.04,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.14,
+            "y": 0.53,
+            "z": 0.24
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.22,
+            "y": 0.02,
+            "z": 0.02
+          },
+          "position": {
+            "x": 0,
+            "y": 0.38,
+            "z": 0.24
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.54,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.44,
+            "y": 0.01,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 132
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.54,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.44,
+            "y": 0.01,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -132
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.45,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.225,
+            "y": -0.46,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 160
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.45,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.225,
+            "y": -0.46,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -160
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Drawn stick figure including circular head, facial features, square torso, arms, and legs",
+        "region": {
+          "left": 0.292,
+          "top": 0.14,
+          "right": 0.683,
+          "bottom": 0.862
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 10,
+      "friction": 0.6
+    }
+  ]
+}
+```

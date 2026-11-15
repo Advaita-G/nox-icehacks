@@ -1,0 +1,154 @@
+```json
+{
+  "status": "ready",
+  "name": "House with Gabled Roof",
+  "gravity": { "x": 0, "y": -9.81, "z": 0 },
+  "scale": 100,
+  "assumptions": [
+    "Modeled as a full-scale residential structure with a depth of 2.5 meters.",
+    "The triangular gable roof rests directly on top of the main house body.",
+    "Door and four-pane windows are represented as facade features attached to the front of the house.",
+    "All structural elements are fixed as static architectural scenery."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid 3D model of the drawn house with gabled roof, central doorway, and symmetrical windows.",
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.225,
+    "airVelocity": { "x": 0, "y": 0, "z": 0 }
+  },
+  "bodies": [
+    {
+      "id": "house_base",
+      "label": "house_base",
+      "fixed": true,
+      "position": { "x": 0, "y": 2.02, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 3.78, "y": 4.04, "z": 2.5 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Rectangular main walls of the house",
+        "region": {
+          "left": 0.31,
+          "top": 0.448,
+          "right": 0.69,
+          "bottom": 0.854
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "roof",
+      "label": "roof",
+      "fixed": true,
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -2.38, "y": -1.36, "z": -1.4 },
+            { "x": 2.38, "y": -1.36, "z": -1.4 },
+            { "x": 0, "y": 1.36, "z": -1.4 },
+            { "x": -2.38, "y": -1.36, "z": 1.4 },
+            { "x": 2.38, "y": -1.36, "z": 1.4 },
+            { "x": 0, "y": 1.36, "z": 1.4 }
+          ]
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Triangular pitched roof with projecting eaves",
+        "region": {
+          "left": 0.262,
+          "top": 0.176,
+          "right": 0.74,
+          "bottom": 0.452
+        }
+      },
+      "stackAbove": "house_base"
+    },
+    {
+      "id": "door",
+      "label": "door",
+      "fixed": true,
+      "position": { "x": 0, "y": 1.02, "z": 1.27 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.7, "y": 2.04, "z": 0.04 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Central front door rectangle",
+        "region": {
+          "left": 0.463,
+          "top": 0.646,
+          "right": 0.537,
+          "bottom": 0.854
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "window_left",
+      "label": "window_left",
+      "fixed": true,
+      "position": { "x": -1.1, "y": 2.63, "z": 1.27 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.78, "y": 1.24, "z": 0.04 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Left four-pane square window",
+        "region": {
+          "left": 0.35,
+          "top": 0.525,
+          "right": 0.432,
+          "bottom": 0.654
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "window_right",
+      "label": "window_right",
+      "fixed": true,
+      "position": { "x": 1.1, "y": 2.63, "z": 1.27 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.78, "y": 1.24, "z": 0.04 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Right four-pane square window",
+        "region": {
+          "left": 0.568,
+          "top": 0.525,
+          "right": 0.65,
+          "bottom": 0.654
+        }
+      },
+      "stackAbove": null
+    }
+  ]
+}
+```

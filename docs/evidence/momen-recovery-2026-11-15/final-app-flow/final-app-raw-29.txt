@@ -1,0 +1,23 @@
+```json
+{
+  "requestId": "req-90a0cd9f",
+  "status": "proposed",
+  "operations": [
+    {
+      "type": "set-property",
+      "id": "ball",
+      "property": "velocity",
+      "value": {
+        "x": 2,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ],
+  "summary": [
+    "Set the initial horizontal velocity of the ball to 2 m/s along the +X axis (to the right)."
+  ],
+  "questions": [],
+  "message": "Assigned an initial velocity of 2 m/s to the right (+X) to the ball."
+}
+```
