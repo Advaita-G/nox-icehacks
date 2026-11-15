@@ -59,7 +59,7 @@ test('sketch: uploads the real image bytes, starts the agent with argKeys, polls
   assert.equal(create.body.variables.agentId, 'agent-9');
   const args = create.body.variables.inputArgs;
   assert.equal(args.a1, INTERPRET_3D);
-  assert.equal(args.a3, '777');
+  assert.equal(args.a3, 777, 'preserve the numeric asset ID returned by Momen');
   assert.ok(args.a2.includes('[attached image input]') && !args.a2.includes(PNG.slice(30, 60)), 'image bytes must not be duplicated as text');
   for (const c of f.calls) assert.equal(c.init.redirect, 'error');
 });

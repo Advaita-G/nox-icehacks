@@ -85,7 +85,7 @@ export function createMomenProvider(options: MomenOptions): ModelProvider {
     return payload.data;
   }
 
-  async function uploadImage(dataUrl: string, signal: AbortSignal): Promise<string> {
+  async function uploadImage(dataUrl: string, signal: AbortSignal): Promise<string | number> {
     const m = DATA_URL.exec(dataUrl);
     if (!m) throw new ProviderFailure('The sketch image could not be prepared for Momen.', 'invalid');
     const bytes = Buffer.from(m[2] as string, 'base64');
@@ -106,7 +106,7 @@ export function createMomenProvider(options: MomenOptions): ModelProvider {
       throw new ProviderFailure('The sketch upload to Momen failed.', 'network');
     }
     if (!up.ok) throw new ProviderFailure(`The sketch upload to Momen failed (${up.status}).`, 'http');
-    return String(p.imageId);
+    return p.imageId;
   }
 
   return {
