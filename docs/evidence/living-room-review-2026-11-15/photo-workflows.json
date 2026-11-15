@@ -1,0 +1,279 @@
+{
+  "evidence": "Controlled integration; captured canonical drawing reply with only request/source identity mapping, synthetic command reply and browser ASR/TTS. Real intake, validators, Rapier and IndexedDB. No fresh inference or physical devices.",
+  "mediaCapture": false,
+  "vendorCalls": 0,
+  "results": [
+    {
+      "viewport": "desktop 1280x720",
+      "originalReceiptSha256": "520c66e1a054b394925089f013174e9afe34ee860e91cee99dd55018bd416e4c",
+      "status": "PASS",
+      "startedAt": "2026-11-15T06:15:47.549055+00:00",
+      "completedAt": "2026-11-15T06:16:18.023239+00:00",
+      "errors": [],
+      "modelResponsesMocked": true,
+      "actionBudget": {
+        "interpret": 1,
+        "command": 1
+      },
+      "fixture": {
+        "path": "assets/live-generated-source.jpg",
+        "sha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+        "label": "Generated digital Canvas JPEG test sketch; not a camera/paper photo"
+      },
+      "validatorSource": {
+        "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+        "src/physics/scene.ts": "1ee422bcef6d3e943c041c9cd9152e6efe264629136017c0ed665d36a4fcb46d"
+      },
+      "autoRun": {
+        "clock": "2.525 s",
+        "mode": "Running",
+        "caption": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+        "bodyCount": 3,
+        "sourceClosed": true
+      },
+      "sourceGrounding": {
+        "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+        "kind": "photo",
+        "widthPx": 1600,
+        "heightPx": 1000,
+        "normalizedImageDataUriSha256": "24a2e576cc6486a2116c7299f5133ebc3db9e2fa11ee4f55e3bbf73851d00af1",
+        "notes": "",
+        "explanations": [
+          "ball: 1m diameter ball as specified in text",
+          "fixed plank: 3m fixed plank as specified in text",
+          "fixed ground: Fixed ground line"
+        ],
+        "groundedObjects": 3,
+        "allSceneObjectsGrounded": true
+      },
+      "review": {
+        "caption": "Review the physical changes before applying.\nball \u00b7 velocity x/y/z: (0, 0, 0) \u2192 (2, 0, 0) m/s",
+        "changes": [
+          "ball \u00b7 velocity x/y/z: (0, 0, 0) \u2192 (2, 0, 0) m/s"
+        ],
+        "proposal": {
+          "requestId": "req-38b651cd",
+          "status": "proposed",
+          "operations": [
+            {
+              "type": "set-property",
+              "id": "ball-1",
+              "property": "velocity",
+              "value": {
+                "x": 2,
+                "y": 0,
+                "z": 0
+              }
+            }
+          ],
+          "summary": [
+            "Synthetic command fixture: initial velocity 2 m/s to the right."
+          ],
+          "questions": [],
+          "message": ""
+        },
+        "beforeVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "proposedVelocity": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "modelBacked": false,
+        "confirmationRequired": true,
+        "clockUnchangedBeforeYes": true,
+        "replyOrigin": "synthetic fixture through the model request path"
+      },
+      "applied": {
+        "objectId": "ball-1",
+        "beforeVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "afterVelocity": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "versionId": "7222fa6e-b017-4895-96ae-24999d5364d2",
+        "versions": 2,
+        "sourceSha256": "d95c0c2665650224f147eca1bf18c7f64b4f7881259f2ba327c1bf4f22fd4646",
+        "checkpointSha256": "6fddb46b55b65cf064b5c5addca2597c5bb2bd6d75d9d7bb431c57f9e82d43ca",
+        "librarySha256": "b51e2b97eb2d48a2c7451a4ba6f5295320abd2d866f6449a72b028fdaaec451a",
+        "finalLibrarySha256": "876968f89f013a2a2c601f6be0f2197d61edbc4f00a5f02fe753ca7a2de50400",
+        "finalCheckpointSha256": "8c68ae75f0679d7f0181664bd8b5055caedfb8555c8c2fc5b726deff63c623b4"
+      },
+      "editedRun": {
+        "clock": 2.575,
+        "samples": 79,
+        "startPosition": {
+          "x": 0,
+          "y": 0.5999336838722229,
+          "z": 0
+        },
+        "endPosition": {
+          "x": 3.919945240020752,
+          "y": 0.49985477328300476,
+          "z": -1.2975210905707968e-09
+        },
+        "endSpeed": 1.5778092582829601
+      },
+      "reload": {
+        "noxOnlyArrival": true,
+        "exactLibraryRetained": true,
+        "librarySha256": "876968f89f013a2a2c601f6be0f2197d61edbc4f00a5f02fe753ca7a2de50400"
+      },
+      "browserClosed": true,
+      "apiRequests": [
+        {
+          "path": "/api/interpret",
+          "httpStatus": 200
+        },
+        {
+          "path": "/api/command",
+          "httpStatus": 200
+        }
+      ]
+    },
+    {
+      "viewport": "mobile 375x667",
+      "originalReceiptSha256": "e6e7ca050635b3ed243294f7d6456a6a58e193da8e269897b2c40d38599c6086",
+      "status": "PASS",
+      "startedAt": "2026-11-15T06:18:40.412704+00:00",
+      "completedAt": "2026-11-15T06:19:11.479877+00:00",
+      "errors": [],
+      "modelResponsesMocked": true,
+      "actionBudget": {
+        "interpret": 1,
+        "command": 1
+      },
+      "fixture": {
+        "path": "assets/live-generated-source.jpg",
+        "sha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+        "label": "Generated digital Canvas JPEG test sketch; not a camera/paper photo"
+      },
+      "validatorSource": {
+        "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+        "src/physics/scene.ts": "1ee422bcef6d3e943c041c9cd9152e6efe264629136017c0ed665d36a4fcb46d"
+      },
+      "autoRun": {
+        "clock": "2.608 s",
+        "mode": "Running",
+        "caption": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+        "bodyCount": 3,
+        "sourceClosed": true
+      },
+      "sourceGrounding": {
+        "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+        "kind": "photo",
+        "widthPx": 1600,
+        "heightPx": 1000,
+        "normalizedImageDataUriSha256": "24a2e576cc6486a2116c7299f5133ebc3db9e2fa11ee4f55e3bbf73851d00af1",
+        "notes": "",
+        "explanations": [
+          "ball: 1m diameter ball as specified in text",
+          "fixed plank: 3m fixed plank as specified in text",
+          "fixed ground: Fixed ground line"
+        ],
+        "groundedObjects": 3,
+        "allSceneObjectsGrounded": true
+      },
+      "review": {
+        "caption": "Review the physical changes before applying.\nball \u00b7 velocity x/y/z: (0, 0, 0) \u2192 (2, 0, 0) m/s",
+        "changes": [
+          "ball \u00b7 velocity x/y/z: (0, 0, 0) \u2192 (2, 0, 0) m/s"
+        ],
+        "proposal": {
+          "requestId": "req-bc93723c",
+          "status": "proposed",
+          "operations": [
+            {
+              "type": "set-property",
+              "id": "ball-1",
+              "property": "velocity",
+              "value": {
+                "x": 2,
+                "y": 0,
+                "z": 0
+              }
+            }
+          ],
+          "summary": [
+            "Synthetic command fixture: initial velocity 2 m/s to the right."
+          ],
+          "questions": [],
+          "message": ""
+        },
+        "beforeVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "proposedVelocity": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "modelBacked": false,
+        "confirmationRequired": true,
+        "clockUnchangedBeforeYes": true,
+        "replyOrigin": "synthetic fixture through the model request path"
+      },
+      "applied": {
+        "objectId": "ball-1",
+        "beforeVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "afterVelocity": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        },
+        "versionId": "ac63b507-194b-49f1-967b-13ac7b040eb2",
+        "versions": 2,
+        "sourceSha256": "d95c0c2665650224f147eca1bf18c7f64b4f7881259f2ba327c1bf4f22fd4646",
+        "checkpointSha256": "6fddb46b55b65cf064b5c5addca2597c5bb2bd6d75d9d7bb431c57f9e82d43ca",
+        "librarySha256": "fb5ecc747f9089ddd92280bdd96990ea20f37fcdab608aec41a65f61d69b3a47",
+        "finalLibrarySha256": "b11b2c9125c9c897b311dcaae267b4b56f82d8d6acac8a734356d1b7c28f1d9f",
+        "finalCheckpointSha256": "8c68ae75f0679d7f0181664bd8b5055caedfb8555c8c2fc5b726deff63c623b4"
+      },
+      "editedRun": {
+        "clock": 2.575,
+        "samples": 79,
+        "startPosition": {
+          "x": 0,
+          "y": 0.5999336838722229,
+          "z": 0
+        },
+        "endPosition": {
+          "x": 3.919945240020752,
+          "y": 0.49985477328300476,
+          "z": -1.2975210905707968e-09
+        },
+        "endSpeed": 1.5778092582829601
+      },
+      "reload": {
+        "noxOnlyArrival": true,
+        "exactLibraryRetained": true,
+        "librarySha256": "b11b2c9125c9c897b311dcaae267b4b56f82d8d6acac8a734356d1b7c28f1d9f"
+      },
+      "browserClosed": true,
+      "apiRequests": [
+        {
+          "path": "/api/interpret",
+          "httpStatus": 200
+        },
+        {
+          "path": "/api/command",
+          "httpStatus": 200
+        }
+      ]
+    }
+  ]
+}

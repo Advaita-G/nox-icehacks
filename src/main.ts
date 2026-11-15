@@ -243,7 +243,7 @@ function showProposal(response: AssistantReply): void {
   const marks = proposalMarks(bench.physics.currentScene(), operations), text = response.changes.join(' · ') || response.message;
   viewport.showProposal(marks, text); if (marks[0]) lastProposal = { id: marks[0].id, text };
 }
-function clearConversationMarks(): void { clearTimeout(appliedNote); viewport?.clearProposal(); viewport?.clearNote(); }
+function clearConversationMarks(): void { clearTimeout(appliedNote); viewport?.clearProposal(); viewport?.clearNote(); viewport?.clearSourcePrint(); }
 const stillMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.dataset.motion === 'paused';
 document.addEventListener('nox:source', event => { if (viewport && bench) viewport.showSourcePrint((event as CustomEvent<HTMLCanvasElement>).detail, bench.scene, stillMotion()); });
 async function presentAssistantReply(response: AssistantReply, turn: number): Promise<void> {
@@ -261,6 +261,7 @@ async function presentAssistantReply(response: AssistantReply, turn: number): Pr
   await assistantSay([response.message, ...response.changes].join('\n'));
 }
 async function receiveAssistantPhoto(file: File): Promise<void> {
+  clearConversationMarks();
   const epoch = ++photoEpoch, turn = ++assistantTurn;
   automaticPhotoEpoch = 0; demoController?.abort(); await assistantActions.handle('cancel');
   if (epoch !== photoEpoch || turn !== assistantTurn) return;
@@ -345,7 +346,7 @@ async function handleAssistant(text: string): Promise<void> {
 }
 /**
  * The first solver steps of a scene are several times slower (WebAssembly warm-up, first world snapshots); on Windows
- * Chrome that alone exceeded the 0.1 s delayed-frame guard. Step a throwaway copy once, off the clock. The user's
+ * Chrome that alone exceeded the 0.1 s delayed-frame guard. Warm a throwaway copy off the clock. The user's
  * experiment, history and the guard are untouched.
  */
 function warmSolver(scene: Scene): void {
@@ -438,7 +439,7 @@ function startAssistant(): void {
       if (applied) { draw(); viewport.annotate(applied.id, `Applied · ${applied.text}`); clearTimeout(appliedNote); appliedNote = setTimeout(() => viewport.clearNote(), 3200); }
       return message;
     },
-    cancel: () => { lastProposal = undefined; assistant.interrupt(); clearConversationMarks(); viewport.clearSourcePrint(); checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
+    cancel: () => { lastProposal = undefined; assistant.interrupt(); clearConversationMarks(); checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
     interpret: () => inputUI!.buildPreviewWords(),
   });
   document.addEventListener('nox:talk', () => { assistant.open(); greeting = !voice.isActive; if (!voice.isActive) voice.start(); });

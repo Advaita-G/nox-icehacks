@@ -1,0 +1,14 @@
+
+> @nox/input@0.1.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.5 building client environment for production...
+transforming...
+✓ 21 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  5.81 kB │ gzip:  2.05 kB
+dist/assets/index-CBwQ1bFn.css   5.02 kB │ gzip:  1.74 kB
+dist/assets/index-laIu5Pn2.js   75.31 kB │ gzip: 23.73 kB
+
+✓ built in 40ms

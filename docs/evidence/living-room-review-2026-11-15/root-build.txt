@@ -1,0 +1,27 @@
+
+> nox-physics@0.1.0 build
+> npm run typecheck && vite build
+
+
+> nox-physics@0.1.0 typecheck
+> tsc --noEmit
+
+vite v8.3.6 building client environment for production...
+transforming...
+✓ 50 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                                    12.58 kB │ gzip:     4.26 kB
+dist/assets/Nox-ramp-and-cup-CG0uwtsK.json        861.74 kB │ gzip:   156.64 kB
+dist/assets/Nox-spring-cart-CmwPPLNw.json       1,396.57 kB │ gzip:   306.75 kB
+dist/assets/Nox-fan-and-friction-BjwsLSRc.json  1,802.06 kB │ gzip:   327.23 kB
+dist/assets/main-BddXbDC2.css                      43.69 kB │ gzip:     9.33 kB
+dist/assets/index-CmfCgOJ6.js                       3.05 kB │ gzip:     1.38 kB
+dist/assets/main-F8A0anzb.js                    5,096.73 kB │ gzip: 1,874.59 kB
+
+[plugin builtin:vite-reporter]
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 205ms

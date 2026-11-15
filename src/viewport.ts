@@ -61,7 +61,7 @@ export class Viewport {
   /** Display-only conversation layer: proposal ghosts/arrows, the source print and one anchored note. Never physics. */
   proposal = new THREE.Group();
   private note?: { element: HTMLElement; id: string };
-  private print?: { mesh: THREE.Mesh; texture: THREE.Texture; started: number; frame?: number };
+  private print?: { mesh: THREE.Mesh; texture: THREE.Texture; started: number; frame?: number; timer?: number };
   private lastSample?: Sample;
   constructor(canvas: HTMLCanvasElement, onSelect: (id: string) => void, onBegin: () => void, onCommit: (operations: Operation[]) => void) {
     this.canvas = canvas;
@@ -165,7 +165,7 @@ export class Viewport {
     for (const mark of marks) {
       if (mark.kind === 'ghost') {
         const group = this.mesh(mark.object, true);
-        group.traverse(child => { if (child instanceof THREE.Mesh) child.material = new THREE.MeshBasicMaterial({ color: ink, wireframe: true, transparent: true, opacity: .45, depthWrite: false }); });
+        group.traverse(child => { if (child instanceof THREE.Mesh && child.material instanceof THREE.MeshBasicMaterial) { child.material.color.set(ink); child.material.opacity = .45; child.material.depthWrite = false; } });
         group.position.set(mark.object.position.x, mark.object.position.y, mark.object.position.z);
         group.quaternion.set(mark.object.rotation.x, mark.object.rotation.y, mark.object.rotation.z, mark.object.rotation.w);
         this.proposal.add(group);
@@ -196,7 +196,7 @@ export class Viewport {
     mesh.rotation.x = -Math.PI / 2; mesh.position.set(center.x, Math.max(0, box.min.y) + .004, center.z); mesh.renderOrder = -1;
     this.scene.add(mesh); this.print = { mesh, texture, started: performance.now() };
     const hold = 1800, fade = 1600;
-    if (still) { this.print.frame = window.setTimeout(() => this.clearSourcePrint(), hold + fade) as unknown as number; this.render(); return; }
+    if (still) { this.print.timer = window.setTimeout(() => this.clearSourcePrint(), hold + fade); this.render(); return; }
     const step = (now: number) => {
       const print = this.print; if (!print || print.mesh !== mesh) return;
       const t = Math.min(1, Math.max(0, (now - print.started - hold) / fade));
@@ -208,7 +208,8 @@ export class Viewport {
   }
   clearSourcePrint(): void {
     const print = this.print; if (!print) return; this.print = undefined;
-    if (print.frame !== undefined) { cancelAnimationFrame(print.frame); clearTimeout(print.frame); }
+    if (print.frame !== undefined) cancelAnimationFrame(print.frame);
+    if (print.timer !== undefined) clearTimeout(print.timer);
     this.scene.remove(print.mesh); print.mesh.geometry.dispose(); (print.mesh.material as THREE.Material).dispose(); print.texture.dispose(); this.render();
   }
   fit(setup: Scene): void {
@@ -243,7 +244,8 @@ export class Viewport {
     const inFront = anchor.z < 1, inside = inFront && Math.abs(anchor.x) <= 1 && Math.abs(anchor.y) <= 1;
     note.element.hidden = false; note.element.toggleAttribute('data-offscreen', !inside);
     const sx = inFront ? anchor.x : -anchor.x, sy = inFront ? anchor.y : -anchor.y;
-    const x = Math.min(w - 24, Math.max(24, (sx + 1) / 2 * w)), y = Math.min(h - 16, Math.max(64, (1 - sy) / 2 * h));
+    const x = Math.min(Math.max(24, w + 4 - note.element.offsetWidth), Math.max(24, (sx + 1) / 2 * w));
+    const y = Math.min(Math.max(64, h + 36 - note.element.offsetHeight), Math.max(64, (1 - sy) / 2 * h));
     note.element.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
   }
 }
