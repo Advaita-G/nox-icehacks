@@ -9,10 +9,22 @@
 import type { ModelProvider } from '../packages/input/server/api.ts';
 import { createAnthropicProvider, type Effort, type FetchLike } from './anthropic.ts';
 import { createMomenProvider, type FetchLike as MomenFetch } from './momen.ts';
+import { createCloudflareProvider, type FetchLike as CloudflareFetch } from './cloudflare.ts';
 
-export function buildProviders(env: Record<string, string | undefined>, fetchImpl?: FetchLike | MomenFetch): Record<string, ModelProvider> {
+export function buildProviders(env: Record<string, string | undefined>, fetchImpl?: FetchLike | MomenFetch | CloudflareFetch): Record<string, ModelProvider> {
   const providers: Record<string, ModelProvider> = {};
   if (env.NOX_LIVE_CALLS !== 'enabled') return providers; // live calls need an explicit, budgeted opt-in
+  if (env.NOX_MODEL_PROVIDER === 'cloudflare') {
+    if (!env.NOX_CLOUDFLARE_ACCOUNT_ID?.trim() || !env.NOX_CLOUDFLARE_API_TOKEN?.trim()) return providers;
+    providers.cloudflare = createCloudflareProvider({
+      accountId: env.NOX_CLOUDFLARE_ACCOUNT_ID,
+      apiToken: env.NOX_CLOUDFLARE_API_TOKEN,
+      ...(env.NOX_CLOUDFLARE_MODEL ? { model: env.NOX_CLOUDFLARE_MODEL } : {}),
+      ...(env.NOX_CLOUDFLARE_MAX_TOKENS ? { maxTokens: Number(env.NOX_CLOUDFLARE_MAX_TOKENS) } : {}),
+      ...(fetchImpl ? { fetch: fetchImpl as CloudflareFetch } : {}),
+    });
+    return providers;
+  }
   if (env.NOX_MODEL_PROVIDER === 'momen') {
     const required = ['NOX_MOMEN_PROJECT_EX_ID', 'NOX_MOMEN_ADMIN_TOKEN', 'NOX_MOMEN_AGENT_ID', 'NOX_MOMEN_ARG_INSTRUCTIONS', 'NOX_MOMEN_ARG_REQUEST', 'NOX_MOMEN_ARG_IMAGE'];
     if (required.some((k) => !env[k]?.trim())) return providers;
