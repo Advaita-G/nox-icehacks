@@ -1,0 +1,4 @@
+{
+  "requestId": "req-dd172471",
+  "raw": "{\n  \"requestId\": \"req-dd172471\",\n  \"status\": \"proposed\",\n  \"operations\": [\n    {\n      \"type\": \"set-property\",\n      \"id\": \"ball\",\n      \"property\": \"velocity\",\n      \"value\": {\n        \"x\": 2,\n        \"y\": 0,\n        \"z\": 0\n      }\n    }\n  ],\n  \"summary\": [\n    \"Set the initial horizontal velocity of the ball to 2.0 m/s along the +X axis (to the right).\"\n  ],\n  \"questions\": [],\n  \"message\": \"Set the ball's initial velocity to 2 m/s to the right with zero vertical and depth velocity.\"\n}"
+}
