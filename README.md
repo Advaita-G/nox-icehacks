@@ -6,7 +6,7 @@ Open Nox, tap its name and speak. Ask it to build a scene, add a drawing when yo
 
 ## Try it
 
-[Open Nox](https://nox-icehacks.vercel.app) · [Watch the 94-second core demo](https://youtu.be/9IRrXUZZexE)
+[Open Nox](https://nox-icehacks.vercel.app) · [Watch the 94-second core demo](https://youtu.be/9IRrXUZZexE) · [Download the review MP4, captions and editable HyperFrames source](https://github.com/Advaita-G/nox-icehacks/releases/tag/core-review-2026-11-14)
 
 The unlisted video demonstrates the earlier built-in workflow with scripted speech and explicitly labels the blocked image provider. Its anonymous embed metadata was verified; physical-microphone acceptance and human watch/listen review are not claimed.
 
