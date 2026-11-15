@@ -5,6 +5,7 @@ import { geometryParts } from './physics/geometry.ts';
 import { TransformControls } from 'three/addons/controls/TransformControls.js';
 import type { BodySample, Sample } from './physics/engine.ts';
 import type { Operation, Scene, SceneObject, Vec3 } from './physics/scene.ts';
+import type { ProposalMark } from './assistant/proposal.ts';
 
 export const theme = (role: string): string => getComputedStyle(document.documentElement).getPropertyValue(`--color-${role}`).trim();
 /** Connection resources survive pose updates so their GPU programs and buffers stay warm. */
@@ -57,6 +58,11 @@ export class Viewport {
   assemblyId = '';
   links = new ConnectionLines();
   canvas: HTMLCanvasElement;
+  /** Display-only conversation layer: proposal ghosts/arrows, the source print and one anchored note. Never physics. */
+  proposal = new THREE.Group();
+  private note?: { element: HTMLElement; id: string };
+  private print?: { mesh: THREE.Mesh; texture: THREE.Texture; started: number; frame?: number };
+  private lastSample?: Sample;
   constructor(canvas: HTMLCanvasElement, onSelect: (id: string) => void, onBegin: () => void, onCommit: (operations: Operation[]) => void) {
     this.canvas = canvas;
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false });
@@ -66,7 +72,7 @@ export class Viewport {
     this.scene.add(new THREE.HemisphereLight(theme('light'), theme('shadow'), 2.5));
     const light = new THREE.DirectionalLight(theme('light'), 3); light.position.set(-8, 16, 9); light.castShadow = true;
     light.shadow.mapSize.set(2048, 2048); Object.assign(light.shadow.camera, { left: -18, right: 18, top: 18, bottom: -18, near: .5, far: 80 }); light.shadow.normalBias = .02;
-    this.scene.add(light, this.objects, this.ghosts, this.links);
+    this.scene.add(light, this.objects, this.ghosts, this.links, this.proposal);
     const grid = new THREE.GridHelper(40, 40, theme('grid-axis'), theme('grid')); grid.position.y = -.015; this.scene.add(grid);
     this.controls = new OrbitControls(this.camera, canvas); this.controls.enableDamping = false; this.controls.minDistance = .5; this.controls.maxDistance = 3000; this.controls.maxPolarAngle = Math.PI * .92;
     this.transform = new TransformControls(this.camera, canvas); this.transform.setSize(.8); this.scene.add(this.transform.getHelper());
@@ -125,6 +131,8 @@ export class Viewport {
       setup.objects.forEach(o => { const group = this.mesh(o); this.meshes.set(o.id, group); this.objects.add(group); });
       baseline?.scene.objects.forEach(o => this.ghosts.add(this.mesh(o, true))); this.signature = signature;
     }
+    this.lastSample = sample;
+    if (this.note && !this.meshes.has(this.note.id)) this.clearNote();
     const pose = (group: THREE.Object3D, body: BodySample) => { group.position.copy(body.position); group.quaternion.copy(body.rotation); };
     sample.bodies.forEach(b => { const group = this.meshes.get(b.objectId); if (group) pose(group, b); });
     if (baseline) this.ghosts.children.forEach(group => { const b = baseline.sample.bodies.find(b => b.objectId === group.userData.id); if (b) pose(group, b); });
@@ -138,6 +146,70 @@ export class Viewport {
     this.links.update(setup, sample, theme('body-edge'));
     this.transform.getHelper().visible = this.transform.enabled;
     this.render();
+  }
+  /** Name the part Nox is talking about, anchored to it in the room. */
+  annotate(id: string, text: string): void {
+    if (!this.meshes.has(id) || !text.trim()) { this.clearNote(); return; }
+    const host = this.canvas.parentElement!;
+    const element = this.note?.element ?? Object.assign(document.createElement('div'), { className: 'scene-note' });
+    element.setAttribute('role', 'note'); element.textContent = text; element.dataset.fresh = 'true';
+    if (!element.isConnected) host.append(element);
+    requestAnimationFrame(() => { delete element.dataset.fresh; });
+    this.note = { element, id }; this.render();
+  }
+  clearNote(): void { this.note?.element.remove(); this.note = undefined; }
+  /** Show a reviewed, unapplied change: ghosts at proposed poses/sizes, velocity arrows, and a note on the first part. */
+  showProposal(marks: readonly ProposalMark[], text: string): void {
+    this.clearProposal();
+    const ink = theme('ink') || '#f4f3ee';
+    for (const mark of marks) {
+      if (mark.kind === 'ghost') {
+        const group = this.mesh(mark.object, true);
+        group.traverse(child => { if (child instanceof THREE.Mesh) child.material = new THREE.MeshBasicMaterial({ color: ink, wireframe: true, transparent: true, opacity: .45, depthWrite: false }); });
+        group.position.set(mark.object.position.x, mark.object.position.y, mark.object.position.z);
+        group.quaternion.set(mark.object.rotation.x, mark.object.rotation.y, mark.object.rotation.z, mark.object.rotation.w);
+        this.proposal.add(group);
+      } else if (mark.kind === 'arrow') {
+        const body = this.lastSample?.bodies.find(b => b.objectId === mark.id); if (!body) continue;
+        const v = new THREE.Vector3(mark.vector.x, mark.vector.y, mark.vector.z), speed = v.length();
+        const length = Math.min(4, Math.max(.6, speed * .5));
+        this.proposal.add(new THREE.ArrowHelper(v.normalize(), new THREE.Vector3(body.position.x, body.position.y, body.position.z), length, ink, Math.min(.35, length * .3), Math.min(.2, length * .18)));
+      }
+    }
+    const first = marks[0]; if (first) this.annotate(first.id, text);
+    this.render();
+  }
+  clearProposal(): void {
+    this.proposal.traverse(child => { if (child instanceof THREE.Mesh || child instanceof THREE.Line) { child.geometry.dispose(); (Array.isArray(child.material) ? child.material : [child.material]).forEach(m => m.dispose()); } });
+    this.proposal.clear(); this.render();
+  }
+  /** Lay the user's actual drawing on the floor under the model it became, then let it fade (skipped when still). */
+  showSourcePrint(image: HTMLCanvasElement | HTMLImageElement, setup: Scene, still: boolean): void {
+    this.clearSourcePrint();
+    const box = new THREE.Box3();
+    for (const o of setup.objects) { const group = this.meshes.get(o.id); if (group && !(o.fixed && o.height <= .2 && o.width > 4)) box.expandByObject(group, true); }
+    if (box.isEmpty()) return;
+    const size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
+    const aspect = (image.width || 16) / (image.height || 9), width = Math.max(size.x, size.z * aspect, 1) * 1.25;
+    const texture = new THREE.Texture(image); texture.colorSpace = THREE.SRGBColorSpace; texture.needsUpdate = true;
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(width, width / aspect), new THREE.MeshBasicMaterial({ map: texture, transparent: true, opacity: .5, depthWrite: false }));
+    mesh.rotation.x = -Math.PI / 2; mesh.position.set(center.x, Math.max(0, box.min.y) + .004, center.z); mesh.renderOrder = -1;
+    this.scene.add(mesh); this.print = { mesh, texture, started: performance.now() };
+    const hold = 1800, fade = 1600;
+    if (still) { this.print.frame = window.setTimeout(() => this.clearSourcePrint(), hold + fade) as unknown as number; this.render(); return; }
+    const step = (now: number) => {
+      const print = this.print; if (!print || print.mesh !== mesh) return;
+      const t = Math.min(1, Math.max(0, (now - print.started - hold) / fade));
+      (mesh.material as THREE.MeshBasicMaterial).opacity = .5 * (1 - t * t);
+      this.render();
+      if (t < 1) print.frame = requestAnimationFrame(step); else this.clearSourcePrint();
+    };
+    this.print.frame = requestAnimationFrame(step);
+  }
+  clearSourcePrint(): void {
+    const print = this.print; if (!print) return; this.print = undefined;
+    if (print.frame !== undefined) { cancelAnimationFrame(print.frame); clearTimeout(print.frame); }
+    this.scene.remove(print.mesh); print.mesh.geometry.dispose(); (print.mesh.material as THREE.Material).dispose(); print.texture.dispose(); this.render();
   }
   fit(setup: Scene): void {
     const box = new THREE.Box3();
@@ -161,5 +233,17 @@ export class Viewport {
       this.renderer.setSize(w, h, false); this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
     }
     this.renderer.render(this.scene, this.camera);
+    this.placeNote(w, h);
+  }
+  private placeNote(w: number, h: number): void {
+    const note = this.note; if (!note) return;
+    const group = this.meshes.get(note.id); if (!group) { note.element.hidden = true; return; }
+    const top = new THREE.Box3().setFromObject(group), anchor = new THREE.Vector3((top.min.x + top.max.x) / 2, top.max.y, (top.min.z + top.max.z) / 2).project(this.camera);
+    // A part outside the view keeps its note at the nearest edge, marked as off-screen, rather than losing it.
+    const inFront = anchor.z < 1, inside = inFront && Math.abs(anchor.x) <= 1 && Math.abs(anchor.y) <= 1;
+    note.element.hidden = false; note.element.toggleAttribute('data-offscreen', !inside);
+    const sx = inFront ? anchor.x : -anchor.x, sy = inFront ? anchor.y : -anchor.y;
+    const x = Math.min(w - 24, Math.max(24, (sx + 1) / 2 * w)), y = Math.min(h - 16, Math.max(64, (1 - sy) / 2 * h));
+    note.element.style.transform = `translate(${Math.round(x)}px, ${Math.round(y)}px)`;
   }
 }

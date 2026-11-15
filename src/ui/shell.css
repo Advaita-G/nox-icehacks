@@ -194,3 +194,8 @@ body.shell[data-room='experiment'][data-tools='open'][data-drawer='library'] #li
 }
 body.shell[data-motion='paused'] *, body.shell[data-motion='paused'] *::before, body.shell[data-motion='paused'] *::after { animation: none !important; transition: none !important; }
 body.shell[data-motion='paused'] .sketch-ghost { display: none; }
+
+/* Conversation in the room: one note anchored to the part Nox is discussing. Solid surface, no blur over the canvas. */
+.scene-note { position: absolute; left: 0; top: 0; z-index: 5; max-width: min(320px, 60vw); margin: -52px 0 0 -12px; padding: 6px 10px 6px 12px; border-left: 2px solid var(--color-sphere); border-radius: 0 6px 6px 0; background: rgb(23 23 23 / .88); color: var(--color-ink); font-size: 13px; line-height: 1.4; pointer-events: none; transition: opacity var(--dur-short) var(--ease-out); overflow-wrap: anywhere; }
+.scene-note[data-fresh] { opacity: 0; }
+.scene-note[data-offscreen] { border-left-style: dashed; color: var(--color-ink-2); }

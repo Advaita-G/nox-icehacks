@@ -10,6 +10,7 @@ import { Workbench } from '../physics/experiments.ts';
 import type { SourceAsset } from '../physics/experiments.ts';
 import { Physics } from '../physics/engine.ts';
 import { applyCommands, check } from '../physics/scene.ts';
+import type { Operation } from '../physics/scene.ts';
 import { mergeAnswers } from './answers.ts';
 import { parseCommand, parseInterpretation, REQUEST_TIMEOUTS } from './contract.ts';
 import type { Clarification, CommandProposal } from './contract.ts';
@@ -110,6 +111,8 @@ export class InputUI {
     check(file, 'Choose a photo file first.');
     await this.loadPhoto(file);
   }
+  /** The operations of the current reviewed, unapplied change (display only). */
+  get proposedOperations(): readonly Operation[] { return this.proposal?.value.operations ?? []; }
   async reviewWords(text: string): Promise<WordsReply> {
     check(text.trim() && text.length <= 4000, 'Use a command of at most 4000 characters.');
     await this.wordsClosed;

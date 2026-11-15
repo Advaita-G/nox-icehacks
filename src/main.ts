@@ -8,6 +8,7 @@ import type { AssistantReply } from './assistant/actions.ts';
 import { initAssistantPanel } from './assistant/panel.ts';
 import { demonstrate, warmupRendering } from './assistant/demo.ts';
 import { unlockJudgeLink } from './assistant/access.ts';
+import { proposalMarks } from './assistant/proposal.ts';
 import './assistant/panel.css';
 import * as THREE from 'three';
 import { Viewport } from './viewport.ts';
@@ -233,8 +234,21 @@ async function assistantSay(text: string): Promise<void> {
   assistant.say(text);
   if (voice.isActive) await voice.speak(text);
 }
+/** Make the conversation spatial: a reviewed change appears as ghosts/arrows and a note until yes or cancel. */
+let lastProposal: { id: string; text: string } | undefined, appliedNote: ReturnType<typeof setTimeout> | undefined;
+function showProposal(response: AssistantReply): void {
+  lastProposal = undefined;
+  const operations = response.reviewRequired && !inputUI?.active ? inputUI?.proposedOperations ?? [] : [];
+  if (!operations.length) return;
+  const marks = proposalMarks(bench.physics.currentScene(), operations), text = response.changes.join(' · ') || response.message;
+  viewport.showProposal(marks, text); if (marks[0]) lastProposal = { id: marks[0].id, text };
+}
+function clearConversationMarks(): void { clearTimeout(appliedNote); viewport?.clearProposal(); viewport?.clearNote(); }
+const stillMotion = () => matchMedia('(prefers-reduced-motion: reduce)').matches || document.body.dataset.motion === 'paused';
+document.addEventListener('nox:source', event => { if (viewport && bench) viewport.showSourcePrint((event as CustomEvent<HTMLCanvasElement>).detail, bench.scene, stillMotion()); });
 async function presentAssistantReply(response: AssistantReply, turn: number): Promise<void> {
   if (turn !== assistantTurn) return;
+  showProposal(response);
   if (automaticPhotoEpoch && automaticPhotoEpoch === photoEpoch && inputUI?.active && response.reviewRequired) {
     assistant.say(`Your drawing has become a validated 3D scene. I am starting the experiment automatically.\n${response.changes.join('\n')}`);
     await assistantActions.handle('yes');
@@ -315,7 +329,7 @@ async function runAssistantFor(seconds: number, signal: AbortSignal): Promise<vo
 async function handleAssistant(text: string): Promise<void> {
   if (!text.trim()) return;
   const turn = ++assistantTurn;
-  assistant.heard(text);
+  assistant.heard(text); clearConversationMarks();
   demoController?.abort();
   if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) {
     checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
@@ -346,12 +360,14 @@ function startAssistant(): void {
   let greeting = false;
   assistant = initAssistantPanel({
     onStart: () => { assistant.open(); greeting = true; voice.start(); },
-    onStop: async () => { greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Stopped. Your work is retained.'); },
+    onStop: async () => { assistant.interrupt(); clearConversationMarks(); greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Stopped. Your work is retained.'); },
     isVoiceActive: () => voice?.isActive ?? false,
     onSend: text => handleAssistant(text),
     onPhoto: file => receiveAssistantPhoto(file),
   });
   voice = new VoiceSession({
+    onHearing: active => assistant.hearing(active),
+    onWord: () => assistant.word(),
     onTranscript: text => {
       if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) { void handleAssistant(text); return; }
       if (checkingPhoto && !/^(?:cancel|stop|never mind)(?: (?:it|that|checking|the request))?$/.test(normalizeAssistantInput(text))) {
@@ -401,11 +417,17 @@ function startAssistant(): void {
       let matches = bench.scene.objects.filter(object => object.id.toLowerCase() === query || object.label.toLowerCase() === query);
       if (!matches.length) matches = bench.scene.objects.filter(object => object.label.toLowerCase().includes(query) || object.kind.toLowerCase().includes(query));
       check(matches.length === 1, matches.length ? `Which part? I found ${matches.map(object => object.label).join(', ')}.` : `I could not find that part. The parts are ${bench.scene.objects.map(object => object.label).join(', ')}.`);
-      selectedId = matches[0]!.id; refresh(); viewport.focus(matches[0]!.position); return `Selected ${matches[0]!.label}. Tell me what to change.`;
+      selectedId = matches[0]!.id; refresh(); viewport.focus(matches[0]!.position); viewport.annotate(selectedId, matches[0]!.label); return `Selected ${matches[0]!.label}. Tell me what to change.`;
     },
     review: async text => { await judgeAccessReady.catch(() => undefined); return inputUI!.reviewWords(text); },
-    apply: () => inputUI!.active ? inputUI!.confirmPreviewWords().message : inputUI!.applyWords().message,
-    cancel: () => { checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
+    apply: () => {
+      const applied = lastProposal; lastProposal = undefined;
+      const message = inputUI!.active ? inputUI!.confirmPreviewWords().message : inputUI!.applyWords().message;
+      // The confirmed change lands on the part it touched, then the note leaves.
+      if (applied) { draw(); viewport.annotate(applied.id, `Applied · ${applied.text}`); clearTimeout(appliedNote); appliedNote = setTimeout(() => viewport.clearNote(), 3200); }
+      return message;
+    },
+    cancel: () => { lastProposal = undefined; assistant.interrupt(); clearConversationMarks(); viewport.clearSourcePrint(); checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
     interpret: () => inputUI!.buildPreviewWords(),
   });
   document.addEventListener('nox:talk', () => { assistant.open(); greeting = !voice.isActive; if (!voice.isActive) voice.start(); });
