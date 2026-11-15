@@ -23,7 +23,7 @@ test('mass, friction and restitution errors also name the part', () => {
 
 test('both prompts require wallThickness on every body and bounded dimension options', () => {
   for (const prompt of [INTERPRET_3D, COMMAND_3D]) {
-    assert.match(prompt, /Every object needs every schema field, including wallThickness/);
+    assert.match(prompt, /Every object needs every required schema field, including wallThickness/);
     assert.match(prompt, /never offer a dimension below dimensionMin/);
   }
 });

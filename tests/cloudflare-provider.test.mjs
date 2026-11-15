@@ -41,6 +41,18 @@ test('direct vision payload sends actual image once, isolated from JSON text, wi
   assert.equal(body.reasoning_effort, undefined); assert.equal(body.tools, undefined); assert.equal(body.fallbacks, undefined);
 });
 
+test('explicit Gemma configuration sends the same documented vision/JSON payload with its bounded output cap', async () => {
+  const f = transport(), model = '@cf/google/gemma-4-26b-a4b-it';
+  const env = { NOX_MODEL_PROVIDER: 'cloudflare', NOX_LIVE_CALLS: 'enabled', NOX_CLOUDFLARE_ACCOUNT_ID: ACCOUNT, NOX_CLOUDFLARE_API_TOKEN: TOKEN, NOX_CLOUDFLARE_MODEL: model, NOX_CLOUDFLARE_MAX_TOKENS: '8192' };
+  await run(buildProviders(env, f).cloudflare);
+  const body = f.calls[0].body;
+  assert.equal(body.model, model); assert.equal(body.max_completion_tokens, 8192);
+  assert.equal(body.messages[1].content[0].image_url.url, PNG);
+  assert.deepEqual(body.chat_template_kwargs, { enable_thinking: false });
+  assert.deepEqual(body.response_format, { type: 'json_object' });
+  assert.equal(body.reasoning_effort, undefined); assert.equal(body.fallbacks, undefined); assert.equal(f.calls.length, 1);
+});
+
 test('text-only command uses the same direct provider without an image or fallback', async () => {
   const f = transport(() => ok(reply('{"status":"proposed"}')));
   await createCloudflareProvider({ ...options(f), maxTokens: 4000 }).complete({ instructions: COMMAND_3D, request: { requestId: 'c1', transcript: 'move the ball', scene: {}, selection: [], answers: [] }, signal: new AbortController().signal });

@@ -64,7 +64,7 @@ export function createCloudflareProvider(options: CloudflareOptions): ModelProvi
   if (!accountId || !/^[a-f0-9]{32}$/i.test(accountId)) throw new Error('A valid Cloudflare account ID is required.');
   if (!apiToken) throw new Error('A Cloudflare API token is required.');
   const model = options.model?.trim() || CLOUDFLARE_MODEL;
-  if (model !== CLOUDFLARE_MODEL) throw new Error('Only the documented Qwen3.8 vision model is configured for Cloudflare.');
+  if (![CLOUDFLARE_MODEL, '@cf/google/gemma-4-26b-a4b-it'].includes(model)) throw new Error('Only the documented Qwen3.8 and Gemma4 vision models are configured for Cloudflare.');
   // Application budget, not a claim about the model's undocumented maximum.
   const maxTokens = options.maxTokens ?? 16384;
   if (!Number.isInteger(maxTokens) || maxTokens < 1 || maxTokens > 16384) throw new Error('maxTokens must be an integer from 1 to 16384.');
