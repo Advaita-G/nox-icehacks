@@ -71,12 +71,13 @@ export function createCloudflareProvider(options: CloudflareOptions): ModelProvi
   const endpoint = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/v1/chat/completions`;
   const doFetch: FetchLike = options.fetch ?? ((url, init) => fetch(url, init));
   return {
-    async complete({ instructions, request, signal }) {
+    async complete({ instructions, request, signal, outputSchema }) {
       signal.throwIfAborted();
       const body = JSON.stringify({
         model, messages: [{ role: 'system', content: instructions }, { role: 'user', content: buildContent(request) }],
         max_completion_tokens: maxTokens, stream: false, n: 1,
-        response_format: { type: 'json_object' }, chat_template_kwargs: { enable_thinking: false },
+        response_format: outputSchema ? { type: 'json_schema', json_schema: { name: 'nox_response', strict: true, schema: outputSchema } } : { type: 'json_object' },
+        chat_template_kwargs: { enable_thinking: false },
       });
       let response: Awaited<ReturnType<FetchLike>>;
       try {

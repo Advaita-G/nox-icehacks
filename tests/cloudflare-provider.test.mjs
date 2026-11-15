@@ -5,6 +5,7 @@ import { createCloudflareProvider, buildContent, extractText, CLOUDFLARE_MODEL }
 import { buildProviders } from '../server/providers.ts';
 import { productionApi } from '../server/vercel.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
+import { INTERPRET_3D_SCHEMA } from '../src/input/schema.ts';
 
 const ACCOUNT = 'a'.repeat(32), TOKEN = 'cloudflare-token-not-real';
 const PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
@@ -59,6 +60,14 @@ test('text-only command uses the same direct provider without an image or fallba
   assert.deepEqual(f.calls[0].body.messages[1].content.map(p => p.type), ['text']);
   assert.equal(f.calls[0].body.max_completion_tokens, 4000);
   assert.equal(f.calls[0].body.messages[0].content, COMMAND_3D);
+  assert.equal(f.calls.length, 1);
+});
+
+test('trusted output schema enables documented strict structured output without changing the image request', async () => {
+  const f = transport(), outputSchema = { type: 'object', properties: { accepted: { type: 'boolean' } }, required: ['accepted'], additionalProperties: false };
+  await createCloudflareProvider(options(f)).complete({ instructions: INTERPRET_3D, request: request(), signal: new AbortController().signal, outputSchema });
+  assert.deepEqual(f.calls[0].body.response_format, { type: 'json_schema', json_schema: { name: 'nox_response', strict: true, schema: outputSchema } });
+  assert.equal(f.calls[0].body.messages[1].content[0].image_url.url, PNG);
   assert.equal(f.calls.length, 1);
 });
 
@@ -137,4 +146,5 @@ test('production API judge gate dispatches one actual-shaped interpretation to t
   const response = await productionApi(new Request(`${origin}/api/interpret`, { method: 'POST', headers: { origin, cookie, 'content-type': 'application/json' }, body: JSON.stringify(request()) }), '/api/interpret', env, providers);
   assert.equal(response.status, 200); assert.deepEqual(await response.json(), { requestId: 'r1', raw: '{"status":"ready"}' });
   assert.equal(f.calls.length, 1); assert.equal(f.calls[0].body.messages[0].content, INTERPRET_3D);
+  assert.deepEqual(f.calls[0].body.response_format, { type: 'json_schema', json_schema: { name: 'nox_response', strict: true, schema: INTERPRET_3D_SCHEMA } });
 });

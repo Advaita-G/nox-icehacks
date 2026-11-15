@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http';
 import { handleApi, isApiPath, MAX_BODY_BYTES } from '../packages/input/server/api.ts';
 import type { ModelProvider } from '../packages/input/server/api.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
+import { INTERPRET_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
 import { validateRequest } from './request.ts';
 import { REQUEST_TIMEOUTS } from '../src/input/contract.ts';
 
@@ -32,7 +33,7 @@ export function apiMiddleware(env: Record<string, string | undefined>, providers
       const body = Buffer.concat(chunks).toString('utf8');
       try { validateRequest(path, JSON.parse(body)); }
       catch (error) { send(400, { code: 'BAD_REQUEST', message: error instanceof Error ? error.message : 'Invalid request.' }); return; }
-      const output = await handleApi({ method: req.method, url: path, body, env, providers, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D } });
+      const output = await handleApi({ method: req.method, url: path, body, env, providers, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D }, outputSchemas: { '/api/interpret': INTERPRET_3D_SCHEMA, '/api/command': COMMAND_3D_SCHEMA } });
       if (output.status === 200 && (typeof output.body.raw !== 'string' || Buffer.byteLength(output.body.raw) > 2_000_000)) { send(502, { code: 'PROVIDER_ERROR', message: 'The model response was invalid or too large.' }); return; }
       send(output.status, output.body);
     } catch (error) {

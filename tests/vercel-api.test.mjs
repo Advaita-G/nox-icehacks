@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { productionApi } from '../server/vercel.ts';
 import { emptyScene, newObject } from '../src/physics/scene.ts';
+import { INTERPRET_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
 
 const origin = 'https://nox.example', code = 'private-test-code-with-at-least-32-characters';
 const env = { NOX_DEMO_ACCESS_CODE: code, NOX_MODEL_PROVIDER: 'fixture' };
@@ -90,6 +91,8 @@ test('photo and command use the existing canonical prompts and preserve response
   assert.match(calls[0].instructions, /actual attached rough drawing\/photo/);
   assert.match(calls[1].instructions, /canonical atomic operations/);
   assert.deepEqual(calls.map(c => c.request.requestId), ['r1', 'r2']);
+  assert.equal(calls[0].outputSchema, INTERPRET_3D_SCHEMA);
+  assert.equal(calls[1].outputSchema, COMMAND_3D_SCHEMA);
 });
 
 test('provider failures and oversized replies stay bounded and do not expose raw errors', async () => {

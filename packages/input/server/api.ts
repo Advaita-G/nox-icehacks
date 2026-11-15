@@ -10,7 +10,7 @@ import { COMMAND_INSTRUCTIONS, INTERPRET_INSTRUCTIONS } from '../src/provider/pr
 
 export interface ModelProvider {
   /** Returns the model's raw text. Must honour `signal` and never log credentials. */
-  complete(input: { instructions: string; request: unknown; signal: AbortSignal }): Promise<string>;
+  complete(input: { instructions: string; request: unknown; signal: AbortSignal; outputSchema?: Record<string, unknown> }): Promise<string>;
 }
 
 export const MAX_BODY_BYTES = 3 * 1024 * 1024;
@@ -23,6 +23,7 @@ export interface ApiInput {
   providers: Record<string, ModelProvider>;
   signal: AbortSignal;
   instructions?: Record<string, string>;
+  outputSchemas?: Record<string, Record<string, unknown>>;
 }
 
 export interface ApiOutput {
@@ -62,7 +63,8 @@ export async function handleApi(input: ApiInput): Promise<ApiOutput> {
     return { status: 503, body: { code: 'PROVIDER_NOT_CONFIGURED', message: 'No vision runtime is configured. Your source is retained. Configure the server runtime before trying again.' } };
   }
   try {
-    const raw = await provider.complete({ instructions, request, signal: input.signal });
+    const outputSchema = input.outputSchemas?.[path];
+    const raw = await provider.complete({ instructions, request, signal: input.signal, ...(outputSchema ? { outputSchema } : {}) });
     return { status: 200, body: { requestId: (request as { requestId: string }).requestId, raw } };
   } catch (error) {
     if (input.signal.aborted) return { status: 499, body: { code: 'PROVIDER_ERROR', message: 'Client closed the request.' } };

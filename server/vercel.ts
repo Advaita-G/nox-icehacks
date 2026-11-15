@@ -2,6 +2,7 @@ import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { handleApi, MAX_BODY_BYTES } from '../packages/input/server/api.ts';
 import type { ModelProvider } from '../packages/input/server/api.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
+import { INTERPRET_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
 import { REQUEST_TIMEOUTS } from '../src/input/contract.ts';
 import { validateRequest } from './request.ts';
 import { buildProviders } from './providers.ts';
@@ -92,7 +93,7 @@ export async function productionApi(request: Request, path: '/api/status' | '/ap
     let registered: Record<string, ModelProvider>;
     try { registered = providers ?? buildProviders(env); }
     catch { return json(503, { code: 'PROVIDER_NOT_CONFIGURED', message: 'The server runtime configuration needs attention.' }); }
-    const result = await Promise.race([handleApi({ method: 'POST', url: path, body, env, providers: registered, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D } }), aborted]);
+    const result = await Promise.race([handleApi({ method: 'POST', url: path, body, env, providers: registered, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D }, outputSchemas: { '/api/interpret': INTERPRET_3D_SCHEMA, '/api/command': COMMAND_3D_SCHEMA } }), aborted]);
     if (controller.signal.aborted) throw new Error('Request cancelled.');
     if (result.status === 200 && (typeof result.body.raw !== 'string' || Buffer.byteLength(result.body.raw) > 2_000_000)) return json(502, { code: 'PROVIDER_ERROR', message: 'The model response was invalid or too large.' });
     return json(result.status, result.body);
