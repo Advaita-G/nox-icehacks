@@ -1,0 +1,108 @@
+{
+  "modelResponsesMocked": false,
+  "mediaCapture": false,
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "motion": "no-preference",
+      "base": "https://nox-icehacks-8nzkiu3m4-idk-41a8.vercel.app",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [
+        {
+          "path": "/api/interpret"
+        }
+      ],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.025 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "invalidCodeRejectedSourceRetained": true,
+      "validCodeSamePageUnlockRetainedSource": {
+        "status": {
+          "configured": true,
+          "provider": "momen",
+          "accessRequired": false
+        },
+        "automaticInferenceRetries": 0,
+        "secretInDOM": false,
+        "secretInURL": false
+      },
+      "accessControlsContained": true,
+      "status": "PASS",
+      "browserClosed": true
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "motion": "no-preference",
+      "base": "https://nox-icehacks-8nzkiu3m4-idk-41a8.vercel.app",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [
+        {
+          "path": "/api/interpret"
+        }
+      ],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.042 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "invalidCodeRejectedSourceRetained": true,
+      "validCodeSamePageUnlockRetainedSource": {
+        "status": {
+          "configured": true,
+          "provider": "momen",
+          "accessRequired": false
+        },
+        "automaticInferenceRetries": 0,
+        "secretInDOM": false,
+        "secretInURL": false
+      },
+      "accessControlsContained": true,
+      "status": "PASS",
+      "browserClosed": true
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "motion": "reduce",
+      "base": "https://nox-icehacks-8nzkiu3m4-idk-41a8.vercel.app",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [
+        {
+          "path": "/api/interpret"
+        }
+      ],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.058 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "invalidCodeRejectedSourceRetained": true,
+      "validCodeSamePageUnlockRetainedSource": {
+        "status": {
+          "configured": true,
+          "provider": "momen",
+          "accessRequired": false
+        },
+        "automaticInferenceRetries": 0,
+        "secretInDOM": false,
+        "secretInURL": false
+      },
+      "accessControlsContained": true,
+      "status": "PASS",
+      "browserClosed": true
+    }
+  ]
+}

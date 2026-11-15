@@ -1,0 +1,18 @@
+{
+  "url": "https://nox-icehacks-8nzkiu3m4-idk-41a8.vercel.app",
+  "scope": "One actual funded Momen command after in-page access; synthetic speech, real physics/storage; no capture or retry",
+  "calls": 1,
+  "errors": [],
+  "httpStatus": 200,
+  "elapsedSeconds": 7.068,
+  "response": {
+    "requestId": "req-02f3cb3b",
+    "raw": "{\n  \"requestId\": \"req-02f3cb3b\",\n  \"status\": \"proposed\",\n  \"operations\": [\n    {\n      \"type\": \"set-property\",\n      \"id\": \"d0\",\n      \"property\": \"friction\",\n      \"value\": 0.4\n    }\n  ],\n  \"summary\": [\n    \"Set friction of Domino 1 (d0) to 0.4\"\n  ],\n  \"questions\": [],\n  \"message\": \"Updated Domino 1's friction to 0.4.\"\n}"
+  },
+  "unappliedUntilYes": true,
+  "retainedPriorVersion": true,
+  "saveReloadExact": true,
+  "status": "PASS",
+  "browserClosed": true,
+  "onlyRequestedOperation": true
+}

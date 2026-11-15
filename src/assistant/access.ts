@@ -3,6 +3,12 @@ export async function unlockJudgeLink(url: URL, replace: (url: URL) => void, sen
   const fragment = new URLSearchParams(url.hash.slice(1)), code = fragment.get('judge');
   if (code === null) return;
   fragment.delete('judge'); url.hash = fragment.toString(); replace(url);
+  return unlockJudgeAccess(code, send);
+}
+
+/** Exchange a user-supplied code without navigating away from an unsaved experiment. */
+export async function unlockJudgeAccess(code: string, send: typeof fetch = fetch): Promise<void> {
+  code = code.trim();
   if (code.length < 32 || code.length > 256) throw new Error('This judge access link is invalid. Public local controls remain available.');
   try {
     const response = await send('/api/access', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, credentials: 'same-origin', body: new URLSearchParams({ code }), signal: AbortSignal.timeout(15_000) });

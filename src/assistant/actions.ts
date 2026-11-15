@@ -22,7 +22,7 @@ export const normalizeAssistantInput = (text: string) => text.trim().toLowerCase
 const cancel = /^(?:no(?:,? thanks)?|cancel(?: (?:it|that|checking|the request|the change|the proposal|the preview))?|stop (?:checking|the request)|never mind|nevermind|discard(?: (?:it|that|the change))?)$/;
 export const isAssistantCancellation = (text: string): boolean => cancel.test(normalizeAssistantInput(text));
 const confirm = /^(?:yes(?:,? (?:apply|confirm)(?: it| that| the change| the changes)?)?(?:,? please)?|yeah|yep|apply(?: (?:it|that|the change|the changes|the preview))?|confirm(?: (?:it|that|the change|the changes|the preview))?|go ahead|do it)$/;
-const builtin = '(spring(?: cart)?|pendulum|collision|fan)';
+const builtin = '(spring(?: cart)?|pendulum|collision|fan|domino(?:es)?(?: effect| chain(?: reaction)?)?)';
 
 export class AssistantActions {
   private tail: Promise<void> = Promise.resolve();
@@ -76,7 +76,7 @@ export class AssistantActions {
       const selected = /^(?:select|choose|focus on) (?:the )?(.+)$/.exec(text);
       const created = new RegExp(`^(?:(?:can|could|would|will) you(?: please)? )?(?:create|open|make|build)(?: me)? (?:a |an |the )?(ramp(?: (?:with|and) (?:a |the )?ball)?|ball (?:on|rolling down) (?:a |the )?ramp|${builtin})(?: experiment| simulation)?$`).exec(text);
       if (selected) action = () => this.host.select(selected[1]!);
-      else if (created && this.host.create) action = () => this.host.create!(/\bramp\b/.test(created[1]!) ? 'ramp-ball' : created[1]!.replace(' cart', ''));
+      else if (created && this.host.create) action = () => this.host.create!(/\bramp\b/.test(created[1]!) ? 'ramp-ball' : /^domino/.test(created[1]!) ? 'dominoes' : created[1]!.replace(' cart', ''));
     }
     if (action) {
       const discarded = this.reviewOpen;

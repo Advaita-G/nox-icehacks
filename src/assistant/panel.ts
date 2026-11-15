@@ -1,3 +1,5 @@
+import { PROVIDER_MESSAGES } from '../../packages/input/src/provider/client.ts';
+
 export type AssistantState = 'idle' | 'listening' | 'thinking' | 'speaking' | 'error';
 export interface AssistantPanelHost {
   onStart(): void | Promise<void>;
@@ -5,6 +7,7 @@ export interface AssistantPanelHost {
   onSend(text: string): void | Promise<void>;
   isVoiceActive?(): boolean;
   onPhoto?(file: File): void | Promise<void>;
+  onUnlock?(code: string): Promise<void>;
 }
 
 export function initAssistantPanel(host: AssistantPanelHost) {
@@ -21,12 +24,15 @@ export function initAssistantPanel(host: AssistantPanelHost) {
     '<div class="assistant-options"><button id="assistant-keyboard" type="button" aria-label="Use keyboard" aria-controls="assistant-compose" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M6 10h1m3 0h1m3 0h1m3 0h0M6 13h1m3 0h1m3 0h1m3 0h0M7 16h10"/></svg><span class="visually-hidden">Use keyboard</span></button><details class="assistant-history"><summary aria-label="Conversation history">Conversation</summary><ol id="assistant-transcript" role="log" aria-label="Recent conversation" aria-live="off" tabindex="0"></ol></details></div>',
     '<form id="assistant-compose" class="assistant-compose" hidden><label for="assistant-text" class="visually-hidden">Talk to Nox by typing</label><input id="assistant-text" type="text" placeholder="Tell Nox what to build…" autocomplete="off" maxlength="4000"><button type="submit" aria-label="Send request">Send</button></form>'
   ].join('');
+  const access = document.createElement('details'); access.id = 'assistant-access'; access.className = 'assistant-access';
+  access.innerHTML = '<summary>Live AI access</summary><form id="assistant-access-form"><p>Use the private access code supplied with your judge link. Your drawing and experiment stay here.</p><label for="assistant-access-code">Private access code</label><input id="assistant-access-code" name="code" type="password" required minlength="32" maxlength="256" autocomplete="off" spellcheck="false"><button type="submit">Unlock live AI</button><p id="assistant-access-status" role="status" aria-live="polite"></p></form>';
+  if (host.onUnlock) panel.querySelector('.assistant-options')!.insertBefore(access, panel.querySelector('.assistant-history'));
   stage.append(panel);
   const workspace = stage.closest<HTMLElement>('.workspace') ?? stage;
   const start = panel.querySelector<HTMLButtonElement>('#assistant-start')!, stop = panel.querySelector<HTMLButtonElement>('#assistant-stop')!;
   const status = panel.querySelector<HTMLElement>('#assistant-state')!, caption = panel.querySelector<HTMLElement>('#assistant-caption')!;
   const detail = panel.querySelector<HTMLElement>('#assistant-detail')!, transcript = panel.querySelector<HTMLOListElement>('#assistant-transcript')!;
-  const form = panel.querySelector<HTMLFormElement>('form')!, input = panel.querySelector<HTMLInputElement>('#assistant-text')!;
+  const form = panel.querySelector<HTMLFormElement>('#assistant-compose')!, input = panel.querySelector<HTMLInputElement>('#assistant-text')!;
   const keyboard = panel.querySelector<HTMLButtonElement>('#assistant-keyboard')!, source = document.querySelector<HTMLDialogElement>('#source-dialog');
   let state: AssistantState = 'idle', starting = false, photoSequence = 0, hasScene = false;
   const measure = () => workspace.style.setProperty('--assistant-height', Math.ceil(panel.getBoundingClientRect().height) + 'px');
@@ -73,8 +79,19 @@ export function initAssistantPanel(host: AssistantPanelHost) {
   }
   function error(text: string): void {
     setState('error'); append('assistant', text, true);
+    if (text === PROVIDER_MESSAGES.ACCESS_REQUIRED && host.onUnlock) access.open = true;
     if (!host.isVoiceActive?.() && /microphone|speech|voice is unavailable/i.test(text)) showKeyboard();
   }
+  const accessForm = access.querySelector<HTMLFormElement>('form')!, accessCode = access.querySelector<HTMLInputElement>('input')!;
+  const accessButton = access.querySelector<HTMLButtonElement>('button')!, accessStatus = access.querySelector<HTMLElement>('[role="status"]')!;
+  accessForm.onsubmit = async event => {
+    event.preventDefault(); if (accessButton.disabled || !host.onUnlock) return;
+    const code = accessCode.value; accessCode.value = ''; accessButton.disabled = true;
+    accessStatus.textContent = 'Unlocking…';
+    try { await host.onUnlock(code); accessStatus.textContent = 'Live AI is unlocked. Retry your request when you’re ready.'; }
+    catch { accessStatus.textContent = 'Could not unlock live AI. Check the private code and try again.'; }
+    finally { accessButton.disabled = false; measure(); }
+  };
   const failure = (cause: unknown) => error(cause instanceof Error ? cause.message : String(cause));
   async function receivePhoto(file: File): Promise<void> {
     if (!host.onPhoto) { error('Drawing input is unavailable in this session.'); return; }

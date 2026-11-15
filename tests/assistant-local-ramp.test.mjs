@@ -1,11 +1,28 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { AssistantActions } from '../src/assistant/actions.ts';
-import { rampBall } from '../src/physics/examples.ts';
+import { dominoes, rampBall } from '../src/physics/examples.ts';
 import { initPhysics, DT } from '../src/physics/engine.ts';
 import { LIMITS, validateScene } from '../src/physics/scene.ts';
 
 await initPhysics();
+
+test('the reported domino effect request creates fresh local dominoes without inference; custom instructions stay reviewed', async () => {
+  const scenes = [], reviewed = [];
+  const actions = new AssistantActions({
+    create: name => { assert.equal(name, 'dominoes'); scenes.push(dominoes()); return 'Created locally.'; },
+    review: async text => { reviewed.push(text); return { message: 'Custom proposal.', reviewRequired: false, changes: [] }; },
+  });
+  for (const phrase of ['Can you make a domino effect?', 'make dominoes', 'Could you build me a domino chain?', 'Nox, create a domino chain reaction please', 'make a domino simulation']) {
+    await actions.handle(phrase);
+  }
+  assert.equal(scenes.length, 5); assert.deepEqual(reviewed, []);
+  scenes[0].objects[1].mass = 3; assert.equal(scenes[1].objects[1].mass, 1);
+  for (const phrase of ['make 20 dominoes', 'make a domino effect with a 2 meter gap', 'make a domino chain in a circle', 'make a domino effect and a ball']) {
+    await actions.handle(phrase); assert.equal(reviewed.at(-1), phrase);
+  }
+  assert.equal(scenes.length, 5);
+});
 
 test('natural ramp-and-ball creation questions use a fresh local scene without a model', async () => {
   const scenes = [];

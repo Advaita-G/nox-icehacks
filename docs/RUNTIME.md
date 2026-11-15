@@ -1,5 +1,7 @@
 # Nox: start a conversation
 
+**Domino/access update:** “Can you make a domino effect?” now builds a fresh local chain without AI. Custom details remain reviewed. The room's **Live AI access** form unlocks the existing judge gate without navigating away or losing a drawing; invalid codes stay locked and requests never retry automatically. Three hosted sizes pass chain, exact persistence and valid/invalid access; one subsequent genuine model edit passes in 7.068 s. [Checks and current deployment hashes](evidence/domino-access-2026-11-15/README.md). The recovery deployment details below describe the preceding release; its Momen server contract remains unchanged.
+
 ## Enter the room
 
 The first view centers on **Nox**. Tap the name once and grant microphone permission when the browser asks. Nox then listens between its spoken replies; there is no hold-to-talk step. The browser may request permission again in a later session. **Keyboard** opens the optional typed input and uses the same action pipeline when voice is unavailable or inconvenient.

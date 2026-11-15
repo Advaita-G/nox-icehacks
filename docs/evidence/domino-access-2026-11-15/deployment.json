@@ -1,0 +1,40 @@
+{
+  "checkedAt": "2026-11-15T19:05:45.428924+00:00",
+  "deploymentId": "dpl_CJ6m8uMxaBjwCYQSk4H1bQ6hLFyq",
+  "pinnedUrl": "https://nox-icehacks-8nzkiu3m4-idk-41a8.vercel.app",
+  "sourceBase": "dba7fba4379ebc5f628dc85ff1f82a0f51761edf",
+  "sourceNote": "Built from the task-owned working tree based on sourceBase before its final evidence commit. Content hashes, not old Vercel Git metadata, identify this build.",
+  "assets": {
+    "index-BQkui2jF.js": {
+      "bytes": 3052,
+      "sha256": "6635a0334d3fc62c975bb7852477ab0cd65c85fdb7b9b18ee10641bf6e62ce72",
+      "matchesLocal": true
+    },
+    "main-Dn5asX88.css": {
+      "bytes": 44354,
+      "sha256": "42868ff351307b283b24c1b17a29d0eec5023853076224569b13ec069ec93011",
+      "matchesLocal": true
+    },
+    "main-OiSwUncm.js": {
+      "bytes": 5098222,
+      "sha256": "4a20a5c4cbea4eae76e1728ace12638a7fa0226a9dab6ca80934a85e3ded19a7",
+      "matchesLocal": true
+    }
+  },
+  "sourceFiles": {
+    "src/main.ts": "a00fb2a4be239c77644ef673de5eee8be2752a3b89688add0958ad0950d56aca",
+    "src/assistant/actions.ts": "54a3e4d42baeeff7614afd5b539885ca47c1ddb19288e34ac56a7923c85551dc",
+    "src/assistant/access.ts": "8e470c413d5be211ebbc86cbf9ec04e00ff9bc95902f896a23c45a3a727d8c76",
+    "src/assistant/panel.ts": "c789b9d0aead89b99f426335c69640b52f5bada745e27cbd5486b145b4c23503",
+    "src/assistant/panel.css": "81d2e15201a984d1dfa6e3bfe629dae0d0ba0cdc28cff067c2c07a5ff23b47f3",
+    "packages/input/src/provider/client.ts": "4835fb8266542c1b53735281016269488e08ba202321babd12c9772ac4ef1552",
+    "server/vercel.ts": "37e7f5a1fbefcbb7ff27ac1c3f61c3efc21fa3bc31d8973843911536e50035b3",
+    "server/drawing.ts": "a41c5c8bf87ff1c6ebeff003ee97338c067538fb418178e0844ac341539517b6",
+    "server/momen.ts": "b0a83ea6dc135faada8af28eafe2b837edb909146e75b3559914b7edaca3472e",
+    "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+    "src/physics/scene.ts": "1ee422bcef6d3e943c041c9cd9152e6efe264629136017c0ed665d36a4fcb46d"
+  },
+  "inferenceCallsForHTTPChecks": 0,
+  "anonymousInference": 401,
+  "wrongOrigin": 403
+}

@@ -1,0 +1,60 @@
+{
+  "modelResponsesMocked": false,
+  "mediaCapture": false,
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "motion": "no-preference",
+      "base": "http://127.0.0.1:5216",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.108 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "status": "PASS",
+      "browserClosed": true
+    },
+    {
+      "width": 375,
+      "height": 812,
+      "motion": "no-preference",
+      "base": "http://127.0.0.1:5216",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.042 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "status": "PASS",
+      "browserClosed": true
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "motion": "reduce",
+      "base": "http://127.0.0.1:5216",
+      "syntheticSpeech": true,
+      "screenshots": false,
+      "errors": [],
+      "inferenceRequests": [],
+      "chain": {
+        "lastDominoRotationDegrees": -89.9783783,
+        "clock": "5.075 s",
+        "noModelRequests": true
+      },
+      "saveReloadExact": true,
+      "status": "PASS",
+      "browserClosed": true
+    }
+  ]
+}

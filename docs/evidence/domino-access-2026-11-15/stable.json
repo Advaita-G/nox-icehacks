@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-11-15T19:07:44.684552+00:00",
+  "stableUrl": "https://nox-icehacks.vercel.app",
+  "expectedDeploymentId": "dpl_CJ6m8uMxaBjwCYQSk4H1bQ6hLFyq",
+  "assets": {
+    "index-BQkui2jF.js": {
+      "sha256": "6635a0334d3fc62c975bb7852477ab0cd65c85fdb7b9b18ee10641bf6e62ce72",
+      "matchesTestedDeployment": true
+    },
+    "main-Dn5asX88.css": {
+      "sha256": "42868ff351307b283b24c1b17a29d0eec5023853076224569b13ec069ec93011",
+      "matchesTestedDeployment": true
+    },
+    "main-OiSwUncm.js": {
+      "sha256": "4a20a5c4cbea4eae76e1728ace12638a7fa0226a9dab6ca80934a85e3ded19a7",
+      "matchesTestedDeployment": true
+    }
+  },
+  "inferenceCalls": 0,
+  "anonymousInference": 401,
+  "wrongOrigin": 403,
+  "anonymousStatus": {
+    "configured": false,
+    "provider": null,
+    "accessRequired": true
+  },
+  "observedAliasDeploymentId": "dpl_CJ6m8uMxaBjwCYQSk4H1bQ6hLFyq",
+  "aliasEvidence": "Vercel CLI v4 alias API; project prj_wLKr8OEudubxOzHVcSWn1Eekwrgr"
+}
