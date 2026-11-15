@@ -26,12 +26,12 @@ Advaita Gupta built physics, measurements, recovery, integration and correctness
 
 A plausible model can have a missing support or a joint that starts apart. We made assumptions inspectable and added validation from actual bad replies. Broad drawings also require a distinction between representing a subject and simulating its behavior: a rigid figurine is useful, but it must not be presented as a walking character or a deformable body. Delayed responses need source/version identity so cancellation or a new drawing cannot silently edit another experiment.
 
-Retaining comparable starting conditions, sample data and checkpoints made a before/after comparison repeatable through Save/reload. The assistant explains measured results instead of treating an attractive motion as proof.
+The automatic spring demonstration uses comparable starting conditions. Ordinary manual edits begin a new version from the paused visible state, so the recorded ramp speed comparison describes different versions rather than isolating the effect of mass. Samples and checkpoints make the saved result repeatable through reload.
 
 ## Limits and next steps
 
 Nox models rigid mechanics and a declared fan approximation. Water, cloth and electrical objects may be represented by explicit rigid visual proxies; fluid flow, deformation and electricity are not simulated. Browser speech support varies, and model interpretation can be unavailable, refused or wrong. Results describe the declared simulated setup. Captured-reply tests, fresh local demonstrations and actual live-model/device evidence are identified separately.
 
-Our next steps are restoring the vision runtime, resolving an intermittent local startup pause and testing fresh drawings with real microphone use on the final release.
+The promoted local core passed eight deployed create/run/review/confirm/Save/reload cases across four viewport sizes and both motion settings, using synthetic speech devices and real physics/storage. A 94-second review film records the earlier built-in workflow and explicitly discloses the blocked provider and scripted speech; it does not establish live vision or physical-microphone acceptance. Our next steps are restoring the vision runtime and testing fresh drawings with real microphone use on the final release.
 
 Built with TypeScript, Vite, Three.js, Rapier3D, Momen, GPT 6 Luna, browser speech, Codex and Claude Code. Prepared tracks: Best AI Hack, Best Design & UX and Best Deployed / Shipped App.

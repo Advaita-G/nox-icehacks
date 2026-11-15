@@ -1,0 +1,431 @@
+{
+  "scope": "Current core release and hosted unlisted review-film evidence. Derived from exact local receipts; no credentials, private filesystem paths or raw provider messages included.",
+  "stableUrl": "https://nox-icehacks.vercel.app",
+  "promotion": "Release owner confirmed stable alias promotion to this immutable deployment after the matrix; matrix browser checks targeted the immutable URL.",
+  "release": {
+    "status": "PASS",
+    "url": "https://nox-icehacks-5kxz43ec3-idk-41a8.vercel.app",
+    "deploymentId": "dpl_meH4eJc3sSoYLMXrgbg1rP8ZxF93",
+    "suppliedCommit": "4797df4",
+    "readyForCorePromotion": true,
+    "vision": "Separately blocked; this matrix hard-blocked inference and makes no live vision success claim",
+    "passed": 8,
+    "failed": 0,
+    "inferenceAttempts": 0,
+    "browserErrors": 0,
+    "automaticRetries": 0,
+    "allBrowsersClosed": true,
+    "assets": {
+      "/": {
+        "httpStatus": 200,
+        "bytes": 12581,
+        "sha256": "4e275ebfb536f466e6a1fd7ab128383012173515c53050555d03780b058410b6",
+        "matchesRootHttpReceipt": true
+      },
+      "/assets/index-D2bfssUi.js": {
+        "httpStatus": 200,
+        "bytes": 3052,
+        "sha256": "80b90b9cc5b1804248ab07eaec66575e17a98c58662693638085711bee001724",
+        "matchesRootHttpReceipt": true
+      },
+      "/assets/main-CUTiIwJb.js": {
+        "httpStatus": 200,
+        "bytes": 5086754,
+        "sha256": "b2d3de6ef0f8c35b7d4db310a86158e7376fa5ee0ca21cc72baa1ca1beb0541a",
+        "matchesRootHttpReceipt": true
+      },
+      "/assets/main-TUqCnkoP.css": {
+        "httpStatus": 200,
+        "bytes": 42255,
+        "sha256": "78eb8c5da31b0eed01a91848a14956bec3d5ba4cb6ccba080ddac9bf5b7ad6b3",
+        "matchesCurrentLocalDist": true
+      }
+    },
+    "cases": [
+      {
+        "width": 320,
+        "height": 667,
+        "motion": "no-preference",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.292 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 16,
+          "y": 76,
+          "width": 288,
+          "height": 286
+        },
+        "reviewDoc": {
+          "width": 320,
+          "height": 667
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 320,
+        "height": 667,
+        "motion": "reduce",
+        "status": "PASS",
+        "realRampClockSeconds": 0.233,
+        "stoppedClock": "0.300 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 16,
+          "y": 76,
+          "width": 288,
+          "height": 286
+        },
+        "reviewDoc": {
+          "width": 320,
+          "height": 667
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 375,
+        "height": 667,
+        "motion": "no-preference",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.300 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 16,
+          "y": 76,
+          "width": 343,
+          "height": 286
+        },
+        "reviewDoc": {
+          "width": 375,
+          "height": 667
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 375,
+        "height": 667,
+        "motion": "reduce",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.317 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 16,
+          "y": 76,
+          "width": 343,
+          "height": 286
+        },
+        "reviewDoc": {
+          "width": 375,
+          "height": 667
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": "no-preference",
+        "status": "PASS",
+        "realRampClockSeconds": 0.217,
+        "stoppedClock": "0.267 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 24,
+          "y": 76,
+          "width": 720,
+          "height": 574
+        },
+        "reviewDoc": {
+          "width": 768,
+          "height": 900
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 768,
+        "height": 900,
+        "motion": "reduce",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.275 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 24,
+          "y": 76,
+          "width": 720,
+          "height": 574
+        },
+        "reviewDoc": {
+          "width": 768,
+          "height": 900
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 1280,
+        "height": 800,
+        "motion": "no-preference",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.292 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 280,
+          "y": 76,
+          "width": 720,
+          "height": 474
+        },
+        "reviewDoc": {
+          "width": 1280,
+          "height": 800
+        },
+        "reachable": true,
+        "exactReload": true
+      },
+      {
+        "width": 1280,
+        "height": 800,
+        "motion": "reduce",
+        "status": "PASS",
+        "realRampClockSeconds": 0.225,
+        "stoppedClock": "0.325 s",
+        "massBeforeYes": 1.0,
+        "massSaved": 2,
+        "dialogBounds": {
+          "x": 280,
+          "y": 76,
+          "width": 720,
+          "height": 474
+        },
+        "reviewDoc": {
+          "width": 1280,
+          "height": 800
+        },
+        "reachable": true,
+        "exactReload": true
+      }
+    ]
+  },
+  "browserScope": {
+    "startedAt": "2026-11-15T00:53:03.754698+00:00",
+    "scope": "One complete 4-size × normal/reduced matrix; each case once in a fresh isolated headless Chromium process. Real local ramp, solver, reviewed manual edit, Save/reload.",
+    "speech": "Synthetic recognition/TTS injected explicitly; no physical microphone claim",
+    "mediaCapture": false,
+    "inferenceAllowed": false,
+    "credentialsUsed": false,
+    "apiResponseFakes": false,
+    "automaticRetries": 0,
+    "inputModes": "Ramp request through injected SpeechRecognition/TTS; select/mass edit/yes/Save through optional typed assistant input; Stop via actual button."
+  },
+  "verification": {
+    "lastFullRootTests": {
+      "passed": 218,
+      "failed": 0,
+      "timing": "Before final presentation-only shell/CSS fix; no numerical changes afterwards."
+    },
+    "lastFullInputTests": {
+      "passed": 110,
+      "failed": 0
+    },
+    "currentRootTypecheckAndBuild": "PASS after the shell/CSS fix",
+    "buildWarning": "Application chunk exceeds Vite recommended chunk size; build completed.",
+    "httpAccess": {
+      "anonymous": {
+        "status": 200,
+        "data": {
+          "configured": false,
+          "provider": null,
+          "accessRequired": true
+        }
+      },
+      "unlocked": {
+        "status": 200,
+        "data": {
+          "configured": true,
+          "provider": "momen",
+          "accessRequired": false
+        }
+      },
+      "inferenceCalls": 0
+    },
+    "httpAssets": [
+      {
+        "path": "/",
+        "status": 200,
+        "bytes": 12581,
+        "sha256": "4e275ebfb536f466e6a1fd7ab128383012173515c53050555d03780b058410b6"
+      },
+      {
+        "path": "/assets/index-D2bfssUi.js",
+        "status": 200,
+        "bytes": 3052,
+        "sha256": "80b90b9cc5b1804248ab07eaec66575e17a98c58662693638085711bee001724"
+      },
+      {
+        "path": "/assets/main-CUTiIwJb.js",
+        "status": 200,
+        "bytes": 5086754,
+        "sha256": "b2d3de6ef0f8c35b7d4db310a86158e7376fa5ee0ca21cc72baa1ca1beb0541a"
+      },
+      {
+        "path": "/assets/main-TUqCnkoP.css",
+        "status": 200,
+        "bytes": 42255,
+        "sha256": "78eb8c5da31b0eed01a91848a14956bec3d5ba4cb6ccba080ddac9bf5b7ad6b3"
+      }
+    ]
+  },
+  "localReviewRegression": {
+    "viewport": {
+      "width": 375,
+      "height": 667
+    },
+    "motion": "no-preference",
+    "status": "PASS",
+    "document": {
+      "width": 375,
+      "height": 667,
+      "docWidth": 375,
+      "docHeight": 667,
+      "scrollX": 0,
+      "scrollY": 0
+    },
+    "reviewUnappliedMass": 1,
+    "savedMass": 2,
+    "exactReload": true,
+    "toolsNativeModal": {
+      "modal": true,
+      "bounds": {
+        "x": 0,
+        "y": 33.75,
+        "width": 375,
+        "height": 599.484375
+      },
+      "documentLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "scrollX": 0,
+        "scrollY": 0
+      }
+    },
+    "independentDiffReview": {
+      "requirementsCoverage": "PASS in the one requested375px local case",
+      "codeQuality": "PASS"
+    }
+  },
+  "film": {
+    "status": "VERIFIED_REVIEW_COPY",
+    "sha256": "8706879fa26a48711839501996a1b8a80313909acf9eaca239a0383afc2fd7f2",
+    "durationSeconds": 94.0,
+    "bytes": 8355927,
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "reviewOnly": true,
+    "scope": "Actual built-in local workflow; scripted speech; microphone untested; live image interpretation blocked by provider error at recording. Historical8eb capture.",
+    "checks": {
+      "metadata": true,
+      "guardedTextLayout": true,
+      "solidColorContrast": true,
+      "decodeAndAudio": true,
+      "humanWatchListen": false,
+      "audioMeasuredNotHeard": true
+    },
+    "renderProcessExited": true,
+    "renderBrowsersClosed": true,
+    "filename": "nox-local-workflow-review.mp4",
+    "audioMeasurement": {
+      "integratedLufs": -13.75,
+      "truePeakDbtp": -1.0,
+      "loudnessRangeLu": 5.7,
+      "wholeFileDecodeExit": 0
+    },
+    "hosted": {
+      "url": "https://youtu.be/9IRrXUZZexE",
+      "visibility": "unlisted",
+      "uploadedAndSaved": true,
+      "ownerChannel": "@ashishemeritus",
+      "anonymousOEmbed": {
+        "status": 200,
+        "title": "Nox | Physics by Conversation | IceHacks 2026 - Core Demo",
+        "author": "Ashish Kumar",
+        "publicEmbedAvailable": true
+      },
+      "scope": "Embed metadata verified; no claim of human audiovisual review or physical-microphone acceptance."
+    }
+  },
+  "historicalResults": {
+    "8eb042b": {
+      "matrixPassed": 7,
+      "matrixCases": 8,
+      "failure": "1280px reduced-motion ramp startup paused at0.025s; later bounded retries passed. Retained as history, not erased or attributed to a proven causal startup repair."
+    },
+    "dfd4dbd": {
+      "cases": 8,
+      "primaryRampStopPassed": 8,
+      "correctUnappliedLocalReviews": 8,
+      "reviewLayoutFailures": 8,
+      "yesSaveReloadVerified": 0,
+      "automaticRetries": 0
+    },
+    "currentDistinction": "4797df4 keeps the existing review node above the assistant dock with bounded internal scrolling. The new complete matrix passed all8 review/confirm/save/reload cases; earlier failures remain historical."
+  },
+  "sourceReceiptSha256": {
+    "productionSummary": "e5ec6c7f13197da4e20c6d715320edd8995978d71254cef7a7d2264c1c8b5124",
+    "productionFull": "7f8ab6c0f22c6760799a477eb3130d9efd8d100b84cd6b92844733b538166957",
+    "localReview": "7ec1532cbd90f18a0cb1e1328d96d61a120cc9f8a549b665b30b66b0d525fcec",
+    "http": "79d5ace64f837ff345cc9125680be9b680a74a4820401c4048e9b6ec9d42ec1f",
+    "filmMetadata": "768b13faef831b87875b92099498a1f52fc4d1a0049c1ddde55ac05e675c219c",
+    "historicalDfdSummary": "dcca29fa30d420e9e56382aa423846da97a1a48cf2475cc901e68a95746bdbd3",
+    "youtubePublicCheck": "3b341389bf9e468b97f91fed1df2dc33c651d9f1fd9705d6902946f49f0e72ef"
+  },
+  "limitations": [
+    "Current vision inference remains blocked; no successful fresh drawing conversion or free-form model edit is established.",
+    "Recognition/TTS in browser tests were device fakes, not physical microphone acceptance.",
+    "No screenshots or media were captured by the matrix. The separately exported film is a historical8eb built-in workflow with scripted speech.",
+    "Human watch/listen review and actual Devpost submission remain pending. Video upload/save and anonymous embed metadata are established separately above."
+  ],
+  "deliveryDraft": {
+    "platform": "Devpost",
+    "status": "DRAFT",
+    "completion": "4/5",
+    "voiceFirstStoryAndPitchSaved": true,
+    "coverGalleryAndCaptionSaved": true,
+    "videoLinkSaved": true,
+    "termsAgreementChecked": false,
+    "submitProjectActivated": false,
+    "userReviewRequired": true,
+    "evidenceSource": "Release owner reported saved fields; this documentation task performed no browser/account operations."
+  }
+}

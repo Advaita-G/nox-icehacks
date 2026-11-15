@@ -14,4 +14,4 @@ A photo selection starts image preparation and model interpretation automaticall
 
 The solver uses SI units, a 1/120 s step and sampled output for plots. It supports rigid bodies, compound/convex geometry, fixed/hinge/slider/spherical/rope/spring connections, finite-effort motors, declared forces/drag and a parameterized fan model. Semantic object names do not select behavior: characters, scenery and abstract forms require actual allowed geometry. Fluid flow, electricity and deformation are outside the solver; rigid proxies and their limits must be explicit. Published bounds and source grounding still apply to every approximation.
 
-See [runtime setup](RUNTIME.md) and [verification](VERIFICATION.md).
+The promoted `4797df4` core passed the deployed eight-case create/run/review/confirm/Save/reload matrix. The review dialog reuses its existing handlers above the assistant dock; native Tools remains a separate modal. This checks local behavior, not the blocked vision runtime. See [runtime setup](RUNTIME.md) and [verification](VERIFICATION.md).

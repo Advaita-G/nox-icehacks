@@ -6,14 +6,16 @@ Open Nox, tap its name and speak. Ask it to build a scene, add a drawing when yo
 
 ## Try it
 
-[Open Nox](https://nox-icehacks.vercel.app)
+[Open Nox](https://nox-icehacks.vercel.app) · [Watch the 94-second core demo](https://youtu.be/9IRrXUZZexE)
 
-The local assistant and real physics are available. **Momen is configured and participant-funded, but actual image requests currently fail with an internal “Connection pool shut down” error. Fresh drawing conversion and free-form model edits are not working.** See [verification](docs/VERIFICATION.md) for the current evidence and remaining startup limitation.
+The unlisted video demonstrates the earlier built-in workflow with scripted speech and explicitly labels the blocked image provider. Its anonymous embed metadata was verified; physical-microphone acceptance and human watch/listen review are not claimed.
+
+The local assistant and real physics are available. **Momen is configured and participant-funded, but actual image requests currently fail with an internal “Connection pool shut down” error. Fresh drawing conversion and free-form model edits are not working.** The promoted core release passed eight deployed create/run/review/confirm/Save/reload cases across four sizes and two motion settings. See [verification](docs/VERIFICATION.md) for exact scope and evidence boundaries.
 
 1. The room opens with **Nox**. Tap its name once and allow the browser's microphone prompt, then speak naturally between Nox's replies.
 2. Say **“Create a ramp and ball.”** Nox creates a fresh local scene with a floor, ramp and ball, declares its physical defaults and starts the real solver. This request uses local code, not an image interpretation or captured model reply.
 3. Say **“pause,” “keep a baseline,” “select the ball,”** then **“double its mass.”** Nox explains the proposed edit. Say **“yes, apply”** to commit it or **“cancel”** to discard it.
-4. Continue with **“reset,” “run it,” “compare,”** and **“save.”** The model stays in the room while Nox remains available below it. Say **“stop listening”** or use **Stop** to end voice input.
+4. Continue with **“reset,” “run it,” “compare,”** and **“save.”** A manual edit starts its new version from the paused visible state, so that comparison is not automatically a controlled mass-only experiment. The model stays in the room while Nox remains available below it. Say **“stop listening”** or use **Stop** to end voice input.
 
 When a drawing is useful, the conversation offers **Camera** and **Add drawing**; you can also drop or paste an image into the room. Nox normalizes and retains the source before requesting interpretation. The implemented pipeline validates a ready response before automatic model/run and asks about critical ambiguity. Its prompt requests declared rigid approximations of objects, characters, scenery, abstract forms and mechanisms, with estimated scale, depth and mass preserved as assumptions. Current live requests fail at the provider; the source and last valid experiment are retained instead of substituting a saved scene.
 

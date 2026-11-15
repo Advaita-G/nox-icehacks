@@ -6,9 +6,9 @@ The first view centers on **Nox**. Tap the name once and grant microphone permis
 
 Say **“Create a ramp and ball.”** This bounded request creates a fresh three-body local scene: fixed floor, fixed ramp and dynamic ball. Dimensions and coefficients are declared defaults. Nox starts the actual solver after the scene settles into the same room, with its conversation docked below. No model call, drawing recognition or captured response is used for this request. Custom dimensions or additional objects must be preserved through the custom proposal path rather than silently replaced with these defaults.
 
-Continue with **“pause,” “keep a baseline,” “select the ball,” “double its mass,” “yes, apply,” “reset,” “run it,” “compare,”** and **“save.”** Normal physical edits are explained before spoken confirmation or Apply commits them. **“Cancel”** discards a pending request or proposal.
+Continue with **“pause,” “keep a baseline,” “select the ball,” “double its mass,” “yes, apply,” “reset,” “run it,” “compare,”** and **“save.”** Normal physical edits are explained before spoken confirmation or Apply commits them. A manual edit begins a new version from the paused visible state; compare reports version measurements, not an automatically controlled mass-only experiment. **“Cancel”** discards a pending request or proposal.
 
-A deployed desktop reduced-motion case paused during local ramp startup. Isolated retries passed, but the cause remains unresolved; this is not an all-device reliability claim. [Observed scope](VERIFICATION.md#deployed-voice-room-matrix-78-with-bounded-retries)
+The promoted `4797df4` core passed all eight deployed cases at four sizes with normal/reduced motion, including review, explicit confirmation, Save and exact reload. These checks used synthetic speech devices and real physics/storage. Earlier startup and review-layout failures are preserved as history, not current open failures. This is not a universal-device or physical-microphone claim. [Observed scope](VERIFICATION.md#current-deployed-core-88-pass)
 
 **Stop** is available during active voice and pending work. It turns voice off, cancels pending work and pauses the experiment rather than permitting a delayed automatic start. Browser speech support varies and may use an online recognition service; speech synthesis supplies narration. Speech failures remain visible. Recent conversation is held in memory for this session, not stored by Save.
 
@@ -39,6 +39,8 @@ Only when authorized to configure the runtime, copy `.env.example` to an ignored
 Production endpoints include `/api/status`, `/api/interpret`, `/api/command` and `/api/access`. Live calls use a server-side judge access code (`NOX_DEMO_ACCESS_CODE`, at least 32 characters). Use the access flow or private judge link supplied by the project owner; no credential is published here. `configured: true` confirms configuration is present, not successful inference. Access permission and provider health are separate checks.
 
 ## Persistence and evidence
+
+The [94-second unlisted core demo](https://youtu.be/9IRrXUZZexE) is uploaded, saved and anonymously embed-verified. It records the earlier built-in workflow, with scripted speech and the image-provider failure explicitly labelled. It is not a fresh vision or physical-microphone test; no human watch/listen review is claimed. The Devpost entry remains a draft awaiting user review and submission.
 
 Save retains confirmed experiments with their source/notes, versions, baseline samples and paused checkpoints. Export creates a portable backup before changing browsers or clearing storage. Unconfirmed drawing drafts do not survive reload.
 

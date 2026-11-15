@@ -1,8 +1,24 @@
 # Verification and evidence boundaries
 
-Updated November 14, 2026 for the **Nox-only voice room**. Completed local runs passed **218/218 root tests** and **110/110 input-package tests**; the corrected source also passed root typecheck/production build. The candidate includes the `948e9dc` Tools/gizmo fix and preservation of Momen's numeric image IDs. Its latest local client assets are `main-BeN3EFcV.js`, `main-MEbMjkZu.css` and `index-Bc3XoacH.js`; named browser receipts below cover their own earlier assets. Use the [README commands](../README.md#run-locally) to reproduce the suites. Injected provider tests do not establish working inference; actual calls are reported separately.
+Updated November 14, 2026 for the **Nox-only voice room**. The stable [Nox application](https://nox-icehacks.vercel.app) is promoted to core release **`4797df4`**, pinned at [the verified deployment](https://nox-icehacks-5kxz43ec3-idk-41a8.vercel.app), deployment `dpl_meH4eJc3sSoYLMXrgbg1rP8ZxF93`.
 
-**Fresh drawing conversion and free-form model edits are not working.** Momen is configured, synced and participant-funded, but actual image calls fail internally. The local core has passing checks alongside an unresolved startup pause in the deployed matrix; this is not a ready or all-pass release claim. Earlier GitHub-hosted checks could not start because the repository owner's account was billing-locked ([observed run](https://github.com/Advaita-G/nox-icehacks/actions/runs/43638844038)); completed local counts are not a claim that hosted CI passed.
+## Current deployed core: 8/8 PASS
+
+One complete matrix passed at **320×667, 375×667, 768×900 and 1280×800**, each with normal and reduced motion, once per fresh isolated Chromium process. All eight cases verified Nox-only arrival, optional Keyboard, fresh three-body ramp creation, actual solver advancement, Stop, the unapplied 1 → 2 kg review, readable/reachable review controls, explicit yes, mass 2 kg, Save/checkpoint and exact reload. There were **zero retries, inference attempts or browser errors**. The ramp request used injected recognition/TTS; review, yes and Save used the optional typed input. Physics and storage were real. All browsers closed; no media was captured.
+
+The final shell/CSS fix keeps the existing nonmodal review above the assistant dock with bounded internal scrolling. A separate 375 px local regression also passed review reachability, confirmation, persistence and the native Tools modal. Current assets are `main-CUTiIwJb.js`, `index-D2bfssUi.js` and `main-TUqCnkoP.css`. HTTP checks matched all four page/JS/CSS assets; the browser-loaded CSS also matched local output (42,255 bytes, SHA256 `78eb8c5da31b0eed01a91848a14956bec3d5ba4cb6ccba080ddac9bf5b7ad6b3`). Anonymous status remained access-gated; the authorized status reported Momen configured. Neither status result establishes successful inference.
+
+The last full local suites passed **218/218 root tests** and **110/110 input-package tests** before the final presentation-only shell/CSS fix; no numerical behavior changed afterwards. Current root typecheck/production build passed after that fix, with Vite's large application-chunk warning retained. Earlier hosted CI could not start because the repository owner's account was billing-locked ([observed run](https://github.com/Advaita-G/nox-icehacks/actions/runs/43638844038)); local counts do not claim hosted CI passed. [Reproduction commands](../README.md#run-locally).
+
+[Current release receipt and scope](evidence/voice-room-2026-11-14/current-release-4797df4.json) records all eight results, asset hashes, bounded local regression, access checks and source-receipt hashes. It also preserves the earlier `dfd4dbd` result: arrival/ramp/Stop passed 8/8, but review overflow failed 8/8 and prevented yes/Save/reload testing. That review defect is covered by the new complete passing matrix. The older `8eb042b` startup failure remains historical evidence below; the current pass is not a causal diagnosis or universal device guarantee.
+
+**Fresh drawing conversion and free-form model edits are still not working.** Momen is configured, synced and participant-funded, but actual image calls fail internally. The checked local core passes; the complete intended product and submission are not declared finished.
+
+## Hosted review film
+
+A **94-second, 1920×1080, 30 fps H.264/AAC** review copy was exported: `nox-local-workflow-review.mp4`, **8,355,927 bytes**, SHA256 `8706879fa26a48711839501996a1b8a80313909acf9eaca239a0383afc2fd7f2`. Full decode passed; audio was measured at −13.75 LUFS / −1.0 dBTP. It records the earlier **`8eb042b` built-in workflow**, with scripted speech and no model calls or physical microphone acceptance. Narration/captions explicitly state the provider failure at recording and that compared versions have different starting states; their speed difference is not a mass-only causal experiment. The export is not proof of the latest interface or working vision. The [unlisted YouTube film](https://youtu.be/9IRrXUZZexE) was uploaded and saved on the verified owner channel. An anonymous oEmbed check returned HTTP 200, the exact title “Nox | Physics by Conversation | IceHacks 2026 - Core Demo”, author Ashish Kumar and embed HTML. This checks public embed metadata, not a human playback review. No human watch/listen review or actual submission is claimed. Metadata scope is retained in the [current receipt](evidence/voice-room-2026-11-14/current-release-4797df4.json).
+
+The release owner reports the voice-first Devpost story/pitch, cover gallery/caption and video link saved, with the draft at **4/5**. Terms agreement remains unchecked and Submit project untouched. User review and actual submission remain pending; an owner preview is not a published submission.
 
 ## Actual configured-provider failure
 
@@ -14,13 +30,13 @@ No raw model scene was returned, so strict 3D interpretation validation, automat
 
 [Fresh corrected image-first receipt](evidence/runtime-2026-11-14/fresh-postfix-receipt.json) · [Earlier numeric-ID comparison](evidence/runtime-2026-11-14/numeric-image-id-comparison.json) · [Focused transport review](evidence/runtime-2026-11-14/numeric-transport-review.json) · [Runtime receipt scope](evidence/runtime-2026-11-14/README.md).
 
-## Deployed voice-room matrix: 7/8, with bounded retries
+## Historical deployed voice-room matrix: 7/8, with bounded retries
 
 The deployed **`8eb042b`** candidate was checked at 320×667, 375×667, 768×900 and 1280×800 with normal and reduced motion. The initial complete matrix is **7/8 PASS, overall FAIL**. It used real local physics and synthetic recognition/TTS, with no credentials or model calls.
 
 The 1280×800 reduced-motion ramp case created three bodies but paused at **0.025 s**, reporting that the solver paused before the run was established. One isolated retry then passed, followed by three fresh-process diagnostic passes reaching about 1.7 s. Those retries did not reproduce the failure and are **not an eight-case matrix rerun or proof that the startup issue is fixed**.
 
-The later local `948e9dc` Tools check passed in normal/reduced motion on `main-CAVvyYTU.js`: WebGL draw counts changed **7 → 20 → 7** as Tools opened/closed while paused. This establishes that manual transform rendering follows Tools visibility, not repair of the earlier startup pause. The latest production build is newer than these named browser receipts.
+The later local `948e9dc` Tools check passed in normal/reduced motion on `main-CAVvyYTU.js`: WebGL draw counts changed **7 → 20 → 7** as Tools opened/closed while paused. This establishes that manual transform rendering follows Tools visibility, not repair of the earlier startup pause. The current release above has its own complete passing matrix; these earlier receipts remain unchanged.
 
 [Deployed matrix](evidence/voice-room-2026-11-14/production-matrix-8eb042b.json) · [Single isolated retry](evidence/voice-room-2026-11-14/production-isolated-1280.json) · [Three-process diagnostic](evidence/voice-room-2026-11-14/production-diagnostic-summary.json) · [Local Tools check](evidence/voice-room-2026-11-14/tools-local-check-948e9dc.json). Public copies remove URLs, private paths and stack traces while retaining results; the [manifest](evidence/voice-room-2026-11-14/production-receipt-manifest.json) records source and published hashes.
 
@@ -89,16 +105,17 @@ Focused receipts: [critical-question cancellation](evidence/photo-auto-2026-11-1
 
 The source retains disabled renderer antialiasing, cached derived viewport resources and the loader's cached-import fix. A reproduced earlier cold desktop photo run showed that starting physics during the source reveal could trip the unchanged delayed-frame guard. Shared warmup waits for the real reveal to finish before collecting stable paused frames; the assistant waits for actual solver advancement before announcing a running experiment. Stop/new input/visibility cancellation prevents a delayed start.
 
-Earlier controlled photo/local room cases passed within their scopes; the deployed room matrix retains the failed startup case described above. **FixedClock limits were not relaxed.** This development-Mac evidence does not establish performance on every device or visual preference. Earlier drawing-first checks at five sizes and any earlier recovered pauses remain historical evidence.
+Earlier controlled photo/local room cases passed within their scopes. The historical matrix retains its startup failure; the current release passed the separate complete matrix above. **FixedClock limits were not relaxed.** This development-Mac evidence does not establish performance on every device or visual preference. Earlier drawing-first checks at five sizes and any earlier recovered pauses remain historical evidence.
 
 ## Evidence types
 
 | Evidence | Establishes | Does not establish |
 | --- | --- | --- |
 | Numerical/contract tests and solver replay | Checked geometry, constraints, physical responses, atomic edits, samples and checkpoint behavior within the declared model. | Correct interpretation of every image or all-device performance. |
-| Current voice-room controlled checks | Nox-only arrival, fresh local ramp creation, reviewed edits, controlled photo lifecycle, real solver/persistence and cancellation for the supplied reply. | Fresh inference, physical speech, a newly captured camera image or deployment of the current UI. |
+| Earlier voice-room controlled checks | Nox-only arrival, fresh local ramp creation, reviewed edits, controlled photo lifecycle, real solver/persistence and cancellation for the supplied reply. | Fresh inference, physical speech, a newly captured camera image or deployment of the current UI. |
+| Current deployed `4797df4` core matrix | Eight complete local-create/run/review/confirm/Save/reload cases on the pinned deployment. | Fresh inference, physical speech, universal device reliability or whole-product completion. |
 | Actual current provider calls | Configured/authenticated transport reaches Momen and returns failed image-conversation results, including a fresh numeric-ID first-call check. | Successful drawing recognition, a usable generated scene or end-to-end model editing. |
-| Deployed `8eb042b` matrix and diagnostics | Seven successful cases, one recorded startup failure, and later bounded passes that did not reproduce it. | An all-pass matrix, a proven startup repair or fresh inference. |
+| Historical deployed `8eb042b` matrix and diagnostics | Seven successful cases, one recorded startup failure, and later bounded passes that did not reproduce it. | An all-pass matrix, a proven startup repair or fresh inference. |
 | Earlier actual provider sessions | Generated scenes and language operations for those recorded inputs/model/date. | Fresh current-head acceptance or a new photo when an earlier source was reused. |
 | Earlier physical-microphone/export evidence | Speech-derived command and recovery data within its recorded scope. | Drawn-source retention for template-based experiments or a new device session on this candidate. |
 
@@ -116,4 +133,4 @@ Fixtures remain at the relative paths required by application imports and tests.
 
 Each model request has a 120-second deadline; setup, service latency and clarification rounds affect total time. Controlled replies do not prove recognition quality or a universal conversion-time guarantee.
 
-The configured runtime must return a valid interpretation before fresh photo conversion or free-form model edits can be called working. Current actual image checks fail. A successful future result must identify application source, provider/model, input, timing and observed outcome. New camera/microphone acceptance requires a real device session. Public hosting/access is checked separately at its deployed URL; a localhost result is not deployment evidence. Final video, owner review and actual submission remain separate delivery work.
+The configured runtime must return a valid interpretation before fresh photo conversion or free-form model edits can be called working. Current actual image checks fail. A successful future result must identify application source, provider/model, input, timing and observed outcome. New camera/microphone acceptance requires a real device session. Public hosting/access is checked separately at its deployed URL; a localhost result is not deployment evidence. The review film is exported, uploaded unlisted and anonymously embed-verified; human watch/listen review, user approval and actual Devpost submission remain separate work.
