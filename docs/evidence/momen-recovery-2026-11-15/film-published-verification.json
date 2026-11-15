@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "release": "final-film-2026-11-15",
+  "assets": [
+    {
+      "name": "nox-film.mp4",
+      "sha256": "2e065d2f350bc135dd575d4c964cf82a95468941946e12826ad37dcfdadb3eaf",
+      "bytes": 24388220
+    },
+    {
+      "name": "nox-film.srt",
+      "sha256": "3d6f3ed19d17ac2e2d931a37c329d03e30aad8415931ae67f6e5147917ce0e11",
+      "bytes": 2367
+    },
+    {
+      "name": "nox-film.vtt",
+      "sha256": "f3508a405acec52155c718863add93dd3e30cc5ebd94718e01055be47a92f780",
+      "bytes": 2306
+    },
+    {
+      "name": "nox-hyperframes-source.zip",
+      "sha256": "3bd83f8f58f1ddc875d0aa35412ff3281323b77d76928aa4ef8f22d1f2cfe974",
+      "bytes": 4527510
+    },
+    {
+      "name": "CHECKS.json",
+      "sha256": "35df864c4ea185bdaf0c14e15d595bdbd7c23e22ab9e76a7f481737c5fb0e8be",
+      "bytes": 854
+    }
+  ],
+  "sourceMemberHashes": "PASS"
+}

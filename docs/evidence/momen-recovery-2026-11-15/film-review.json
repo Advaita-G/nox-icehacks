@@ -6,10 +6,37 @@
   "durationSeconds": 74.7,
   "video": "1920x1080, H.264, 30 fps",
   "audio": "AAC, 48000 Hz; effects only",
-  "independentlyMeasuredAudio": { "integratedLUFS": -20.1, "truePeakDbFS": -7.4 },
+  "independentlyMeasuredAudio": {
+    "integratedLUFS": -20.1,
+    "truePeakDbFS": -7.4
+  },
   "reviewMethod": "Local watch skill: 10 full-range scene frames plus 13 targeted cue frames, all inspected; caption/spec/source/provenance review. No cloud upload, transcript model or new installation. These samples do not establish a full continuous human watch/listen or physical-device acceptance.",
-  "targetedCueSeconds": [0.8, 2, 17, 22, 27, 30, 33, 41, 47, 51, 54.5, 63.5, 70],
-  "contentObserved": ["input beside actual 3D output", "drawing-to-scene reveal", "exact velocity proposal", "yes before motion", "local annotation/arrow", "applied edit", "real hop", "reload/replay", "readable URL and credits"],
+  "targetedCueSeconds": [
+    0.8,
+    2,
+    17,
+    22,
+    27,
+    30,
+    33,
+    41,
+    47,
+    51,
+    54.5,
+    63.5,
+    70
+  ],
+  "contentObserved": [
+    "input beside actual 3D output",
+    "drawing-to-scene reveal",
+    "exact velocity proposal",
+    "yes before motion",
+    "local annotation/arrow",
+    "applied edit",
+    "real hop",
+    "reload/replay",
+    "readable URL and credits"
+  ],
   "findings": [
     "REFERENCES.md reference 4 incorrectly attributes new AI footage to the old 113-second take; actual source is the fresh Momen release.",
     "End disclosure is 0.5 seconds short of the tool's suggested reading time; request a 1-second longer existing hold.",
@@ -19,5 +46,25 @@
   ],
   "requestedAction": "One bounded final polish/render/checksum delivery on Juwon's branch; no new footage, story, music, narration installation or model call.",
   "uploadStatus": "Not uploaded; Juwon chose Advaita uploads. No authorised background YouTube connection is available.",
-  "devpostStatus": "Prepared story/fields; final owner-account save/reopen/preview unverified; not submitted."
+  "devpostStatus": "Prepared story/fields; final owner-account save/reopen/preview unverified; not submitted.",
+  "finalDelivery": {
+    "status": "DELIVERED_UPLOAD_READY_NOT_UPLOADED",
+    "release": "https://github.com/Advaita-G/nox-icehacks/releases/tag/final-film-2026-11-15",
+    "sha256": "2e065d2f350bc135dd575d4c964cf82a95468941946e12826ad37dcfdadb3eaf",
+    "durationSeconds": 75.7,
+    "hyperframesCheck": {
+      "errors": 0,
+      "warnings": 0,
+      "browserRan": true
+    },
+    "fullDecode": "PASS",
+    "changedCompositionFramesInspected": 5,
+    "changedEncodedFramesInspected": 5,
+    "originalShotsHeadlinesRepliesSfxUnchanged": true,
+    "publishedAssetAndSourceMemberHashes": "PASS",
+    "anonymousFilmDownload": "PASS",
+    "localCompleteSource": "nox-hyperframes-complete-source.zip",
+    "publicSourceRawStockSfx": "documented external dependencies",
+    "humanFullWatchListen": "NOT_VERIFIED"
+  }
 }
