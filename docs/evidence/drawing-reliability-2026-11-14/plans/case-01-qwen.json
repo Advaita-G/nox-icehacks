@@ -1,0 +1,124 @@
+{
+  "status": "ready",
+  "name": "Simple house line drawing",
+  "assumptions": [
+    "Interpreted as a static display of a house elevation; no motion or physical interaction requested.",
+    "Scale estimated at ~10 m wall width and 6 m wall height for reasonable proportions; all elements made fixed.",
+    "Windows and door modeled as thin rigid surface overlays (frames, mullions, panels) approximating the drawn lines; not actual openings or transparent glass.",
+    "Roof modeled as a flat triangular slab resting on the wall top, approximating the peaked roof outline.",
+    "Ground not drawn in image; house positioned with base at world Y=0."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Built a rigid, fixed proxy of the house: wall, triangular roof slab, two 4-pane windows and a door, all as surface overlays. Treat as display/manipulation only.",
+  "bodies": [
+    {
+      "id": "b-house-wall",
+      "label": "House Wall",
+      "fixed": true,
+      "position": { "x": 0, "y": 3, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 10, "y": 6, "z": 0.25 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Main rectangular body of the house" , "region": { "left": 0.31, "top": 0.44, "right": 0.69, "bottom": 0.85 }},
+      "restOn": null
+    },
+    {
+      "id": "b-house-roof",
+      "label": "House Roof",
+      "fixed": true,
+      "position": { "x": 0, "y": 6, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "convex", "vertices": [ { "x": -5.5, "y": 0, "z": 0.2 }, { "x": 5.5, "y": 0, "z": 0.2 }, { "x": 0, "y": 3.5, "z": 0.2 }, { "x": -5.5, "y": 0, "z": -0.2 }, { "x": 5.5, "y": 0, "z": -0.2 }, { "x": 0, "y": 3.5, "z": -0.2 } ], "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Peaked triangular roof outline above the wall", "region": { "left": 0.26, "top": 0.17, "right": 0.74, "bottom": 0.45 }},
+      "restOn": "b-house-wall"
+    },
+    {
+      "id": "b-window-left-frame",
+      "label": "Left Window Frame",
+      "fixed": true,
+      "position": { "x": -2.75, "y": 4, "z": 0.13 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.5, "y": 1.5, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Outer square of the left 4-pane window", "region": { "left": 0.35, "top": 0.52, "right": 0.43, "bottom": 0.66 }},
+      "restOn": "b-house-wall"
+    },
+    {
+      "id": "b-window-left-hmullion",
+      "label": "Left Window Horizontal Mullion",
+      "fixed": true,
+      "position": { "x": -2.75, "y": 4, "z": 0.155 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.3, "y": 0.08, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Horizontal bar of the left window", "region": { "left": 0.35, "top": 0.58, "right": 0.43, "bottom": 0.595 }},
+      "restOn": "b-window-left-frame"
+    },
+    {
+      "id": "b-window-left-vmullion",
+      "label": "Left Window Vertical Mullion",
+      "fixed": true,
+      "position": { "x": -2.75, "y": 4, "z": 0.155 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 0.08, "y": 1.3, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Vertical bar of the left window", "region": { "left": 0.388, "top": 0.52, "right": 0.4, "bottom": 0.66 }},
+      "restOn": "b-window-left-frame"
+    },
+    {
+      "id": "b-window-right-frame",
+      "label": "Right Window Frame",
+      "fixed": true,
+      "position": { "x": 2.75, "y": 4, "z": 0.13 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.5, "y": 1.5, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Outer square of the right 4-pane window", "region": { "left": 0.57, "top": 0.52, "right": 0.65, "bottom": 0.66 }},
+      "restOn": "b-house-wall"
+    },
+    {
+      "id": "b-window-right-hmullion",
+      "label": "Right Window Horizontal Mullion",
+      "fixed": true,
+      "position": { "x": 2.75, "y": 4, "z": 0.155 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.3, "y": 0.08, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Horizontal bar of the right window", "region": { "left": 0.57, "top": 0.58, "right": 0.65, "bottom": 0.595 }},
+      "restOn": "b-window-right-frame"
+    },
+    {
+      "id": "b-window-right-vmullion",
+      "label": "Right Window Vertical Mullion",
+      "fixed": true,
+      "position": { "x": 2.75, "y": 4, "z": 0.155 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 0.08, "y": 1.3, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Vertical bar of the right window", "region": { "left": 0.608, "top": 0.52, "right": 0.62, "bottom": 0.66 }},
+      "restOn": "b-window-right-frame"
+    },
+    {
+      "id": "b-door-frame",
+      "label": "Door Frame",
+      "fixed": true,
+      "position": { "x": 0, "y": 1.4, "z": 0.13 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.4, "y": 2.8, "z": 0.04 }, "position": { "x": 0, "y": 0, "z": 0 }, "rotationDegrees": { "x": 0, "y": 0, "z": 0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Rectangular door outline at the base of the wall", "region": { "left": 0.46, "top": 0.64, "right": 0.54, "bottom": 0.85 }},
+      "restOn": "b-house-wall"
+    }
+  ]
+}

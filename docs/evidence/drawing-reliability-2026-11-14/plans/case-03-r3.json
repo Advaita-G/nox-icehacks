@@ -1,0 +1,96 @@
+{
+  "status": "ready",
+  "name": "Line Drawing: Armchair on Ground",
+  "assumptions": [
+    "Drawing is treated as a front-facing schematic with no depth thickness beyond box volumes.",
+    "Ground line is modeled as a fixed thin horizontal slab.",
+    "Chair base is a single dynamic rigid block; seat and backrest are fixed rigid overlays.",
+    "Legs are modeled as a single dynamic block resting on the ground to preserve vertical gaps.",
+    "No motion requested; all furniture parts are static for display."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid display model created from the visible armchair sketch.",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground Line",
+      "fixed": true,
+      "position": { "x": 0.0, "y": -0.002, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 1.1, "y": 0.004, "z": 0.4 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": { "origin": "sketch" , "note": "Horizontal ground line at bottom of image.", "region": { "left": 0.17, "top": 0.83, "right": 0.75, "bottom": 0.87 }},
+      "stackAbove": null
+    },
+    {
+      "id": "chair_base",
+      "label": "Chair Base",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.15, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.50, "y": 0.30, "z": 0.40 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": { "origin": "sketch" , "note": "Front rectangular seat/base volume.", "region": { "left": 0.28, "top": 0.55, "right": 0.56, "bottom": 0.83 }},
+      "stackAbove": "ground"
+    },
+    {
+      "id": "chair_seat_overlay",
+      "label": "Seat Overlay",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.30, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.50, "y": 0.004, "z": 0.40 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": { "origin": "sketch" , "note": "Seat top surface line and perspective edges.", "region": { "left": 0.28, "top": 0.47, "right": 0.63, "bottom": 0.57 }},
+      "stackAbove": "chair_base"
+    },
+    {
+      "id": "chair_backrest",
+      "label": "Chair Backrest",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.55, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.50, "y": 0.50, "z": 0.40 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": { "origin": "sketch" , "note": "Tall rear rectangular back panel.", "region": { "left": 0.34, "top": 0.19, "right": 0.63, "bottom": 0.47 }},
+      "stackAbove": "chair_seat_overlay"
+    },
+    {
+      "id": "chair_legs",
+      "label": "Chair Legs",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.035, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.45, "y": 0.07, "z": 0.40 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": { "origin": "sketch" , "note": "Vertical front and rear leg strokes.", "region": { "left": 0.28, "top": 0.57, "right": 0.63, "bottom": 0.83 }},
+      "stackAbove": "ground"
+    }
+  ]
+}

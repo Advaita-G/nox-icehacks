@@ -1,0 +1,17 @@
+{
+  "name": "Ball on Plank",
+  "assumptions": [
+    "The ground is a large horizontal slab at Y=0.",
+    "The fixed plank is a rectangular prism resting on the ground.",
+    "The ball is a sphere resting on the plank.",
+    "The plank is 3m long and estimated at 0.1m thick and 1m wide.",
+    "The ball has a diameter of 1m as specified."
+  ],
+  "warnings": [],
+  "message": "",
+  "status": "rejected",
+  "bodies": [
+    ],
+  "questions": [
+    ]
+}

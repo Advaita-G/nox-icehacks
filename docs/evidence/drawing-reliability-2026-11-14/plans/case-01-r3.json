@@ -1,0 +1,100 @@
+{
+  "status": "ready",
+  "name": "Stylized house facade (rigid)",
+  "assumptions": [
+    "2D line drawing interpreted as a flat rigid house in the X-Y plane at z=0, ~7 m wide and ~5 m tall",
+    "Windows and door are solid decorative overlays (frame cross and door slab), not openings",
+    "House body, windows, door and ground are fixed; no motion requested",
+    "Single ground line at the base; masses are representative estimates"
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground line",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 8.0, "y": 0.05, "z": 0.5 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Bottom horizontal line spanning the house base (normalized 510,847 to 1101,847)." , "region": { "left": 0.319, "top": 0.845, "right": 0.688, "bottom": 0.849 } },
+      "stackAbove": null
+    },
+    {
+      "id": "houseBody",
+      "label": "House wall",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 2.2, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 6.0, "y": 3.6, "z": 0.2 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Rectangle wall: verticals at ~503 and ~1100 px, top ~449, bottom ~847." , "region": { "left": 0.313, "top": 0.449, "right": 0.688, "bottom": 0.847 } },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "roof",
+      "label": "Roof",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 4.6, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "convex", "vertices": [
+            { "x": -3.6, "y": 0.0, "z": -0.1 },
+            { "x": 3.6, "y": 0.0, "z": -0.1 },
+            { "x": 3.6, "y": 0.0, "z": 0.1 },
+            { "x": -3.6, "y": 0.0, "z": 0.1 },
+            { "x": -3.6, "y": 0.0, "z": -0.1 },
+            { "x": 0.0, "y": 2.0, "z": -0.1 },
+            { "x": 0.0, "y": 2.0, "z": 0.1 },
+            { "x": -3.6, "y": 0.0, "z": 0.1 }
+          ] }
+      ],
+      "grounding": { "origin": "sketch", "note": "Triangular gable roof over the wall, apex ~800,180; eaves ~419,451 to ~1179,451." , "region": { "left": 0.261, "top": 0.18, "right": 0.737, "bottom": 0.452 } },
+      "stackAbove": "houseBody"
+    },
+    {
+      "id": "door",
+      "label": "Door",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 1.35, "z": 0.12 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.0, "y": 2.7, "z": 0.1 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Center door rectangle ~744,647 to ~854,847 (solid slab, not a hole)." , "region": { "left": 0.464, "top": 0.647, "right": 0.534, "bottom": 0.847 } },
+      "stackAbove": null
+    },
+    {
+      "id": "windowLeft",
+      "label": "Left window",
+      "fixed": true,
+      "position": { "x": -1.6, "y": 3.15, "z": 0.12 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.3, "y": 1.3, "z": 0.08 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "shape": "box", "size": { "x": 1.3, "y": 0.06, "z": 0.1 }, "position": { "x": 0.0, "y": 0.0, "z": 0.04 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "shape": "box", "size": { "x": 0.06, "y": 1.3, "z": 0.1 }, "position": { "x": 0.0, "y": 0.0, "z": 0.04 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Left 4-pane window frame ~561,528 to ~687,648 with central cross." , "region": { "left": 0.35, "top": 0.527, "right": 0.429, "bottom": 0.649 } },
+      "stackAbove": null
+    },
+    {
+      "id": "windowRight",
+      "label": "Right window",
+      "fixed": true,
+      "position": { "x": 1.6, "y": 3.15, "z": 0.12 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        { "shape": "box", "size": { "x": 1.3, "y": 1.3, "z": 0.08 }, "position": { "x": 0.0, "y": 0.0, "z": 0.0 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "shape": "box", "size": { "x": 1.3, "y": 0.06, "z": 0.1 }, "position": { "x": 0.0, "y": 0.0, "z": 0.04 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } },
+        { "shape": "box", "size": { "x": 0.06, "y": 1.3, "z": 0.1 }, "position": { "x": 0.0, "y": 0.0, "z": 0.04 }, "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 } }
+      ],
+      "grounding": { "origin": "sketch", "note": "Right 4-pane window frame ~912,528 to ~1039,648 with central cross." , "region": { "left": 0.57, "top": 0.527, "right": 0.649, "bottom": 0.649 } },
+      "stackAbove": null
+    }
+  ]
+}

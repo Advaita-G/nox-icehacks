@@ -1,0 +1,184 @@
+{
+  "status": "ready",
+  "name": "Side-view car",
+  "assumptions": [
+    "The drawing is treated as a side-view rigid car proxy in a static display pose.",
+    "The ground is modeled as a finite, fixed platform that spans the visible ground line.",
+    "The two wheels are approximated as cylinders with local Y axes and 0.7 m diameters.",
+    "The cabin is approximated as a convex prism matching its sloped trapezoid silhouette.",
+    "The vertical cabin divider and long lower panel line are represented as thin decorative fixed overlays.",
+    "No rolling, steering, suspension, engine, electricity or other unsupported behavior is included.",
+    "Masses, friction, restitution and world scale are inferred because the drawing does not supply physical values.",
+    "World placement is estimated from the drawing: car center near (0,0.80,0), front wheel near (1.45,0.35,0), rear wheel near (-1.45,0.35,0), and wheels resting on the ground surface at y=0."
+  ],
+  "warnings": [
+    "The car is a rigid visual proxy only; the wheels are not rolling or independently articulated."
+  ],
+  "questions": [],
+  "message": "Modeled the visible car as a fixed rigid display model on a finite ground plane.",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "fixed": true,
+      "position": {"x": 0, "y": -0.05, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 4.6, "y": 0.1, "z": 1.8},
+          "position": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Visible horizontal ground line at approximately normalized image y=0.785.",
+        "region": {"left": 0.148, "top": 0.778, "right": 0.867, "bottom": 0.792}
+      },
+      "stackAbove": null,
+      "mass": 100.0,
+      "friction": 0.6,
+      "restitution": 0.1,
+      "velocity": {"x": 0, "y": 0, "z": 0},
+      "angularVelocity": {"x": 0, "y": 0, "z": 0}
+    },
+    {
+      "id": "car_body",
+      "label": "Car lower body",
+      "fixed": true,
+      "position": {"x": 0, "y": 0.80, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {"x": -2.05, "y": -0.45, "z": -0.42},
+            {"x": -2.05, "y": 0.18, "z": -0.42},
+            {"x": -1.62, "y": 0.30, "z": -0.42},
+            {"x": 1.58, "y": 0.30, "z": -0.42},
+            {"x": 2.05, "y": 0.12, "z": -0.42},
+            {"x": 2.05, "y": -0.45, "z": -0.42},
+            {"x": -2.05, "y": -0.45, "z": 0.42},
+            {"x": -2.05, "y": 0.18, "z": 0.42},
+            {"x": -1.62, "y": 0.30, "z": 0.42},
+            {"x": 1.58, "y": 0.30, "z": 0.42},
+            {"x": 2.05, "y": 0.12, "z": 0.42},
+            {"x": 2.05, "y": -0.45, "z": 0.42}
+          ],
+          "position": {"x": 0, "y": 0, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        },
+        {
+          "shape": "box",
+          "size": {"x": 3.9, "y": 0.02, "z": 0.03},
+          "position": {"x": -0.06, "y": 0.10, "z": 0.42},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Lower car body outline from the rear vertical edge on the left to the front vertical edge on the right, including the long lower side line and upper body line.",
+        "region": {"left": 0.220, "top": 0.480, "right": 0.785, "bottom": 0.660}
+      },
+      "stackAbove": null,
+      "mass": 12.0,
+      "friction": 0.4,
+      "restitution": 0.1,
+      "velocity": {"x": 0, "y": 0, "z": 0},
+      "angularVelocity": {"x": 0, "y": 0, "z": 0}
+    },
+    {
+      "id": "car_cabin",
+      "label": "Car cabin",
+      "fixed": true,
+      "position": {"x": 0, "y": 1.12, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {"x": -1.10, "y": -0.20, "z": -0.42},
+            {"x": -0.75, "y": 0.22, "z": -0.42},
+            {"x": 0.75, "y": 0.22, "z": -0.42},
+            {"x": 1.15, "y": -0.20, "z": -0.42},
+            {"x": -1.10, "y": -0.20, "z": 0.42},
+            {"x": -0.75, "y": 0.22, "z": 0.42},
+            {"x": 0.75, "y": 0.22, "z": 0.42},
+            {"x": 1.15, "y": -0.20, "z": 0.42}
+          ],
+          "position": {"x": 0, "y": 0, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        },
+        {
+          "shape": "box",
+          "size": {"x": 0.02, "y": 0.40, "z": 0.02},
+          "position": {"x": 0.00, "y": 0.00, "z": 0.42},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Trapezoidal cabin outline above the body, including the sloped front and rear lines and the visible vertical divider.",
+        "region": {"left": 0.325, "top": 0.320, "right": 0.660, "bottom": 0.490}
+      },
+      "stackAbove": null,
+      "mass": 4.0,
+      "friction": 0.4,
+      "restitution": 0.1,
+      "velocity": {"x": 0, "y": 0, "z": 0},
+      "angularVelocity": {"x": 0, "y": 0, "z": 0}
+    },
+    {
+      "id": "wheel_front",
+      "label": "Front wheel",
+      "fixed": true,
+      "position": {"x": 1.45, "y": 0.35, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {"x": 0.7, "y": 0.7, "z": 0.7},
+          "position": {"x": 0, "y": 0, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 90}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Right-side circular wheel touching the visible ground line.",
+        "region": {"left": 0.620, "top": 0.560, "right": 0.760, "bottom": 0.775}
+      },
+      "stackAbove": null,
+      "mass": 1.5,
+      "friction": 0.5,
+      "restitution": 0.1,
+      "velocity": {"x": 0, "y": 0, "z": 0},
+      "angularVelocity": {"x": 0, "y": 0, "z": 0}
+    },
+    {
+      "id": "wheel_rear",
+      "label": "Rear wheel",
+      "fixed": true,
+      "position": {"x": -1.45, "y": 0.35, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {"x": 0.7, "y": 0.7, "z": 0.7},
+          "position": {"x": 0, "y": 0, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 90}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Left-side circular wheel touching the visible ground line.",
+        "region": {"left": 0.290, "top": 0.560, "right": 0.430, "bottom": 0.775}
+      },
+      "stackAbove": null,
+      "mass": 1.5,
+      "friction": 0.5,
+      "restitution": 0.1,
+      "velocity": {"x": 0, "y": 0, "z": 0},
+      "angularVelocity": {"x": 0, "y": 0, "z": 0}
+    }
+  ]
+}

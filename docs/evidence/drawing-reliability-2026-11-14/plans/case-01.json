@@ -1,0 +1,56 @@
+{"status":"ready","name":"house_model","assumptions":["The house is a single structure sitting on a flat ground plane.","Scale: House is approximately 5m wide and 6m tall.","Material: Wood/brick (mass ~5000kg)."],"warnings":[],"questions":[],"message":"Model created as a rigid house structure on a ground plane.","bodies":[{"id": 
+"ground_0",
+"label": "ground",
+"fixed": true,
+"position": {"x": 0, "y": 0, "z": 0},
+"rotationDegrees": {"x": 0, "y": 0, "z": 0},
+"shapes": [{"shape": "box", "size": {"x": 20, "y": 0.1, "z": 20}, "position": {"x": 0, "y": 0, "z": 0}, "rotationDegrees": {"x": 0, "y": 0, "z": 0}}],
+"grounding": {"origin": "sketch", "note": "Inferred ground plane from house base line", "bbox": [0, 0, 1, 1]},
+"restOn": null,
+"mass": 100,
+"friction": 0.5,
+"restitution": 0.1
+},
+{
+"id": "house_main_body",
+"label": "house_body",
+"fixed": false,
+"position": {"x": 0, "y": 2.5, "z": 0},
+"rotationDegrees": {"x": 0, "y": 0, "z": 0},
+"shapes": [
+{
+"shape": "box",
+"size": {"x": 5, "y": 5, "z": 4},
+"position": {"x": 0, "y": 0, "z": 0},
+"rotationDegrees": {"x": 0, "y": 0, "z": 0}
+}
+],
+"grounding": {"origin": "sketch", "note": "Main rectangular house structure", "bbox": [0.26, 0.45, 0.47, 0.4]},
+"restOn": "ground_0",
+"mass": 50 
+},
+{
+"id": "house_roof",
+"label": "house_roof",
+"fixed": false,
+"position": {"x": 0, "y": 5, "z": 0},
+"rotationDegrees": {"x": 0, "y": 0, "z": 0},
+"shapes": [
+{
+"shape": "convex",
+"vertices": [
+{"x": -2.5, "y": 0, "z": -2},
+{"x": 2.5, "y": 0, "z": -2},
+{"x": 2.5, "y": 0, "z": 2},
+{"x": -2.5, "y": 0, "z": 2},
+{"x": 0, "y": 2.5, "z": -2},
+{"x": 0, "y": 2.5, "z": 2}
+],
+"position": {"x": 0, "y": 0, "z": 0},
+"rotationDegrees": {"x": 0, "y": 0, "z": 0}
+}
+],
+"grounding": {"origin": "sketch", "note": "Triangular roof silhouette", "bbox": [0.25, 0.18, 0.48, 0.27]},
+"restOn": "house_main_body",
+"mass": 10
+}]}

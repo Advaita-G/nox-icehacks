@@ -1,0 +1,679 @@
+{
+  "scope": "All 23 direct development attempts, not a single-version success-rate benchmark. No original model plan was modified. Timeouts, model/semantic failures and quota refusal remain failures.",
+  "attempts": [
+    {
+      "case": "case-01",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T04:55:46.886Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1147,
+        "completion_tokens": 876,
+        "total_tokens": 2023,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 34.31818389892578
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 23.921360958,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "b35b368d63b2721c739bcd462230c26448964e4fc944d609d042bfd1afa8de18",
+      "outputSchemaSha256": "683d7079ca322819876fa37d2b7bdb8a05e0468d182c303c9617786c0d78c22e",
+      "thinking": false,
+      "plan": "plans/case-01.json"
+    },
+    {
+      "case": "case-01-final-gemma",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:20:05.347Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1378,
+        "completion_tokens": 164,
+        "total_tokens": 1542,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 17
+      },
+      "status": "needs-clarification",
+      "compiledValid": true,
+      "elapsedSeconds": 4.661384083,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "601336e9877f3dd2e84585650103d8b6daed4f3dec9a32f2a46b78d26924ebb7",
+      "outputSchemaSha256": "cda5f8dd17d36fce5faca89eb328ea377fac90da8265eda62e9caec4127a9fa5",
+      "thinking": false,
+      "plan": "plans/case-01-final-gemma.json"
+    },
+    {
+      "case": "case-01-qwen",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:01:25.033Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2521,
+        "completion_tokens": 2696,
+        "total_tokens": 5217,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 887.4227294921875
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 63.0497865,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "6641a759e8ee9a2bd52e19a9fcf9a7153cdbb34a47e29d5bde37caeafaadda41",
+      "outputSchemaSha256": "f171ea8a8fd2471f00d6c0791e0c23d2efb5164a40d7a24086d43b25665ee6ef",
+      "thinking": false,
+      "plan": "plans/case-01-qwen.json"
+    },
+    {
+      "case": "case-01-r3",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:04:41.135Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2577,
+        "completion_tokens": 2472,
+        "total_tokens": 5049,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 824.5499877929688
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 67.546657667,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-01-r3.json"
+    },
+    {
+      "case": "case-01-r3-repeat",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:14:32.050Z",
+      "status": "ERROR",
+      "error": {
+        "type": "TimeoutError",
+        "message": "The operation was aborted due to timeout"
+      },
+      "elapsedSeconds": 120.00780050000002,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false
+    },
+    {
+      "case": "case-01-repeat",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "notes": "",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T04:58:30.255Z",
+      "status": "ERROR",
+      "error": {
+        "type": "TimeoutError",
+        "message": "The operation was aborted due to timeout"
+      },
+      "elapsedSeconds": 120.012031042,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "6641a759e8ee9a2bd52e19a9fcf9a7153cdbb34a47e29d5bde37caeafaadda41",
+      "outputSchemaSha256": "f171ea8a8fd2471f00d6c0791e0c23d2efb5164a40d7a24086d43b25665ee6ef",
+      "thinking": true
+    },
+    {
+      "case": "case-02",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notes": "",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T04:56:10.810Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1160,
+        "completion_tokens": 880,
+        "total_tokens": 2040,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 34.54545593261719
+      },
+      "status": "ERROR",
+      "error": {
+        "type": "ProviderFailure",
+        "message": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+      },
+      "compilerDiagnostic": "Source region extends outside the image.",
+      "elapsedSeconds": 22.414357874999997,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "b35b368d63b2721c739bcd462230c26448964e4fc944d609d042bfd1afa8de18",
+      "outputSchemaSha256": "683d7079ca322819876fa37d2b7bdb8a05e0468d182c303c9617786c0d78c22e",
+      "thinking": false,
+      "plan": "plans/case-02.json"
+    },
+    {
+      "case": "case-02-final-gemma",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notes": "",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:20:10.022Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1390,
+        "completion_tokens": 149,
+        "total_tokens": 1539,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 16.69999885559082
+      },
+      "status": "rejected",
+      "compiledValid": true,
+      "elapsedSeconds": 5.713241708,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "601336e9877f3dd2e84585650103d8b6daed4f3dec9a32f2a46b78d26924ebb7",
+      "outputSchemaSha256": "cda5f8dd17d36fce5faca89eb328ea377fac90da8265eda62e9caec4127a9fa5",
+      "thinking": false,
+      "plan": "plans/case-02-final-gemma.json"
+    },
+    {
+      "case": "case-02-qwen",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:02:28.087Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2534,
+        "completion_tokens": 1225,
+        "total_tokens": 3759,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 460.0272521972656
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 27.485309333000004,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "6641a759e8ee9a2bd52e19a9fcf9a7153cdbb34a47e29d5bde37caeafaadda41",
+      "outputSchemaSha256": "f171ea8a8fd2471f00d6c0791e0c23d2efb5164a40d7a24086d43b25665ee6ef",
+      "thinking": false,
+      "plan": "plans/case-02-qwen.json"
+    },
+    {
+      "case": "case-02-r3",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:05:48.689Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2590,
+        "completion_tokens": 1425,
+        "total_tokens": 4015,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 520.5
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 47.738300959,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-02-r3.json"
+    },
+    {
+      "case": "case-02-repeat",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notes": "",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:00:30.273Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1252,
+        "completion_tokens": 2940,
+        "total_tokens": 4192,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 91.56363677978516
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 79.09407691700001,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "6641a759e8ee9a2bd52e19a9fcf9a7153cdbb34a47e29d5bde37caeafaadda41",
+      "outputSchemaSha256": "f171ea8a8fd2471f00d6c0791e0c23d2efb5164a40d7a24086d43b25665ee6ef",
+      "thinking": true,
+      "plan": "plans/case-02-repeat.json"
+    },
+    {
+      "case": "case-03",
+      "subject": "chair",
+      "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+      "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+      "notes": "",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T04:56:33.226Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 1151,
+        "completion_tokens": 1434,
+        "total_tokens": 2585,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 49.572731018066406
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 35.502689124999996,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "b35b368d63b2721c739bcd462230c26448964e4fc944d609d042bfd1afa8de18",
+      "outputSchemaSha256": "683d7079ca322819876fa37d2b7bdb8a05e0468d182c303c9617786c0d78c22e",
+      "thinking": false,
+      "plan": "plans/case-03.json"
+    },
+    {
+      "case": "case-03-qwen",
+      "subject": "chair",
+      "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+      "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:02:55.575Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2522,
+        "completion_tokens": 1372,
+        "total_tokens": 3894,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 502.29998779296875
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 75.916120834,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "6641a759e8ee9a2bd52e19a9fcf9a7153cdbb34a47e29d5bde37caeafaadda41",
+      "outputSchemaSha256": "f171ea8a8fd2471f00d6c0791e0c23d2efb5164a40d7a24086d43b25665ee6ef",
+      "thinking": false,
+      "plan": "plans/case-03-qwen.json"
+    },
+    {
+      "case": "case-03-r3",
+      "subject": "chair",
+      "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+      "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:06:36.435Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2578,
+        "completion_tokens": 1450,
+        "total_tokens": 4028,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 527.2817993164062
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 76.887965291,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-03-r3.json"
+    },
+    {
+      "case": "case-04-r3",
+      "subject": "tree",
+      "expected": "Narrow trunk, broad rounded canopy and support; rigid scenery, no invented biological motion.",
+      "inputSha256": "3ae8cf663ef5a2928f3306df41d619deeaeb73905fa507e0d5df1619ce9e4b53",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:07:53.330Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2580,
+        "completion_tokens": 2536,
+        "total_tokens": 5116,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 843.2908935546875
+      },
+      "status": "ERROR",
+      "error": {
+        "type": "ProviderFailure",
+        "message": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+      },
+      "compilerDiagnostic": "Normalized part size must be finite and between 0.001 and 2.",
+      "elapsedSeconds": 73.711003416,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-04-r3.json"
+    },
+    {
+      "case": "case-05-final-gemma",
+      "subject": "character",
+      "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+      "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+      "notes": "",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:20:15.738Z",
+      "httpStatus": 429,
+      "status": "ERROR",
+      "error": {
+        "type": "ProviderFailure",
+        "message": "Cloudflare is rate-limited or its quota is exhausted. Try again later."
+      },
+      "elapsedSeconds": 0.0887802499999998,
+      "actualModel": "@cf/google/gemma-4-26b-a4b-it",
+      "promptSha256": "601336e9877f3dd2e84585650103d8b6daed4f3dec9a32f2a46b78d26924ebb7",
+      "outputSchemaSha256": "cda5f8dd17d36fce5faca89eb328ea377fac90da8265eda62e9caec4127a9fa5",
+      "thinking": false
+    },
+    {
+      "case": "case-05-r3",
+      "subject": "character",
+      "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+      "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:09:07.045Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2588,
+        "completion_tokens": 2417,
+        "total_tokens": 5005,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 809
+      },
+      "status": "ERROR",
+      "error": {
+        "type": "ProviderFailure",
+        "message": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+      },
+      "compilerDiagnostic": "Image region corners must increase.",
+      "elapsedSeconds": 65.72871104100003,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-05-r3.json"
+    },
+    {
+      "case": "case-05-r3-repeat",
+      "subject": "character",
+      "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+      "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:16:32.067Z",
+      "status": "ERROR",
+      "error": {
+        "type": "TimeoutError",
+        "message": "The operation was aborted due to timeout"
+      },
+      "elapsedSeconds": 120.00219066700002,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false
+    },
+    {
+      "case": "case-06-r3",
+      "subject": "car",
+      "expected": "Car cabin, two round wheels and ground; coherent rigid approximation without invented motor.",
+      "inputSha256": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:10:12.777Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2592,
+        "completion_tokens": 2834,
+        "total_tokens": 5426,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 930.4727172851562
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 62.177990584000014,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-06-r3.json"
+    },
+    {
+      "case": "case-07-r3",
+      "subject": "abstract-shapes",
+      "expected": "Triangular prism, sphere and box supported by drawn table/legs and ground; preserve relative order.",
+      "inputSha256": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:11:14.964Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2580,
+        "completion_tokens": 1752,
+        "total_tokens": 4332,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 615.2181396484375
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 85.354670667,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-07-r3.json"
+    },
+    {
+      "case": "case-08-r3",
+      "subject": "blank",
+      "expected": "No fabricated ready scene; request a readable drawing or reject.",
+      "inputSha256": "d5b4a846a1290a3963c8db772898ce6a0dd891da1c8bb49afa86f13e099b9284",
+      "notes": "",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:12:40.322Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2588,
+        "completion_tokens": 101,
+        "total_tokens": 2689,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 135.25454711914062
+      },
+      "status": "ERROR",
+      "error": {
+        "type": "ProviderFailure",
+        "message": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+      },
+      "compilerDiagnostic": "Unresolved drawing plans cannot carry executable bodies.",
+      "elapsedSeconds": 24.749452250000033,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-08-r3.json"
+    },
+    {
+      "case": "case-09-r3",
+      "subject": "fluid-intent",
+      "expected": "Ask about a rigid proxy or reject essential actual fluid behavior; no fake fluid simulation.",
+      "inputSha256": "94a92b992b0e55d9531e7319f73ea6d0c3ef88c60d6e39ec09be43f847d4e966",
+      "notes": "Simulate the water flowing out when the glass is tilted. Actual fluid flow is essential.",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:13:05.074Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2614,
+        "completion_tokens": 1808,
+        "total_tokens": 4422,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 632.8999633789062
+      },
+      "status": "ERROR",
+      "compiledValid": true,
+      "error": {
+        "type": "Error",
+        "message": "Runtime angular velocity magnitude must be at most 80."
+      },
+      "elapsedSeconds": 59.09910245800001,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-09-r3.json"
+    },
+    {
+      "case": "case-10-r3",
+      "subject": "pivoting-lever",
+      "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+      "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+      "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "scope": "Direct/local real provider and compiler, not deployed/browser/device acceptance",
+      "vendorCalls": 1,
+      "retries": 0,
+      "startedAt": "2026-11-15T05:14:04.175Z",
+      "httpStatus": 200,
+      "usage": {
+        "prompt_tokens": 2617,
+        "completion_tokens": 1285,
+        "total_tokens": 3902,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "neurons": 480.87725830078125
+      },
+      "status": "ready",
+      "compiledValid": true,
+      "elapsedSeconds": 27.87209933300002,
+      "actualModel": "@cf/qwen/qwen3.8-27b",
+      "promptSha256": "002af59e22ae079e84aec862316e56af929697d170e773ad7a999ca6e88270b5",
+      "outputSchemaSha256": "c7e04f6b616626c6d767ca77113a5302e5d6c622016d9cbb27ff519ae02ddba4",
+      "thinking": false,
+      "plan": "plans/case-10-r3.json"
+    }
+  ]
+}

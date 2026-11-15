@@ -1,0 +1,2 @@
+{"name": "The drawing is a simple 2D sketch of a house, consisting of a main rectangular/t" , "assumptions": ["Ground is a flat plane at Y=0.", "House dimensions: width 4m, height 4m (total), depth 2m.", "Materials are lightweight wood/plaster."], "warnings": [], "message": "", "status":"needs-clarification", "bodies": [], "questions": [{"id": "q1", "prompt": "Is the house intended to be a 3D object with depth, or a 2D plane in the world?"
+    , "options": ["3D volumetric house", "2D flat plane"]}]}

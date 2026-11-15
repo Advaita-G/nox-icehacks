@@ -1,0 +1,176 @@
+{
+  "status": "ready",
+  "name": "Branching Tree with Three Foliage Clusters",
+  "assumptions": [
+    "The image shows a schematic line drawing of a tree, not a 3D photo",
+    "Foliage clusters are modeled as flat circular discs in the XY plane to match the 2D drawing",
+    "The trunk is modeled as a tapered frustum (wider at base, narrower at top)",
+    "All elements are fixed in place as a static display model",
+    "The ground line is represented as a fixed horizontal slab",
+    "Approximate scale: 6m total tree height, 2m ground width"
+  ],
+  "warnings": [
+    "Circular foliage is approximated as thin discs rather than 3D spheres, matching the 2D drawing style",
+    "The trunk top has a small rectangular flare not present in a simple frustum, approximated by the frustum dimensions"
+  ],
+  "questions": [],
+  "message": "",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground",
+      "fixed": true,
+      "position": { "x": 0.0, "y": -0.05, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 2.0, "y": 0.1, "z": 0.3 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Horizontal ground line at bottom of drawing",
+        "region": { "left": 0.19, "top": 0.78, "right": 0.81, "bottom": 0.81 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "trunk",
+      "label": "Tree Trunk",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 0.65, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": 0.14, "y": 0.0, "z": 0.04 },
+            { "x": -0.14, "y": 0.0, "z": 0.04 },
+            { "x": -0.14, "y": 0.0, "z": -0.04 },
+            { "x": 0.14, "y": 0.0, "z": -0.04 },
+            { "x": 0.07, "y": 1.3, "z": 0.03 },
+            { "x": -0.07, "y": 1.3, "z": 0.03 },
+            { "x": -0.07, "y": 1.3, "z": -0.03 },
+            { "x": 0.07, "y": 1.3, "z": -0.03 }
+          ],
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Tapered trunk rising from ground to branch junction",
+        "region": { "left": 0.44, "top": 0.49, "right": 0.54, "bottom": 0.79 }
+      },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "branch_left",
+      "label": "Left Branch",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 1.75, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": -35.0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.04, "y": 0.6, "z": 0.04 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal branch extending up-left from trunk top",
+        "region": { "left": 0.37, "top": 0.40, "right": 0.50, "bottom": 0.52 }
+      },
+      "stackAbove": "trunk"
+    },
+    {
+      "id": "branch_right",
+      "label": "Right Branch",
+      "fixed": true,
+      "position": { "x": 0.0, "y": 1.75, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 35.0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.04, "y": 0.6, "z": 0.04 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal branch extending up-right from trunk top",
+        "region": { "left": 0.50, "top": 0.40, "right": 0.62, "bottom": 0.52 }
+      },
+      "stackAbove": "trunk"
+    },
+    {
+      "id": "foliage_left",
+      "label": "Left Foliage Cluster",
+      "fixed": true,
+      "position": { "x": -0.62, "y": 2.65, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 1.15, "y": 0.04, "z": 1.15 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 90.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Large circle on the left side of the tree canopy",
+        "region": { "left": 0.27, "top": 0.17, "right": 0.50, "bottom": 0.50 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "foliage_top",
+      "label": "Top Foliage Cluster",
+      "fixed": true,
+      "position": { "x": 0.08, "y": 3.15, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 1.1, "y": 0.04, "z": 1.1 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 90.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Large circle at the top center of the tree canopy",
+        "region": { "left": 0.44, "top": 0.09, "right": 0.66, "bottom": 0.44 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "foliage_right",
+      "label": "Right Foliage Cluster",
+      "fixed": true,
+      "position": { "x": 0.72, "y": 2.55, "z": 0.0 },
+      "rotationDegrees": { "x": 0.0, "y": 0.0, "z": 0.0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 1.1, "y": 0.04, "z": 1.1 },
+          "position": { "x": 0.0, "y": 0.0, "z": 0.0 },
+          "rotationDegrees": { "x": 90.0, "y": 0.0, "z": 0.0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Large circle on the right side of the tree canopy",
+        "region": { "left": 0.55, "top": 0.24, "right": 0.78, "bottom": 0.55 }
+      },
+      "stackAbove": null
+    }
+  ]
+}

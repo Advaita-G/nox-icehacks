@@ -1,0 +1,104 @@
+{
+  "status": "ready",
+  "name": "Ball on balanced lever",
+  "assumptions": [
+    "The lever, ball, triangle, pivot and floor are rigid; the lever rotates freely about the pivot.",
+    "Scale is inferred: beam 4 m, ball 0.5 m, triangle 1 m high, pivot at 1 m above floor.",
+    "The ball is dynamic and may fall; no motors, fluids or deformation."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Built a rigid scene with a freely pivoting lever and a dynamic ball that can fall.",
+  "bodies": [
+    {
+      "id": "floor",
+      "label": "Ground",
+      "fixed": true,
+      "position": {"x": 0, "y": 0, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 12, "y": 0.1, "z": 4},
+          "position": {"x": 0, "y": -0.05, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Bottom horizontal ground line spanning the drawing.",
+        "region": {"left": 0.15, "top": 0.78, "right": 0.85, "bottom": 0.82}
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle support",
+      "fixed": false,
+      "position": {"x": 0, "y": 0.5, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {"x": -0.4, "y": -0.5, "z": 0},
+            {"x": 0.4, "y": -0.5, "z": 0},
+            {"x": 0, "y": 0.5, "z": 0},
+            {"x": 0, "y": -0.5, "z": 0.1},
+            {"x": -0.4, "y": -0.5, "z": 0.1},
+            {"x": 0.4, "y": -0.5, "z": 0.1}
+          ]
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Inverted triangular stand beneath the pivot; rests on the ground.",
+        "region": {"left": 0.40, "top": 0.55, "right": 0.58, "bottom": 0.82}
+      },
+      "stackAbove": "floor"
+    },
+    {
+      "id": "lever",
+      "label": "Lever beam",
+      "fixed": false,
+      "position": {"x": 0, "y": 1.0, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 4.0, "y": 0.06, "z": 0.1},
+          "position": {"x": 0, "y": 0, "z": 0},
+          "rotationDegrees": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Horizontal beam; two parallel lines represent its top and bottom edges.",
+        "region": {"left": 0.23, "top": 0.51, "right": 0.75, "bottom": 0.57}
+      },
+      "stackAbove": null,
+      "mass": 2.0
+    },
+    {
+      "id": "ball",
+      "label": "Ball",
+      "fixed": false,
+      "position": {"x": -1.2, "y": 1.28, "z": 0},
+      "rotationDegrees": {"x": 0, "y": 0, "z": 0},
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {"x": 0.5, "y": 0.5, "z": 0.5},
+          "position": {"x": 0, "y": 0, "z": 0}
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Circular ball resting on the left end of the beam.",
+        "region": {"left": 0.26, "top": 0.35, "right": 0.37, "bottom": 0.52}
+      },
+      "stackAbove": null,
+      "mass": 1.0
+    }
+  ]
+}

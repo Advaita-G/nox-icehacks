@@ -1,0 +1,116 @@
+{
+  "status": "ready",
+  "name": "Table with triangle, square and circle",
+  "assumptions": [
+    "Interpreted the 2D line drawing as a front view; X is horizontal, Z is depth and Y is up.",
+    "All lengths are scaled so the table top is 2.0 m wide, 0.6 m tall and the floor is at Y=0.",
+    "Objects resting on the top are loose dynamic bodies; the table and floor are fixed supports.",
+    "Material properties are default rigid bodies with mass 1 kg, friction 0.5 and restitution 0.1."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "",
+  "bodies": [
+    {
+      "id": "floor",
+      "label": "Floor line",
+      "fixed": true,
+      "position": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "rotationDegrees": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 4.0, "y": 0.1, "z": 2.0},
+          "position": {"x": 0.0, "y": 0.05, "z": 0.0}
+        }
+      ],
+      "grounding": {"origin": "sketch", "note": "Bottom horizontal line in the drawing."
+      , "region": {"left": 0.156, "top": 0.891, "right": 0.874, "bottom": 0.918}},
+      "stackAbove": null
+    },
+    {
+      "id": "table",
+      "label": "Table",
+      "fixed": true,
+      "position": {"x": 0.0, "y": 0.3, "z": 0.0},
+      "rotationDegrees": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 2.0, "y": 0.05, "z": 0.6},
+          "position": {"x": 0.0, "y": 0.575, "z": 0.0}
+        },
+        {
+          "shape": "cylinder",
+          "size": {"x": 0.05, "y": 0.55, "z": 0.05},
+          "position": {"x": -0.85, "y": 0.275, "z": 0.0}
+        },
+        {
+          "shape": "cylinder",
+          "size": {"x": 0.05, "y": 0.55, "z": 0.05},
+          "position": {"x": 0.85, "y": 0.275, "z": 0.0}
+        }
+      ],
+      "grounding": {"origin": "sketch", "note": "Horizontal tabletop with two vertical legs resting on the floor line."
+      , "region": {"left": 0.206, "top": 0.683, "right": 0.816, "bottom": 0.918}},
+      "stackAbove": null
+    },
+    {
+      "id": "triangle",
+      "label": "Triangle on table",
+      "fixed": false,
+      "position": {"x": -0.6, "y": 0.625, "z": 0.0},
+      "rotationDegrees": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {"x": -0.5, "y": 0.0, "z": 0.0},
+            {"x": 0.5, "y": 0.0, "z": 0.0},
+            {"x": 0.0, "y": 0.9, "z": 0.0}
+          , {"x": -0.5, "y": 0.0, "z": 0.5}
+          , {"x": 0.5, "y": 0.0, "z": 0.5}
+          , {"x": 0.0, "y": 0.9, "z": 0.5}
+          ]
+        }
+      ],
+      "grounding": {"origin": "sketch", "note": "Large triangular prism resting on the tabletop; its right base edge overlaps the square in the drawing. I placed it left of the square to avoid interpenetration."
+      , "region": {"left": 0.262, "top": 0.363, "right": 0.543, "bottom": 0.708}},
+      "stackAbove": "table"
+    },
+    {
+      "id": "square",
+      "label": "Square on table",
+      "fixed": false,
+      "position": {"x": 0.125, "y": 0.625, "z": 0.0},
+      "rotationDegrees": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {"x": 0.3, "y": 0.3, "z": 0.5},
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0}
+        }
+      ],
+      "grounding": {"origin": "sketch", "note": "Square block resting on the tabletop, positioned right of the triangle."
+      , "region": {"left": 0.461, "top": 0.554, "right": 0.543, "bottom": 0.708}},
+      "stackAbove": "table"
+    },
+    {
+      "id": "circle",
+      "label": "Sphere on table",
+      "fixed": false,
+      "position": {"x": 0.625, "y": 0.65, "z": 0.0},
+      "rotationDegrees": {"x": 0.0, "y": 0.0, "z": 0.0},
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {"x": 0.3, "y": 0.3, "z": 0.3},
+          "position": {"x": 0.0, "y": 0.0, "z": 0.0}
+        }
+      ],
+      "grounding": {"origin": "sketch", "note": "Circle drawn on the tabletop, modeled as a sphere to the right of the square."
+      , "region": {"left": 0.565, "top": 0.489, "right": 0.689, "bottom": 0.708}},
+      "stackAbove": "table"
+    }
+  ]
+}

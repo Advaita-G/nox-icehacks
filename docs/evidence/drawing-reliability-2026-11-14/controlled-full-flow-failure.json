@@ -1,0 +1,23 @@
+{
+  "status": "FAIL",
+  "evidence": "Controlled integration: exact previously captured Qwen drawing plan and a synthetic command fixture through real normalization/compiler/validation/solver/storage. No fresh inference, physical devices or deployed acceptance.",
+  "mediaCapture": false,
+  "modelResponsesMocked": true,
+  "browserClosed": true,
+  "failedPhase": "live interpretation",
+  "failure": {
+    "type": "TimeoutError",
+    "message": "Page.wait_for_function: Timeout 18000ms exceeded."
+  },
+  "failureReadout": {
+    "#error": "",
+    "#message": "Saved setup opened paused. Unsaved changes.",
+    "#mode": "Paused",
+    "#clock": "0.000 s",
+    "#assistant-caption": "Rendering has not settled on this device. The simulation is paused and your work is retained.",
+    "#source-status": "Interpreting your sketch\u2026",
+    "#command-status": ""
+  },
+  "errors": [],
+  "vendorInferenceCalls": 0
+}

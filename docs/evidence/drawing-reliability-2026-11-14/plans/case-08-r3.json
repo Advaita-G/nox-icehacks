@@ -1,0 +1,12 @@
+{
+  "status": "ready",
+  "name": "Blank Photo Scene",
+  "assumptions": [
+    "No distinct subjects, furniture, or scenery were detected in the attached image, resulting in an empty scene."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "No visible subjects found in the provided image to build a simulation from."
+  ,
+  "bodies": []
+}

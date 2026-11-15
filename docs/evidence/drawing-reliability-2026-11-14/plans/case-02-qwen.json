@@ -1,0 +1,168 @@
+{
+  "status": "ready",
+  "name": "ball_on_plank",
+  "assumptions": [
+    "Ball resting centered on plank top.",
+    "Plank 3m x 0.5m x 0.1m fixed.",
+    "Ground fixed, plank thickness 0.1m, ball diameter 1m.",
+    "No requested behavior; static display with ball resting on plank.",
+    "Material: ball rubber, plank wood, ground concrete."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "fixed ground",
+      "fixed": true,
+      "position": {
+        "x": 0.0,
+        "y": -0.05,
+        "z": 0.0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 10.0,
+            "y": 0.1,
+            "z": 10.0
+          },
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ground hatching"
+      ,
+        "region": {
+          "left": 0.15,
+          "top": 0.65,
+          "right": 0.9,
+          "bottom": 0.75
+        }
+      },
+      "restOn": null
+    },
+    {
+      "id": "plank",
+      "label": "fixed plank",
+      "fixed": true,
+      "position": {
+        "x": 0.0,
+        "y": 0.05,
+        "z": 0.0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 3.0,
+            "y": 0.1,
+            "z": 0.5
+          },
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "plank rectangle",
+        "region": {
+          "left": 0.3,
+          "top": 0.5,
+          "right": 0.7,
+          "bottom": 0.6
+        }
+      },
+      "restOn": "ground"
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "fixed": false,
+      "position": {
+        "x": 0.0,
+        "y": 0.6,
+        "z": 0.0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 1.0,
+            "y": 1.0,
+            "z": 1.0
+          },
+          "position": {
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ball circle",
+        "region": {
+          "left": 0.43,
+          "top": 0.32,
+          "right": 0.57,
+          "bottom": 0.52
+        }
+      },
+      "restOn": "plank",
+      "mass": 1.0,
+      "friction": 0.5,
+      "restitution": 0.1,
+      "velocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "angularVelocity": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    }
+  ]
+}

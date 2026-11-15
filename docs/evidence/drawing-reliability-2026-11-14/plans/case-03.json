@@ -1,0 +1,101 @@
+{
+  "status": "ready",
+  "name": "chair_drawing",
+  "assumptions": [
+    "The drawing is a simple 2D line drawing of a chair on a flat floor.",
+    "Scale: Chair seat is approximately 0.5m high, backrest is 0.5m high.",
+    "Material: Wood or metal (rigid).",
+    "The floor is an infinite plane in the drawing's context, but represented by a single fixed line/body."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "",
+  "bodies": [
+    {
+      "id": "floor",
+      "label": "floor",
+      "fixed": true,
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 10, "y": 0.01, "z": 10 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": { "origin": "sketch", "note": "Horizontal line at bottom"  , "bbox": [0.17, 0.83, 0.58, 0.01] },
+      "restOn": null
+    },
+    {
+      "id": "chair_seat",
+      "label": "chair seat",
+      "fixed": false,
+      "position": { "x": 0, "y": 0.5, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.5, "y": 0.05, "z": 0.5 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": { "origin": "sketch", "note": "Horizontal line of seat" , "bbox": [0.28, 0.5, 0.35, 0.02] },
+      "restOn": "chair_legs"
+    },
+    {
+      "id": "chair_backrest",
+      "label": "chair backrest",
+      "fixed": false,
+      "position": { "x": 0, "y": 0.75, "z": -0.225 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.5, "y": 0.5, "z": 0.02 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": { "origin": "sketch", "note": "Upper rectangle" , "bbox": [0.35, 0.19, 0.28, 0.28] },
+      "restOn": "chair_seat"
+    },
+    {
+      "id": "chair_legs",
+      "label": "chair legs",
+      "fixed": false,
+      "position": { "x": 0, "y": 0.25, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.03, "y": 0.5, "z": 0.03 },
+          "position": { "x": 0.2, "y": 0, "z": 0.2 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.03, "y": 0.5, "z": 0.03 },
+          "position": { "x": -0.2, "y": 0, "z": 0.2 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.03, "y": 0.5, "z": 0.03 },
+          "position": { "x": 0.2, "y": 0, "z": -0.2 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.03, "y": 0.5, "z": 0.03 },
+          "position": { "x": -0.2, "y": 0, "z": -0.2 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": { "origin": "sketch", "note": "Vertical lines" , "bbox": [0.28, 0.5, 0.35, 0.25] },
+      "restOn": "floor"
+    }
+  ]
+}

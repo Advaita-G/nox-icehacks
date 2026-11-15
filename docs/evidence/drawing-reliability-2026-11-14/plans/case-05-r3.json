@@ -1,0 +1,338 @@
+{
+  "status": "ready",
+  "name": "Stick Figure Rigid Model",
+  "assumptions": [
+    "Assumed scale: 1 meter corresponds to 400 pixels",
+    "Assumed a standard 70kg human mass distributed across parts",
+    "Head and body treated as a single rigid unit",
+    "Limbs modeled as thin cylinders to match line-art style",
+    "All parts are rigid; no joints or motion are simulated"
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid stick figure scene created based on the provided drawing.",
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "Ground Line",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 4.0,
+            "y": 0.05,
+            "z": 1.0
+          },
+          "position": {
+            "x": 0,
+            "y": 0.025,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Horizontal line at the bottom of the image.",
+        "region": {
+          "left": 0.2,
+          "top": 0.85,
+          "right": 0.75,
+          "bottom": 0.88
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "torso",
+      "label": "Torso",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 1.6625,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.2
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Central square body shape.",
+        "region": {
+          "left": 0.42,
+          "top": 0.4,
+          "right": 0.57,
+          "bottom": 0.65
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "head",
+      "label": "Head",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 2.5,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 0.8,
+            "y": 0.8,
+            "z": 0.8
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Large circle at the top of the figure.",
+        "region": {
+          "left": 0.4,
+          "top": 0.14,
+          "right": 0.58,
+          "bottom": 0.4
+        }
+      },
+      "stackAbove": "torso"
+    },
+    {
+      "id": "arm_left",
+      "label": "Left Arm",
+      "fixed": true,
+      "position": {
+        "x": -0.56,
+        "y": 1.55,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 45
+      },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 1.0,
+            "z": 0.05
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal line extending from the upper left of the torso.",
+        "region": {
+          "left": 0.29,
+          "top": 0.61,
+          "right": 0.42,
+          "bottom": 0.42
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "arm_right",
+      "label": "Right Arm",
+      "fixed": true,
+      "position": {
+        "x": 0.56,
+        "y": 1.55,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": -45
+      },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 1.0,
+            "z": 0.05
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal line extending from the upper right of the torso.",
+        "region": {
+          "left": 0.57,
+          "top": 0.61,
+          "right": 0.69,
+          "bottom": 0.42
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "leg_left",
+      "label": "Left Leg",
+      "fixed": true,
+      "position": {
+        "x": -0.31,
+        "y": 0.71,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 15
+      },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 1.1,
+            "z": 0.05
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal line extending from the lower left of the torso.",
+        "region": {
+          "left": 0.39,
+          "top": 0.86,
+          "right": 0.45,
+          "bottom": 0.65
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "leg_right",
+      "label": "Right Leg",
+      "fixed": true,
+      "position": {
+        "x": 0.31,
+        "y": 0.71,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": -15
+      },
+      "shapes": [
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.05,
+            "y": 1.1,
+            "z": 0.05
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Diagonal line extending from the lower right of the torso.",
+        "region": {
+          "left": 0.55,
+          "top": 0.86,
+          "right": 0.61,
+          "bottom": 0.65
+        }
+      },
+      "stackAbove": null
+    }
+  ]
+}

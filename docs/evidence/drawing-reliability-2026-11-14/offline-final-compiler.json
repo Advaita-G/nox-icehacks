@@ -1,0 +1,89 @@
+{
+  "scope": "No model response was edited; generation-stage failures and timeouts remain recorded separately.",
+  "results": [
+    {
+      "id": "case-01",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 6,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-02",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 3,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-03",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 5,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-04",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 7,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-05",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 7,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-06",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 5,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-07",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 5,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    },
+    {
+      "id": "case-08",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "REJECTED_INVALID_PLAN",
+      "diagnostic": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+    },
+    {
+      "id": "case-09",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "needs-clarification",
+      "fixtureCalls": 0
+    },
+    {
+      "id": "case-10",
+      "scope": "Offline replay of exact previously captured plan through final compiler/intent guard; no fresh inference",
+      "status": "ready",
+      "objects": 4,
+      "hinges": 0,
+      "fixtureCalls": 1,
+      "solverSeconds": 1
+    }
+  ]
+}

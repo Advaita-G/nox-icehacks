@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "Actual isolated app intake/guard/persistence/layout checks against a credential-free fixture server. No model inference, screenshots or media capture.",
+  "results": [
+    {
+      "width": 1280,
+      "motion": "normal",
+      "blankNoRequest": true,
+      "fluidClarificationAndDecline": true,
+      "previousSceneAndSavedLibraryRetained": true,
+      "providerCalls": 0,
+      "pageErrors": [],
+      "noHorizontalOverflow": true
+    },
+    {
+      "width": 320,
+      "motion": "reduced",
+      "blankNoRequest": true,
+      "fluidClarificationAndDecline": true,
+      "previousSceneAndSavedLibraryRetained": true,
+      "providerCalls": 0,
+      "pageErrors": [],
+      "noHorizontalOverflow": true
+    }
+  ],
+  "browserClosed": true
+}

@@ -52,6 +52,7 @@ const sceneFields = {
   fans: array(fanSchema, LIMITS.componentsPerCollection), assemblies: array(assembly, LIMITS.componentsPerCollection), environment,
 };
 const scene = object(sceneFields), readyScene = object({ ...sceneFields, objects: array(body, LIMITS.objects, 1) });
+export const SCENE_3D_SCHEMA = scene;
 const question = object({ id: text(64), prompt: text(500), options: array(text(500), 8) });
 const questions = array(question, 12), descriptions = array(text(500), 20);
 const groundingFields = { objectId: text(80), origin: enumeration(['sketch']), note: text(240) };

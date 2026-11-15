@@ -6,6 +6,7 @@ import { buildProviders } from '../server/providers.ts';
 import { productionApi } from '../server/vercel.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
 import { INTERPRET_3D_SCHEMA } from '../src/input/schema.ts';
+import { DRAWING_INSTRUCTIONS, drawingSchema } from '../server/drawing.ts';
 
 const ACCOUNT = 'a'.repeat(32), TOKEN = 'cloudflare-token-not-real';
 const PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
@@ -138,13 +139,17 @@ test('registration requires explicit provider, complete credentials and live-cal
 });
 
 test('production API judge gate dispatches one actual-shaped interpretation to the injected Cloudflare transport', async () => {
-  const origin = 'https://nox-test.invalid', code = 'test-private-code-'.repeat(3), f = transport();
+  const drawing = { status: 'ready', name: 'Actual drawing', assumptions: [], warnings: [], questions: [], message: '', bodies: [{ id: 'part', label: 'Visible part', fixed: true, position: { x: 0, y: 0, z: 0 }, stackAbove: null, shapes: [{ shape: 'box', size: { x: 1, y: 1, z: 1 } }], grounding: { origin: 'sketch', note: 'Visible shape.', region: { left: 0, top: 0, right: 1, bottom: 1 } } }] };
+  const origin = 'https://nox-test.invalid', code = 'test-private-code-'.repeat(3), f = transport(() => ok(reply(JSON.stringify(drawing))));
   const env = { NOX_DEMO_ACCESS_CODE: code, NOX_MODEL_PROVIDER: 'cloudflare', NOX_LIVE_CALLS: 'enabled', NOX_CLOUDFLARE_ACCOUNT_ID: ACCOUNT, NOX_CLOUDFLARE_API_TOKEN: TOKEN };
   const providers = buildProviders(env, f);
   const auth = await productionApi(new Request(`${origin}/api/access`, { method: 'POST', headers: { origin, 'content-type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ code }) }), '/api/access', env, providers);
   assert.equal(auth.status, 303); const cookie = auth.headers.get('set-cookie').split(';')[0];
   const response = await productionApi(new Request(`${origin}/api/interpret`, { method: 'POST', headers: { origin, cookie, 'content-type': 'application/json' }, body: JSON.stringify(request()) }), '/api/interpret', env, providers);
-  assert.equal(response.status, 200); assert.deepEqual(await response.json(), { requestId: 'r1', raw: '{"status":"ready"}' });
-  assert.equal(f.calls.length, 1); assert.equal(f.calls[0].body.messages[0].content, INTERPRET_3D);
-  assert.deepEqual(f.calls[0].body.response_format, { type: 'json_schema', json_schema: { name: 'nox_response', strict: true, schema: INTERPRET_3D_SCHEMA } });
+  assert.equal(response.status, 200);
+  const envelope = await response.json(), compiled = JSON.parse(envelope.raw);
+  assert.equal(envelope.requestId, 'r1'); assert.equal(compiled.status, 'ready');
+  assert.equal(compiled.sourceId, 's1'); assert.equal(compiled.scene.objects[0].id, compiled.grounding[0].objectId);
+  assert.equal(f.calls.length, 1); assert.equal(f.calls[0].body.messages[0].content, DRAWING_INSTRUCTIONS);
+  assert.deepEqual(f.calls[0].body.response_format, { type: 'json_schema', json_schema: { name: 'nox_response', strict: true, schema: drawingSchema('photo') } });
 });
