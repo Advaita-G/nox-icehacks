@@ -7,7 +7,7 @@ import { createServer, request as httpRequest } from 'node:http';
 import { createMomenProvider } from '../server/momen.ts';
 import { buildProviders } from '../server/providers.ts';
 import { apiMiddleware } from '../server/middleware.ts';
-import { INTERPRET_3D } from '../src/input/prompt.ts';
+import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
 
 const TOKEN = 'momen-admin-token-not-real';
 const PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
@@ -83,14 +83,14 @@ test('command: text only, no upload', async () => {
   assert.equal(f.calls.find((c) => c.body?.operationName === 'NoxCreateConversation').body.variables.inputArgs.a3, undefined);
 });
 
-test('trusted output schema reaches Momen instructions without changing request data', async () => {
-  const f = fakeMomen(), request = interpretRequest();
-  const outputSchema = { type: 'object', properties: { bodies: { type: 'array' } }, additionalProperties: false };
-  await createMomenProvider(opts(f)).complete({ instructions: INTERPRET_3D, request, signal: new AbortController().signal, outputSchema });
+test('Momen preserves caller instructions without appending a duplicate command schema', async () => {
+  const f = fakeMomen(), request = { requestId: 'c1', transcript: 'make it heavier', selection: [], scene: {}, answers: [] };
+  const outputSchema = { type: 'object', properties: { operations: { type: 'array' } }, additionalProperties: false };
+  await createMomenProvider(opts(f)).complete({ instructions: COMMAND_3D, request, signal: new AbortController().signal, outputSchema });
   const args = f.calls.find(c => c.body?.operationName === 'NoxCreateConversation').body.variables.inputArgs;
-  assert.equal(args.a1, `${INTERPRET_3D}\nReturn JSON matching this schema:\n${JSON.stringify(outputSchema)}`);
-  assert.equal(JSON.parse(args.a2.split('\n').slice(1).join('\n')).notes, request.notes);
-  assert.equal(args.a3, 777);
+  assert.equal(args.a1, COMMAND_3D);
+  assert.deepEqual(JSON.parse(args.a2.split('\n').slice(1).join('\n')), request);
+  assert.equal(args.a3, undefined);
 });
 
 test('structured (object) data is returned as JSON text', async () => {

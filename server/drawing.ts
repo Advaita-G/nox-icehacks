@@ -209,7 +209,8 @@ export function drawingProvider(provider: ModelProvider): ModelProvider {
         message: answer ? 'Actual fluid flow is outside the rigid-body solver. Your source and previous experiment are retained.' : 'The requested fluid behavior cannot be simulated by the rigid-body solver. A visual proxy needs your agreement.',
       }), request);
     }
-    const raw = await provider.complete({ ...input, instructions: DRAWING_INSTRUCTIONS, outputSchema: drawingSchema(input.request.source.kind as 'photo' | 'canvas') });
+    const schema = drawingSchema(input.request.source.kind as 'photo' | 'canvas');
+    const raw = await provider.complete({ ...input, instructions: `${DRAWING_INSTRUCTIONS}\nReturn JSON matching this schema:\n${JSON.stringify(schema)}`, outputSchema: schema });
     input.signal.throwIfAborted();
     try {
       const compiled = await compileDrawing(raw, input.request); input.signal.throwIfAborted(); return compiled;

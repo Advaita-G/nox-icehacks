@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { compileDrawing, drawingProvider, drawingSchema } from '../server/drawing.ts';
+import { compileDrawing, drawingProvider, drawingSchema, DRAWING_INSTRUCTIONS } from '../server/drawing.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
 import { geometryParts } from '../src/physics/geometry.ts';
 import { Physics } from '../src/physics/engine.ts';
@@ -127,6 +127,7 @@ test('provider compiles only canonical drawing routes, preserving command and le
   const input = { instructions: INTERPRET_3D, request, signal, outputSchema: {} };
   assert.equal(JSON.parse(await provider.complete(input)).sourceId, request.source.id);
   assert.equal(calls.length, 1); assert.notEqual(calls[0].instructions, INTERPRET_3D); assert.deepEqual(calls[0].outputSchema, drawingSchema('photo'));
+  assert.equal(calls[0].instructions, `${DRAWING_INSTRUCTIONS}\nReturn JSON matching this schema:\n${JSON.stringify(drawingSchema('photo'))}`, 'Drawing wire instructions stay identical to the measured Momen candidate');
   await provider.complete({ ...input, instructions: COMMAND_3D }); assert.equal(calls[1].instructions, COMMAND_3D);
   await provider.complete({ ...input, outputSchema: undefined }); assert.equal(calls[2].instructions, INTERPRET_3D);
   const abort = new AbortController(); const blocked = drawingProvider({ complete: async () => { abort.abort(); return '{}'; } });
