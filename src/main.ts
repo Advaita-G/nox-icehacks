@@ -372,7 +372,7 @@ function startAssistant(): void {
   let greeting = false;
   assistant = initAssistantPanel({
     onStart: () => { assistant.open(); greeting = true; voice.start(); },
-    onStop: async () => { assistant.interrupt(); clearConversationMarks(); greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Stopped. Your work is retained.'); },
+    onStop: async () => { assistant.interrupt(); clearConversationMarks(); greeting = false; assistantTurn++; checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.setState('idle'); assistant.say('Stopped. Your work is retained.'); },
     isVoiceActive: () => voice?.isActive ?? false,
     onSend: text => handleAssistant(text),
     onPhoto: file => receiveAssistantPhoto(file),
