@@ -17,7 +17,7 @@ export class ProviderError extends Error {
 }
 
 export const PROVIDER_MESSAGES: Record<ProviderErrorCode, string> = {
-  ACCESS_REQUIRED: 'Live AI needs your private access code. Choose Live AI access or open the judge link supplied by the project owner, then retry. Your sketch and experiment are retained.',
+  ACCESS_REQUIRED: 'Live AI is not enabled for public use in this deployment. Your sketch and experiment are retained. Local controls remain available.',
   PROVIDER_NOT_CONFIGURED:
     'Live interpretation is not configured. Your sketch and experiment are retained. Local controls and offline commands remain available.',
   PROVIDER_UNAVAILABLE: 'The AI service could not be reached. Your sketch and scene are unchanged; Retry when ready.',

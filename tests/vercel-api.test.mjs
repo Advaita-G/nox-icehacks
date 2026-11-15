@@ -23,6 +23,26 @@ async function unlock(value = code, environment = env) {
 }
 async function cookie() { return (await unlock()).headers.get('set-cookie').split(';')[0]; }
 
+test('explicit public free runtime needs no code/cookie for status, valid image and command; all request guards remain',async()=>{
+  const environment={NOX_PUBLIC_AI:'enabled',NOX_MODEL_PROVIDER:'openrouter'},calls=[];
+  const providers={openrouter:{complete:async input=>{calls.push(input);return '{}';}}};
+  const status=await productionApi(request('/api/status'),'/api/status',environment,providers);
+  assert.deepEqual(await status.json(),{configured:true,provider:'openrouter',accessRequired:false});
+  const scene=emptyScene('Public request');scene.objects=[newObject('ball','ball')];
+  const command={requestId:'public-command',target,transcript:'Change the ball friction',scene,selection:['ball'],answers:[]};
+  for(const [path,body] of [['/api/interpret',photo],['/api/command',command]])assert.equal((await productionApi(request(path,body),path,environment,providers)).status,200);
+  assert.equal(calls.length,2);
+  assert.equal((await productionApi(request('/api/command',command,'',{headers:{Origin:'https://invalid.example'}}),'/api/command',environment,providers)).status,403);
+  assert.equal((await productionApi(request('/api/interpret','{bad'),'/api/interpret',environment,providers)).status,400);
+  assert.equal(calls.length,2);
+  for(const method of ['GET','POST']){
+    const response=await productionApi(new Request(origin+'/api/access',{method,headers:{Origin:origin}}),'/api/access',environment,providers);
+    assert.equal(response.status,303);assert.equal(response.headers.get('location'),'/');assert.equal(response.headers.get('set-cookie'),null);
+  }
+  for(const provider of ['momen','anthropic','cloudflare'])assert.equal((await productionApi(request('/api/interpret',photo),'/api/interpret',{...environment,NOX_MODEL_PROVIDER:provider},{[provider]:providers.openrouter})).status,401);
+  assert.equal((await productionApi(request('/api/interpret',photo),'/api/interpret',{NOX_MODEL_PROVIDER:'openrouter'},providers)).status,401);
+});
+
 test('judge access is closed by default, rejects wrong codes, and issues a secure expiring cookie', async () => {
   assert.equal((await unlock(code, {})).status, 503);
   assert.equal((await unlock('')).status, 403);

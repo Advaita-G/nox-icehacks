@@ -1,0 +1,40 @@
+{
+  "scope": "Controlled replay of the actual second failed generated-image response; identity remapped, no fresh model call or screenshot",
+  "modelCalls": 0,
+  "state": {
+    "#assistant-caption": "Rendering has not settled on this device. The simulation is paused and your work is retained.",
+    "#assistant-state": "Listening",
+    "#mode": "Paused",
+    "#clock": "0.000 s",
+    "#source-status": "Interpreting your sketch\u2026",
+    "#error": ""
+  },
+  "room": "experiment",
+  "render": {
+    "canvas": [
+      1280,
+      800
+    ],
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+    "frames": 97,
+    "over75ms": 75,
+    "lastIntervals": [
+      116.69999999999982,
+      116.60000000000036,
+      116.59999999999945,
+      116.70000000000073,
+      33.29999999999927,
+      116.70000000000073,
+      116.69999999999891,
+      116.70000000000073,
+      116.60000000000036,
+      116.60000000000036,
+      116.69999999999891,
+      116.60000000000036,
+      116.70000000000073,
+      66.69999999999891,
+      116.70000000000073
+    ]
+  },
+  "browserClosed": true
+}

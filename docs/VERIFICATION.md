@@ -1,5 +1,8 @@
 # Verification and evidence boundaries
 
+**Current public free-AI update:** the normal link works without a code, account or private launcher. NVIDIA Nemotron 3.5 Super VL is pinned to OpenRouter’s free endpoint, with zero price ceilings and no paid fallback. Actual anonymous drawing → genuine reviewed edit → yes → motion → exact Save/reload passes; phone/no-code controls also pass. Finite free quota, retained failures, the missing-hinge clarification guard and full-Chromium versus lightweight-shell rendering results are recorded in [current evidence](evidence/public-free-ai-2026-11-15/README.md). The earlier checkpoint sections below are historical and do not override this provider/access update.
+
+
 ## November 15: reported domino request and access recovery
 
 The exact synthetic spoken phrase “Can you make a domino effect?” now creates the existing fresh local chain with zero model requests. Local and pinned hosted cases pass at 1280×800, 375×812 and 320×640, including real propagation to Domino 9 and exact Save/reload. Hosted invalid/valid in-page access retains the normalized drawing, unsaved notes and library, with no automatic retry. One subsequent actual funded Momen command passes in 7.068 s: exactly Domino 1 friction → 0.4, unapplied until yes, old version retained and exact edited Save/reload. Root 265/265, input 110/110 and both builds pass. The main URL is promoted to `dpl_CJ6m8uMxaBjwCYQSk4H1bQ6hLFyq`; alias API and three downloaded asset hashes match. Same server/validators and $0 personal spend. [All receipts, hashes, security review and limits](evidence/domino-access-2026-11-15/README.md).

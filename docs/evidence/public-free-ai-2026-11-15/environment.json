@@ -1,0 +1,18 @@
+{
+  "scope": "Existing Nox production project; user-authorized code-free pinned zero-price open-model route",
+  "updates": [
+    {
+      "name": "NOX_OPENROUTER_API_KEY",
+      "state": "configured-as-server-secret"
+    },
+    {
+      "name": "NOX_PUBLIC_AI",
+      "state": "configured-as-server-secret"
+    },
+    {
+      "name": "NOX_MODEL_PROVIDER",
+      "state": "configured-as-server-secret"
+    }
+  ],
+  "purchase": false
+}

@@ -11,6 +11,8 @@ Nox uses the following pinned components. Their authors retain their copyright a
 | Vitest | 5.0.5 | Input-package tests | MIT; [source](https://github.com/vitest-dev/vitest) |
 | jsdom | 30.1.3 | Input-package test DOM | MIT; [source](https://github.com/jsdom/jsdom) |
 
+Current hosted vision/language inference uses [NVIDIA Nemotron 3.5 Super VL](https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16), published under OpenMDW-1.1, through [OpenRouter’s free endpoint](https://openrouter.ai/nvidia/nemotron-3.5-super-vl:free). Its service/data terms apply; use drawings without personal or confidential information. The model weights are not bundled.
+
 Development type declarations and transitive packages are pinned in the two lockfiles; their installed packages supply their individual licenses. Gemma 4 26B A4B is hosted directly by Cloudflare Workers AI; the [official model weights](https://ai.google.dev/gemma/docs/core/model_card_4) carry [Apache License 2.0](https://ai.google.dev/gemma/apache_2). Earlier Cloudflare attempts used Qwen3.8-27B, whose [official weights licence](https://huggingface.co/Qwen/Qwen3.8-27B/resolve/main/LICENSE) is Apache 2.0, Copyright 2026 Alibaba Cloud. No model weights are bundled. Cloudflare service terms still apply to hosted API use. Historical GPT 6 Luna/Momen and browser speech are external services. Their use and the coding assistants are disclosed in [ATTRIBUTION.md](ATTRIBUTION.md). No service credentials are included.
 
 These notices do not grant a project-wide license to Nox's original application code. See [COPYRIGHT.md](COPYRIGHT.md).

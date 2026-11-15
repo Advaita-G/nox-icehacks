@@ -1,0 +1,40 @@
+{
+  "id": "case-10",
+  "subject": "pivoting-lever",
+  "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+  "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+  "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "calls": 1,
+  "retries": 0,
+  "startedAt": "2026-11-15T19:52:32.281Z",
+  "httpStatus": 200,
+  "usage": {
+    "prompt_tokens": 11614,
+    "completion_tokens": 1731,
+    "total_tokens": 13345,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "actualModel": "nvidia/nemotron-3.5-super-vl:free",
+  "provider": "Nvidia",
+  "status": "FAIL",
+  "failure": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports.",
+  "elapsedSeconds": 12.769
+}

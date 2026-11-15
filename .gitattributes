@@ -1,0 +1,3 @@
+# Preserve HTTP keep-alive padding in original provider response evidence.
+docs/evidence/public-free-ai-2026-11-15/**/provider-envelope.json whitespace=-blank-at-eol
+docs/evidence/public-free-ai-2026-11-15/probe-provider-envelope.json whitespace=-blank-at-eol

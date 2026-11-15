@@ -1,0 +1,4 @@
+{
+  "requestId": "req-507dc026",
+  "raw": "{\"requestId\": \"req-507dc026\", \"status\": \"proposed\", \"operations\": [{\"type\": \"set-property\", \"id\": \"ball\", \"property\": \"velocity\", \"value\": {\"x\": 2, \"y\": 0, \"z\": 0}}], \"summary\": [\"Set ball velocity to {x: 2 m/s, y: 0, z: 0}. All other properties unchanged.\"], \"questions\": [], \"message\": \"\"}"
+}

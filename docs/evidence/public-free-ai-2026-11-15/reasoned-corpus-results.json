@@ -1,0 +1,182 @@
+[
+  {
+    "id": "case-10",
+    "subject": "pivoting-lever",
+    "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+    "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+    "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+    "model": "nvidia/nemotron-3.5-super-vl:free",
+    "calls": 1,
+    "retries": 0,
+    "startedAt": "2026-11-15T19:53:52.642Z",
+    "httpStatus": 200,
+    "usage": {
+      "prompt_tokens": 11656,
+      "completion_tokens": 3434,
+      "total_tokens": 15090,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2047,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "actualModel": "nvidia/nemotron-3.5-super-vl:free",
+    "provider": "Nvidia",
+    "interpretationStatus": "ready",
+    "questions": [],
+    "solver": {
+      "time": 1,
+      "bodies": 5
+    },
+    "status": "PASS",
+    "elapsedSeconds": 29.84
+  },
+  {
+    "id": "case-03",
+    "subject": "chair",
+    "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+    "notes": "",
+    "inputSha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+    "model": "nvidia/nemotron-3.5-super-vl:free",
+    "calls": 1,
+    "retries": 0,
+    "startedAt": "2026-11-15T19:54:22.488Z",
+    "httpStatus": 200,
+    "usage": {
+      "prompt_tokens": 11627,
+      "completion_tokens": 3217,
+      "total_tokens": 14844,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2047,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "actualModel": "nvidia/nemotron-3.5-super-vl:free",
+    "provider": "Nvidia",
+    "interpretationStatus": "ready",
+    "questions": [],
+    "solver": {
+      "time": 1,
+      "bodies": 2
+    },
+    "status": "PASS",
+    "elapsedSeconds": 26.852
+  },
+  {
+    "id": "case-01",
+    "subject": "unlabelled-house",
+    "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+    "notes": "",
+    "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+    "model": "nvidia/nemotron-3.5-super-vl:free",
+    "calls": 1,
+    "retries": 0,
+    "startedAt": "2026-11-15T19:54:49.342Z",
+    "httpStatus": 200,
+    "usage": {
+      "prompt_tokens": 11625,
+      "completion_tokens": 3885,
+      "total_tokens": 15510,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2047,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "actualModel": "nvidia/nemotron-3.5-super-vl:free",
+    "provider": "Nvidia",
+    "interpretationStatus": "ready",
+    "questions": [],
+    "solver": {
+      "time": 1,
+      "bodies": 3
+    },
+    "status": "PASS",
+    "elapsedSeconds": 42.039
+  },
+  {
+    "id": "case-05",
+    "subject": "character",
+    "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+    "notes": "",
+    "inputSha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+    "model": "nvidia/nemotron-3.5-super-vl:free",
+    "calls": 1,
+    "retries": 0,
+    "startedAt": "2026-11-15T19:55:31.382Z",
+    "httpStatus": 200,
+    "usage": {
+      "prompt_tokens": 11631,
+      "completion_tokens": 3671,
+      "total_tokens": 15302,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 2047,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    "actualModel": "nvidia/nemotron-3.5-super-vl:free",
+    "provider": "Nvidia",
+    "interpretationStatus": "ready",
+    "questions": [],
+    "solver": {
+      "time": 1,
+      "bodies": 2
+    },
+    "status": "PASS",
+    "elapsedSeconds": 41.899
+  }
+]

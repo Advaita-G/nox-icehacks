@@ -1,0 +1,27 @@
+{
+  "stableUrl": "https://nox-icehacks.vercel.app",
+  "expectedDeploymentId": "dpl_8paDRRqFy5ttLyuNU4oe9neQU4xQ",
+  "assets": {
+    "index-COv6ohi-.js": {
+      "sha256": "4ae975b6ef23dfdbf6de3c21d91154483851dc4e829ce32a80f2eca1997d95d5",
+      "bytes": 3052
+    },
+    "main-BddXbDC2.css": {
+      "sha256": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a",
+      "bytes": 43697
+    },
+    "main-D039K5Qf.js": {
+      "sha256": "6eb96227b68b5b16f6f83c06c1aa2ab0fe5a8825cd3eb8f08277be4783e7a95e",
+      "bytes": 5096720
+    }
+  },
+  "modelCalls": 0,
+  "status": {
+    "configured": true,
+    "provider": "openrouter",
+    "accessRequired": false
+  },
+  "invalidAnonymousInput": 400,
+  "wrongOrigin": 403,
+  "observedDeploymentId": "dpl_8paDRRqFy5ttLyuNU4oe9neQU4xQ"
+}

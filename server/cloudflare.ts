@@ -24,12 +24,12 @@ export interface CloudflareOptions {
 type Part = { type: 'text'; text: string } | { type: 'image_url'; image_url: { url: string } };
 const isObject = (value: unknown): value is Record<string, unknown> => typeof value === 'object' && value !== null && !Array.isArray(value);
 
-export function buildContent(request: unknown): Part[] {
+export function buildContent(request: unknown, provider = 'Cloudflare'): Part[] {
   const content: Part[] = [];
   let textRequest = request;
   if (isObject(request) && isObject(request.source) && request.source.image !== undefined) {
     const image = request.source.image;
-    if (typeof image !== 'string' || !DATA_URL.test(image)) throw new ProviderFailure('The sketch image could not be prepared for Cloudflare.', 'invalid');
+    if (typeof image !== 'string' || !DATA_URL.test(image)) throw new ProviderFailure(`The sketch image could not be prepared for ${provider}.`, 'invalid');
     content.push({ type: 'image_url', image_url: { url: image } });
     textRequest = { ...request, source: { ...request.source, image: '[attached image input]' } };
   }
@@ -37,16 +37,16 @@ export function buildContent(request: unknown): Part[] {
   return content;
 }
 
-export function extractText(raw: string): string {
+export function extractText(raw: string, provider = 'Cloudflare'): string {
   let data: unknown;
   try { data = JSON.parse(raw); }
-  catch { throw new ProviderFailure('Cloudflare returned an unreadable response.', 'invalid'); }
+  catch { throw new ProviderFailure(`${provider} returned an unreadable response.`, 'invalid'); }
   if (!isObject(data) || !Array.isArray(data.choices) || data.choices.length !== 1 || !isObject(data.choices[0])) {
-    throw new ProviderFailure('Cloudflare returned an unexpected response.', 'invalid');
+    throw new ProviderFailure(`${provider} returned an unexpected response.`, 'invalid');
   }
   const choice = data.choices[0], message = choice.message;
-  if (!isObject(message) || message.role !== 'assistant') throw new ProviderFailure('Cloudflare returned an unexpected response.', 'invalid');
-  if (message.refusal != null && typeof message.refusal !== 'string') throw new ProviderFailure('Cloudflare returned an unexpected response.', 'invalid');
+  if (!isObject(message) || message.role !== 'assistant') throw new ProviderFailure(`${provider} returned an unexpected response.`, 'invalid');
+  if (message.refusal != null && typeof message.refusal !== 'string') throw new ProviderFailure(`${provider} returned an unexpected response.`, 'invalid');
   if (choice.finish_reason === 'content_filter' || typeof message.refusal === 'string' && message.refusal.trim()) {
     throw new ProviderFailure('The model declined this request. Your source and scene are unchanged.', 'refusal');
   }
@@ -54,7 +54,7 @@ export function extractText(raw: string): string {
   if (choice.finish_reason !== 'stop' || message.tool_calls != null && (!Array.isArray(message.tool_calls) || message.tool_calls.length > 0) || message.function_call != null) {
     throw new ProviderFailure('The model stopped unexpectedly. Nothing was applied.', 'invalid');
   }
-  if (typeof message.content !== 'string' || !message.content.trim()) throw new ProviderFailure('Cloudflare returned no text.', 'invalid');
+  if (typeof message.content !== 'string' || !message.content.trim()) throw new ProviderFailure(`${provider} returned no text.`, 'invalid');
   if (Buffer.byteLength(message.content, 'utf8') > MAX_RESPONSE_TEXT_BYTES) throw new ProviderFailure('The model response was too large.', 'invalid');
   return message.content;
 }

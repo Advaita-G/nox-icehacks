@@ -1,0 +1,38 @@
+{
+  "scope": "Exact box-member connectivity and actual missing-hinge failure; no overall visual-fidelity or population claim",
+  "chair": {
+    "parts": 7,
+    "connectedMembers": 7,
+    "toleranceMeters": 0.0005
+  },
+  "lever": {
+    "actualModelClaimedFreeHinge": true,
+    "actualConstraints": [],
+    "fidelity": "FAIL: missing requested real hinge; raw failure retained",
+    "finalGuard": {
+      "requestId": "probe-1",
+      "sourceId": "sketch-probe",
+      "sourceRevision": 1,
+      "status": "needs-clarification",
+      "grounding": [],
+      "questions": [
+        {
+          "id": "free-pivot",
+          "prompt": "Which two parts should the free hinge connect, and where is its pivot?",
+          "options": [
+            "Connect the lever to the fixed support at the drawn pivot"
+          ]
+        }
+      ],
+      "warnings": [],
+      "message": "I have not built the requested free hinge yet. Your drawing and previous experiment are retained."
+    },
+    "guardReplayModelCalls": 0
+  },
+  "otherReadyCases": [
+    "house",
+    "character",
+    "annotated sphere/plank"
+  ],
+  "limitation": "Depth, detail and dimensions without labels remain estimates; a valid solver does not prove visual fidelity."
+}

@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-11-15T19:44:21.368Z",
+  "retries": 0,
+  "personalSpendUsd": 0,
+  "scope": "Actual pinned free Gemma 4 31B vision + metric compiler + strict canonical validation + one second Rapier; generated digital input, no browser/device claim",
+  "httpStatus": 429,
+  "errorCode": 429,
+  "errorMessage": "Provider returned error",
+  "status": "FAIL",
+  "failure": "The free AI request limit was reached. Your work is retained; try again after its reset.",
+  "calls": 1,
+  "elapsedSeconds": 0.55
+}

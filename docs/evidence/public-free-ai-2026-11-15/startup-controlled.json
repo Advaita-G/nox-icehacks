@@ -1,0 +1,14 @@
+{
+  "scope": "Controlled replay of the actual second failed generated-image response; identity remapped, no fresh model call or screenshot",
+  "modelCalls": 0,
+  "state": {
+    "#assistant-caption": "Rendering has not settled on this device. The simulation is paused and your work is retained.",
+    "#assistant-state": "Listening",
+    "#mode": "Paused",
+    "#clock": "0.000 s",
+    "#source-status": "Interpreting your sketch\u2026",
+    "#error": ""
+  },
+  "room": "experiment",
+  "browserClosed": true
+}

@@ -1,6 +1,26 @@
 # Nox: start a conversation
 
-**Domino/access update:** “Can you make a domino effect?” now builds a fresh local chain without AI. Custom details remain reviewed. The room's **Live AI access** form unlocks the existing judge gate without navigating away or losing a drawing; invalid codes stay locked and requests never retry automatically. Three hosted sizes pass chain, exact persistence and valid/invalid access; one subsequent genuine model edit passes in 7.068 s. [Checks and current deployment hashes](evidence/domino-access-2026-11-15/README.md). The recovery deployment details below describe the preceding release; its Momen server contract remains unchanged.
+## Current hosted app and owner setup
+
+Judges use https://nox-icehacks.vercel.app directly. The hosted app is already configured; there is no code, account or API-key entry in its user flow. Refresh an older open tab once to load the updated client.
+
+For an owner configuring a separate deployment, keep the API key in server secrets and explicitly choose the zero-price provider:
+
+```dotenv
+NOX_LIVE_CALLS=enabled
+NOX_MODEL_PROVIDER=openrouter
+NOX_OPENROUTER_API_KEY=your-server-only-free-account-key
+NOX_PUBLIC_AI=enabled
+```
+
+The adapter pins NVIDIA Nemotron 3.5 Super VL `:free`, sends zero price ceilings and accepts only zero-cost replies. No paid fallback or new purchase is enabled. The observed free account allows 50 requests/day, so availability is finite. Default examples keep live calls and public access disabled until an owner opts in. The remaining sections preserve earlier provider checkpoints.
+
+**Current public free-AI update:** the normal link works without a code, account or private launcher. NVIDIA Nemotron 3.5 Super VL is pinned to OpenRouter’s free endpoint, with zero price ceilings and no paid fallback. Actual anonymous drawing → genuine reviewed edit → yes → motion → exact Save/reload passes; phone/no-code controls also pass. Finite free quota, retained failures, the missing-hinge clarification guard and full-Chromium versus lightweight-shell rendering results are recorded in [current evidence](evidence/public-free-ai-2026-11-15/README.md). The earlier checkpoint sections below are historical and do not override this provider/access update.
+
+
+## Earlier private-runtime checkpoints (historical)
+
+**Earlier domino/access update:** “Can you make a domino effect?” builds a fresh local chain without AI. Custom details remain reviewed. That checkpoint added a same-page private-code form; the later public update removes it. Three hosted sizes passed chain/persistence and valid/invalid access, and one genuine Momen edit passed in 7.068 s. [Earlier checks and deployment hashes](evidence/domino-access-2026-11-15/README.md).
 
 ## Enter the room
 

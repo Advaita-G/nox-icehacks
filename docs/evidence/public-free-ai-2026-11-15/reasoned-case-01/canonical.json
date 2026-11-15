@@ -1,0 +1,449 @@
+{
+  "requestId": "free-case-01",
+  "sourceId": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "Bottom floor line of the house drawing.",
+      "objectId": "ground",
+      "bbox": [
+        0.306,
+        0.845,
+        0.38199999999999995,
+        0.01200000000000001
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Walls, triangular roof, two four-pane windows, and central door as solid overlays.",
+      "objectId": "house",
+      "bbox": [
+        0.162,
+        0.17,
+        0.569,
+        0.6869999999999999
+      ]
+    },
+    {
+      "origin": "inferred",
+      "note": "Inert dynamic sphere for optional manipulation; not drawn in the image.",
+      "objectId": "probe"
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "Window/divider strokes are represented as thin solid boxes rather than true holes or glass panes.",
+    "Roof is modeled as a triangular prism with uniform depth rather than an exact extruded polygon."
+  ],
+  "message": "Parsed the house sketch into a fixed rigid prop with an optional ground-probe sphere.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "house-sketch",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing scale is approximately 100 px/m, so the house is about 7 m wide and 4.9 m tall from the drawn line thickness.",
+      "Image is a front view; all parts are given a small 0.2 m depth along Z so they are real volumetric solids.",
+      "The whole house (walls, roof, windows, door) is one rigid fixed decorative prop; windows and door are solid overlays, not cutouts.",
+      "No motion is requested; everything is fixed except an optional inert ground-probe sphere for manipulation tests.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "drawn ground line",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.02,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 7,
+        "height": 0.1,
+        "depth": 0.4,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.39999999999999997,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "house",
+        "label": "house prop",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.05000032348895722,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6.6,
+        "height": 9.8,
+        "depth": 0.21,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.19897959183673466,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.9090909090909092,
+              "y": 0.39795918367346933,
+              "z": 0.9523809523809524
+            }
+          },
+          {
+            "shape": "convex",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 0.9523809523809524
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": 0,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0,
+                "z": 0.5
+              },
+              {
+                "x": -0.4545454545454546,
+                "y": 0.3061224489795918,
+                "z": -0.5
+              },
+              {
+                "x": 0.4545454545454546,
+                "y": 0.3061224489795918,
+                "z": -0.5
+              },
+              {
+                "x": 0.4545454545454546,
+                "y": 0.3061224489795918,
+                "z": 0.5
+              },
+              {
+                "x": -0.4545454545454546,
+                "y": 0.3061224489795918,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.16666666666666669,
+              "y": 0.11224489795918367,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.00909090909090909,
+              "y": 0.11224489795918367,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.16666666666666669,
+              "y": 0.006122448979591836,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.16666666666666669,
+              "y": 0.11224489795918367,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.00909090909090909,
+              "y": 0.11224489795918367,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.28030303030303033,
+              "y": 0.28061224489795916,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.16666666666666669,
+              "y": 0.006122448979591836,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.09693877551020406,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.16666666666666669,
+              "y": 0.2040816326530612,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "probe",
+        "label": "ground probe sphere",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.15,
+        "height": 0.15,
+        "depth": 0.15,
+        "geometry": [
+          {
+            "shape": "sphere",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

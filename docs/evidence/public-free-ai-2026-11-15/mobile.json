@@ -1,0 +1,28 @@
+[
+  {
+    "width": 375,
+    "height": 812,
+    "motion": "no-preference",
+    "modelCalls": 0,
+    "errors": [],
+    "capture": false,
+    "syntheticSpeech": true,
+    "noCodeOrCookie": true,
+    "saveReloadExact": true,
+    "status": "PASS",
+    "browserClosed": true
+  },
+  {
+    "width": 320,
+    "height": 640,
+    "motion": "reduce",
+    "modelCalls": 0,
+    "errors": [],
+    "capture": false,
+    "syntheticSpeech": true,
+    "noCodeOrCookie": true,
+    "saveReloadExact": true,
+    "status": "PASS",
+    "browserClosed": true
+  }
+]

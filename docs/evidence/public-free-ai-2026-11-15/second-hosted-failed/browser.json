@@ -1,0 +1,47 @@
+{
+  "url": "https://nox-icehacks-n892vdvlx-idk-41a8.vercel.app",
+  "scope": "Anonymous public page; synthetic recognition/TTS, real free-model responses/normalization/validation/physics/storage; no auth cookie, media or screenshot capture",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-69bcf17c",
+        "target": {
+          "experimentId": "305fe2f5-6625-4879-8884-0c5e208542f6",
+          "versionId": "ff3997e8-cba6-4e3c-b462-6fbcca314cb3",
+          "sceneRevision": 0,
+          "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+          "widthPx": 1600,
+          "heightPx": 1000,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "24a2e576cc6486a2116c7299f5133ebc3db9e2fa11ee4f55e3bbf73851d00af1"
+        },
+        "notes": "",
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "statusBeforeAnyCookie": {
+    "configured": true,
+    "provider": "openrouter",
+    "accessRequired": false
+  },
+  "interpret": {
+    "httpStatus": 200,
+    "seconds": 28.865
+  },
+  "status": "FAIL",
+  "failure": {
+    "type": "TimeoutError",
+    "message": "Page.wait_for_function: Timeout 18000ms exceeded."
+  },
+  "browserClosed": true
+}

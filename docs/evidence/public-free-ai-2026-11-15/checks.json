@@ -1,0 +1,24 @@
+{
+  "rootTests": {
+    "passed": 272,
+    "failed": 0
+  },
+  "inputTests": {
+    "passed": 110,
+    "failed": 0
+  },
+  "rootTypecheckBuild": "PASS",
+  "inputTypecheckBuild": "PASS",
+  "scope": "New free adapter + public opt-in + code UI removal + intent guard; unchanged canonical validators/physics. No screenshot/human-visual/device acceptance claim.",
+  "secretScan": {
+    "status": "PASS",
+    "taskAndBundleFiles": 104,
+    "credentialValuesPrinted": false
+  },
+  "review": {
+    "requirements": "PASS: bounded public free AI flow",
+    "codeQuality": "PASS",
+    "securityBudget": "PASS"
+  },
+  "preservedValidation": "Canonical source/scene/physics validation unchanged; old/private providers retain default gate."
+}

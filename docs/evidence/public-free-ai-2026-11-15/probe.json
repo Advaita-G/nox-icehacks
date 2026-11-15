@@ -1,0 +1,40 @@
+{
+  "startedAt": "2026-11-15T19:45:34.465Z",
+  "retries": 0,
+  "personalSpendUsd": 0,
+  "scope": "Actual pinned free Nemotron 3.5 Super VL vision + metric compiler + strict canonical validation + one second Rapier; generated digital input, no browser/device claim",
+  "httpStatus": 200,
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "provider": "Nvidia",
+  "usage": {
+    "prompt_tokens": 11405,
+    "completion_tokens": 903,
+    "total_tokens": 12308,
+    "cost": 0,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0,
+      "upstream_inference_prompt_cost": 0,
+      "upstream_inference_completions_cost": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "interpretationStatus": "ready",
+  "solver": {
+    "time": 1,
+    "bodies": 3
+  },
+  "status": "PASS",
+  "calls": 1,
+  "elapsedSeconds": 13.064
+}

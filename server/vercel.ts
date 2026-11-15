@@ -58,15 +58,17 @@ async function access(request: Request, code: string): Promise<Response> {
   return new Response(null, { status: 303, headers: { ...HEADERS, Location: '/', 'Set-Cookie': `${COOKIE}=${expires}.${signature(expires, code)}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${SESSION_SECONDS}` } });
 }
 
-/** Public replays stay static; only authenticated, validated requests can reach a funded provider. */
+/** Public free AI is an explicit owner opt-in; other deployments retain the private gate. */
 export async function productionApi(request: Request, path: '/api/status' | '/api/interpret' | '/api/command' | '/api/access', env: Environment = process.env, providers?: Record<string, ModelProvider>): Promise<Response> {
   const code = accessCode(env);
+  const publicAI = env.NOX_PUBLIC_AI === 'enabled' && env.NOX_MODEL_PROVIDER === 'openrouter';
   if (request.method === 'POST' && request.headers.get('origin') !== new URL(request.url).origin) return json(403, { code: 'BAD_ORIGIN', message: 'Use the Nox page on this site.' });
   if (path === '/api/access') {
+    if (publicAI && (request.method === 'GET' || request.method === 'POST')) return new Response(null, { status: 303, headers: { ...HEADERS, Location: '/' } });
     try { return await access(request, code); }
     catch (error) { return json(error instanceof RangeError ? 413 : 400, { message: 'The access form could not be read.' }); }
   }
-  const unlocked = authorized(request, code);
+  const unlocked = publicAI || authorized(request, code);
   if (path === '/api/status') {
     if (request.method !== 'GET') return json(405, { message: 'Use GET.' });
     try {

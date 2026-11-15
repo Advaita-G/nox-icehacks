@@ -7,7 +7,7 @@ import { AssistantActions, normalizeAssistantInput, isAssistantCancellation } fr
 import type { AssistantReply } from './assistant/actions.ts';
 import { initAssistantPanel } from './assistant/panel.ts';
 import { demonstrate, warmupRendering } from './assistant/demo.ts';
-import { unlockJudgeAccess, unlockJudgeLink } from './assistant/access.ts';
+import { unlockJudgeLink } from './assistant/access.ts';
 import { proposalMarks } from './assistant/proposal.ts';
 import './assistant/panel.css';
 import * as THREE from 'three';
@@ -376,7 +376,6 @@ function startAssistant(): void {
     isVoiceActive: () => voice?.isActive ?? false,
     onSend: text => handleAssistant(text),
     onPhoto: file => receiveAssistantPhoto(file),
-    onUnlock: async code => { judgeAccessReady = unlockJudgeAccess(code); await judgeAccessReady; },
   });
   voice = new VoiceSession({
     onHearing: active => assistant.hearing(active),

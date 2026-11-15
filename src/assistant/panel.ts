@@ -1,5 +1,3 @@
-import { PROVIDER_MESSAGES } from '../../packages/input/src/provider/client.ts';
-
 export type AssistantState = 'idle' | 'listening' | 'thinking' | 'speaking' | 'error';
 export interface AssistantPanelHost {
   onStart(): void | Promise<void>;
@@ -7,7 +5,6 @@ export interface AssistantPanelHost {
   onSend(text: string): void | Promise<void>;
   isVoiceActive?(): boolean;
   onPhoto?(file: File): void | Promise<void>;
-  onUnlock?(code: string): Promise<void>;
 }
 
 export function initAssistantPanel(host: AssistantPanelHost) {
@@ -20,13 +17,10 @@ export function initAssistantPanel(host: AssistantPanelHost) {
     '<div class="assistant-presence"><button id="assistant-start" class="nox-presence" type="button" aria-label="Speak to Nox" aria-describedby="assistant-state"><span class="nox-figure"><span id="assistant-title" class="nox-wordmark">Nox</span><span class="nox-mark" aria-hidden="true"><span class="nox-incline"><span class="nox-ground"><span class="nox-trace"></span></span><span class="nox-ball"><i></i></span></span></span></span></button><span id="assistant-state" class="assistant-state" role="status" aria-live="polite">Click to speak</span><p class="assistant-hint">Say “make a ramp with a ball”, or show me a drawing.</p></div>',
     '<div class="assistant-conversation"><p id="assistant-caption" class="assistant-caption" aria-live="polite" hidden></p><p id="assistant-detail" class="assistant-detail" hidden></p></div>',
     '<div class="assistant-session"><div class="assistant-photo-actions"><label class="assistant-file assistant-camera" title="Take a picture of your drawing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l1.5-2h5L16 5h4v15H4V5z"/><circle cx="12" cy="12" r="4"/></svg><span>Camera</span><input id="assistant-camera" class="visually-hidden" type="file" accept="image/*" capture="environment"></label><label class="assistant-file" title="Add a drawing"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Add drawing</span><input id="assistant-upload" class="visually-hidden" type="file" accept="image/*"></label></div><button id="assistant-stop" type="button" aria-label="Stop listening"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/></svg><span>Stop</span></button></div>',
-    '<p id="assistant-photo-help" class="assistant-photo-help">You can also drop or paste your drawing.</p>',
+    '<p id="assistant-photo-help" class="assistant-photo-help">Drop or paste a drawing. Avoid personal or confidential information.</p>',
     '<div class="assistant-options"><button id="assistant-keyboard" type="button" aria-label="Use keyboard" aria-controls="assistant-compose" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M6 10h1m3 0h1m3 0h1m3 0h0M6 13h1m3 0h1m3 0h1m3 0h0M7 16h10"/></svg><span class="visually-hidden">Use keyboard</span></button><details class="assistant-history"><summary aria-label="Conversation history">Conversation</summary><ol id="assistant-transcript" role="log" aria-label="Recent conversation" aria-live="off" tabindex="0"></ol></details></div>',
     '<form id="assistant-compose" class="assistant-compose" hidden><label for="assistant-text" class="visually-hidden">Talk to Nox by typing</label><input id="assistant-text" type="text" placeholder="Tell Nox what to build…" autocomplete="off" maxlength="4000"><button type="submit" aria-label="Send request">Send</button></form>'
   ].join('');
-  const access = document.createElement('details'); access.id = 'assistant-access'; access.className = 'assistant-access';
-  access.innerHTML = '<summary>Live AI access</summary><form id="assistant-access-form"><p>Use the private access code supplied with your judge link. Your drawing and experiment stay here.</p><label for="assistant-access-code">Private access code</label><input id="assistant-access-code" name="code" type="password" required minlength="32" maxlength="256" autocomplete="off" spellcheck="false"><button type="submit">Unlock live AI</button><p id="assistant-access-status" role="status" aria-live="polite"></p></form>';
-  if (host.onUnlock) panel.querySelector('.assistant-options')!.insertBefore(access, panel.querySelector('.assistant-history'));
   stage.append(panel);
   const workspace = stage.closest<HTMLElement>('.workspace') ?? stage;
   const start = panel.querySelector<HTMLButtonElement>('#assistant-start')!, stop = panel.querySelector<HTMLButtonElement>('#assistant-stop')!;
@@ -79,19 +73,8 @@ export function initAssistantPanel(host: AssistantPanelHost) {
   }
   function error(text: string): void {
     setState('error'); append('assistant', text, true);
-    if (text === PROVIDER_MESSAGES.ACCESS_REQUIRED && host.onUnlock) access.open = true;
     if (!host.isVoiceActive?.() && /microphone|speech|voice is unavailable/i.test(text)) showKeyboard();
   }
-  const accessForm = access.querySelector<HTMLFormElement>('form')!, accessCode = access.querySelector<HTMLInputElement>('input')!;
-  const accessButton = access.querySelector<HTMLButtonElement>('button')!, accessStatus = access.querySelector<HTMLElement>('[role="status"]')!;
-  accessForm.onsubmit = async event => {
-    event.preventDefault(); if (accessButton.disabled || !host.onUnlock) return;
-    const code = accessCode.value; accessCode.value = ''; accessButton.disabled = true;
-    accessStatus.textContent = 'Unlocking…';
-    try { await host.onUnlock(code); accessStatus.textContent = 'Live AI is unlocked. Retry your request when you’re ready.'; }
-    catch { accessStatus.textContent = 'Could not unlock live AI. Check the private code and try again.'; }
-    finally { accessButton.disabled = false; measure(); }
-  };
   const failure = (cause: unknown) => error(cause instanceof Error ? cause.message : String(cause));
   async function receivePhoto(file: File): Promise<void> {
     if (!host.onPhoto) { error('Drawing input is unavailable in this session.'); return; }

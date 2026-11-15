@@ -11,10 +11,15 @@ import { createAnthropicProvider, type Effort, type FetchLike } from './anthropi
 import { createMomenProvider, type FetchLike as MomenFetch } from './momen.ts';
 import { createCloudflareProvider, type FetchLike as CloudflareFetch } from './cloudflare.ts';
 import { drawingProvider } from './drawing.ts';
+import { createOpenRouterProvider } from './openrouter.ts';
 
 export function buildProviders(env: Record<string, string | undefined>, fetchImpl?: FetchLike | MomenFetch | CloudflareFetch): Record<string, ModelProvider> {
   const providers: Record<string, ModelProvider> = {};
   if (env.NOX_LIVE_CALLS !== 'enabled') return providers; // live calls need an explicit, budgeted opt-in
+  if (env.NOX_MODEL_PROVIDER === 'openrouter') {
+    if (env.NOX_OPENROUTER_API_KEY?.trim()) providers.openrouter = drawingProvider(createOpenRouterProvider(env.NOX_OPENROUTER_API_KEY, fetchImpl as CloudflareFetch | undefined));
+    return providers;
+  }
   if (env.NOX_MODEL_PROVIDER === 'cloudflare') {
     if (!env.NOX_CLOUDFLARE_ACCOUNT_ID?.trim() || !env.NOX_CLOUDFLARE_API_TOKEN?.trim()) return providers;
     providers.cloudflare = createCloudflareProvider({

@@ -1,0 +1,40 @@
+{
+  "scope": "Controlled replay of the actual second failed generated-image response; identity remapped, no fresh model call or screenshot",
+  "modelCalls": 0,
+  "state": {
+    "#assistant-caption": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+    "#assistant-state": "Listening",
+    "#mode": "Running",
+    "#clock": "6.508 s",
+    "#source-status": "Interpreting your sketch\u2026",
+    "#error": ""
+  },
+  "room": "experiment",
+  "render": {
+    "canvas": [
+      1280,
+      800
+    ],
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M4, Unspecified Version)",
+    "frames": 518,
+    "over75ms": 1,
+    "lastIntervals": [
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891,
+      16.600000000000364,
+      16.600000000000364,
+      16.69999999999891,
+      16.700000000000728,
+      16.700000000000728,
+      16.599999999998545,
+      16.700000000000728,
+      16.700000000000728,
+      16.69999999999891
+    ]
+  },
+  "browserClosed": true
+}

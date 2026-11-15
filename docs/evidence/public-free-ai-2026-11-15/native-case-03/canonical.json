@@ -1,0 +1,421 @@
+{
+  "requestId": "free-case-03",
+  "sourceId": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "horizontal floor line at y≈836 spanning x≈286 to x≈1228",
+      "objectId": "floor",
+      "bbox": [
+        0.17875,
+        0.836,
+        0.58875,
+        0.028000000000000025
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "chair body from backrest top y≈187 to legs ending y≈835, x≈444 to x≈1018",
+      "objectId": "chair",
+      "bbox": [
+        0.2775,
+        0.187,
+        0.35874999999999996,
+        0.6479999999999999
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "leftmost leg drawn x≈444 vertical from y≈565 to y≈835",
+      "objectId": "left-leg",
+      "bbox": [
+        0.2775,
+        0.565,
+        0.008124999999999993,
+        0.27
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "rightmost leg drawn x≈1018 vertical from y≈478 to y≈750",
+      "objectId": "right-leg",
+      "bbox": [
+        0.63625,
+        0.478,
+        0.007500000000000062,
+        0.272
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "seat slab drawn x≈444 to x≈1018 at y≈565",
+      "objectId": "seat",
+      "bbox": [
+        0.2775,
+        0.565,
+        0.35874999999999996,
+        0.020000000000000018
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [
+    "Seat depth and leg length are inferred because no dimensions are provided; only proportions are preserved from the drawing."
+  ],
+  "message": "Ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "sketch-chair-on-floor",
+    "scale": 12,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing is a side-view wireframe sketch interpreted as a chair on a floor line with uniform scale estimated at 12 pixels per meter.",
+      "Floor line is treated as a fixed long thin box representing ground support.",
+      "Chair is modeled as a rigid single body using box primitives; seat depth inferred to preserve side-view proportions.",
+      "No drawn masses, dimensions, materials or motion are present; defaults are applied.",
+      "Stroke thickness is included within primitive dimensions rather than modeled separately.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08"
+      }
+    ],
+    "objects": [
+      {
+        "id": "floor",
+        "label": "floor",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0.493333,
+          "y": 0.025,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.216667,
+        "height": 0.1,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.3,
+              "z": 0.19999999999999998
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "chair",
+        "label": "chair",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0.511667,
+          "y": 0.4949999259276694,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.716667,
+        "height": 1.206667,
+        "depth": 0.12,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.32734797587072495,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.3453040482585502,
+              "z": 0.16666666666666669
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.15116225527336963,
+              "y": 0.05179556580232989,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.6627903893998188,
+              "y": 0.020718226320931957,
+              "z": 1
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.2906970740943841,
+              "y": -0.16988945583164203,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.0279069637642029,
+              "y": 0.41436452641863913,
+              "z": 0.16666666666666669
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "left-leg",
+        "label": "left leg",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0.246667,
+          "y": 0.388333,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.1,
+        "height": 0.88,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": -0.25,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.19999999999999998,
+              "y": 0.5,
+              "z": 0.19999999999999998
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "right-leg",
+        "label": "right leg",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0.781667,
+          "y": 0.388333,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.1,
+        "height": 0.88,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": -0.25,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.19999999999999998,
+              "y": 0.5,
+              "z": 0.19999999999999998
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "seat",
+        "label": "seat",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0.511667,
+          "y": 0.248333,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.475,
+        "height": 0.1,
+        "depth": 0.12,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.19999999999999998,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

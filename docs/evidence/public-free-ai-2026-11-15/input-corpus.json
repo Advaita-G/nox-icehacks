@@ -1,0 +1,90 @@
+{
+  "frozenBeforeInference": true,
+  "scope": "Generated digital drawings, not a physical-camera corpus or population accuracy benchmark. Subject/gold criteria are not sent to the model.",
+  "cases": [
+    {
+      "id": "case-01",
+      "image": "01.jpg",
+      "sha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+      "subject": "unlabelled-house",
+      "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+      "notes": ""
+    },
+    {
+      "id": "case-02",
+      "image": "02.jpg",
+      "sha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "subject": "annotated-sphere-plank",
+      "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+      "notes": ""
+    },
+    {
+      "id": "case-03",
+      "image": "03.jpg",
+      "sha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+      "subject": "chair",
+      "expected": "Back, seat, visible legs and ground; coherent rigid display.",
+      "notes": ""
+    },
+    {
+      "id": "case-04",
+      "image": "04.jpg",
+      "sha256": "3ae8cf663ef5a2928f3306df41d619deeaeb73905fa507e0d5df1619ce9e4b53",
+      "subject": "tree",
+      "expected": "Narrow trunk, broad rounded canopy and support; rigid scenery, no invented biological motion.",
+      "notes": ""
+    },
+    {
+      "id": "case-05",
+      "image": "05.jpg",
+      "sha256": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+      "subject": "character",
+      "expected": "Head, torso, two arms, two legs; rigid figurine, no invented walking.",
+      "notes": ""
+    },
+    {
+      "id": "case-06",
+      "image": "06.jpg",
+      "sha256": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763",
+      "subject": "car",
+      "expected": "Car cabin, two round wheels and ground; coherent rigid approximation without invented motor.",
+      "notes": ""
+    },
+    {
+      "id": "case-07",
+      "image": "07.jpg",
+      "sha256": "57da4084fe6efc5b843a06adbd7217b22c996ab642fe4a9505b26aba5617bb93",
+      "subject": "abstract-shapes",
+      "expected": "Triangular prism, sphere and box supported by drawn table/legs and ground; preserve relative order.",
+      "notes": ""
+    },
+    {
+      "id": "case-08",
+      "image": "08.jpg",
+      "sha256": "d5b4a846a1290a3963c8db772898ce6a0dd891da1c8bb49afa86f13e099b9284",
+      "subject": "blank",
+      "expected": "No fabricated ready scene; request a readable drawing or reject.",
+      "notes": ""
+    },
+    {
+      "id": "case-09",
+      "image": "09.jpg",
+      "sha256": "94a92b992b0e55d9531e7319f73ea6d0c3ef88c60d6e39ec09be43f847d4e966",
+      "subject": "fluid-intent",
+      "expected": "Ask about a rigid proxy or reject essential actual fluid behavior; no fake fluid simulation.",
+      "notes": "Simulate the water flowing out when the glass is tilted. Actual fluid flow is essential."
+    },
+    {
+      "id": "case-10",
+      "image": "10.jpg",
+      "sha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+      "subject": "pivoting-lever",
+      "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+      "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor."
+    }
+  ],
+  "repeats": [
+    "case-01",
+    "case-05"
+  ]
+}

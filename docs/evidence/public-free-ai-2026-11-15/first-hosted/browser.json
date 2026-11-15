@@ -1,0 +1,279 @@
+{
+  "url": "https://nox-icehacks-3e7vuulkp-idk-41a8.vercel.app",
+  "scope": "Anonymous public page; synthetic recognition/TTS, real free-model responses/normalization/validation/physics/storage; no auth cookie, media or screenshot capture",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-24e086dd",
+        "target": {
+          "experimentId": "6ea20a44-1b2c-4187-ba9f-422e7efb2fd9",
+          "versionId": "b5dc099a-b532-4310-a0bc-b220b1986f67",
+          "sceneRevision": 0,
+          "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+          "widthPx": 1600,
+          "heightPx": 1000,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "24a2e576cc6486a2116c7299f5133ebc3db9e2fa11ee4f55e3bbf73851d00af1"
+        },
+        "notes": "",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-507dc026",
+        "target": {
+          "experimentId": "0b18a569-57b2-4c34-942f-70cd3f4fe59e",
+          "versionId": "8bfd44ef-ea70-40f0-a2e1-165b30bd8f0a",
+          "sceneRevision": 0,
+          "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+          "sourceRevision": 4,
+          "epoch": 30105
+        },
+        "transcript": "Give ball an initial horizontal velocity of 2 meters per second to the right, with zero vertical and depth velocity. Change nothing else.",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 0,
+          "name": "ball on fixed plank",
+          "scale": 200,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Sketch scale inferred from fixed plank length 3 m and ball diameter 1 m: both drawn features use roughly consistent scale (~200 px/m). Plank height/depth are not dimensioned and are estimated as 0.30 m thick and 0.80 m deep; ball rests centered on plank top.",
+            "Scene is treated as a 2D side-view in the X-Y plane at Z=0; all bodies have zero linear and angular velocity at start; gravity is downward (-Y).",
+            "Ground is modeled as a fixed thin slab whose upper surface coincides with the plank base; the fixed plank does not translate or rotate.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "fixed ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": -0.019999999552965164,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 6,
+              "height": 0.1,
+              "depth": 1,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 0.39999999999999997,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 100,
+              "friction": 0.9,
+              "restitution": 0.05,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "plank",
+              "label": "fixed plank",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": 0.15000033378601074,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 3,
+              "height": 0.3,
+              "depth": 0.8,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 20,
+              "friction": 0.8,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 0,
+                "y": 0.7999340295791626,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 1,
+              "height": 1,
+              "depth": 1,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.6,
+              "restitution": 0.4,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "statusBeforeAnyCookie": {
+    "configured": true,
+    "provider": "openrouter",
+    "accessRequired": false
+  },
+  "interpret": {
+    "httpStatus": 200,
+    "seconds": 28.425
+  },
+  "command": {
+    "httpStatus": 200,
+    "seconds": 2.417
+  },
+  "unappliedUntilYes": true,
+  "persistence": {
+    "versions": 2,
+    "sourceRetained": true,
+    "baselineRetained": true,
+    "motionMeters": 1.5236,
+    "librarySha256": "1df2316e83bb17334eeac47dccdca309a82ea68681284f991550104ebc89874a"
+  },
+  "saveReloadExact": true,
+  "noCookieOrJudgeExchange": true,
+  "status": "PASS",
+  "browserClosed": true
+}

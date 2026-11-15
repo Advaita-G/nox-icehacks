@@ -254,10 +254,7 @@ export class InputUI {
   private async providerStatus(): Promise<void> {
     try {
       const response = await fetch('/api/status'); check(response.ok, 'Vision service unavailable.'); const status = await response.json();
-      message('provider-status', status.accessRequired ? 'Vision runtime: private judge access is required. Local conversation controls remain available. ' : status.configured ? `Vision runtime: ${status.provider}. Photo uploads are checked automatically. For a canvas drawing, say interpret my sketch.` : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
-      if (status.accessRequired) {
-        const link = document.createElement('a'); link.href = '/api/access'; link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Unlock live AI (opens a new tab)'; el('provider-status').append(link);
-      }
+      message('provider-status', status.accessRequired ? 'Vision runtime is not enabled for public use in this deployment. Local controls remain available.' : status.configured ? 'Live AI is ready. Photo uploads are checked automatically. For a canvas drawing, say interpret my sketch.' : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
     }
     catch (error) { message('provider-status', error); }
   }

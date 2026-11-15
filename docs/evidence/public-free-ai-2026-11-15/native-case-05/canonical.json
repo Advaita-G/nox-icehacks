@@ -1,0 +1,324 @@
+{
+  "requestId": "free-case-05",
+  "sourceId": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "Entire stick figure drawn in black lines",
+      "objectId": "figure",
+      "bbox": [
+        0.29,
+        0.135,
+        0.39799999999999996,
+        0.52
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "stick figure",
+    "scale": 8,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing scale is 8 pixels per meter; ground line at y=880px corresponds to z=0 in world coordinates.",
+      "Line thicknesses are decorative and represented as solid cylindrical primitives.",
+      "All limbs are rigidly attached to the torso; no articulation or motion is requested.",
+      "The figure is modeled as a single fixed rigid proxy for display.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507"
+      }
+    ],
+    "objects": [
+      {
+        "id": "figure",
+        "label": "stick figure",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.748,
+        "height": 2.38,
+        "depth": 0.3,
+        "geometry": [
+          {
+            "shape": "sphere",
+            "position": {
+              "x": 0,
+              "y": 0.44537815126050423,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.34759358288770054,
+              "y": 0.10924369747899161,
+              "z": 0.8666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0,
+              "y": 0.039915966386554626,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067811865475,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.10924369747899161,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0,
+              "y": -0.016806722689075633,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.6218487394957983,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": -0.13865546218487396,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.5213903743315508,
+              "y": 0.2394957983193277,
+              "z": 0.03333333333333333
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": -0.4946524064171123,
+              "y": -0.12605042016806722,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.22268907563025211,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0.4946524064171123,
+              "y": -0.12605042016806722,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.22268907563025211,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": -0.16711229946524064,
+              "y": -0.3067226890756303,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.2773109243697479,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0.16711229946524064,
+              "y": -0.3067226890756303,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.010695187165775402,
+              "y": 0.2773109243697479,
+              "z": 0.02666666666666667
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0,
+              "y": 0.388655462184874,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067811865475,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.040106951871657755,
+              "y": 0.0016806722689075631,
+              "z": 0.1
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": -0.1537433155080214,
+              "y": 0.388655462184874,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067811865475,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.040106951871657755,
+              "y": 0.0016806722689075631,
+              "z": 0.1
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0.1537433155080214,
+              "y": 0.388655462184874,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067811865475,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.040106951871657755,
+              "y": 0.0016806722689075631,
+              "z": 0.1
+            }
+          },
+          {
+            "shape": "cylinder",
+            "position": {
+              "x": 0,
+              "y": 0.20798319327731093,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.7071067811865475,
+              "w": 0.7071067811865476
+            },
+            "size": {
+              "x": 0.40106951871657753,
+              "y": 0.0016806722689075631,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}
