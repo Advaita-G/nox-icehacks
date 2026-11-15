@@ -12,7 +12,7 @@ import { proposalMarks } from './assistant/proposal.ts';
 import './assistant/panel.css';
 import * as THREE from 'three';
 import { Viewport } from './viewport.ts';
-import { FixedClock, initPhysics } from './physics/engine.ts';
+import { FixedClock, initPhysics, Physics } from './physics/engine.ts';
 import type { BodySample, Run } from './physics/engine.ts';
 import { BrowserStorage, validateLibrary, Workbench } from './physics/experiments.ts';
 import { EXAMPLES, rampBall } from './physics/examples.ts';
@@ -314,6 +314,7 @@ async function runAssistantFor(seconds: number, signal: AbortSignal): Promise<vo
   bench.pause(); assistantChanged();
   await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), signal, () => !!document.querySelector('.viewport-wrap.reveal'));
   check(bench === current && bench.contextToken === context && !document.hidden, 'The experiment changed before the run began.');
+  warmSolver(bench.physics.currentScene());
   bench.play(); assistantChanged();
   voice.setThinking(false);
   try {
@@ -342,11 +343,21 @@ async function handleAssistant(text: string): Promise<void> {
   } catch (cause) { if (turn === assistantTurn) { const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message); } }
   finally { if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
 }
+/**
+ * The first solver steps of a scene are several times slower (WebAssembly warm-up, first world snapshots); on Windows
+ * Chrome that alone exceeded the 0.1 s delayed-frame guard. Step a throwaway copy once, off the clock. The user's
+ * experiment, history and the guard are untouched.
+ */
+function warmSolver(scene: Scene): void {
+  let copy: Physics | undefined;
+  try { copy = new Physics(scene); for (let i = 0; i < 24; i++) copy.step(); } catch { /* best effort only */ } finally { copy?.free(); }
+}
 async function runAssistantScene(): Promise<string> {
   check(!inputUI?.active, 'Confirm the preview before running.'); check(bench.scene.objects.length > 0, 'Tell me what to build first, or say show me what you can do.');
   bench.resumeLive(); el<HTMLDialogElement>('source-dialog').close(); assistantChanged();
   const context = bench.contextToken, turn = assistantTurn; await warmupRendering(draw, () => new Promise(resolve => requestAnimationFrame(resolve)), AbortSignal.timeout(9000), () => !!document.querySelector('.viewport-wrap.reveal'));
   check(turn === assistantTurn && bench.contextToken === context && !document.hidden, 'The request changed or was stopped before the run began.');
+  warmSolver(bench.physics.currentScene());
   const started = performance.now(), initialTime = bench.physics.time; bench.play(); assistantChanged();
   while (bench.physics.time < initialTime + .15) {
     check(turn === assistantTurn && bench.contextToken === context && bench.running && !document.hidden, 'The solver paused before the run was established. Your experiment is retained.');

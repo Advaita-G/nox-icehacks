@@ -89,3 +89,11 @@ test('fixing a moving body discloses the velocity changes made with it', () => {
   assert.ok(lines.some(line => line.includes('velocity x/y/z') && line.includes('(3, 0, 1) → (0, 0, 0) m/s')));
   assert.ok(lines.some(line => line.includes('angularVelocity x/y/z') && line.includes('(0, 0, 5) → (0, 0, 0) rad/s')));
 });
+
+test('vector values read as at most four decimals, with solver noise shown as 0', () => {
+  const scene = emptyScene(), ball = newObject('ball', 'ball');
+  ball.position = { x: -4.855656623840332, y: 1.9511557817459106, z: 1.8959870294859432e-13 }; ball.label = 'Ball'; scene.objects.push(ball);
+  assert.deepEqual(describeChanges(scene, proposed([{ type: 'move', id: 'ball', position: { x: 3, y: 2, z: 1.8959870294859432e-13 } }])), [
+    'Ball · position x/y/z: (-4.8557, 1.9512, 0) → (3, 2, 0) m',
+  ]);
+});

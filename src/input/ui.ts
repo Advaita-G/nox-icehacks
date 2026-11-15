@@ -87,9 +87,9 @@ export class InputUI {
     el<HTMLTextAreaElement>('source-notes').oninput = () => this.sourceChanged();
     el<HTMLInputElement>('photo-file').onchange = () => { void this.loadPhoto().catch(error => message('source-status', error)); };
     el('interpret').onclick = () => void this.interpret(); el('cancel-interpret').onclick = () => this.requests.cancel('sketch');
-    el('open-command').onclick = () => { this.pause(); const state = this.host.state(), part = state.bench.scene.objects.find(o => o.id === state.selectedId); message('command-selection', part ? `Selected: ${part.label} (${part.id})` : 'No part selected. Name the part in your command.'); this.commandChanged(); el<HTMLDialogElement>('command-dialog').showModal(); };
+    el('open-command').onclick = () => { this.pause(); const state = this.host.state(), part = state.bench.scene.objects.find(o => o.id === state.selectedId); message('command-selection', part ? `Selected: ${part.label} (${part.id})` : 'No part selected. Name the part in your command.'); this.commandChanged(); delete el('command-dialog').dataset.words; el<HTMLDialogElement>('command-dialog').showModal(); };
     el('close-command').onclick = () => el<HTMLDialogElement>('command-dialog').close();
-    el<HTMLDialogElement>('command-dialog').onclose = () => { this.voice.cancel(); this.requests.cancel('command'); this.proposal = undefined; this.sync(); };
+    el<HTMLDialogElement>('command-dialog').onclose = () => { delete el('command-dialog').dataset.words; this.voice.cancel(); this.requests.cancel('command'); this.proposal = undefined; this.sync(); };
     el<HTMLTextAreaElement>('command-text').oninput = () => this.commandChanged();
     el('review-command').onclick = () => void this.command(); el('cancel-command').onclick = () => this.requests.cancel('command');
     el('apply-command').onclick = () => this.apply();
@@ -119,6 +119,8 @@ export class InputUI {
     if ([...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].some(input => !input.value.trim())) return this.buildPreviewWords(text);
     check(!this.preview, 'Confirm or cancel the 3D preview before describing another change.');
     const revision = ++this.wordsRevision, dialog = el<HTMLDialogElement>('command-dialog');
+    // A review from conversation lives in the room (spoken, captioned, drawn as ghosts); Tools still reveals this dialog.
+    dialog.dataset.words = 'true';
     if (!dialog.open) dialog.show();
     const unanswered = [...el('command-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim());
     if (unanswered.length) {
