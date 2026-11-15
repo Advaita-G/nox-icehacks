@@ -64,6 +64,18 @@ test('sketch: uploads the real image bytes, starts the agent with argKeys, polls
   for (const c of f.calls) assert.equal(c.init.redirect, 'error');
 });
 
+test('only a complete enclosing JSON fence is removed before unchanged JSON validation', async () => {
+  for (const data of ['```json\n{"status":"ready"}\n```', ' \n```json\r\n{"status":"ready"}\r\n```\n ']) {
+    const out = await run(createMomenProvider(opts(fakeMomen({ data }))));
+    assert.deepEqual(JSON.parse(out), { status: 'ready' });
+  }
+  for (const data of ['preface\n```json\n{"status":"ready"}\n```', '```json\n{"status":"ready"}\n```\ncommentary', '```json\n{"status":"ready"}', '```javascript\n{"status":"ready"}\n```']) {
+    const out = await run(createMomenProvider(opts(fakeMomen({ data }))));
+    assert.equal(out, data);
+    assert.throws(() => JSON.parse(out));
+  }
+});
+
 test('command: text only, no upload', async () => {
   const f = fakeMomen({ data: '{"status":"proposed"}' });
   await run(createMomenProvider(opts(f)), { requestId: 'c1', transcript: 'make it heavier', selection: [], scene: {}, answers: [] });

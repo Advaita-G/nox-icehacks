@@ -145,7 +145,7 @@ export function createMomenProvider(options: MomenOptions): ModelProvider {
           const text = typeof r.data === 'string' ? r.data : r.data === undefined || r.data === null ? '' : JSON.stringify(r.data);
           if (!text.trim()) throw new ProviderFailure('The Momen agent returned no text.', 'invalid');
           if (Buffer.byteLength(text, 'utf8') > MAX_RESPONSE_TEXT_BYTES) throw new ProviderFailure('The Momen agent response was too large.', 'invalid');
-          return text;
+          return text.trim().replace(/^```json\r?\n([\s\S]*)\r?\n```$/, '$1');
         }
         throw new ProviderFailure('The Momen agent did not finish in time. Nothing was applied.', 'truncated');
       } finally {
