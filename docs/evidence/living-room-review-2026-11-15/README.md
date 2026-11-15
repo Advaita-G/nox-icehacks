@@ -37,3 +37,5 @@ python3 scripts/check-room-stop.py http://127.0.0.1:4173 /tmp/nox-stop.json
 ```
 
 The helper uses isolated headless browsers, blocks interpretation/command endpoints and exits nonzero on any failed case. It neither accesses a personal profile nor captures media.
+
+**Updated pinned candidate:** https://nox-icehacks-9azrftvy7-idk-41a8.vercel.app — deployed repository `68dac2c`, application `d1ed836`, deployment `dpl_GdmHeFsWikgHyN8yTbLPm2GB1Tkg`. [Deployed Stop/recovery matrix](stop-deployed.json) passed **3/3** using the same assertions and zero inference. [Downloaded main JavaScript/CSS](stop-deployed-http.json) match the checked build byte-for-byte; anonymous status remains access-gated. [Stable alias proof](stop-stable-alias.json) confirms production remains on `dpl_Hg5bT9m2FLNmGgMUDxSV4u7a1dWU`. The earlier `21iqfx6kz` preview above is historical and predates the Stop fix. The current input suite also passed **110/110** ([log](stop-input-tests.txt)). No new model/device/account acceptance is claimed.
