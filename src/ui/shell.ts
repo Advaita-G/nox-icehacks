@@ -120,11 +120,14 @@ export function initShell(_host?: { openSource(): void }): void {
   // Sketch → 3D: when an interpretation closes the sketch and opens the review, the drawing dissolves into the scene.
   source.addEventListener('close', () => {
     clearReveal?.();
-    if (banner.hidden || reducedMotion.matches || body.dataset.motion === 'paused') return;
+    if (banner.hidden) return;
     const photo = el<HTMLImageElement>('photo-preview'), sketch = el<HTMLCanvasElement>('sketch');
     const ghost = document.createElement('canvas'); ghost.className = 'sketch-ghost'; ghost.width = 1600; ghost.height = 900; ghost.setAttribute('aria-hidden', 'true');
     const ctx = ghost.getContext('2d');
     if (ctx) { if (!el('photo-area').hidden && !photo.hidden && photo.complete && photo.naturalWidth) { const s = Math.min(1600 / photo.naturalWidth, 900 / photo.naturalHeight); ctx.drawImage(photo, (1600 - photo.naturalWidth * s) / 2, (900 - photo.naturalHeight * s) / 2, photo.naturalWidth * s, photo.naturalHeight * s); } else ctx.drawImage(sketch, 0, 0); }
+    // The same real drawing is laid on the floor under the model it became (the viewport decides how it fades).
+    document.dispatchEvent(new CustomEvent('nox:source', { detail: ghost }));
+    if (reducedMotion.matches || body.dataset.motion === 'paused') return;
     wrap.append(ghost); wrap.classList.remove('reveal'); void wrap.offsetWidth; wrap.classList.add('reveal');
     let cleanupTimer: ReturnType<typeof setTimeout>;
     const done = () => {

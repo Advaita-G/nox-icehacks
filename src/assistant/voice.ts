@@ -1,13 +1,17 @@
 import type { RecognitionLike } from '../../packages/input/src/voice/pressToTalk.ts';
 
 export type VoiceState = 'idle' | 'listening' | 'thinking' | 'speaking' | 'error';
-type Recognition = RecognitionLike & { onstart?: (() => void) | null };
+type Recognition = RecognitionLike & { onstart?: (() => void) | null; onspeechstart?: (() => void) | null; onspeechend?: (() => void) | null };
 type Synthesis = Pick<SpeechSynthesis, 'speak' | 'cancel'> & Partial<Pick<SpeechSynthesis, 'getVoices' | 'addEventListener' | 'removeEventListener'>>;
 interface Visibility { hidden: boolean; addEventListener(type: 'visibilitychange', listener: () => void): void; removeEventListener(type: 'visibilitychange', listener: () => void): void }
 export interface VoiceSessionOptions {
   onTranscript(text: string): void | Promise<void>;
   onState(state: VoiceState): void;
   onError(message: string): void;
+  /** Real recognizer speech start/end (no audio level is available or implied). */
+  onHearing?(active: boolean): void;
+  /** A real word boundary of the reply Nox is currently speaking. */
+  onWord?(): void;
   recognitionFactory?: (() => Recognition) | null;
   synthesis?: Synthesis | null;
   createUtterance?: ((text: string) => SpeechSynthesisUtterance) | null;
@@ -36,6 +40,7 @@ export class VoiceSession {
   private restartTimer: unknown;
   private startTimer: unknown;
   private finishSpeech?: () => void;
+  private hearing = false;
   private readonly onVisibility = () => { if (this.visibility?.hidden) this.stop(); };
 
   constructor(options: VoiceSessionOptions) {
@@ -64,6 +69,7 @@ export class VoiceSession {
     this.clearTimer(this.restartTimer); this.restartTimer = undefined;
     this.haltRecognition();
     if (this.finishSpeech) { this.finishSpeech(); this.synthesis?.cancel(); }
+    this.setHearing(false);
     this.update('idle');
   }
   dispose(): void { this.stop(); this.disposed = true; this.visibility?.removeEventListener('visibilitychange', this.onVisibility); }
@@ -101,12 +107,13 @@ export class VoiceSession {
       const timer = this.setTimer(() => this.fail('The spoken reply did not finish. Start voice again, or continue by typing.'), 120_000);
       const finish = () => {
         if (done) return;
-        done = true; this.clearTimer(timer); clearVoiceWait(); speech.onend = speech.onerror = null;
+        done = true; this.clearTimer(timer); clearVoiceWait(); speech.onend = speech.onerror = null; (speech as { onboundary?: unknown }).onboundary = null;
         this.finishSpeech = undefined; this.speaking = false; resolve();
         if (this.active) { this.update(this.thinking ? 'thinking' : 'idle'); if (!this.thinking) this.restart(); }
       };
       this.finishSpeech = finish;
       speech.onend = finish;
+      (speech as SpeechSynthesisUtterance & { onboundary: ((event: { name?: string }) => void) | null }).onboundary = event => { if (!done && this.finishSpeech === finish && (event.name ?? 'word') === 'word') this.options.onWord?.(); };
       speech.onerror = () => this.fail('The browser could not speak the reply. Start voice again, or continue by typing.');
       if (this.preferredVoice() || !this.synthesis?.getVoices) speakNow();
       else {
@@ -129,12 +136,14 @@ export class VoiceSession {
       ?? english.find(voice => /^(?:Samantha|Karen|Moira|Tessa)(?:\b|$)/i.test(voice.name))
       ?? english[0];
   }
+  private setHearing(active: boolean): void { if (active !== this.hearing) { this.hearing = active; this.options.onHearing?.(active); } }
   private update(state: VoiceState): void { if (state !== this.state) { this.state = state; this.options.onState(state); } }
   private fail(message: string): void { this.stop(); this.update('error'); this.options.onError(message); }
   private haltRecognition(): void {
     const recognition = this.recognition; this.recognition = null;
     this.clearTimer(this.startTimer); this.startTimer = undefined;
-    if (recognition) { recognition.onresult = recognition.onerror = recognition.onend = recognition.onstart = null; try { recognition.abort(); } catch { /* Already ended. */ } }
+    if (recognition) { recognition.onresult = recognition.onerror = recognition.onend = recognition.onstart = recognition.onspeechstart = recognition.onspeechend = null; try { recognition.abort(); } catch { /* Already ended. */ } }
+    this.setHearing(false);
   }
   private restart(): void {
     if (!this.active || this.thinking || this.speaking || this.recognition || this.restartTimer !== undefined) return;
@@ -148,6 +157,8 @@ export class VoiceSession {
     this.recognition = recognition;
     recognition.lang = 'en-US'; recognition.continuous = false; recognition.interimResults = false; recognition.maxAlternatives = 1;
     recognition.onstart = () => { if (this.recognition === recognition) { this.clearTimer(this.startTimer); this.startTimer = undefined; this.update('listening'); } };
+    recognition.onspeechstart = () => { if (this.recognition === recognition && this.active) this.setHearing(true); };
+    recognition.onspeechend = () => { if (this.recognition === recognition) this.setHearing(false); };
     recognition.onresult = event => {
       if (this.recognition !== recognition || !this.active) return;
       const text = Array.from(event.results).filter(result => result.isFinal).map(result => result[0]?.transcript.trim() ?? '').filter(Boolean).join(' ');
@@ -171,7 +182,7 @@ export class VoiceSession {
     };
     recognition.onend = () => {
       if (this.recognition !== recognition) return;
-      this.recognition = null; this.clearTimer(this.startTimer); this.startTimer = undefined;
+      this.recognition = null; this.clearTimer(this.startTimer); this.startTimer = undefined; this.setHearing(false);
       this.emptyEnds++;
       this.update('idle'); this.restart();
     };

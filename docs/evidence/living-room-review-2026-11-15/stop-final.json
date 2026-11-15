@@ -1,0 +1,61 @@
+{
+  "url": "http://127.0.0.1:5213",
+  "mediaCapture": false,
+  "vendorCalls": 0,
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "motion": "no-preference",
+      "before": "thinking",
+      "after": {
+        "state": "idle",
+        "label": "Click to speak",
+        "stopHidden": true,
+        "roll": "none",
+        "clock": "0.000 s"
+      },
+      "nextRequestRuns": true,
+      "status": "PASS",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "motion": "reduce",
+      "before": "thinking",
+      "after": {
+        "state": "idle",
+        "label": "Click to speak",
+        "stopHidden": true,
+        "roll": "none",
+        "clock": "0.008 s"
+      },
+      "nextRequestRuns": true,
+      "status": "PASS",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "motion": "no-preference",
+      "before": "thinking",
+      "after": {
+        "state": "idle",
+        "label": "Click to speak",
+        "stopHidden": true,
+        "roll": "none",
+        "clock": "0.000 s"
+      },
+      "nextRequestRuns": true,
+      "status": "PASS",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    }
+  ]
+}

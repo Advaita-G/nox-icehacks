@@ -5,7 +5,9 @@ import type { CommandProposal } from './contract.ts';
 function reviewValue(value: unknown): string {
   if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
     const point = value as Record<string, unknown>;
-    if (Object.keys(point).length === 3 && ['x', 'y', 'z'].every(key => typeof point[key] === 'number')) return `(${point.x}, ${point.y}, ${point.z})`;
+    // Spoken and drawn reviews: four decimals are exact enough to judge a change; float noise reads as 0.
+    const read = (n: number) => String(Math.abs(n) < 5e-5 ? 0 : +n.toFixed(4));
+    if (Object.keys(point).length === 3 && ['x', 'y', 'z'].every(key => typeof point[key] === 'number')) return `(${read(point.x as number)}, ${read(point.y as number)}, ${read(point.z as number)})`;
   }
   return JSON.stringify(value) ?? 'none';
 }

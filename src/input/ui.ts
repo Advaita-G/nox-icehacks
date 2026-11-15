@@ -10,6 +10,7 @@ import { Workbench } from '../physics/experiments.ts';
 import type { SourceAsset } from '../physics/experiments.ts';
 import { Physics } from '../physics/engine.ts';
 import { applyCommands, check } from '../physics/scene.ts';
+import type { Operation } from '../physics/scene.ts';
 import { mergeAnswers } from './answers.ts';
 import { parseCommand, parseInterpretation, REQUEST_TIMEOUTS } from './contract.ts';
 import type { Clarification, CommandProposal } from './contract.ts';
@@ -86,9 +87,9 @@ export class InputUI {
     el<HTMLTextAreaElement>('source-notes').oninput = () => this.sourceChanged();
     el<HTMLInputElement>('photo-file').onchange = () => { void this.loadPhoto().catch(error => message('source-status', error)); };
     el('interpret').onclick = () => void this.interpret(); el('cancel-interpret').onclick = () => this.requests.cancel('sketch');
-    el('open-command').onclick = () => { this.pause(); const state = this.host.state(), part = state.bench.scene.objects.find(o => o.id === state.selectedId); message('command-selection', part ? `Selected: ${part.label} (${part.id})` : 'No part selected. Name the part in your command.'); this.commandChanged(); el<HTMLDialogElement>('command-dialog').showModal(); };
+    el('open-command').onclick = () => { this.pause(); const state = this.host.state(), part = state.bench.scene.objects.find(o => o.id === state.selectedId); message('command-selection', part ? `Selected: ${part.label} (${part.id})` : 'No part selected. Name the part in your command.'); this.commandChanged(); delete el('command-dialog').dataset.words; el<HTMLDialogElement>('command-dialog').showModal(); };
     el('close-command').onclick = () => el<HTMLDialogElement>('command-dialog').close();
-    el<HTMLDialogElement>('command-dialog').onclose = () => { this.voice.cancel(); this.requests.cancel('command'); this.proposal = undefined; this.sync(); };
+    el<HTMLDialogElement>('command-dialog').onclose = () => { delete el('command-dialog').dataset.words; this.voice.cancel(); this.requests.cancel('command'); this.proposal = undefined; this.sync(); };
     el<HTMLTextAreaElement>('command-text').oninput = () => this.commandChanged();
     el('review-command').onclick = () => void this.command(); el('cancel-command').onclick = () => this.requests.cancel('command');
     el('apply-command').onclick = () => this.apply();
@@ -110,12 +111,16 @@ export class InputUI {
     check(file, 'Choose a photo file first.');
     await this.loadPhoto(file);
   }
+  /** The operations of the current reviewed, unapplied change (display only). */
+  get proposedOperations(): readonly Operation[] { return this.proposal?.value.operations ?? []; }
   async reviewWords(text: string): Promise<WordsReply> {
     check(text.trim() && text.length <= 4000, 'Use a command of at most 4000 characters.');
     await this.wordsClosed;
     if ([...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].some(input => !input.value.trim())) return this.buildPreviewWords(text);
     check(!this.preview, 'Confirm or cancel the 3D preview before describing another change.');
     const revision = ++this.wordsRevision, dialog = el<HTMLDialogElement>('command-dialog');
+    // A review from conversation lives in the room (spoken, captioned, drawn as ghosts); Tools still reveals this dialog.
+    dialog.dataset.words = 'true';
     if (!dialog.open) dialog.show();
     const unanswered = [...el('command-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim());
     if (unanswered.length) {

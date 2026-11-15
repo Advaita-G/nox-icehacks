@@ -1,0 +1,26 @@
+{
+  "url": "https://nox-icehacks-9azrftvy7-idk-41a8.vercel.app",
+  "deploymentId": "dpl_GdmHeFsWikgHyN8yTbLPm2GB1Tkg",
+  "sourceCommit": "68dac2c",
+  "applicationCommit": "d1ed836975c370c29a47c180882e53ebc49ff231",
+  "assets": {
+    "main-CmVyJ2bf.js": {
+      "httpStatus": 200,
+      "sha256": "9bd983857070bba3052a46222bfc948c0d11c79c3a2774d40109335efba156b2",
+      "matchesLocalBuild": true
+    },
+    "main-BddXbDC2.css": {
+      "httpStatus": 200,
+      "sha256": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a",
+      "matchesLocalBuild": true
+    }
+  },
+  "anonymousStatus": {
+    "httpStatus": 200,
+    "body": {
+      "configured": false,
+      "provider": null,
+      "accessRequired": true
+    }
+  }
+}

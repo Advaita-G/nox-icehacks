@@ -1,0 +1,315 @@
+[
+ {
+  "case": "1280x800",
+  "arrival": {
+   "room": "arrival",
+   "figure": true,
+   "overflow": false,
+   "reduced": false
+  },
+  "ran": "0.900 s",
+  "moved": "1.308 s",
+  "steps": [
+   [
+    "create",
+    true,
+    "Running",
+    "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+   ],
+   [
+    "pause",
+    true,
+    "Paused",
+    "0.942 s"
+   ],
+   [
+    "select",
+    true,
+    {
+     "text": "Ball",
+     "offscreen": false,
+     "inside": true
+    }
+   ],
+   [
+    "move",
+    true,
+    {
+     "text": "Ball · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Manual command — parsed locally. Review the exact changes.\nBall · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m"
+   ],
+   [
+    "yes",
+    true,
+    {
+     "text": "Applied · Ball · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Applied the reviewed change."
+   ],
+   [
+    "appliedGone",
+    null
+   ],
+   [
+    "run",
+    true,
+    "Running"
+   ],
+   [
+    "velocity",
+    true,
+    {
+     "text": "Ball · velocity x/y/z: (3.8295, -0.0273, 0) → (3, 0, 0) m/s",
+     "offscreen": true,
+     "inside": true
+    }
+   ],
+   [
+    "cancel",
+    true,
+    null,
+    "Cancelled. Valid experiments and saved work are retained."
+   ],
+   [
+    "stop",
+    true,
+    "thinking",
+    "Paused",
+    "Stopped. Your work is retained."
+   ],
+   [
+    "save",
+    true,
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+   ]
+  ],
+  "objects": "block anchor (fixed),ball mass",
+  "versions": 1,
+  "reload": {
+   "room": "arrival",
+   "objects": "block anchor (fixed),ball mass",
+   "versions": 1,
+   "message": "Runtime checkpoint restored paused. Resume live to continue."
+  },
+  "errors": []
+ },
+ {
+  "case": "375x667 reduced",
+  "arrival": {
+   "room": "arrival",
+   "figure": true,
+   "overflow": false,
+   "reduced": true
+  },
+  "ran": "0.908 s",
+  "moved": "1.350 s",
+  "steps": [
+   [
+    "create",
+    true,
+    "Running",
+    "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+   ],
+   [
+    "pause",
+    true,
+    "Paused",
+    "0.942 s"
+   ],
+   [
+    "select",
+    true,
+    {
+     "text": "Ball",
+     "offscreen": false,
+     "inside": true
+    }
+   ],
+   [
+    "move",
+    true,
+    {
+     "text": "Ball · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Manual command — parsed locally. Review the exact changes.\nBall · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m"
+   ],
+   [
+    "yes",
+    true,
+    {
+     "text": "Applied · Ball · position x/y/z: (-3.9726, 1.64, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Applied the reviewed change."
+   ],
+   [
+    "appliedGone",
+    null
+   ],
+   [
+    "run",
+    true,
+    "Running"
+   ],
+   [
+    "velocity",
+    true,
+    {
+     "text": "Ball · velocity x/y/z: (3.8295, -0.0273, 0) → (3, 0, 0) m/s",
+     "offscreen": true,
+     "inside": true
+    }
+   ],
+   [
+    "cancel",
+    true,
+    null,
+    "Cancelled. Valid experiments and saved work are retained."
+   ],
+   [
+    "stop",
+    true,
+    "thinking",
+    "Paused",
+    "Stopped. Your work is retained."
+   ],
+   [
+    "save",
+    true,
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+   ]
+  ],
+  "objects": "block anchor (fixed),ball mass",
+  "versions": 1,
+  "reload": {
+   "room": "arrival",
+   "objects": "block anchor (fixed),ball mass",
+   "versions": 1,
+   "message": "Runtime checkpoint restored paused. Resume live to continue."
+  },
+  "errors": []
+ },
+ {
+  "case": "320x640",
+  "arrival": {
+   "room": "arrival",
+   "figure": true,
+   "overflow": false,
+   "reduced": false
+  },
+  "ran": "0.875 s",
+  "moved": "1.325 s",
+  "steps": [
+   [
+    "create",
+    true,
+    "Running",
+    "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+   ],
+   [
+    "pause",
+    true,
+    "Paused",
+    "0.875 s"
+   ],
+   [
+    "select",
+    true,
+    {
+     "text": "Ball",
+     "offscreen": false,
+     "inside": true
+    }
+   ],
+   [
+    "move",
+    true,
+    {
+     "text": "Ball · position x/y/z: (-4.0999, 1.6825, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Manual command — parsed locally. Review the exact changes.\nBall · position x/y/z: (-4.0999, 1.6825, 0) → (-2, 3, 0) m"
+   ],
+   [
+    "yes",
+    true,
+    {
+     "text": "Applied · Ball · position x/y/z: (-4.0999, 1.6825, 0) → (-2, 3, 0) m",
+     "offscreen": false,
+     "inside": true
+    },
+    "Applied the reviewed change."
+   ],
+   [
+    "appliedGone",
+    null
+   ],
+   [
+    "run",
+    true,
+    "Running"
+   ],
+   [
+    "velocity",
+    true,
+    {
+     "text": "Ball · velocity x/y/z: (3.7584, -0.0273, 0) → (3, 0, 0) m/s",
+     "offscreen": true,
+     "inside": true
+    }
+   ],
+   [
+    "cancel",
+    true,
+    null,
+    "Cancelled. Valid experiments and saved work are retained."
+   ],
+   [
+    "stop",
+    true,
+    "thinking",
+    "Paused",
+    "Stopped. Your work is retained."
+   ],
+   [
+    "save",
+    true,
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+   ]
+  ],
+  "objects": "block anchor (fixed),ball mass",
+  "versions": 1,
+  "reload": {
+   "room": "arrival",
+   "objects": "block anchor (fixed),ball mass",
+   "versions": 1,
+   "message": "Runtime checkpoint restored paused. Resume live to continue."
+  },
+  "errors": []
+ },
+ {
+  "case": "microphone denied",
+  "state": "error",
+  "status": "Let’s try that again",
+  "caption": "Microphone permission was denied. Allow it in this site’s browser settings, or type your request.",
+  "keyboardShown": true,
+  "errors": []
+ },
+ {
+  "case": "speech API unavailable",
+  "state": "error",
+  "status": "Let’s try that again",
+  "caption": "Conversational voice is unavailable in this browser. Type your request instead.",
+  "keyboardShown": true,
+  "errors": []
+ }
+]

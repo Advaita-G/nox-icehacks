@@ -25,3 +25,31 @@ Keep scene validation, cancellation identity, actual physics, source retention, 
 Verify first view, named speech request to model/run, photo/check/reveal, reviewed edit, cancellation, keyboard fallback, persistence, reduced motion and 320/375/768/1280 layout through source, computed layout and accessibility. No audit screenshots. Record visual preference as unverified; test counts alone do not establish the intended product.
 
 Motion execution: [voice-room motion plan](../plans/001-nox-presence-motion.md).
+
+## Presence and spatial conversation (#25)
+
+**The presence.** Nox's period is a ball on a drawn line, the same ball the physics scenes use. It moves only from real signals:
+
+| Signal | Motion |
+|---|---|
+| Listening | The line tilts into a ramp. |
+| Recognizer speech start to end | The line traces for as long as speech is detected. No audio level is implied. |
+| Pending request | The ball rolls along the ramp. This means working, not progress. |
+| Each spoken word boundary | The ball hops. A plain cadence stands in when a voice reports no boundaries. |
+| Stop or cancel | The ball drops at once. |
+| Error | The line kinks. |
+| Arrival, once | The line draws in and the ball lands as the period. |
+
+Nothing loops while Nox is idle.
+
+**Conversation in the room.** None of these marks change physics, and they clear on the next turn, Stop or cancel.
+- The part Nox is talking about gets one note anchored to it. A part outside the view keeps its note at the nearest edge.
+- A reviewed, unapplied change appears as a ghost at the proposed pose or size, or as a velocity arrow. These are derived only from the proposal's operations.
+- After yes, "Applied …" lands on the part, then leaves.
+- The user's actual drawing lies on the floor under the model it became, then fades.
+
+**Rules.**
+- Animate transform and opacity only.
+- No blur or animated shadow over the live canvas.
+- The delayed-frame guard is unchanged. A one-time solver warm-up runs before a run starts.
+- Reduced motion and Pause motion remove all of the movement above. State is still readable from the line, the ball's position and the text.
