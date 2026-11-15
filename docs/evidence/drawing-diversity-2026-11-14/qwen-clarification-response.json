@@ -1,0 +1,61 @@
+{
+  "requestId": "house-d3f12f1c-b61a-4dbe-996f-b76232b0f6f1",
+  "sourceId": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "sourceRevision": 1,
+  "status": "needs-clarification",
+  "grounding": [
+    {
+      "objectId": "house",
+      "origin": "sketch",
+      "note": "A simple outlined house is shown in front view: a square body, a triangular roof, a central door, and two four-pane windows. I can build it as a static rigid figurine with estimated wall depth, but need to know if you want it as a static 3D",
+      "bbox": [
+        0.25,
+        0.17,
+        0.5,
+        0.66
+      ]
+    },
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "The bottom line suggests the house rests on a ground or floor.",
+      "bbox": [
+        0.31,
+        0.84,
+        0.38,
+        0.005
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "intended-use",
+      "prompt": "How should the house be represented in the simulation?",
+      "options": [
+        "Static rigid figurine (recommended: a shallow extruded 3D house that simply stands still)",
+        "Collapsible model (parts separate or fall on demand)",
+        "Interactive parts (e.g., door can open)"
+      ]
+    },
+    {
+      "id": "scale",
+      "prompt": "What real-world size should the house have?",
+      "options": [
+        "About 5 m wide and 4 m tall (playhouse scale)",
+        "About 10 m wide and 8 m tall (large building scale)",
+        "Use a custom size"
+      ]
+    },
+    {
+      "id": "depth",
+      "prompt": "What depth/thickness should the extruded house have?",
+      "options": [
+        "Shallow relief, about 0.5 m deep",
+        "Moderate volume, about 3 m deep",
+        "Deep volume, about 6 m deep"
+      ]
+    }
+  ],
+  "warnings": [],
+  "message": "The image is a readable line drawing of a house. I can preserve its visible silhouette and supports, but the physical intent and scale are not explicit; please choose the representation you want."
+}

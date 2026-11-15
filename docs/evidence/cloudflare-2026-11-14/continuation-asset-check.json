@@ -1,0 +1,22 @@
+{
+  "scope": "Anonymous stable-alias asset equality after documentation-only continuation; zero inference, no browser/UI capture.",
+  "appCommit": "078400677d1a110b0134f6eee4da209d117c249c",
+  "assets": {
+    "/": {
+      "bytes": 12581,
+      "sha256": "4e275ebfb536f466e6a1fd7ab128383012173515c53050555d03780b058410b6"
+    },
+    "/assets/index-D2bfssUi.js": {
+      "bytes": 3052,
+      "sha256": "80b90b9cc5b1804248ab07eaec66575e17a98c58662693638085711bee001724"
+    },
+    "/assets/main-CUTiIwJb.js": {
+      "bytes": 5086754,
+      "sha256": "b2d3de6ef0f8c35b7d4db310a86158e7376fa5ee0ca21cc72baa1ca1beb0541a"
+    },
+    "/assets/main-TUqCnkoP.css": {
+      "bytes": 42255,
+      "sha256": "78eb8c5da31b0eed01a91848a14956bec3d5ba4cb6ccba080ddac9bf5b7ad6b3"
+    }
+  }
+}

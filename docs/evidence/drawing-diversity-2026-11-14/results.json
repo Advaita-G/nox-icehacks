@@ -1,0 +1,76 @@
+{
+  "scope": "One preserved generated unlabelled drawing; baseline metadata names its subject. Candidate metadata is neutral. Two local prompt candidates discarded; production remains0784006. No physical-camera acceptance or universal accuracy claim.",
+  "cases": [
+    {
+      "case": "baseline",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "httpStatus": 200,
+      "elapsedSeconds": 33.882170375,
+      "vendorCalls": 1,
+      "strictValidation": {
+        "valid": false
+      },
+      "failure": {
+        "type": "Error",
+        "message": "Grounding references an unknown or duplicate part."
+      },
+      "promptSha256": "f025425830d6424e8ec64e201d95df7e6195b80469adce37eeb22b74ab442b9c",
+      "productionApiUsed": true,
+      "promoted": false,
+      "meaning": "Current production Gemma response rejected on inconsistent grounding IDs; no accepted scene."
+    },
+    {
+      "case": "qwen-clarification",
+      "model": "@cf/qwen/qwen3.8-27b",
+      "httpStatus": 200,
+      "elapsedSeconds": 29.520472291,
+      "vendorCalls": 1,
+      "strictValidation": {
+        "valid": true,
+        "status": "needs-clarification"
+      },
+      "failure": {
+        "type": "AssertionError",
+        "message": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'needs-clarification'\n- 'ready'\n"
+      },
+      "promptSha256": "f025425830d6424e8ec64e201d95df7e6195b80469adce37eeb22b74ab442b9c",
+      "productionApiUsed": false,
+      "promoted": false,
+      "meaning": "Strict-valid needs-clarification, not a parser failure; ready-only diagnostic assertion failed. No follow-up was sent."
+    },
+    {
+      "case": "compound-candidate",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "httpStatus": 200,
+      "elapsedSeconds": 62.323795584,
+      "vendorCalls": 1,
+      "strictValidation": {
+        "valid": true,
+        "status": "ready",
+        "objects": 5,
+        "groundings": 5
+      },
+      "failure": null,
+      "promptSha256": "4f88b2b35e43554c242f64f9c8438a242dbc220601b87a2755c48cc5040ed293",
+      "productionApiUsed": false,
+      "promoted": false,
+      "meaning": "Strict-valid scene and one-second solver run, but semantic review found a floating roof (0.88 m gap), ground overlap and inaccurate support provenance. Not accepted or promoted."
+    },
+    {
+      "case": "transforms-candidate",
+      "model": "@cf/google/gemma-4-26b-a4b-it",
+      "httpStatus": 200,
+      "elapsedSeconds": 23.935104708000004,
+      "vendorCalls": 1,
+      "strictValidation": null,
+      "failure": {
+        "type": "Error",
+        "message": "Every physical part needs source grounding or an explicit inferred explanation."
+      },
+      "promptSha256": "ea46d885c97d3494c33046a8dd155dc87c88f6f556051444c278144f5e67bc9e",
+      "productionApiUsed": false,
+      "promoted": false,
+      "meaning": "Revised explicit-transform prompt still omitted body grounding; strict rejection. Not promoted."
+    }
+  ]
+}

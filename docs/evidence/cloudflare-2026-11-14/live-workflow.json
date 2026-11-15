@@ -1,0 +1,335 @@
+{
+  "status": "PASS_WITH_GROUNDING_CAVEAT",
+  "scope": "One actual deployed generated-image interpretation plus one actual model-backed velocity edit, review/yes, real solver and exact Save/reload. Sanitized metadata only; model responses are preserved byte-for-byte separately.",
+  "sourceCommit": "078400677d1a110b0134f6eee4da209d117c249c",
+  "deploymentUrl": "https://nox-icehacks-5l8utqnu3-idk-41a8.vercel.app",
+  "deploymentId": "dpl_Hg5bT9m2FLNmGgMUDxSV4u7a1dWU",
+  "stableUrl": "https://nox-icehacks.vercel.app",
+  "startedAt": "2026-11-15T03:43:24.613610+00:00",
+  "completedAt": "2026-11-15T03:45:00.744581+00:00",
+  "provider": {
+    "httpStatus": 200,
+    "configured": true,
+    "provider": "cloudflare",
+    "accessRequired": false,
+    "model": "@cf/google/gemma-4-26b-a4b-it",
+    "region": "sfo1"
+  },
+  "input": {
+    "file": "generated-input.jpg",
+    "label": "Generated digital JPEG test sketch; not a paper/camera photograph",
+    "widthPx": 1600,
+    "heightPx": 1000,
+    "bytes": 57250,
+    "sha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+    "notes": "",
+    "answers": [],
+    "physicalCamera": false,
+    "physicalMicrophoneTested": false,
+    "speech": "Explicit synthetic browser SpeechRecognition/TTS; actual model responses were not mocked"
+  },
+  "calls": [
+    {
+      "path": "/api/interpret",
+      "httpStatus": 200,
+      "elapsedSeconds": 42.46325991698541
+    },
+    {
+      "path": "/api/command",
+      "httpStatus": 200,
+      "elapsedSeconds": 21.903039167053066
+    }
+  ],
+  "modelResponsesMocked": false,
+  "requestInterception": false,
+  "automaticRetries": 0,
+  "errors": [],
+  "browserClosed": true,
+  "responseFiles": {
+    "interpretation-response.json": {
+      "envelopeSha256": "37f38eb0a4119e60eef83bf0a14420cbbeabec6f8f99f1f52a10ea08ad86852d",
+      "rawSha256": "992c2c51a969af25ed2135e68862e58c8cdff012a219807f09b30b3c242c6a32",
+      "status": "ready"
+    },
+    "command-response.json": {
+      "envelopeSha256": "1d0c496db949e7be723c2c8c2b14ffb50e41b106e3e4feea4f1b2fdc913a58f1",
+      "rawSha256": "cc41bd007aa3027e27e1677129345915546d07e765d47997aa16a8762842bc7d",
+      "status": "proposed"
+    }
+  },
+  "interpretation": {
+    "strictValid": true,
+    "objects": 3,
+    "groundings": 3,
+    "ballDiameterMeters": 1,
+    "ballMassKg": 1,
+    "plankLengthMeters": 3,
+    "support": {
+      "ballPlankGapMeters": -2.7755575615628914e-17,
+      "plankGroundGapMeters": 0
+    },
+    "noActuation": true,
+    "assumptions": [
+      "3D rigid bodies; depth is assumed to be 1m for all objects to create a consistent volume.",
+      "Fixed ground and plank are modeled as static platforms.",
+      "Material properties (friction 0.5, restitution 0.2) are estimated for the ball and plank surfaces.",
+      "The sketch is interpreted as a side-on view (XZ plane), with Y as the vertical axis."
+    ],
+    "autoRun": {
+      "clock": "2.500 s",
+      "mode": "Running",
+      "caption": "Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.",
+      "bodyCount": 3,
+      "sourceClosed": true
+    }
+  },
+  "edit": {
+    "request": "Give the round object an initial horizontal velocity of 2 meters per second to the right, with zero vertical and depth velocity. Change nothing else.",
+    "review": {
+      "caption": "Review the physical changes before applying.\nball · velocity x/y/z: (0, 0, 0) → (2, 0, 0) m/s",
+      "changes": [
+        "ball · velocity x/y/z: (0, 0, 0) → (2, 0, 0) m/s"
+      ],
+      "proposal": {
+        "requestId": "req-6ef12e63",
+        "status": "proposed",
+        "operations": [
+          {
+            "type": "set-property",
+            "id": "ball-1",
+            "property": "velocity",
+            "value": {
+              "x": 2,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "summary": [
+          "Set the initial velocity of 'ball-1' to 2 m/s in the +X direction (to the right)."
+        ],
+        "questions": [],
+        "message": ""
+      },
+      "beforeVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "proposedVelocity": {
+        "x": 2,
+        "y": 0,
+        "z": 0
+      },
+      "modelBacked": true,
+      "confirmationRequired": true,
+      "clockUnchangedBeforeYes": true
+    },
+    "actualSceneChanges": [
+      {
+        "path": "scene.revision",
+        "before": 0,
+        "after": 1
+      },
+      {
+        "path": "scene.objects.2.velocity.x",
+        "before": 0,
+        "after": 2
+      }
+    ],
+    "onlyRequestedVelocityAndRevisionChanged": true,
+    "actualApplyMatchesCandidate": true,
+    "versions": 2,
+    "editedRun": {
+      "clock": 2.591666666666667,
+      "samples": 79,
+      "startPosition": {
+        "x": 0,
+        "y": 0.5999336838722229,
+        "z": 0
+      },
+      "endPosition": {
+        "x": 3.9462437629699707,
+        "y": 0.4998546242713928,
+        "z": -1.3086881578416865e-09
+      },
+      "endSpeed": 1.5778129390381586
+    }
+  },
+  "persistence": {
+    "sourceRetained": {
+      "retained": true,
+      "kind": "photo",
+      "widthPx": 1600,
+      "heightPx": 1000,
+      "imageBytes": 57250,
+      "imageSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+      "notesEmpty": true
+    },
+    "exactLibraryReload": true,
+    "finalLibrarySha256": "804495f5a8d3ca3efa0990af06dac5b5749d84ae72a0b05f3e5acd998f5f9df5",
+    "finalCheckpointSha256": "408b76e257507b37f1466fe6dbd7ab7ea00c13af837025184c49defa0949e79d",
+    "checkpointIndependentlyRestored": {
+      "valid": true,
+      "time": 2.591666666666667,
+      "bodies": 3,
+      "snapshotBytes": 4587
+    }
+  },
+  "groundingCaveat": {
+    "allSketchWithBbox": true,
+    "noStrokeIds": true,
+    "expected": {
+      "ball": [
+        0.4375,
+        0.32,
+        0.125,
+        0.2
+      ],
+      "plank": [
+        0.3125,
+        0.52,
+        0.375,
+        0.06
+      ],
+      "groundY": 0.584
+    },
+    "actual": [
+      {
+        "objectId": "ball-1",
+        "origin": "sketch",
+        "note": "1m diameter ball as specified in text",
+        "bbox": [
+          0.43,
+          0.21,
+          0.14,
+          0.14
+        ]
+      },
+      {
+        "objectId": "plank-1",
+        "origin": "sketch",
+        "note": "3m fixed plank as specified in text",
+        "bbox": [
+          0.33,
+          0.51,
+          0.34,
+          0.05
+        ]
+      },
+      {
+        "objectId": "ground-1",
+        "origin": "sketch",
+        "note": "Fixed ground line",
+        "bbox": [
+          0.15,
+          0.57,
+          0.7,
+          0.02
+        ]
+      }
+    ],
+    "ballApproxIoU": 0.09179926560587505,
+    "ballRegionContainsExpectedCenter": false,
+    "plankApproxIoU": 0.5250965250965259,
+    "groundContainsExpectedY": true,
+    "caveat": "Ball bbox is vertically misplaced; format-valid provenance does not establish accurate region for this subject."
+  },
+  "independentOfflineAudit": {
+    "scope": "No new inference/browser calls; unchanged strict parsing, scene-diff check, actual candidate equality, real Rapier runs and checkpoint restore",
+    "result": "PASS",
+    "interpretSolverSeconds": 1,
+    "commandSolverSeconds": 1
+  },
+  "releaseChecks": {
+    "rootTests": 237,
+    "rootPassed": 237,
+    "lastInputPassed": 110,
+    "typecheck": "PASS",
+    "productionBuild": "PASS",
+    "buildWarning": "Pre-existing large client chunk warning retained",
+    "stableHttp": {
+      "base": "https://nox-icehacks.vercel.app",
+      "pinnedDeploymentId": "dpl_Hg5bT9m2FLNmGgMUDxSV4u7a1dWU",
+      "sourceCommit": "078400677d1a110b0134f6eee4da209d117c249c",
+      "at": "2026-11-15T03:50:14.851715+00:00",
+      "inferenceCalls": 0,
+      "assets": [
+        {
+          "path": "/",
+          "bytes": 12581,
+          "sha256": "4e275ebfb536f466e6a1fd7ab128383012173515c53050555d03780b058410b6"
+        },
+        {
+          "path": "/assets/index-D2bfssUi.js",
+          "bytes": 3052,
+          "sha256": "80b90b9cc5b1804248ab07eaec66575e17a98c58662693638085711bee001724"
+        },
+        {
+          "path": "/assets/main-CUTiIwJb.js",
+          "bytes": 5086754,
+          "sha256": "b2d3de6ef0f8c35b7d4db310a86158e7376fa5ee0ca21cc72baa1ca1beb0541a"
+        },
+        {
+          "path": "/assets/main-TUqCnkoP.css",
+          "bytes": 42255,
+          "sha256": "78eb8c5da31b0eed01a91848a14956bec3d5ba4cb6ccba080ddac9bf5b7ad6b3"
+        }
+      ],
+      "anonymous": {
+        "configured": false,
+        "provider": null,
+        "accessRequired": true
+      },
+      "unlocked": {
+        "configured": true,
+        "provider": "cloudflare",
+        "accessRequired": false,
+        "model": "@cf/google/gemma-4-26b-a4b-it",
+        "region": "sfo1"
+      },
+      "status": "PASS"
+    }
+  },
+  "historicalOutcomes": [
+    {
+      "provider": "Momen",
+      "result": "Participant-funded projects remained unstable; completed local image control was followed by deployed pool failure. Earlier numeric-ID/image-first failures preserved; vendor support sent."
+    },
+    {
+      "provider": "Cloudflare Qwen3.8-27B",
+      "result": "Bare JSON response had invalid empty geometry; a later prompt-fixed UI take reached the 120-second deadline without HTTP. No successful command flow."
+    },
+    {
+      "provider": "Cloudflare Gemma4 bare JSON",
+      "result": "HTTP 200 in 31.8 s; broad scene schema invalid. No accepted scene/command flow."
+    },
+    {
+      "provider": "Cloudflare schema preflight",
+      "result": "HTTP 400 / 8007 pattern plus min/max grammar incompatibility; later diagnostic timeout at 120.018 s. No accepted scene."
+    },
+    {
+      "provider": "Cloudflare Gemma4 direct image-only diagnostic",
+      "result": "25.08s strict-ready 3-object reply/Rapier 1 s; older prompt inferred all provenance with 5 cm support caveats; not productionApi/UI/edit/persistence acceptance."
+    },
+    {
+      "provider": "Cloudflare Gemma4 structured UI",
+      "result": "Earlier structured UI take reached the 120-second deadline; a separate 24.097 s direct diagnostic rejected invented photo stroke IDs/no bbox. These failed takes remain failures."
+    }
+  ],
+  "filmBoundary": "Existing 94-second YouTube film is historical 8eb built-in/scripted/provider-failure-at-recording footage. A new live film is being prepared; no new export/upload/human audiovisual review is claimed here.",
+  "limitations": [
+    "Ball source bbox is format-valid but vertically misplaced: approximate IoU 0.0918 and excludes the expected sphere center. Plank/ground regions are approximate.",
+    "No precise image-region mapping, universal drawing recognition, real camera/photo or physical microphone acceptance is established.",
+    "One deployed two-call case is not a general reliability or latency guarantee.",
+    "Observed sfo1 deployment does not establish region as the cause of success.",
+    "Owner review and actual Devpost submission remain separate."
+  ],
+  "sourceReceiptSha256": {
+    "liveCapture": "829eb14afe9982d08e068f2f5634cb84ccff8e8cf95ce9c914c726df553bfb50",
+    "independentComplete": "e4c4ed98ce35f046be61fff66fcc08d83b64e125d5e9d5c414be2dace72d68fe",
+    "independentFinal": "c3cd1fa80d629923ac14109418ca0a9873d0a45f17586d7913761f4d3efc206b",
+    "independentSemantics": "c207d65994b7906cd506d8ef576188b04bc5a9e35d74d359ab9b8b62e4cd72aa",
+    "stableHttp": "4eafe3a151e70cff864d5810eda0f106ef19a813022aa67d1339ea7afcb43191"
+  }
+}

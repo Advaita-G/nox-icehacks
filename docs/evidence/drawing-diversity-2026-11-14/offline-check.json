@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "baseline rejects unknown grounding",
+    "Qwen is valid clarification",
+    "candidate has five valid bodies",
+    "actual geometry transform proves 0.88m floating roof",
+    "wall intersects ground",
+    "transform candidate rejects missing grounding",
+    "positive raw response still validates",
+    "positive source hash matches public input"
+  ],
+  "allPassed": true,
+  "modifiedCapturedReplies": false,
+  "newInferenceCalls": 0,
+  "geometry": {
+    "wallTop": 2.9000000000000004,
+    "roofBottom": 3.7800000000000002,
+    "gap": 0.8799999999999999,
+    "wallBottom": -0.30000000000000004
+  }
+}

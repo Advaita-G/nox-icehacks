@@ -1,0 +1,243 @@
+{
+  "requestId": "house-d3f12f1c-b61a-4dbe-996f-b76232b0f6f1",
+  "sourceId": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "objectId": "house-structure",
+      "origin": "sketch",
+      "note": "The main outline of the house including the roof and base.",
+      "bbox": [
+        0.26,
+        0.18,
+        0.48,
+        0.67
+      ]
+    },
+    {
+      "objectId": "window-left",
+      "origin": "sketch",
+      "note": "Left window pane structure.",
+      "bbox": [
+        0.35,
+        0.51,
+        0.08,
+        0.15
+      ]
+    },
+    {
+      "objectId": "window-right",
+      "origin": "sketch",
+      "note": "Right window pane structure.",
+      "bbox": [
+        0.57,
+        0.51,
+        0.08,
+        0.15
+      ]
+    },
+    {
+      "objectId": "door",
+      "origin": "sketch",
+      "note": "The central doorway.",
+      "bbox": [
+        0.45,
+        0.46,
+        0.08,
+        0.39
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the 2D drawing as a 3D house structure. The house is modeled as a compound rigid body with depth. Windows and doors are represented as surface details (recessed geometry) rather than separate interactive parts, as they are part of a single flat illustration. Scale is estimated at 5m width.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "House Model",
+    "scale": 5,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "The 2D drawing is a facade of a 3D house.",
+      "House depth is estimated at 4 meters.",
+      "The structure is a single rigid body.",
+      "Windows and door are aesthetic details (recessed) and not separate mechanical parts.",
+      "The ground is a fixed plane at Y=0."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "User sketch"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground-plane",
+        "label": "ground",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 20,
+        "height": 0.2,
+        "depth": 20,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "house-structure",
+        "label": "house",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 5,
+        "height": 5,
+        "depth": 4,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0.4,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 1.2,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": 0.5,
+                "z": 0.5
+              },
+              {
+                "x": -0.5,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}
