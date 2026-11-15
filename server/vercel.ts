@@ -2,10 +2,11 @@ import { createHash, createHmac, timingSafeEqual } from 'node:crypto';
 import { handleApi, MAX_BODY_BYTES } from '../packages/input/server/api.ts';
 import type { ModelProvider } from '../packages/input/server/api.ts';
 import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
-import { INTERPRET_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
+import { interpretationSchemaForSource, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
 import { REQUEST_TIMEOUTS } from '../src/input/contract.ts';
 import { validateRequest } from './request.ts';
 import { buildProviders } from './providers.ts';
+import { CLOUDFLARE_MODEL } from './cloudflare.ts';
 
 type Environment = Record<string, string | undefined>;
 const COOKIE = '__Host-nox-access', SESSION_SECONDS = 8 * 60 * 60;
@@ -71,7 +72,11 @@ export async function productionApi(request: Request, path: '/api/status' | '/ap
     try {
       const registered = providers ?? buildProviders(env), name = env.NOX_MODEL_PROVIDER;
       const configured = !!(unlocked && name && registered[name]);
-      return json(200, { configured, provider: configured ? name : null, accessRequired: !unlocked });
+      const diagnostics = configured && name === 'cloudflare' ? {
+        model: env.NOX_CLOUDFLARE_MODEL?.trim() || CLOUDFLARE_MODEL,
+        ...(env.VERCEL_REGION?.trim() ? { region: env.VERCEL_REGION.trim() } : {}),
+      } : {};
+      return json(200, { configured, provider: configured ? name : null, accessRequired: !unlocked, ...diagnostics });
     } catch { return json(503, { configured: false, provider: null, message: 'The server runtime configuration needs attention.' }); }
   }
   if (request.method !== 'POST') return json(405, { message: 'Use POST.' });
@@ -88,12 +93,14 @@ export async function productionApi(request: Request, path: '/api/status' | '/ap
   try {
     const body = await readBody(request, MAX_BODY_BYTES, controller.signal);
     if (controller.signal.aborted) throw new Error('Request cancelled.');
-    try { validateRequest(path, JSON.parse(body)); }
+    let parsed: { source?: { kind?: unknown } };
+    try { parsed = JSON.parse(body); validateRequest(path, parsed); }
     catch (error) { return json(400, { code: 'BAD_REQUEST', message: error instanceof Error ? error.message : 'Invalid request.' }); }
     let registered: Record<string, ModelProvider>;
     try { registered = providers ?? buildProviders(env); }
     catch { return json(503, { code: 'PROVIDER_NOT_CONFIGURED', message: 'The server runtime configuration needs attention.' }); }
-    const result = await Promise.race([handleApi({ method: 'POST', url: path, body, env, providers: registered, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D }, outputSchemas: { '/api/interpret': INTERPRET_3D_SCHEMA, '/api/command': COMMAND_3D_SCHEMA } }), aborted]);
+    const outputSchemas: Record<string, Record<string, unknown>> = path === '/api/interpret' ? { '/api/interpret': interpretationSchemaForSource(parsed.source?.kind) } : { '/api/command': COMMAND_3D_SCHEMA };
+    const result = await Promise.race([handleApi({ method: 'POST', url: path, body, env, providers: registered, signal: controller.signal, instructions: { '/api/interpret': INTERPRET_3D, '/api/command': COMMAND_3D }, outputSchemas }), aborted]);
     if (controller.signal.aborted) throw new Error('Request cancelled.');
     if (result.status === 200 && (typeof result.body.raw !== 'string' || Buffer.byteLength(result.body.raw) > 2_000_000)) return json(502, { code: 'PROVIDER_ERROR', message: 'The model response was invalid or too large.' });
     return json(result.status, result.body);

@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { productionApi } from '../server/vercel.ts';
 import { emptyScene, newObject } from '../src/physics/scene.ts';
-import { INTERPRET_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
+import { INTERPRET_3D_SCHEMA, INTERPRET_CANVAS_3D_SCHEMA, COMMAND_3D_SCHEMA } from '../src/input/schema.ts';
+import { CLOUDFLARE_MODEL } from '../server/cloudflare.ts';
 
 const origin = 'https://nox.example', code = 'private-test-code-with-at-least-32-characters';
 const env = { NOX_DEMO_ACCESS_CODE: code, NOX_MODEL_PROVIDER: 'fixture' };
@@ -66,6 +67,20 @@ test('status reveals no credentials and distinguishes locked, unlocked and unava
   assert.equal((await productionApi(request('/api/interpret', photo, token), '/api/interpret', env, {})).status, 503);
 });
 
+test('only authorized configured Cloudflare status reveals selected model and optional region', async () => {
+  const environment = { ...env, NOX_MODEL_PROVIDER: 'cloudflare', NOX_CLOUDFLARE_MODEL: ' @cf/google/gemma-4-26b-a4b-it ', VERCEL_REGION: 'sfo1', NOX_CLOUDFLARE_ACCOUNT_ID: 'PRIVATE_ACCOUNT_SENTINEL', NOX_CLOUDFLARE_API_TOKEN: 'PRIVATE_TOKEN_SENTINEL' };
+  const providers = { cloudflare: { complete: async () => assert.fail('Status cannot call a model') } };
+  const status = async (cookie, values = environment, registered = providers) => (await productionApi(request('/api/status', undefined, cookie), '/api/status', values, registered)).json();
+  assert.deepEqual(await status(), { configured: false, provider: null, accessRequired: true });
+  const token = await cookie();
+  const configured = await status(token);
+  assert.deepEqual(configured, { configured: true, provider: 'cloudflare', accessRequired: false, model: '@cf/google/gemma-4-26b-a4b-it', region: 'sfo1' });
+  assert.doesNotMatch(JSON.stringify(configured), /PRIVATE|ACCOUNT|TOKEN/);
+  assert.deepEqual(await status(token, { ...environment, NOX_CLOUDFLARE_MODEL: ' ', VERCEL_REGION: undefined }), { configured: true, provider: 'cloudflare', accessRequired: false, model: CLOUDFLARE_MODEL });
+  assert.deepEqual(await status(token, environment, {}), { configured: false, provider: null, accessRequired: false });
+  assert.deepEqual(await status(token, { ...environment, NOX_MODEL_PROVIDER: 'fixture' }, { fixture: providers.cloudflare }), { configured: true, provider: 'fixture', accessRequired: false });
+});
+
 test('origin, method, JSON size and canonical request validation precede provider calls', async () => {
   let calls = 0;
   const providers = { fixture: { complete: async () => { calls++; return '{}'; } } }, token = await cookie();
@@ -74,25 +89,28 @@ test('origin, method, JSON size and canonical request validation precede provide
   assert.equal((await productionApi(request('/api/interpret'), '/api/interpret', env, providers)).status, 405);
   assert.equal((await productionApi(request('/api/interpret', '{bad', token), '/api/interpret', env, providers)).status, 400);
   assert.equal((await productionApi(request('/api/interpret', { ...photo, source: { ...photo.source, image: 'data:image/png;base64,YWJj' } }, token), '/api/interpret', env, providers)).status, 400);
+  assert.equal((await productionApi(request('/api/interpret', { ...photo, source: { ...photo.source, kind: 'unsupported' } }, token), '/api/interpret', env, providers)).status, 400);
   assert.equal((await productionApi(request('/api/interpret', { ...photo, notes: 'x'.repeat(3 * 1024 * 1024) }, token), '/api/interpret', env, providers)).status, 413);
   assert.equal(calls, 0);
 });
 
-test('photo and command use the existing canonical prompts and preserve response identity', async () => {
+test('photo/canvas select matching schemas and command preserves the canonical prompt/identity', async () => {
   const calls = [], providers = { fixture: { complete: async input => { calls.push(input); return '{"fixture":true}'; } } }, token = await cookie();
   const scene = emptyScene('Deployed request'); scene.objects = [newObject('ball', 'ball')];
   const command = { requestId: 'r2', target, transcript: 'make the ball heavier', scene, selection: ['ball'], answers: [] };
-  for (const [path, body] of [['/api/interpret', photo], ['/api/command', command]]) {
+  const canvas = { ...photo, requestId: 'r-canvas', source: { ...photo.source, kind: 'canvas', strokes: [{ id: 'line', points: [[0, 0], [1, 1]] }] } };
+  for (const [path, body] of [['/api/interpret', photo], ['/api/interpret', canvas], ['/api/command', command]]) {
     const response = await productionApi(request(path, body, token), path, env, providers);
     assert.equal(response.status, 200);
     assert.deepEqual(await response.json(), { requestId: body.requestId, raw: '{"fixture":true}' });
     assert.equal(response.headers.get('cache-control'), 'no-store');
   }
   assert.match(calls[0].instructions, /actual attached rough drawing\/photo/);
-  assert.match(calls[1].instructions, /canonical atomic operations/);
-  assert.deepEqual(calls.map(c => c.request.requestId), ['r1', 'r2']);
+  assert.match(calls[2].instructions, /canonical atomic operations/);
+  assert.deepEqual(calls.map(c => c.request.requestId), ['r1', 'r-canvas', 'r2']);
   assert.equal(calls[0].outputSchema, INTERPRET_3D_SCHEMA);
-  assert.equal(calls[1].outputSchema, COMMAND_3D_SCHEMA);
+  assert.equal(calls[1].outputSchema, INTERPRET_CANVAS_3D_SCHEMA);
+  assert.equal(calls[2].outputSchema, COMMAND_3D_SCHEMA);
 });
 
 test('provider failures and oversized replies stay bounded and do not expose raw errors', async () => {

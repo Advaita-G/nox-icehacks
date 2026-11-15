@@ -54,23 +54,26 @@ const sceneFields = {
 const scene = object(sceneFields), readyScene = object({ ...sceneFields, objects: array(body, LIMITS.objects, 1) });
 const question = object({ id: text(64), prompt: text(500), options: array(text(500), 8) });
 const questions = array(question, 12), descriptions = array(text(500), 20);
-const provenance = { objectId: text(80), note: text(240), strokeIds: array(text(500), 500, 1), bbox: array(number(0, 1), 4, 4) };
-const drawn: Schema = { anyOf: [
-  object({ ...provenance, origin: enumeration(['sketch']) }, ['objectId', 'origin', 'note', 'bbox']),
-  object({ ...provenance, origin: enumeration(['sketch']) }, ['objectId', 'origin', 'note', 'strokeIds']),
-] };
-const inferred = object({ ...provenance, origin: enumeration(['inferred']) }, ['objectId', 'origin', 'note']);
-
-const interpretationFields = {
-  requestId: text(256), sourceId: text(256), sourceRevision: { type: 'integer', minimum: 0 }, status: enumeration(['ready', 'needs-clarification', 'rejected']),
-  grounding: array({ anyOf: [drawn, inferred] }, 128), questions, warnings: descriptions, message: text(500, 0),
-};
-// Full union branches avoid relying on the host grammar to merge sibling constraints.
-export const INTERPRET_3D_SCHEMA: Schema = { type: 'object', $defs: { scene, readyScene }, anyOf: [
-  object({ ...interpretationFields, status: enumeration(['ready']), scene: { $ref: '#/$defs/readyScene' }, grounding: array({ anyOf: [drawn, inferred] }, 128, 1), questions: array(question, 0) }),
-  object({ ...interpretationFields, status: enumeration(['needs-clarification']), scene: { $ref: '#/$defs/scene' }, questions: array(question, 12, 1) }, Object.keys(interpretationFields)),
-  object({ ...interpretationFields, status: enumeration(['rejected']), scene: { $ref: '#/$defs/scene' } }, Object.keys(interpretationFields)),
-] };
+const groundingFields = { objectId: text(80), origin: enumeration(['sketch']), note: text(240) };
+const photoPart = object({ ...groundingFields, bbox: array(number(0, 1), 4, 4) });
+const canvasPart = object({ ...groundingFields, strokeIds: array(text(500), 500, 1) });
+const inferred = object({ objectId: text(80), origin: enumeration(['inferred']), note: text(240) });
+function interpretationSchema(drawn: Schema): Schema {
+  const grounding = { anyOf: [drawn, inferred] };
+  const fields = {
+    requestId: text(256), sourceId: text(256), sourceRevision: { type: 'integer', minimum: 0 }, status: enumeration(['ready', 'needs-clarification', 'rejected']),
+    grounding: array(grounding, 128), questions, warnings: descriptions, message: text(500, 0),
+  };
+  // Full union branches avoid relying on the host grammar to merge sibling constraints.
+  return { type: 'object', $defs: { scene, readyScene }, anyOf: [
+    object({ ...fields, status: enumeration(['ready']), scene: { $ref: '#/$defs/readyScene' }, grounding: array(grounding, 128, 1), questions: array(question, 0) }),
+    object({ ...fields, status: enumeration(['needs-clarification']), scene: { $ref: '#/$defs/scene' }, questions: array(question, 12, 1) }, Object.keys(fields)),
+    object({ ...fields, status: enumeration(['rejected']), scene: { $ref: '#/$defs/scene' } }, Object.keys(fields)),
+  ] };
+}
+export const INTERPRET_3D_SCHEMA = interpretationSchema(photoPart);
+export const INTERPRET_CANVAS_3D_SCHEMA = interpretationSchema(canvasPart);
+export const interpretationSchemaForSource = (kind: unknown): Schema => kind === 'canvas' ? INTERPRET_CANVAS_3D_SCHEMA : INTERPRET_3D_SCHEMA;
 
 const operation = (type: string, fields: Record<string, Schema>, required = Object.keys(fields)): Schema => object({ type: enumeration([type]), ...fields }, ['type', ...required]);
 const property = (name: string, value: Schema): Schema => operation('set-property', { id, property: enumeration([name]), value });
