@@ -101,6 +101,22 @@ test('prompts attempt non-mechanism drawings while distinguishing rigid proxies 
   assert.match(INTERPRET_3D, /Never invent stroke references/);
 });
 
+test('shared prompts distinguish optional primitive geometry while empty arrays remain rejected', () => {
+  for (const prompt of [INTERPRET_3D, COMMAND_3D]) {
+    assert.match(prompt, /geometry is optional: omit geometry entirely/);
+    assert.match(prompt, /1–32 parts, never geometry:\[\]/);
+    assert.match(prompt, /custom kinds always require nonempty geometry/);
+  }
+  const identity = { id: 'primitive-photo', revision: 1, kind: 'photo', strokeIds: [] };
+  const scene = emptyScene('Three primitive parts');
+  scene.objects = [newObject('block', 'ground'), newObject('block', 'plank'), newObject('ball', 'ball')];
+  const response = { requestId: 'primitive', sourceId: identity.id, sourceRevision: 1, status: 'ready', scene,
+    grounding: scene.objects.map(o => ({ objectId: o.id, origin: 'sketch', note: 'A visible primitive part.', bbox: [.1, .1, .2, .2] })), questions: [], warnings: [], message: '' };
+  assert.equal(parseInterpretation(JSON.stringify(response), 'primitive', identity).scene.objects.length, 3);
+  for (const object of response.scene.objects) object.geometry = [];
+  assert.throws(() => parseInterpretation(JSON.stringify(response), 'primitive', identity), /Geometry requires 1–32 parts/);
+});
+
 test('declared object, character, scenery and abstract proxies compile with photo provenance and unchanged limits', () => {
   const identity = { id: 'unfamiliar-photo', revision: 3, kind: 'photo', strokeIds: [] };
   const part = (shape, size, position = { x: 0, y: 0, z: 0 }) => ({ shape, size, position, rotation: { x: 0, y: 0, z: 0, w: 1 } });
