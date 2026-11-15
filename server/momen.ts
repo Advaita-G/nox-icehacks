@@ -110,9 +110,10 @@ export function createMomenProvider(options: MomenOptions): ModelProvider {
   }
 
   return {
-    async complete({ instructions, request, signal }) {
+    async complete({ instructions, request, signal, outputSchema }) {
       let textRequest: unknown = request;
-      const inputArgs: Record<string, unknown> = { [keys.instructions]: instructions };
+      const inputArgs: Record<string, unknown> = { [keys.instructions]: outputSchema
+        ? `${instructions}\nReturn JSON matching this schema:\n${JSON.stringify(outputSchema)}` : instructions };
       const image = isObj(request) && isObj(request.source) ? request.source.image : undefined;
       if (typeof image === 'string') {
         inputArgs[keys.image] = await uploadImage(image, signal);
