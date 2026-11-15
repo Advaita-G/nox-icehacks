@@ -1,0 +1,245 @@
+[
+  {
+    "viewport": [
+      1280,
+      800
+    ],
+    "motion": "no-preference",
+    "case": "ramp",
+    "commandRequests": [
+      {
+        "transcript": "make it a bit heavier",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": [
+          {
+            "question": "By how many degrees?",
+            "answer": "12 degrees"
+          }
+        ]
+      }
+    ],
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-239fd53d",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": ""
+      },
+      {
+        "requestId": "req-24f0d0fd",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      },
+      {
+        "requestId": "req-54f50559",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": ""
+      }
+    ],
+    "screenshots": false,
+    "controls": {
+      "#assistant-start": {
+        "x": 45.03125,
+        "y": 583.5,
+        "width": 70,
+        "height": 44
+      },
+      "#assistant-keyboard": {
+        "x": 1092.65625,
+        "y": 659,
+        "width": 44,
+        "height": 44
+      },
+      "#assistant-compose button": {
+        "x": 1174.15625,
+        "y": 715,
+        "width": 64.84375,
+        "height": 48
+      }
+    },
+    "automaticUpload": true,
+    "noBuildCommandNeeded": true,
+    "directMass": true,
+    "shortClarification": true,
+    "directDegreeEdit": true,
+    "localUndo": true,
+    "removalStillReviewed": true,
+    "status": "PASS",
+    "cancelRetainsSource": true,
+    "lateResultIgnored": true,
+    "errorRetainsSource": true,
+    "retryUsesSameImage": true,
+    "contextClosed": true
+  },
+  {
+    "viewport": [
+      375,
+      812
+    ],
+    "motion": "no-preference",
+    "case": "ramp",
+    "commandRequests": [
+      {
+        "transcript": "make it a bit heavier",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": [
+          {
+            "question": "By how many degrees?",
+            "answer": "12 degrees"
+          }
+        ]
+      }
+    ],
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-19d79532",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": ""
+      },
+      {
+        "requestId": "req-1c76fef2",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      },
+      {
+        "requestId": "req-7ab57d8d",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": ""
+      }
+    ],
+    "screenshots": false,
+    "controls": {
+      "#assistant-start": {
+        "x": 23,
+        "y": 617.5,
+        "width": 70,
+        "height": 44
+      },
+      "#assistant-keyboard": {
+        "x": 205.65625,
+        "y": 689,
+        "width": 44,
+        "height": 44
+      },
+      "#assistant-compose button": {
+        "x": 287.15625,
+        "y": 741,
+        "width": 64.84375,
+        "height": 48
+      }
+    },
+    "automaticUpload": true,
+    "noBuildCommandNeeded": true,
+    "directMass": true,
+    "shortClarification": true,
+    "directDegreeEdit": true,
+    "localUndo": true,
+    "removalStillReviewed": true,
+    "status": "PASS",
+    "cancelRetainsSource": true,
+    "lateResultIgnored": true,
+    "errorRetainsSource": true,
+    "retryUsesSameImage": true,
+    "contextClosed": true
+  },
+  {
+    "viewport": [
+      320,
+      640
+    ],
+    "motion": "reduce",
+    "case": "chair",
+    "commandRequests": [
+      {
+        "transcript": "make it a bit heavier",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": []
+      },
+      {
+        "transcript": "incline it",
+        "answers": [
+          {
+            "question": "By how many degrees?",
+            "answer": "12 degrees"
+          }
+        ]
+      }
+    ],
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-84b83dfb",
+        "sourceId": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+        "notes": ""
+      },
+      {
+        "requestId": "req-6cf1b0ef",
+        "sourceId": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+        "notes": "build it"
+      },
+      {
+        "requestId": "req-58eaf0ae",
+        "sourceId": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+        "notes": ""
+      }
+    ],
+    "screenshots": false,
+    "controls": {
+      "#assistant-start": {
+        "x": 23,
+        "y": 445.5,
+        "width": 70,
+        "height": 44
+      },
+      "#assistant-keyboard": {
+        "x": 150.65625,
+        "y": 517,
+        "width": 44,
+        "height": 44
+      },
+      "#assistant-compose button": {
+        "x": 232.15625,
+        "y": 569,
+        "width": 64.84375,
+        "height": 48
+      }
+    },
+    "automaticUpload": true,
+    "noBuildCommandNeeded": true,
+    "directMass": true,
+    "shortClarification": true,
+    "directDegreeEdit": true,
+    "localUndo": true,
+    "removalStillReviewed": true,
+    "status": "PASS",
+    "cancelRetainsSource": true,
+    "lateResultIgnored": true,
+    "errorRetainsSource": true,
+    "retryUsesSameImage": true,
+    "contextClosed": true
+  }
+]

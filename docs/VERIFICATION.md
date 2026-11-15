@@ -1,5 +1,9 @@
 # Verification and evidence boundaries
 
+## Automatic upload and direct conversation
+
+The latest user correction supersedes the staged-upload and routine-confirmation flow below. Upload alone builds; validated reversible edits apply and acknowledge, with local undo and question/review paths for ambiguity or broader changes. [Current evidence](evidence/automatic-conversation-2026-11-15/README.md) separates fresh inference from controlled interface checks and physical microphone acceptance.
+
 ## Conversational repair, November 15
 
 The user-reported picture/empty-scene failure supersedes the earlier automatic-upload acceptance: an ordinary build request must carry the actual staged image and infer missing physical values. Current [flow evidence](evidence/conversation-flow-2026-11-15/README.md) retains the original failed incline attempt alongside fresh generated-ramp and non-ramp chair workflows, qualitative edits, explicit yes, physics, exact Save/reload and phone cancellation/error recovery. Synthetic speech/captured-response checks are identified separately from real model responses and physical microphone acceptance. Canonical validators, frame guards and the free-only price restriction remain unchanged.

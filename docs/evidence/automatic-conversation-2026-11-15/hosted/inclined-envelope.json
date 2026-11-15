@@ -1,0 +1,4 @@
+{
+  "requestId": "req-909693d4",
+  "raw": "{\"requestId\":\"req-909693d4\",\"status\":\"proposed\",\"operations\":[{\"type\":\"rotate\",\"id\":\"ramp\",\"rotation\":{\"x\":0,\"y\":0,\"z\":-0.10452846326765346,\"w\":0.9945218953682733}},{\"type\":\"move\",\"id\":\"ramp\",\"position\":{\"x\":2.799999952316284,\"y\":2.353863124110916,\"z\":0}}],\"summary\":[\": Tilting the ramp 12\u00b0 steeper around its contact with the ground (negative Z, clockwise in the front view).\"],\"questions\":[],\"message\":\"The ramp will tilt 12\u00b0 steeper while staying seated on the ground; no other objects move.\"}"
+}

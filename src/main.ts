@@ -9,6 +9,7 @@ import { initAssistantPanel } from './assistant/panel.ts';
 import { demonstrate, warmupRendering } from './assistant/demo.ts';
 import { unlockJudgeLink } from './assistant/access.ts';
 import { proposalMarks } from './assistant/proposal.ts';
+import { canApplyDirectly, describeApplied } from './input/changes.ts';
 import './assistant/panel.css';
 import * as THREE from 'three';
 import { Viewport } from './viewport.ts';
@@ -255,7 +256,14 @@ async function presentAssistantReply(response: AssistantReply, turn: number): Pr
     if (turn !== assistantTurn) return;
     automaticPhotoEpoch = 0;
     await assistantActions.handle('run');
-    if (turn === assistantTurn) await assistantSay(`I built ${bench.scene.name} from your drawing. It is running with estimated sizes and physical values. Tell me what to change; I will explain edits and wait for your yes.`);
+    if (turn === assistantTurn) await assistantSay(`I built ${bench.scene.name} from your drawing. It is running with estimated sizes and physical values. Tell me what to change.`);
+    return;
+  }
+  const operations = inputUI?.proposedOperations ?? [];
+  if (response.reviewRequired && !inputUI?.active && canApplyDirectly(operations)) {
+    const acknowledgement = describeApplied(bench.physics.currentScene(), operations);
+    await assistantActions.handle('yes');
+    if (turn === assistantTurn) await assistantSay([acknowledgement, ...response.changes, 'Say undo to go back.'].join('\n'), `${acknowledgement} Say undo to go back.`);
     return;
   }
   const confirmation = response.reviewRequired ? 'Say yes to apply, or cancel.' : '';
@@ -280,13 +288,19 @@ async function receiveAssistantPhoto(file: File): Promise<void> {
     }
   }
 }
-async function stageUploadedPhoto(): Promise<void> {
+async function buildUploadedPhoto(): Promise<void> {
   const epoch = ++photoEpoch, turn = ++assistantTurn;
   await assistantActions.handle('cancel');
   if (epoch !== photoEpoch || turn !== assistantTurn) return;
   inputUI!.openSource();
-  await assistantSay('Your drawing is ready. Ask me to build it into a 3D physics model. You do not need to enter sizes or masses.');
-  if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); }
+  checkingPhoto = true; voice.setThinking(true);
+  void assistantSay('I am building a 3D physics model from your drawing. I will estimate missing sizes and physical values.');
+  try {
+    const response = await assistantActions.handle('interpret my photo');
+    if (turn === assistantTurn) { voice.setThinking(true); await presentAssistantReply(response, turn); }
+  } catch (cause) {
+    if (turn === assistantTurn) { const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message); }
+  } finally { if (turn === assistantTurn) { checkingPhoto = false; voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
 }
 function compareMeasurements(): string {
   bench.pause(); bench.capture(); const baseline = bench.experiment.baseline;
@@ -415,6 +429,11 @@ function startAssistant(): void {
     run: runAssistantScene,
     pause: () => { bench.pause(); bench.capture(); assistantChanged(); return `Paused at ${bench.sample.simulationTime.toFixed(2)} simulated seconds.`; },
     reset: () => { bench.reset(); assistantChanged(); return 'Reset to this version’s starting setup. Earlier versions and the baseline are retained.'; },
+    undo: () => {
+      const versions = bench.experiment.versions, index = versions.findIndex(v => v.id === bench.selected.id);
+      check(index > 0, 'There is no earlier version to restore.'); bench.selectVersion(versions[index - 1]!.id); assistantChanged(); fit();
+      return 'I restored the previous version. All versions are retained.';
+    },
     baseline: () => { bench.pause(); bench.capture(); check(bench.selected.run.samples.length > 1, 'Run the experiment first so I can retain a measured baseline.'); bench.pinBaseline(); assistantChanged(); return `I kept the original run through ${bench.sample.simulationTime.toFixed(2)} simulated seconds as your baseline. Tell me what to change.`; },
     compare: compareMeasurements,
     save: async () => { await saveAssistantExperiment(); return 'Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.'; },
@@ -509,7 +528,7 @@ async function start(): Promise<void> {
       state: () => ({ bench, selectedId, dirty }),
       show: (next, nextDirty, nextSelected) => { bench = next; dirty = nextDirty; selectedId = nextSelected; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); fit(); refresh(); },
       changed: () => { dirty = true; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); refresh(); },
-      onPhotoReady: () => stageUploadedPhoto(),
+      onPhotoReady: () => buildUploadedPhoto(),
     });
     initShell({ openSource: () => inputUI?.openSource() });
     startAssistant();

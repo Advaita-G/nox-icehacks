@@ -1,0 +1,12 @@
+{
+  "README.md": "978032cca3aefa6eb9b82ec98ed39dc6f519f91660681936468c9eddfe72035d",
+  "checks.json": "d296ce27149dc6832410533a22a5c33efb1498b4c4e504a216bca7b20b2cc4cf",
+  "deployment.json": "8e021b7a221302e7adc600d196a84495e0987a409b730dff3fcacc57efe04c0c",
+  "hosted/drawing-envelope.json": "f12d2794b6d2501c1202c86914b67c92c8ec2abd432bc9d35adde8d2e673b48f",
+  "hosted/flow.json": "4468ff5d28326a54871cb4ae9c88064e1a33d9b12cb82a9aab5b299a85693c71",
+  "hosted/inclined-envelope.json": "4f43ed46196f20c35f57f90dbdeda5fa9f63e87a71c46ae1b2c55f25b8a1e0a8",
+  "interface.json": "4cd7f2d055dbcf4cce21ecb906c88e6d8dbd0e4ed49d0247a910e5c625e5643c",
+  "quota.json": "d6ed8a2dcd3169faa0a90c3ef36feb6a33f77063abf592840290fbb98c51f632",
+  "secret-scan.json": "2561ef9be413c8d14255c0dd6158c311d9d0fcbf421642a0800921ff841590de",
+  "stable.json": "1356d6310d3ec75196fe1212ddb50ab0c11446ca81286a89b8f4a845d3327730"
+}

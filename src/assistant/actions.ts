@@ -5,6 +5,7 @@ export interface AssistantHost {
   run(): Message;
   pause(): Message;
   reset(): Message;
+  undo?(): Message;
   baseline(): Message;
   compare(): Message;
   save(): Message;
@@ -65,6 +66,10 @@ export class AssistantActions {
     }
     if (/^(?:hi|hello|hey|are you there|can you hear me)$/.test(text)) return reply(this.host.hasDrawing?.() ? 'I am here. Your drawing is ready; ask me to build it into a physics model.' : 'I am here. Show me a drawing or tell me what you want to build, then we can change it together.');
     if (/^(?:thanks|thank you)(?: nox)?$/.test(text)) return reply('You are welcome. What would you like to change next?');
+    if (/^(?:build (?:a )?3d preview|interpret (?:my|the) (?:sketch|drawing|photo))$/.test(text) && this.host.interpret) {
+      if (this.reviewOpen) await this.host.cancel();
+      return this.review(input, epoch, () => this.host.interpret!());
+    }
     // A visible source takes precedence over named presets and the text-only scene editor.
     if (this.host.hasDrawing?.() && this.host.interpret && /^(?:(?:can|could|would|will) you(?: please)? )?(?:build|make|create|recreate|turn|convert|render|model|simulate|interpret)\b/.test(text)) {
       if (this.reviewOpen) await this.host.cancel();
@@ -76,6 +81,7 @@ export class AssistantActions {
     else if (/^(?:run|start|play|resume|continue)(?: (?:it|the experiment|experiment|the simulation|simulation))?$/.test(text)) action = () => this.host.run();
     else if (/^(?:pause|stop)(?: (?:it|the experiment|experiment|the simulation|simulation))?$/.test(text)) action = () => this.host.pause();
     else if (/^(?:reset|restart)(?: (?:it|the experiment|experiment|the simulation|simulation))?$|^start over$/.test(text)) action = () => this.host.reset();
+    else if (/^(?:undo(?: (?:it|that|the change|the last change))?|go back(?: one version)?)$/.test(text) && this.host.undo) action = () => this.host.undo!();
     else if (/^(?:(?:keep|save|set|remember)(?: this as)?(?: a| the)? )?baseline$/.test(text)) action = () => this.host.baseline();
     else if (/^(?:compare(?: (?:it|with (?:the )?baseline))?|measure|(?:show|open)(?: me)?(?: the)? measurements)$/.test(text)) action = () => this.host.compare();
     else if (/^save(?: (?:it|this experiment|the experiment|experiment|my work))?$/.test(text)) action = () => this.host.save();
@@ -91,10 +97,6 @@ export class AssistantActions {
       if (discarded) { this.pending = undefined; this.awaitingAnswer = false; this.reviewOpen = false; this.reviewId++; await this.host.cancel(); }
       const message = await action();
       return reply(discarded ? `${message} The earlier unapplied change was cancelled.` : message);
-    }
-    if (/^(?:build (?:a )?3d preview|interpret (?:my|the) (?:sketch|drawing|photo))$/.test(text) && this.host.interpret) {
-      if (this.reviewOpen) await this.host.cancel();
-      return this.review(input, epoch, () => this.host.interpret!());
     }
     if (this.awaitingAnswer) return this.review(input, epoch);
     let words = input;

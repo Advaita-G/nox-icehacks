@@ -58,6 +58,12 @@ test('an ordinary voice check receives a conversational response without an AI c
   assert.deepEqual(calls, []);
 });
 
+test('undo is a local conversation action rather than another inference request', async () => {
+  const {actions,calls}=fixture({undo:()=>{calls.push(['undo']);return 'Previous version restored.';}});
+  for(const words of ['undo','undo that','undo the last change'])assert.equal((await actions.handle(words)).message,'Previous version restored.');
+  assert.deepEqual(calls,[['undo'],['undo'],['undo']]);
+});
+
 test('natural demo, save and confirmation aliases stay local and gated', async () => {
   const { actions, calls } = fixture();
   for (const words of ['start demo', 'run a demo', 'show me everything', 'take me through it']) await actions.handle(words);

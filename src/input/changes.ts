@@ -1,7 +1,31 @@
 import { applyCommands } from '../physics/scene.ts';
-import type { Scene } from '../physics/scene.ts';
+import type { Operation, Scene } from '../physics/scene.ts';
 import type { CommandProposal } from './contract.ts';
 import { Euler, Quaternion } from 'three';
+
+/** Direct spoken edits are reversible; removal, replacement and mechanism changes still need review. */
+export function canApplyDirectly(operations: readonly Operation[]): boolean {
+  return operations.length > 0 && operations.every(op => ['move', 'rotate', 'resize', 'set-property', 'set-geometry', 'set-aerodynamics', 'set-gravity', 'set-scale', 'set-environment', 'transform-assembly'].includes(op.type));
+}
+
+export function describeApplied(scene: Scene, operations: readonly Operation[]): string {
+  const next = applyCommands(scene, { baseSceneRevision: scene.revision, operations });
+  const sentences = operations.flatMap(op => {
+    const before = 'id' in op ? scene.objects.find(o => o.id === op.id) : undefined;
+    const after = 'id' in op ? next.objects.find(o => o.id === op.id) : undefined;
+    if (op.type === 'rotate' && before && after) {
+      const q = (r: typeof before.rotation) => new Quaternion(r.x, r.y, r.z, r.w).normalize();
+      const degrees = +(q(before.rotation).angleTo(q(after.rotation)) * 180 / Math.PI).toFixed(2);
+      return [`I rotated ${after.label} by ${degrees} degrees.`];
+    }
+    if (op.type === 'set-property' && after) return [op.property === 'mass' ? `${after.label} is now ${after.mass} kilograms.` : `I updated ${after.label}'s ${op.property.replace(/[A-Z]/g, c => ' ' + c.toLowerCase())}.`];
+    if (op.type === 'move' && after) return operations.some(o => o.type === 'rotate' && o.id === op.id) ? [] : [`I moved ${after.label}.`];
+    if (op.type === 'resize' && after) return [`I resized ${after.label}.`];
+    if (op.type === 'set-geometry' && after) return [`I changed ${after.label}'s shape.`];
+    return [];
+  });
+  return [...new Set(sentences)].slice(0, 2).join(' ') || 'Done. I applied your change.';
+}
 
 function reviewValue(value: unknown): string {
   if (value !== null && typeof value === 'object' && !Array.isArray(value)) {

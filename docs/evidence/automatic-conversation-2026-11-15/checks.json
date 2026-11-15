@@ -1,0 +1,16 @@
+{
+  "rootTests": 286,
+  "rootTypecheckBuild": "PASS",
+  "interface": "PASS: 1280 ramp, 375 ramp, 320 reduced-motion chair",
+  "interfaceUsesControlledReplies": true,
+  "inferenceCallsInInterfaceMatrix": 0,
+  "newDependencies": 0,
+  "physicalMicrophone": "UNVERIFIED",
+  "codeReview": "PASS: bounded policy, source identity, cancellation, atomic apply, undo and validation preserved",
+  "requirementsReview": "PASS for checked automatic/direct conversational flow; physical devices remain unverified",
+  "inputTests": 110,
+  "hostedFreshModelCalls": 2,
+  "hostedAutomaticUpload": "PASS",
+  "hostedExact12Degrees": "PASS",
+  "hostedDirectEditsUndoSaveReload": "PASS"
+}

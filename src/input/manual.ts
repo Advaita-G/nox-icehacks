@@ -25,7 +25,7 @@ export function manualCommand(input: string, scene: Scene, selectedId: string, r
       check(spacing > 0, 'Spacing must be positive.'); bodies.forEach((body, i) => operations.push({ type: 'move', id: body!.id, position: { ...body!.position, x: first.position.x + i * spacing } })); continue;
     }
     check('objectId' in op, 'This manual operation needs the natural-language interpreter.');
-    const id = op.objectId === 'this' ? selectedId : op.objectId, o = scene.objects.find(o => o.id === id); check(o, `Unknown part: ${id}.`);
+    const id = op.objectId === 'this' || op.objectId === 'it' ? selectedId : op.objectId, o = scene.objects.find(o => o.id === id); check(o, `Unknown part: ${id}.`);
     if (op.op === 'set-property') operations.push({ type: 'set-property', id, property: op.property, value: value(op.value, o[op.property]) });
     else if (op.op === 'set-pose') {
       if (op.x !== undefined || op.y !== undefined) operations.push({ type: 'move', id, position: { ...o.position, x: value(op.x, o.position.x), y: value(op.y, o.position.y) } });

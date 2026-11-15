@@ -2,7 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { emptyScene, newObject, applyCommands } from '../src/physics/scene.ts';
-import { describeChanges } from '../src/input/changes.ts';
+import { canApplyDirectly, describeApplied, describeChanges } from '../src/input/changes.ts';
+import { manualCommand } from '../src/input/manual.ts';
 
 const recorded = new URL('../docs/evidence/live-momen-2026-11-10-spring-cart/', import.meta.url);
 const read = name => JSON.parse(readFileSync(new URL(name, recorded), 'utf8'));
@@ -102,4 +103,28 @@ test('rotation reviews explain physical degrees instead of speaking quaternion c
   const scene = emptyScene(), part = newObject('block', 'part');part.label='Support';scene.objects.push(part);
   const angle=-5*Math.PI/180;
   assert.deepEqual(describeChanges(scene,proposed([{type:'rotate',id:'part',rotation:{x:0,y:0,z:Math.sin(angle/2),w:Math.cos(angle/2)}}])),['Support · rotation x/y/z: (0, 0, 0) → (0, 0, -5) degrees']);
+});
+
+test('clear reversible edits acknowledge actual mass and rotation on any named object', () => {
+  const scene=emptyScene(), part=newObject('block','chair');part.label='Chair';scene.objects.push(part);
+  const mass=[{type:'set-property',id:'chair',property:'mass',value:1.25}];
+  assert.equal(canApplyDirectly(mass),true);assert.equal(describeApplied(scene,mass),'Chair is now 1.25 kilograms.');
+  const radians=20*Math.PI/180, tilt=[{type:'rotate',id:'chair',rotation:{x:0,y:0,z:Math.sin(radians/2),w:Math.cos(radians/2)}},{type:'move',id:'chair',position:{x:0,y:2,z:0}}];
+  assert.equal(canApplyDirectly(tilt),true);assert.equal(describeApplied(scene,tilt),'I rotated Chair by 20 degrees.');
+  assert.equal(scene.objects[0].mass,1,'Acknowledgement calculation must not mutate the scene');
+  assert.equal(canApplyDirectly([{type:'resize',id:'chair',width:2,height:3,depth:1}]),true);
+});
+
+test('empty, destructive and mechanism proposals keep explicit review, including mixed batches', () => {
+  assert.equal(canApplyDirectly([]),false);
+  for(const op of [{type:'remove',id:'chair'},{type:'replace-scene',scene:emptyScene()},{type:'upsert-constraint',constraint:{id:'joint'}}]) {
+    assert.equal(canApplyDirectly([op]),false);
+    assert.equal(canApplyDirectly([{type:'set-property',id:'chair',property:'mass',value:2},op]),false);
+  }
+});
+
+test('local conversational it resolves to the selected part and removal still requires review', () => {
+  const scene=emptyScene();scene.objects.push(newObject('ball','ball'));
+  const command=manualCommand('remove it',scene,'ball','r');
+  assert.deepEqual(command.operations,[{type:'remove',id:'ball'}]);assert.equal(canApplyDirectly(command.operations),false);
 });

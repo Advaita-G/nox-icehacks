@@ -55,7 +55,7 @@ export class InputUI {
   constructor(private host: Host) {
     el('input-tools').innerHTML = `<div><strong>From an idea to an experiment</strong><p>Draw parts and connections, or describe a change.</p></div><div class="input-actions"><button id="open-source" class="primary">Draw or upload</button><button id="open-command">Change with words</button><button id="view-source" hidden>Original sketch</button></div>`;
     document.body.insertAdjacentHTML('beforeend', `
-      <dialog id="source-dialog" class="input-dialog sketch-stage" aria-labelledby="source-title"><div class="dialog-heading"><div><h2 id="source-title">Sketch a physical idea</h2><p>Ask Nox to build your drawing. Missing measurements will be estimated.</p></div><button id="close-source" aria-label="Close sketch and show the 3D scene">3D view</button></div>
+      <dialog id="source-dialog" class="input-dialog sketch-stage" aria-labelledby="source-title"><div class="dialog-heading"><div><h2 id="source-title">Sketch a physical idea</h2><p>Uploaded pictures build automatically. Missing measurements will be estimated.</p></div><button id="close-source" aria-label="Close sketch and show the 3D scene">3D view</button></div>
       <div class="source-switch"><button id="use-canvas" aria-pressed="true">Draw</button><button id="use-photo" aria-pressed="false">Upload photo</button><button id="undo-stroke">Undo</button><button id="clear-strokes">Clear</button></div>
       <div class="sketch-surface"><canvas id="sketch" tabindex="0" width="1600" height="900" aria-label="Draw your physical sketch with a pointer. Photo upload is also available."></canvas>
       <div id="photo-area" hidden><label>Drawing or photo<input id="photo-file" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label><img id="photo-preview" alt="Your normalized sketch" hidden></div><div class="scan" aria-hidden="true"></div></div>
@@ -258,7 +258,7 @@ export class InputUI {
   private async providerStatus(): Promise<void> {
     try {
       const response = await fetch('/api/status'); check(response.ok, 'Vision service unavailable.'); const status = await response.json();
-      message('provider-status', status.accessRequired ? 'Vision runtime is not enabled for public use in this deployment. Local controls remain available.' : status.configured ? 'Live AI is ready. Say “build this into a physics model.” Sizes and masses are estimated; you can change them afterward.' : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
+      message('provider-status', status.accessRequired ? 'Vision runtime is not enabled for public use in this deployment. Local controls remain available.' : status.configured ? 'Live AI is ready. Uploaded pictures build automatically. Tell Nox what to change afterward; missing measurements are estimated.' : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
     }
     catch (error) { message('provider-status', error); }
   }

@@ -1,0 +1,329 @@
+{
+  "url": "https://nox-icehacks-dmb6hlt0s-idk-41a8.vercel.app",
+  "scope": "Automatic upload of user rough image, no build command or numeric notes, direct edits and undo. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-7c9d3255",
+        "target": {
+          "experimentId": "091d89f6-98ff-4c44-a515-c0788019df27",
+          "versionId": "9d5c13fa-4496-4461-90e2-6b6bc2e6800d",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "widthPx": 1600,
+          "heightPx": 800,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "239e95c737fb1637f4e3b28e7e4dbfb6b3658e1ddbee111073979dfd9ff66271"
+        },
+        "notes": "",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-909693d4",
+        "target": {
+          "experimentId": "feb99a09-6c8a-45e1-99db-2b1a81cdf17c",
+          "versionId": "9c3af9ff-d3a2-44ca-834c-2032cec63c69",
+          "sceneRevision": 1,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 5,
+          "epoch": 40000
+        },
+        "transcript": "Incline the ramp by 12 degrees",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 1,
+          "name": "ball-on-ramp",
+          "scale": 100,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Drawing scale assumed 100 px/m (image 1600x800 px -> 16m x 8m canvas); Y up, ground at y=0.",
+            "Ground line drawn as a wavy horizontal stroke at bottom; modeled as a fixed thin box spanning the drawing width.",
+            "Ramp is a right-triangle prism: vertical back at left, sloped face descending to the right, extruded in depth; fixed scenery.",
+            "Ball is a circle at the ramp's top corner; modeled as a dynamic sphere resting on the ramp.",
+            "Masses default (1 kg); sizes inferred from pixel extents; no motion requested, so all bodies start at rest.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 8,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 15.6,
+              "height": 0.3,
+              "depth": 2,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 100,
+              "friction": 0.6,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ramp",
+              "label": "ramp",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 2.799999952316284,
+                "y": 0.1500018835067749,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 21.2,
+              "height": 9.4,
+              "depth": 1,
+              "geometry": [
+                {
+                  "shape": "convex",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "vertices": [
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0.5
+                    }
+                  ]
+                }
+              ],
+              "mass": 50,
+              "friction": 0.5,
+              "restitution": 0.05,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 4.594631671905518,
+                "y": 4.491428852081299,
+                "z": 1.2378039571103727e-07
+              },
+              "rotation": {
+                "x": 1.2404922244968475e-07,
+                "y": -1.9260243178109704e-08,
+                "z": -0.9778668880462646,
+                "w": 0.2092280387878418
+              },
+              "width": 0.8,
+              "height": 0.8,
+              "depth": 0.8,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 2,
+              "friction": 0.5,
+              "restitution": 0.4,
+              "velocity": {
+                "x": 2.266143798828125,
+                "y": -1.025234341621399,
+                "z": 2.1664824600975408e-07
+              },
+              "angularVelocity": {
+                "x": 5.489084173859737e-07,
+                "y": 2.2255150611272256e-08,
+                "z": -6.2000732421875
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 200,
+    "seconds": 79.297
+  },
+  "automaticUpload": true,
+  "sourceMotion": {
+    "initialX": 3.6,
+    "actualX": 4.5946317,
+    "movedMeters": 0.9946316999999998
+  },
+  "directLocalMassWithoutYes": true,
+  "inclined": {
+    "httpStatus": 200,
+    "seconds": 3.054
+  },
+  "directInclineWithoutYes": true,
+  "rerunAfterIncline": true,
+  "undoWithoutInference": true,
+  "spokenReplies": [
+    "Hi, I am Nox. Show me a drawing, then ask me to build it into a physics model.",
+    "I am here. Show me a drawing or tell me what you want to build, then we can change it together.",
+    "I am building a 3D physics model from your drawing. I will estimate missing sizes and physical values.",
+    "I built ball-on-ramp from your drawing. It is running with estimated sizes and physical values. Tell me what to change.",
+    "Paused at 0.88 simulated seconds.",
+    "Selected ball. Tell me what to change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "ball is now 2 kilograms. Say undo to go back.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "I rotated ramp by 12 degrees. Say undo to go back.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "The real simulation is running. Say pause, keep a baseline, or compare.",
+    "Paused at 0.89 simulated seconds.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "I restored the previous version. All versions are retained.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+  ],
+  "saveReloadExact": true,
+  "threeVersions": true,
+  "status": "PASS",
+  "browserClosed": true
+}
