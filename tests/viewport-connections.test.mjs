@@ -103,3 +103,16 @@ test('disabled manual controls detach the selected gizmo and reattach only when 
     assert.equal(attached, 2); assert.equal(transform.object, viewport.meshes.get('a'));
   } finally { viewport.clear(viewport.objects); viewport.links.dispose(); globalThis.document = priorDocument; globalThis.getComputedStyle = priorStyle; }
 });
+
+test('framing excludes named fixed ground with arbitrary model IDs while retaining ordinary supports', () => {
+  const viewport = Object.create(Viewport.prototype), camera = new THREE.PerspectiveCamera(38, 1.6, .05, 5000);
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(.5)); ball.position.set(3, 2, 0);
+  const ground = new THREE.Mesh(new THREE.BoxGeometry(30, .1, 30));
+  const target = new THREE.Vector3();
+  Object.assign(viewport, { camera, meshes: new Map([['arbitrary-17', ground], ['ball', ball]]), controls: { target, update() {} }, render() {} });
+  const scene = emptyScene(); scene.objects = [{ ...newObject('platform', 'arbitrary-17'), fixed: true, label: 'Fixed ground' }, newObject('ball', 'ball')];
+  try {
+    viewport.fit(scene); assert.ok(target.distanceTo(ball.position) < 1e-6); assert.ok(camera.position.distanceTo(target) < 4);
+    scene.objects[0].label = 'Table'; viewport.fit(scene); assert.ok(camera.position.distanceTo(target) > 20);
+  } finally { ball.geometry.dispose(); ball.material.dispose(); ground.geometry.dispose(); ground.material.dispose(); }
+});

@@ -142,7 +142,8 @@ export class Viewport {
   fit(setup: Scene): void {
     const box = new THREE.Box3();
     for (const o of setup.objects) {
-      const group = this.meshes.get(o.id); if (o.id !== 'floor' && group) box.expandByObject(group, true);
+      const group = this.meshes.get(o.id);
+      if (o.id !== 'floor' && !(o.fixed && /\b(?:ground|floor)\b/i.test(o.label)) && group) box.expandByObject(group, true);
     }
     if (box.isEmpty()) box.setFromCenterAndSize(new THREE.Vector3(0, 1, 0), new THREE.Vector3(8, 4, 8));
     const center = box.getCenter(new THREE.Vector3()), radius = box.getBoundingSphere(new THREE.Sphere()).radius;

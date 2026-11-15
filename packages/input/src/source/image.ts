@@ -18,6 +18,7 @@ export type ImageRejectCode =
   | 'FILE_TOO_LARGE'
   | 'IMAGE_TOO_SMALL'
   | 'IMAGE_TOO_LARGE'
+  | 'BLANK_IMAGE'
   | 'DECODE_FAILED';
 
 export interface ImageReject {
@@ -58,6 +59,7 @@ const MESSAGES: Record<ImageRejectCode, string> = {
   FILE_TOO_LARGE: 'Photos must be 10 MB or smaller.',
   IMAGE_TOO_SMALL: 'This photo is too small to read (short edge under 640 px).',
   IMAGE_TOO_LARGE: 'This photo is over 40 megapixels.',
+  BLANK_IMAGE: 'This image has no visible detail. Add a drawing or upload another photo.',
   DECODE_FAILED: 'This photo could not be opened. It may be damaged.',
 };
 
@@ -103,6 +105,11 @@ export async function sha256Hex(data: ArrayBuffer): Promise<string> {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
+export function isUniformImage(pixels: Uint8ClampedArray): boolean {
+  for (let i = 4; i < pixels.length; i++) if (pixels[i] !== pixels[i % 4]) return false;
+  return true;
+}
+
 /**
  * Browser-only: validate, decode with EXIF orientation applied, downscale and re-encode as JPEG.
  * Re-encoding drops EXIF metadata (including location).
@@ -129,6 +136,7 @@ export async function prepareImage(file: Blob): Promise<{ ok: true; image: Prepa
     ctx.fillStyle = '#fff';
     ctx.fillRect(0, 0, w, h);
     ctx.drawImage(bitmap, 0, 0, w, h);
+    if (isUniformImage(ctx.getImageData(0, 0, w, h).data)) return { ok: false, reject: reject('BLANK_IMAGE') };
     const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/jpeg', IMAGE_LIMITS.jpegQuality));
     if (!blob) return { ok: false, reject: reject('DECODE_FAILED') };
     const sha256 = await sha256Hex(await blob.arrayBuffer());

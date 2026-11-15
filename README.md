@@ -2,6 +2,8 @@
 
 **A voice-first room for building and exploring 3D ideas.** Built for IceHacks 2026 by Advaita Gupta and Juwon.
 
+**Live AI status, November 14 (Pacific):** the current Cloudflare account has exhausted its hard daily free allocation. New AI requests are temporarily unavailable; configuration status does not indicate remaining quota. The allocation resets at **00:00 UTC / 4 PM Pacific on November 15**. Local physics and recorded examples remain independent of AI access. No paid upgrade was enabled. See the [repository and reliability audit](docs/AUDIT-2026-11-14.md).
+
 Open Nox, tap its name and speak. Ask it to build a scene, add a drawing when you need one, then talk to move objects, change properties, run real physics and retain a comparison. The scene appears in the same room, with Nox docked below it.
 
 ## Try it
