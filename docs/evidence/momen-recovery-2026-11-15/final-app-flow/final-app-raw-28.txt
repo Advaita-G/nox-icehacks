@@ -1,0 +1,185 @@
+```json
+{
+  "status": "ready",
+  "name": "Ball Resting on Fixed Plank",
+  "assumptions": [
+    "Plank thickness is approximately 0.25 m and depth is 1.0 m.",
+    "Ground is modeled as a fixed support slab under the plank.",
+    "Plank is fixed as indicated by the diagram label."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid ball resting on a fixed 3 m plank above ground under standard gravity.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 100,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": -0.1,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 6,
+            "y": 0.2,
+            "z": 2
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ground line with hash marks",
+        "region": {
+          "left": 0.154,
+          "top": 0.578,
+          "right": 0.843,
+          "bottom": 0.616
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "plank",
+      "label": "plank",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 0.125,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 3,
+            "y": 0.25,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "fixed plank of length 3 m",
+        "region": {
+          "left": 0.311,
+          "top": 0.518,
+          "right": 0.689,
+          "bottom": 0.58
+        }
+      },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "fixed": false,
+      "position": {
+        "x": 0,
+        "y": 0.75,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "ball of diameter 1 m and mass 1 kg",
+        "region": {
+          "left": 0.435,
+          "top": 0.318,
+          "right": 0.563,
+          "bottom": 0.522
+        }
+      },
+      "stackAbove": "plank",
+      "mass": 1,
+      "friction": 0.5,
+      "restitution": 0.1,
+      "velocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "angularVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ]
+}
+```

@@ -1,0 +1,22 @@
+{
+  "pinnedUrl": "https://nox-icehacks-o78zi5rnu-idk-41a8.vercel.app",
+  "clientAssets": [
+    {
+      "path": "/assets/main-CmVyJ2bf.js",
+      "sha256": "9bd983857070bba3052a46222bfc948c0d11c79c3a2774d40109335efba156b2",
+      "bytes": 5096757,
+      "matchesLocal": true
+    },
+    {
+      "path": "/assets/main-BddXbDC2.css",
+      "sha256": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a",
+      "bytes": 43697,
+      "matchesLocal": true
+    }
+  ],
+  "anonymousStatus": {
+    "configured": false,
+    "provider": null,
+    "accessRequired": true
+  }
+}

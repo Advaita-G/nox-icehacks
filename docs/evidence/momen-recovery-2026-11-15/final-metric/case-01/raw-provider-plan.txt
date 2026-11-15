@@ -1,0 +1,169 @@
+```json
+{
+  "status": "ready",
+  "name": "house_sketch",
+  "assumptions": [
+    "House is modeled as a 3D architectural structure with an estimated width of 4.5 m and wall height of 3.0 m.",
+    "The triangular gable roof rests directly on top of the main wall structure.",
+    "Door and paneled windows are modeled as detailed facade overlays on the front wall."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid 3D model of the drawn house with stacked gable roof, central front door, and four-pane windows.",
+  "gravity": { "x": 0, "y": -9.81, "z": 0 },
+  "scale": 100,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [
+    {
+      "id": "house_assembly",
+      "label": "house",
+      "bodies": ["house_base", "roof", "door", "left_window", "right_window"]
+    }
+  ],
+  "environment": {
+    "airDensity": 1.225,
+    "airVelocity": { "x": 0, "y": 0, "z": 0 }
+  },
+  "bodies": [
+    {
+      "id": "house_base",
+      "label": "walls",
+      "fixed": true,
+      "position": { "x": 0, "y": 1.5, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 4.5, "y": 3.0, "z": 3.5 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Main rectangular body and walls of the house",
+        "region": { "left": 0.311, "top": 0.448, "right": 0.69, "bottom": 0.854 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "roof",
+      "label": "roof",
+      "fixed": false,
+      "position": { "x": 0, "y": 4.025, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -2.85, "y": -1.025, "z": -1.9 },
+            { "x": 2.85, "y": -1.025, "z": -1.9 },
+            { "x": 0.0, "y": 1.025, "z": -1.9 },
+            { "x": -2.85, "y": -1.025, "z": 1.9 },
+            { "x": 2.85, "y": -1.025, "z": 1.9 },
+            { "x": 0.0, "y": 1.025, "z": 1.9 }
+          ],
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Gabled triangular roof with overhanging eaves",
+        "region": { "left": 0.26, "top": 0.174, "right": 0.74, "bottom": 0.452 }
+      },
+      "stackAbove": "house_base",
+      "mass": 25.0
+    },
+    {
+      "id": "door",
+      "label": "door",
+      "fixed": true,
+      "position": { "x": 0, "y": 0.76, "z": 1.76 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.82, "y": 1.52, "z": 0.04 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Rectangular front door centered on the ground floor",
+        "region": { "left": 0.464, "top": 0.647, "right": 0.536, "bottom": 0.854 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "left_window",
+      "label": "window",
+      "fixed": true,
+      "position": { "x": -1.32, "y": 1.96, "z": 1.76 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.92, "y": 0.94, "z": 0.03 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "box",
+          "size": { "x": 0.06, "y": 0.94, "z": 0.04 },
+          "position": { "x": 0, "y": 0, "z": 0.005 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "box",
+          "size": { "x": 0.92, "y": 0.06, "z": 0.04 },
+          "position": { "x": 0, "y": 0, "z": 0.005 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Left four-pane square window with mullions",
+        "region": { "left": 0.35, "top": 0.524, "right": 0.43, "bottom": 0.654 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "right_window",
+      "label": "window",
+      "fixed": true,
+      "position": { "x": 1.32, "y": 1.96, "z": 1.76 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 0.92, "y": 0.94, "z": 0.03 },
+          "position": { "x": 0, "y": 0, "z": 0 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "box",
+          "size": { "x": 0.06, "y": 0.94, "z": 0.04 },
+          "position": { "x": 0, "y": 0, "z": 0.005 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        },
+        {
+          "shape": "box",
+          "size": { "x": 0.92, "y": 0.06, "z": 0.04 },
+          "position": { "x": 0, "y": 0, "z": 0.005 },
+          "rotationDegrees": { "x": 0, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Right four-pane square window with mullions",
+        "region": { "left": 0.57, "top": 0.524, "right": 0.65, "bottom": 0.654 }
+      },
+      "stackAbove": null
+    }
+  ]
+}
+```

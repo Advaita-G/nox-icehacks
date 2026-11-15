@@ -1,0 +1,183 @@
+{
+  "requestId": "probe-1",
+  "sourceId": "sketch-probe",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Ball on fixed plank",
+    "scale": 200,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Rigid bodies; ball modeled as a uniform solid sphere of diameter 1 m and mass 1 kg as annotated.",
+      "Plank is modeled as a fixed box of length 3 m, height 0.3 m, and assumed depth 1 m.",
+      "Ground is modeled as a fixed support platform beneath the plank.",
+      "Contact friction and restitution are standard assumed values without initial velocities."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Annotated sketch showing a ball resting on a fixed plank over ground"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 0.2,
+        "depth": 1.5,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "plank",
+        "label": "fixed plank",
+        "kind": "block",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 0.15,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3,
+        "height": 0.3,
+        "depth": 1,
+        "mass": 10,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "ball",
+        "label": "ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.8,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "mass": 1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "Sphere with 1 m diameter and 1 kg mass resting on the plank",
+      "bbox": [
+        0.435,
+        0.318,
+        0.13,
+        0.205
+      ]
+    },
+    {
+      "objectId": "plank",
+      "origin": "sketch",
+      "note": "Fixed plank of 3 m length beneath the ball",
+      "bbox": [
+        0.31,
+        0.518,
+        0.38,
+        0.065
+      ]
+    },
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Hatched line indicating fixed ground support beneath the plank",
+      "bbox": [
+        0.15,
+        0.575,
+        0.7,
+        0.045
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted 1 m diameter, 1 kg ball resting centered on a fixed 3 m plank supported by fixed ground."
+}

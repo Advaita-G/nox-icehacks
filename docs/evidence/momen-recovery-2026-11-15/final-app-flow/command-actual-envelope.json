@@ -1,0 +1,4 @@
+{
+  "requestId": "req-90a0cd9f",
+  "raw": "{\n  \"requestId\": \"req-90a0cd9f\",\n  \"status\": \"proposed\",\n  \"operations\": [\n    {\n      \"type\": \"set-property\",\n      \"id\": \"ball\",\n      \"property\": \"velocity\",\n      \"value\": {\n        \"x\": 2,\n        \"y\": 0,\n        \"z\": 0\n      }\n    }\n  ],\n  \"summary\": [\n    \"Set the initial horizontal velocity of the ball to 2 m/s along the +X axis (to the right).\"\n  ],\n  \"questions\": [],\n  \"message\": \"Assigned an initial velocity of 2 m/s to the right (+X) to the ball.\"\n}"
+}

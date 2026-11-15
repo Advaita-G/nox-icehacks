@@ -7,7 +7,7 @@ import { createServer, request as httpRequest } from 'node:http';
 import { createMomenProvider } from '../server/momen.ts';
 import { buildProviders } from '../server/providers.ts';
 import { apiMiddleware } from '../server/middleware.ts';
-import { INTERPRET_3D } from '../src/input/prompt.ts';
+import { INTERPRET_3D, COMMAND_3D } from '../src/input/prompt.ts';
 
 const TOKEN = 'momen-admin-token-not-real';
 const PNG = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
@@ -81,6 +81,16 @@ test('command: text only, no upload', async () => {
   await run(createMomenProvider(opts(f)), { requestId: 'c1', transcript: 'make it heavier', selection: [], scene: {}, answers: [] });
   assert.ok(!f.calls.some((c) => c.init.method === 'PUT' || c.body?.operationName === 'NoxImageUpload'));
   assert.equal(f.calls.find((c) => c.body?.operationName === 'NoxCreateConversation').body.variables.inputArgs.a3, undefined);
+});
+
+test('Momen preserves caller instructions without appending a duplicate command schema', async () => {
+  const f = fakeMomen(), request = { requestId: 'c1', transcript: 'make it heavier', selection: [], scene: {}, answers: [] };
+  const outputSchema = { type: 'object', properties: { operations: { type: 'array' } }, additionalProperties: false };
+  await createMomenProvider(opts(f)).complete({ instructions: COMMAND_3D, request, signal: new AbortController().signal, outputSchema });
+  const args = f.calls.find(c => c.body?.operationName === 'NoxCreateConversation').body.variables.inputArgs;
+  assert.equal(args.a1, COMMAND_3D);
+  assert.deepEqual(JSON.parse(args.a2.split('\n').slice(1).join('\n')), request);
+  assert.equal(args.a3, undefined);
 });
 
 test('structured (object) data is returned as JSON text', async () => {
@@ -223,7 +233,12 @@ test('false or missing stop confirmation warns without masking the original erro
 });
 
 test('root middleware serves /api/interpret through the Momen adapter', async () => {
-  const f = fakeMomen({ data: '{"requestId":"r1"}' });
+  const plan = { status: 'ready', name: 'Rigid drawing', assumptions: [], warnings: [], questions: [], message: '', bodies: [{
+    id: 'drawn', label: 'Drawn body', fixed: false, position: { x: 0, y: 0, z: 0 }, stackAbove: null,
+    shapes: [{ shape: 'box', size: { x: .4, y: .03, z: .2 } }],
+    grounding: { origin: 'sketch', note: 'Visible stroke.', strokeIds: ['s1'] },
+  }] };
+  const f = fakeMomen({ data: JSON.stringify(plan) });
   const mw = apiMiddleware(MOMEN_ENV, buildProviders(MOMEN_ENV, f));
   const server = createServer((req, res) => mw(req, res, () => { res.statusCode = 404; res.end(); }));
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
@@ -235,6 +250,14 @@ test('root middleware serves /api/interpret through the Momen adapter', async ()
       });
       req.on('error', reject); req.end(body);
     });
-    assert.deepEqual(r, { status: 200, json: { requestId: 'r1', raw: '{"requestId":"r1"}' } });
+    assert.equal(r.status, 200); assert.equal(r.json.requestId, 'r1');
+    const result = JSON.parse(r.json.raw);
+    assert.equal(result.status, 'ready'); assert.equal(result.sourceId, 'sketch-1');
+    assert.deepEqual(result.grounding[0].strokeIds, ['s1']);
+    const object = result.scene.objects[0];
+    assert.equal(object.width * object.geometry[0].size.x, .4);
+    assert.equal(object.height * object.geometry[0].size.y, .03);
+    const instructions = f.calls.find(c => c.body?.operationName === 'NoxCreateConversation').body.variables.inputArgs.a1;
+    assert.match(instructions, /JSON drawing plan/); assert.match(instructions, /"strokeIds"/);
   } finally { await new Promise((r) => server.close(r)); }
 });

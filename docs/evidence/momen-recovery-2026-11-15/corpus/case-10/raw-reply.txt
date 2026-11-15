@@ -1,0 +1,310 @@
+{
+  "requestId": "momen-case-10",
+  "sourceId": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Lever with Pivot and Rolling Ball",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing scale is assumed at 100 pixels per meter.",
+      "The triangular fulcrum and ground line are modeled as fixed rigid supports.",
+      "A free revolute hinge joint connects the lever to the fulcrum apex along the Z axis.",
+      "The ball rests on the upper face of the lever arm and can tilt, roll, and fall under gravity.",
+      "Masses, thicknesses, and contact friction values are estimated engineering assumptions."
+    ],
+    "sources": [
+      {
+        "kind": "manual",
+        "reference": "Photo sketch of lever mechanism with pivot and ball"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground support",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 14,
+        "height": 0.2,
+        "depth": 2,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "fulcrum",
+        "label": "triangular fulcrum",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 1.2,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.8,
+        "height": 2.4,
+        "depth": 0.6,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "convex",
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "lever",
+        "label": "lever plank",
+        "kind": "block",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 2.55,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 8.2,
+        "height": 0.3,
+        "depth": 0.6,
+        "mass": 8,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "ball",
+        "label": "rolling ball",
+        "kind": "ball",
+        "fixed": false,
+        "position": {
+          "x": -2.8,
+          "y": 3.5,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.6,
+        "height": 1.6,
+        "depth": 1.6,
+        "mass": 4,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.2,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "pivot-hinge",
+        "type": "hinge",
+        "bodyA": "fulcrum",
+        "bodyB": "lever",
+        "anchorA": {
+          "x": 0,
+          "y": 1.2,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": -0.15,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "contactsEnabled": false
+      }
+    ],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Drawn horizontal ground line under the fulcrum",
+      "bbox": [
+        0.156,
+        0.795,
+        0.675,
+        0.02
+      ]
+    },
+    {
+      "objectId": "fulcrum",
+      "origin": "sketch",
+      "note": "Triangular fulcrum stand supporting the pivot",
+      "bbox": [
+        0.398,
+        0.55,
+        0.179,
+        0.25
+      ]
+    },
+    {
+      "objectId": "lever",
+      "origin": "sketch",
+      "note": "Horizontal lever plank pivoted at its center",
+      "bbox": [
+        0.23,
+        0.518,
+        0.515,
+        0.044
+      ]
+    },
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "Circular ball resting on the left arm of the lever",
+      "bbox": [
+        0.263,
+        0.36,
+        0.1,
+        0.16
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the drawn lever system with triangular fulcrum, pivot hinge, and resting ball."
+}

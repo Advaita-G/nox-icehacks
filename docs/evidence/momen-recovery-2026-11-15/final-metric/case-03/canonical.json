@@ -1,0 +1,333 @@
+{
+  "requestId": "momen-case-03",
+  "sourceId": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "ground line support",
+      "objectId": "ground",
+      "bbox": [
+        0.175,
+        0.847,
+        0.5760000000000001,
+        0.006000000000000005
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "wireframe chair body",
+      "objectId": "chair",
+      "bbox": [
+        0.279,
+        0.191,
+        0.352,
+        0.651
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Rigid wireframe chair standing upright on a fixed ground support.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Wireframe Chair",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Perspective line drawing depicts a four-legged chair with backrest resting on a flat floor.",
+      "Constructed as a rigid tubular frame consisting of 9 frame members matching each drawn line.",
+      "Ground line represents a stable horizontal supporting floor.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.025,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1.2,
+        "height": 0.1,
+        "depth": 1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 0.5,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "chair",
+        "label": "chair",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 3.1627081642504606e-7,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.46,
+        "height": 1.8,
+        "depth": 0.44,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.47826086956521735,
+              "y": 0.125,
+              "z": 0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.25,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.47826086956521735,
+              "y": 0.125,
+              "z": 0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.25,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.47826086956521735,
+              "y": 0.25,
+              "z": -0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.5,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.47826086956521735,
+              "y": 0.25,
+              "z": -0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.5,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.24444444444444444,
+              "z": 0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.9130434782608695,
+              "y": 0.011111111111111112,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.24444444444444444,
+              "z": -0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.9130434782608695,
+              "y": 0.011111111111111112,
+              "z": 0.045454545454545456
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": -0.47826086956521735,
+              "y": 0.24444444444444444,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.011111111111111112,
+              "z": 0.9090909090909092
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0.47826086956521735,
+              "y": 0.24444444444444444,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.043478260869565216,
+              "y": 0.011111111111111112,
+              "z": 0.9090909090909092
+            }
+          },
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0.49444444444444446,
+              "z": -0.47727272727272724
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 0.9130434782608695,
+              "y": 0.011111111111111112,
+              "z": 0.045454545454545456
+            }
+          }
+        ],
+        "mass": 4.5,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.2,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

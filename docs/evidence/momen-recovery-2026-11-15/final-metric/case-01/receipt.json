@@ -1,0 +1,503 @@
+{
+  "id": "case-01",
+  "subject": "unlabelled-house",
+  "expected": "Walls, pointed gabled roof, two windows, door and drawn support; no roof/support gap.",
+  "inputSha256": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "review/restored-momen-drawings candidate; actual buildProviders Momen schema adapter + metric compiler; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T17:01:54.698Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 25
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Rigid 3D model of the drawn house with stacked gable roof, central front door, and four-pane windows.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "house_base",
+          "position": {
+            "x": 0,
+            "y": 1.5,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 1.5,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "roof",
+          "position": {
+            "x": -0.00005261762998998165,
+            "y": 4.024956703186035,
+            "z": -0.00007669957994949073
+          },
+          "centerOfMass": {
+            "x": -0.00003289361848146655,
+            "y": 3.6832900047302246,
+            "z": -0.000051581890147645026
+          },
+          "rotation": {
+            "x": -0.00003678902066894807,
+            "y": 8.413127833284406e-11,
+            "z": 0.000028856549761258066,
+            "w": 1
+          },
+          "velocity": {
+            "x": -0.00003331084008095786,
+            "y": 0.00002197657522629015,
+            "z": -0.0000514095117978286
+          },
+          "angularVelocity": {
+            "x": -0.00007523342355852947,
+            "y": -2.283285539805835e-12,
+            "z": 0.00004874756632489152
+          },
+          "speed": 0.00006508087145134902,
+          "mass": 25,
+          "inertia": {
+            "x": 35.92013931274414,
+            "y": 39.6805534362793,
+            "z": 63.92707824707031
+          }
+        },
+        {
+          "objectId": "door",
+          "position": {
+            "x": 0,
+            "y": 0.7599999904632568,
+            "z": 1.7599999904632568
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 0.7599999904632568,
+            "z": 1.7599999904632568
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "left_window",
+          "position": {
+            "x": -1.3200000524520874,
+            "y": 1.9600000381469727,
+            "z": 1.7599999904632568
+          },
+          "centerOfMass": {
+            "x": -1.3200000524520874,
+            "y": 1.9600000381469727,
+            "z": 1.760733962059021
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "right_window",
+          "position": {
+            "x": 1.3200000524520874,
+            "y": 1.9600000381469727,
+            "z": 1.7599999904632568
+          },
+          "centerOfMass": {
+            "x": 1.3200000524520874,
+            "y": 1.9600000381469727,
+            "z": 1.760733962059021
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "kineticEnergy": 2.0174614999482608e-7,
+      "potentialEnergy": 903.3268736600876,
+      "momentum": {
+        "x": -0.0008327710020239465,
+        "y": 0.0005494143806572538,
+        "z": -0.001285237794945715
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "house_base",
+      "label": "walls",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 1.5,
+        "z": 0
+      },
+      "dimensions": [
+        4.5,
+        3,
+        3.5
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "roof",
+      "label": "roof",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 4.024999707847771,
+        "z": 0
+      },
+      "dimensions": [
+        5.7,
+        2.05,
+        3.8
+      ],
+      "fixed": false,
+      "parts": 1
+    },
+    {
+      "id": "door",
+      "label": "door",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 0.76,
+        "z": 1.76
+      },
+      "dimensions": [
+        0.82,
+        1.52,
+        0.1
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "left_window",
+      "label": "window",
+      "kind": "custom-part",
+      "position": {
+        "x": -1.32,
+        "y": 1.96,
+        "z": 1.76
+      },
+      "dimensions": [
+        0.92,
+        0.94,
+        0.1
+      ],
+      "fixed": true,
+      "parts": 3
+    },
+    {
+      "id": "right_window",
+      "label": "window",
+      "kind": "custom-part",
+      "position": {
+        "x": 1.32,
+        "y": 1.96,
+        "z": 1.76
+      },
+      "dimensions": [
+        0.92,
+        0.94,
+        0.1
+      ],
+      "fixed": true,
+      "parts": 3
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "Main rectangular body and walls of the house",
+      "objectId": "house_base",
+      "bbox": [
+        0.311,
+        0.448,
+        0.37899999999999995,
+        0.40599999999999997
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Gabled triangular roof with overhanging eaves",
+      "objectId": "roof",
+      "bbox": [
+        0.26,
+        0.174,
+        0.48,
+        0.278
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Rectangular front door centered on the ground floor",
+      "objectId": "door",
+      "bbox": [
+        0.464,
+        0.647,
+        0.07200000000000001,
+        0.20699999999999996
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Left four-pane square window with mullions",
+      "objectId": "left_window",
+      "bbox": [
+        0.35,
+        0.524,
+        0.08000000000000002,
+        0.13
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Right four-pane square window with mullions",
+      "objectId": "right_window",
+      "bbox": [
+        0.57,
+        0.524,
+        0.08000000000000007,
+        0.13
+      ]
+    }
+  ],
+  "elapsedSeconds": 41.881,
+  "requests": 1
+}

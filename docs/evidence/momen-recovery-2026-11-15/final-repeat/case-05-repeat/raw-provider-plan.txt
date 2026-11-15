@@ -1,0 +1,273 @@
+```json
+{
+  "status": "ready",
+  "name": "Geometric Stick Figure",
+  "assumptions": [
+    "Scale set to 400 pixels per meter, giving the character a standard human height of approximately 1.8 m.",
+    "Character is modeled as a unified rigid dynamic body with slight Z-thickness to maintain balance upon the ground support.",
+    "The ground line is modeled as a fixed static support beam."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Modeled the geometric stick figure standing on the horizontal ground support.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 400,
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground support",
+      "fixed": true,
+      "position": {
+        "x": -0.036,
+        "y": -0.95,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 2.2,
+            "y": 0.04,
+            "z": 0.4
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal ground line beneath the figure",
+        "region": {
+          "left": 0.218,
+          "top": 0.875,
+          "right": 0.764,
+          "bottom": 0.885
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "character",
+      "label": "geometric figure",
+      "fixed": false,
+      "position": {
+        "x": -0.03,
+        "y": 0,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.59,
+            "y": 0.62,
+            "z": 0.16
+          },
+          "position": {
+            "x": 0,
+            "y": -0.06,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.66,
+            "y": 0.16,
+            "z": 0.66
+          },
+          "position": {
+            "x": 0.005,
+            "y": 0.58,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.06,
+            "y": 0.18,
+            "z": 0.06
+          },
+          "position": {
+            "x": -0.18,
+            "y": 0.62,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "cylinder",
+          "size": {
+            "x": 0.06,
+            "y": 0.18,
+            "z": 0.06
+          },
+          "position": {
+            "x": 0.17,
+            "y": 0.62,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 90,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "box",
+          "size": {
+            "x": 0.28,
+            "y": 0.025,
+            "z": 0.18
+          },
+          "position": {
+            "x": 0.005,
+            "y": 0.43,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.68,
+            "z": 0.04
+          },
+          "position": {
+            "x": -0.54,
+            "y": -0.04,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 47
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.04,
+            "y": 0.68,
+            "z": 0.04
+          },
+          "position": {
+            "x": 0.54,
+            "y": -0.04,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -47
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.045,
+            "y": 0.56,
+            "z": 0.045
+          },
+          "position": {
+            "x": -0.28,
+            "y": -0.63,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": 19
+          }
+        },
+        {
+          "shape": "capsule",
+          "size": {
+            "x": 0.045,
+            "y": 0.56,
+            "z": 0.045
+          },
+          "position": {
+            "x": 0.29,
+            "y": -0.63,
+            "z": 0
+          },
+          "rotationDegrees": {
+            "x": 0,
+            "y": 0,
+            "z": -19
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "stick figure with circular head, facial features, square torso, angled arms, and legs",
+        "region": {
+          "left": 0.293,
+          "top": 0.14,
+          "right": 0.682,
+          "bottom": 0.865
+        }
+      },
+      "stackAbove": "ground",
+      "mass": 10.0,
+      "friction": 0.6,
+      "restitution": 0.05
+    }
+  ]
+}
+```

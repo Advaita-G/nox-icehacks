@@ -1,0 +1,98 @@
+{
+  "id": "case-09",
+  "subject": "fluid-intent",
+  "expected": "Ask about a rigid proxy or reject essential actual fluid behavior; no fake fluid simulation.",
+  "inputSha256": "94a92b992b0e55d9531e7319f73ea6d0c3ef88c60d6e39ec09be43f847d4e966",
+  "notes": "Simulate the water flowing out when the glass is tilted. Actual fluid flow is essential.",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:42:45.280Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 14
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "needs-clarification",
+  "questions": [
+    {
+      "id": "fluid_representation",
+      "prompt": "The simulation engine is restricted to rigid-body mechanics and cannot simulate actual continuous fluid dynamics (CFD), surface tension, or Navier-Stokes flow. How would you like to handle the water?",
+      "options": [
+        "Approximate the water using dynamic rigid spheres that spill when tilted",
+        "Model the water as a single rigid block proxy",
+        "Cancel simulation because actual fluid flow is strictly required"
+      ]
+    }
+  ],
+  "message": "The system only supports rigid body mechanics; continuous fluids and CFD cannot be simulated. Please clarify whether a rigid-particle proxy is acceptable or if actual fluid dynamics are strictly required.",
+  "elapsedSeconds": 18.677,
+  "requests": 1
+}

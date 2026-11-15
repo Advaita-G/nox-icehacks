@@ -1,0 +1,117 @@
+{
+  "startedAt": "2026-11-15T16:26:32.045Z",
+  "scope": "One actual image request to the original participant-funded project; no UI/device/deployment acceptance",
+  "sourceCommit": "d1ed836",
+  "sourceSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+  "provider": "momen",
+  "personalSpendUsd": 0,
+  "purchasedResources": false,
+  "providerRequests": 1,
+  "calls": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200,
+      "elapsedMs": 13944
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200,
+      "elapsedMs": 552
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "elapsedMs": 1611,
+      "conversationId": 5
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 205,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 123,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 128,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 127,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 118,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 121,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 163,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 186,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 132,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 421,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 184,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 127,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "elapsedMs": 131,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "responseBytes": 3869,
+  "canonicalStatus": "ready",
+  "questions": [],
+  "solver": {
+    "bodies": 3,
+    "time": 1,
+    "name": "Ball on fixed plank"
+  },
+  "elapsedSeconds": 37.956,
+  "completedAt": "2026-11-15T16:27:10.012Z"
+}

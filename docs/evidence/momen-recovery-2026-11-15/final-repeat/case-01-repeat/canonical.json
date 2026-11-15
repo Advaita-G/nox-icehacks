@@ -1,0 +1,412 @@
+{
+  "requestId": "momen-case-01-repeat",
+  "sourceId": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879",
+  "sourceRevision": 1,
+  "status": "ready",
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "Rectangular main walls of the house",
+      "objectId": "house_base",
+      "bbox": [
+        0.31,
+        0.448,
+        0.37999999999999995,
+        0.40599999999999997
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Triangular pitched roof with projecting eaves",
+      "objectId": "roof",
+      "bbox": [
+        0.262,
+        0.176,
+        0.478,
+        0.276
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Central front door rectangle",
+      "objectId": "door",
+      "bbox": [
+        0.463,
+        0.646,
+        0.07400000000000001,
+        0.20799999999999996
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Left four-pane square window",
+      "objectId": "window_left",
+      "bbox": [
+        0.35,
+        0.525,
+        0.08200000000000002,
+        0.129
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "Right four-pane square window",
+      "objectId": "window_right",
+      "bbox": [
+        0.568,
+        0.525,
+        0.08200000000000007,
+        0.129
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Rigid 3D model of the drawn house with gabled roof, central doorway, and symmetrical windows.",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "House with Gabled Roof",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Modeled as a full-scale residential structure with a depth of 2.5 meters.",
+      "The triangular gable roof rests directly on top of the main house body.",
+      "Door and four-pane windows are represented as facade features attached to the front of the house.",
+      "All structural elements are fixed as static architectural scenery.",
+      "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+      "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "db8da1046fd84bbb500ca6cfc164a040f64f6689ba0ac7c4658ea02d28784879"
+      }
+    ],
+    "objects": [
+      {
+        "id": "house_base",
+        "label": "house_base",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 2.02,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 3.78,
+        "height": 4.04,
+        "depth": 2.5,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "roof",
+        "label": "roof",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 5.400000051595514,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 4.76,
+        "height": 2.72,
+        "depth": 2.8,
+        "geometry": [
+          {
+            "shape": "convex",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            },
+            "vertices": [
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": -0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": -0.5
+              },
+              {
+                "x": -0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0.5,
+                "y": -0.5,
+                "z": 0.5
+              },
+              {
+                "x": 0,
+                "y": 0.5,
+                "z": 0.5
+              }
+            ]
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "door",
+        "label": "door",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": 1.02,
+          "z": 1.27
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.7,
+        "height": 2.04,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 0.39999999999999997
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "window_left",
+        "label": "window_left",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": -1.1,
+          "y": 2.63,
+          "z": 1.27
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.78,
+        "height": 1.24,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 0.39999999999999997
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      },
+      {
+        "id": "window_right",
+        "label": "window_right",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": {
+          "x": 1.1,
+          "y": 2.63,
+          "z": 1.27
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 0.78,
+        "height": 1.24,
+        "depth": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            },
+            "size": {
+              "x": 1,
+              "y": 1,
+              "z": 0.39999999999999997
+            }
+          }
+        ],
+        "mass": 1,
+        "friction": 0.5,
+        "restitution": 0.1,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  }
+}

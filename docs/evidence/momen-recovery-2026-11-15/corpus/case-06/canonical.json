@@ -1,0 +1,333 @@
+{
+  "requestId": "momen-case-06",
+  "sourceId": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Sedan Car on Ground",
+    "scale": 260,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Drawing interpreted as a sedan car with a rigid chassis and two rolling cylindrical wheel axles resting on a fixed horizontal ground plane.",
+      "Dimensions, masses, friction, and lateral depth are estimated from 2D proportions with an assumed scale of approximately 260 px/m.",
+      "Wheels are modeled as wide cylinders with free-spinning hinge joints along the lateral Z-axis to provide stable 3D rolling.",
+      "No propulsion or drive motor is depicted in the sketch; the car is unpowered and free-rolling under contact or external forces."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground support",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 6,
+        "height": 0.2,
+        "depth": 2,
+        "mass": 100,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.8,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "chassis",
+        "label": "car chassis",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": -0.05,
+          "y": 0.85,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.85,
+        "height": 0.95,
+        "depth": 0.8,
+        "mass": 60,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.4,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 1,
+              "y": 0.484211,
+              "z": 1
+            },
+            "position": {
+              "x": 0,
+              "y": -0.210526,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.421053,
+              "y": 0.468421,
+              "z": 0.9
+            },
+            "position": {
+              "x": -0.035088,
+              "y": 0.265789,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "rear-wheel",
+        "label": "rear wheel",
+        "kind": "cylinder",
+        "fixed": false,
+        "position": {
+          "x": -0.89,
+          "y": 0.35,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0.7071067812,
+          "y": 0,
+          "z": 0,
+          "w": 0.7071067812
+        },
+        "width": 0.7,
+        "height": 0.8,
+        "depth": 0.7,
+        "mass": 12,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.8,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "front-wheel",
+        "label": "front wheel",
+        "kind": "cylinder",
+        "fixed": false,
+        "position": {
+          "x": 0.89,
+          "y": 0.35,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0.7071067812,
+          "y": 0,
+          "z": 0,
+          "w": 0.7071067812
+        },
+        "width": 0.7,
+        "height": 0.8,
+        "depth": 0.7,
+        "mass": 12,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.8,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      }
+    ],
+    "constraints": [
+      {
+        "id": "rear-axle",
+        "type": "hinge",
+        "bodyA": "chassis",
+        "bodyB": "rear-wheel",
+        "anchorA": {
+          "x": -0.84,
+          "y": -0.5,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "contactsEnabled": false
+      },
+      {
+        "id": "front-axle",
+        "type": "hinge",
+        "bodyA": "chassis",
+        "bodyB": "front-wheel",
+        "anchorA": {
+          "x": 0.94,
+          "y": -0.5,
+          "z": 0
+        },
+        "anchorB": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "axisA": {
+          "x": 0,
+          "y": 0,
+          "z": 1
+        },
+        "axisB": {
+          "x": 0,
+          "y": 1,
+          "z": 0
+        },
+        "contactsEnabled": false
+      }
+    ],
+    "forces": [],
+    "fans": [],
+    "assemblies": [
+      {
+        "id": "car",
+        "label": "car assembly",
+        "bodies": [
+          "chassis",
+          "rear-wheel",
+          "front-wheel"
+        ]
+      }
+    ],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Drawn horizontal ground line supporting the car",
+      "bbox": [
+        0.15,
+        0.775,
+        0.72,
+        0.015
+      ]
+    },
+    {
+      "objectId": "chassis",
+      "origin": "sketch",
+      "note": "Drawn car body silhouette with cabin, roof, hood and trunk",
+      "bbox": [
+        0.223,
+        0.329,
+        0.557,
+        0.32
+      ]
+    },
+    {
+      "objectId": "rear-wheel",
+      "origin": "sketch",
+      "note": "Drawn rear circular wheel resting on the ground",
+      "bbox": [
+        0.294,
+        0.56,
+        0.13,
+        0.208
+      ]
+    },
+    {
+      "objectId": "front-wheel",
+      "origin": "sketch",
+      "note": "Drawn front circular wheel resting on the ground",
+      "bbox": [
+        0.625,
+        0.56,
+        0.13,
+        0.208
+      ]
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the line drawing as an unpowered sedan car resting on a flat ground plane. The wheels are modeled as rolling cylinders connected to the chassis with free-spinning Z-axis hinge joints."
+}

@@ -1,0 +1,320 @@
+{
+  "id": "case-02",
+  "subject": "annotated-sphere-plank",
+  "expected": "Sphere diameter 1m mass 1kg, plank length 3m, ground; correct contact/resting state.",
+  "inputSha256": "376fea9938f4a114353649ea68e96d9618e51c5f5a11f259dc72191da3fb9656",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "8d12752 metric compiler with restored Momen; temporary schema-in-prompt adaptation; not production",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:52:08.957Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 18
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Rigid body model constructed with a 1 m diameter sphere resting on a 3 m long fixed plank above the ground.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "plank",
+          "position": {
+            "x": 0,
+            "y": 0.14999985694885254,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 0.14999985694885254,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "ball",
+          "position": {
+            "x": 0,
+            "y": 0.7999281287193298,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": 0.7999281287193298,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 1,
+          "inertia": {
+            "x": 0.10000000149011612,
+            "y": 0.10000000149011612,
+            "z": 0.10000000149011612
+          }
+        }
+      ],
+      "kineticEnergy": 0,
+      "potentialEnergy": 7.847294942736626,
+      "momentum": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": -0.1,
+        "z": 0
+      },
+      "dimensions": [
+        6,
+        0.2,
+        2
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "plank",
+      "label": "plank",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 0.14999986372094654,
+        "z": 0
+      },
+      "dimensions": [
+        3,
+        0.3,
+        1
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "kind": "ball",
+      "position": {
+        "x": 0,
+        "y": 0.7998637707339413,
+        "z": 0
+      },
+      "dimensions": [
+        1,
+        1,
+        1
+      ],
+      "fixed": false,
+      "parts": 1
+    }
+  ],
+  "constraints": [],
+  "grounding": [
+    {
+      "origin": "sketch",
+      "note": "fixed ground line with hatch marks",
+      "objectId": "ground",
+      "bbox": [
+        0.15,
+        0.58,
+        0.7,
+        0.040000000000000036
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "fixed plank 3 m in length",
+      "objectId": "plank",
+      "bbox": [
+        0.312,
+        0.52,
+        0.37599999999999995,
+        0.061999999999999944
+      ]
+    },
+    {
+      "origin": "sketch",
+      "note": "ball with diameter 1 m and mass 1 kg",
+      "objectId": "ball",
+      "bbox": [
+        0.437,
+        0.318,
+        0.12599999999999995,
+        0.202
+      ]
+    }
+  ],
+  "elapsedSeconds": 23.801,
+  "requests": 1
+}

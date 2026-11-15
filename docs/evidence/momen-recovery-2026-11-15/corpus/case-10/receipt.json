@@ -1,0 +1,597 @@
+{
+  "id": "case-10",
+  "subject": "pivoting-lever",
+  "expected": "Lever, fulcrum/ground and ball; actual aligned free hinge, no motor.",
+  "inputSha256": "9b57c952a137a558778d8c0117a86db06b35c67df8c0155f4e69956c9e223c32",
+  "notes": "The lever rotates freely about the drawn pivot. The ball can fall; no motor.",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:43:03.961Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 15
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Interpreted the drawn lever system with triangular fulcrum, pivot hinge, and resting ball.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "fulcrum",
+          "position": {
+            "x": 0,
+            "y": 1.2000000476837158,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": -3.6957243931823314e-9,
+            "y": 0.7999999523162842,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "lever",
+          "position": {
+            "x": -0.08776454627513885,
+            "y": 2.5216448307037354,
+            "z": -3.8859948592318005e-10
+          },
+          "centerOfMass": {
+            "x": -0.08776454627513885,
+            "y": 2.5216448307037354,
+            "z": -3.8859948592318005e-10
+          },
+          "rotation": {
+            "x": -2.036655288861766e-9,
+            "y": 2.095874140906062e-9,
+            "z": 0.30743756890296936,
+            "w": 0.9515682458877563
+          },
+          "velocity": {
+            "x": -0.0009513857075944543,
+            "y": 0.0006214823224581778,
+            "z": 1.2832035878318493e-8
+          },
+          "angularVelocity": {
+            "x": 4.70365435489839e-8,
+            "y": 4.2575948100420646e-8,
+            "z": 0.0057066152803599834
+          },
+          "speed": 0.0011363868363843679,
+          "mass": 8,
+          "inertia": {
+            "x": 0.30000004172325134,
+            "y": 45.06666564941406,
+            "z": 44.88666915893555
+          }
+        },
+        {
+          "objectId": "ball",
+          "position": {
+            "x": -3.006782054901123,
+            "y": 1.5867688655853271,
+            "z": -4.667213886477839e-7
+          },
+          "centerOfMass": {
+            "x": -3.006782054901123,
+            "y": 1.5867688655853271,
+            "z": -4.667213886477839e-7
+          },
+          "rotation": {
+            "x": 3.141788340599305e-7,
+            "y": 2.0491269481226482e-7,
+            "z": 0.29507800936698914,
+            "w": 0.9554731845855713
+          },
+          "velocity": {
+            "x": -2.083890438079834,
+            "y": -1.5305691957473755,
+            "z": -0.0000032442130759591237
+          },
+          "angularVelocity": {
+            "x": -0.000003778244717977941,
+            "y": -0.0000018093378457706422,
+            "z": 3.22529673576355
+          },
+          "speed": 2.585583381154407,
+          "mass": 4,
+          "inertia": {
+            "x": 1.0240000486373901,
+            "y": 1.0240000486373901,
+            "z": 1.0240000486373901
+          }
+        }
+      ],
+      "kineticEnergy": 18.697319123709203,
+      "potentialEnergy": 260.1634965991974,
+      "momentum": {
+        "x": -8.343172837980092,
+        "y": -6.1173049244098365,
+        "z": -0.000012874196016809947
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [
+          {
+            "id": "pivot-hinge",
+            "separation": 2.427311650511851e-7,
+            "relativeVelocity": 0.0057066152803599834,
+            "effort": 0,
+            "power": 0
+          }
+        ],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground support",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": -0.1,
+        "z": 0
+      },
+      "dimensions": [
+        14,
+        0.2,
+        2
+      ],
+      "fixed": true
+    },
+    {
+      "id": "fulcrum",
+      "label": "triangular fulcrum",
+      "kind": "custom-part",
+      "position": {
+        "x": 0,
+        "y": 1.2,
+        "z": 0
+      },
+      "dimensions": [
+        2.8,
+        2.4,
+        0.6
+      ],
+      "fixed": true,
+      "parts": 1
+    },
+    {
+      "id": "lever",
+      "label": "lever plank",
+      "kind": "block",
+      "position": {
+        "x": 0,
+        "y": 2.55,
+        "z": 0
+      },
+      "dimensions": [
+        8.2,
+        0.3,
+        0.6
+      ],
+      "fixed": false
+    },
+    {
+      "id": "ball",
+      "label": "rolling ball",
+      "kind": "ball",
+      "position": {
+        "x": -2.8,
+        "y": 3.5,
+        "z": 0
+      },
+      "dimensions": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "fixed": false
+    }
+  ],
+  "constraints": [
+    {
+      "id": "pivot-hinge",
+      "type": "hinge",
+      "bodyA": "fulcrum",
+      "bodyB": "lever",
+      "anchorA": {
+        "x": 0,
+        "y": 1.2,
+        "z": 0
+      },
+      "anchorB": {
+        "x": 0,
+        "y": -0.15,
+        "z": 0
+      },
+      "axisA": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "axisB": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "contactsEnabled": false
+    }
+  ],
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Drawn horizontal ground line under the fulcrum",
+      "bbox": [
+        0.156,
+        0.795,
+        0.675,
+        0.02
+      ]
+    },
+    {
+      "objectId": "fulcrum",
+      "origin": "sketch",
+      "note": "Triangular fulcrum stand supporting the pivot",
+      "bbox": [
+        0.398,
+        0.55,
+        0.179,
+        0.25
+      ]
+    },
+    {
+      "objectId": "lever",
+      "origin": "sketch",
+      "note": "Horizontal lever plank pivoted at its center",
+      "bbox": [
+        0.23,
+        0.518,
+        0.515,
+        0.044
+      ]
+    },
+    {
+      "objectId": "ball",
+      "origin": "sketch",
+      "note": "Circular ball resting on the left arm of the lever",
+      "bbox": [
+        0.263,
+        0.36,
+        0.1,
+        0.16
+      ]
+    }
+  ],
+  "elapsedSeconds": 82.755,
+  "requests": 1
+}

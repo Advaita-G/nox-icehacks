@@ -10,6 +10,7 @@ import type { ModelProvider } from '../packages/input/server/api.ts';
 import { createAnthropicProvider, type Effort, type FetchLike } from './anthropic.ts';
 import { createMomenProvider, type FetchLike as MomenFetch } from './momen.ts';
 import { createCloudflareProvider, type FetchLike as CloudflareFetch } from './cloudflare.ts';
+import { drawingProvider } from './drawing.ts';
 
 export function buildProviders(env: Record<string, string | undefined>, fetchImpl?: FetchLike | MomenFetch | CloudflareFetch): Record<string, ModelProvider> {
   const providers: Record<string, ModelProvider> = {};
@@ -28,13 +29,13 @@ export function buildProviders(env: Record<string, string | undefined>, fetchImp
   if (env.NOX_MODEL_PROVIDER === 'momen') {
     const required = ['NOX_MOMEN_PROJECT_EX_ID', 'NOX_MOMEN_ADMIN_TOKEN', 'NOX_MOMEN_AGENT_ID', 'NOX_MOMEN_ARG_INSTRUCTIONS', 'NOX_MOMEN_ARG_REQUEST', 'NOX_MOMEN_ARG_IMAGE'];
     if (required.some((k) => !env[k]?.trim())) return providers;
-    providers.momen = createMomenProvider({
+    providers.momen = drawingProvider(createMomenProvider({
       projectExId: env.NOX_MOMEN_PROJECT_EX_ID as string,
       adminToken: env.NOX_MOMEN_ADMIN_TOKEN as string,
       agentId: env.NOX_MOMEN_AGENT_ID as string,
       argKeys: { instructions: env.NOX_MOMEN_ARG_INSTRUCTIONS as string, request: env.NOX_MOMEN_ARG_REQUEST as string, image: env.NOX_MOMEN_ARG_IMAGE as string },
       ...(fetchImpl ? { fetch: fetchImpl as MomenFetch } : {}),
-    });
+    }));
     return providers;
   }
   if (env.NOX_MODEL_PROVIDER !== 'anthropic') return providers;

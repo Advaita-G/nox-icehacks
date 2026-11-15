@@ -1,0 +1,136 @@
+```json
+{
+  "status": "ready",
+  "name": "Seesaw Lever with Ball",
+  "assumptions": [
+    "Scale inferred from drawn proportions with ground beam width approximately 1.6 meters.",
+    "Lever is modeled as a dynamic rigid plank pinned at the drawn fulcrum pivot with a free hinge.",
+    "The triangular stand acts as a fixed fulcrum base resting on the horizontal ground plane.",
+    "The sphere rests on the left arm of the lever and falls when the lever tilts under gravity."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid body model generated with a free hinge constraint at the pivot and a dynamic ball resting on the left side of the lever.",
+  "gravity": { "x": 0, "y": -9.81, "z": 0 },
+  "scale": 50,
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": { "x": 0, "y": 0, "z": 0 }
+  },
+  "constraints": [
+    {
+      "id": "pivot_hinge",
+      "type": "hinge",
+      "bodyA": "fulcrum",
+      "bodyB": "lever",
+      "anchorA": { "x": 0, "y": 0.275, "z": 0 },
+      "anchorB": { "x": 0, "y": 0, "z": 0 },
+      "axisA": { "x": 0, "y": 0, "z": 1 },
+      "axisB": { "x": 0, "y": 0, "z": 1 },
+      "contactsEnabled": false
+    }
+  ],
+  "forces": [],
+  "fans": [],
+  "assemblies": [],
+  "bodies": [
+    {
+      "id": "ground",
+      "label": "ground line",
+      "fixed": true,
+      "position": { "x": 0, "y": -0.02, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 1.6, "y": 0.04, "z": 0.4 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal ground baseline",
+        "region": { "left": 0.156, "top": 0.798, "right": 0.832, "bottom": 0.812 }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "fulcrum",
+      "label": "triangular fulcrum stand",
+      "fixed": true,
+      "position": { "x": 0, "y": 0.275, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            { "x": -0.2, "y": -0.275, "z": -0.1 },
+            { "x": 0.2, "y": -0.275, "z": -0.1 },
+            { "x": 0.2, "y": -0.275, "z": 0.1 },
+            { "x": -0.2, "y": -0.275, "z": 0.1 },
+            { "x": -0.02, "y": 0.275, "z": -0.1 },
+            { "x": 0.02, "y": 0.275, "z": -0.1 },
+            { "x": 0.02, "y": 0.275, "z": 0.1 },
+            { "x": -0.02, "y": 0.275, "z": 0.1 }
+          ]
+        },
+        {
+          "shape": "cylinder",
+          "size": { "x": 0.06, "y": 0.22, "z": 0.06 },
+          "position": { "x": 0, "y": 0.275, "z": 0 },
+          "rotationDegrees": { "x": 90, "y": 0, "z": 0 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "triangular pivot base with circular pin",
+        "region": { "left": 0.398, "top": 0.537, "right": 0.578, "bottom": 0.804 }
+      },
+      "stackAbove": "ground"
+    },
+    {
+      "id": "lever",
+      "label": "lever arm",
+      "fixed": false,
+      "position": { "x": 0, "y": 0.55, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": { "x": 1.25, "y": 0.08, "z": 0.2 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "horizontal lever beam",
+        "region": { "left": 0.228, "top": 0.516, "right": 0.748, "bottom": 0.564 }
+      },
+      "stackAbove": null,
+      "mass": 2.0,
+      "friction": 0.4,
+      "restitution": 0.1
+    },
+    {
+      "id": "ball",
+      "label": "ball",
+      "fixed": false,
+      "position": { "x": -0.42, "y": 0.78, "z": 0 },
+      "rotationDegrees": { "x": 0, "y": 0, "z": 0 },
+      "shapes": [
+        {
+          "shape": "sphere",
+          "size": { "x": 0.38, "y": 0.38, "z": 0.38 }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "circular ball resting on the left side of the lever",
+        "region": { "left": 0.26, "top": 0.358, "right": 0.364, "bottom": 0.522 }
+      },
+      "stackAbove": "lever",
+      "mass": 1.5,
+      "friction": 0.4,
+      "restitution": 0.2
+    }
+  ]
+}
+```

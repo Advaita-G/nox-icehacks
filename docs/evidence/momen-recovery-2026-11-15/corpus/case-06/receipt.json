@@ -1,0 +1,691 @@
+{
+  "id": "case-06",
+  "subject": "car",
+  "expected": "Car cabin, two round wheels and ground; coherent rigid approximation without invented motor.",
+  "inputSha256": "6a564183e21bdc8686c303b5b7fbdab9443f08c40d789fc9bf01829209496763",
+  "notes": "",
+  "provider": "momen",
+  "sourceCommit": "d1ed836",
+  "scope": "Actual canonical provider + validator + one-second solver; digital corpus, not browser/device or population accuracy",
+  "startedAt": "2026-11-15T16:39:50.519Z",
+  "retries": 0,
+  "trace": [
+    {
+      "operation": "NoxImageUpload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "image-upload",
+      "httpStatus": 200
+    },
+    {
+      "operation": "NoxCreateConversation",
+      "httpStatus": 200,
+      "conversationId": 12
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "IN_PROGRESS"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "STREAMING"
+    },
+    {
+      "operation": "NoxResult",
+      "httpStatus": 200,
+      "status": "COMPLETED"
+    }
+  ],
+  "providerStatus": "COMPLETED",
+  "canonicalStatus": "ready",
+  "questions": [],
+  "message": "Interpreted the line drawing as an unpowered sedan car resting on a flat ground plane. The wheels are modeled as rolling cylinders connected to the chassis with free-spinning Z-axis hinge joints.",
+  "solver": {
+    "time": 1,
+    "sample": {
+      "simulationTime": 1,
+      "bodies": [
+        {
+          "objectId": "ground",
+          "position": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "centerOfMass": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "speed": 0,
+          "mass": 0,
+          "inertia": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "objectId": "chassis",
+          "position": {
+            "x": -0.03664560988545418,
+            "y": 0.849699079990387,
+            "z": 0.0001062986339093186
+          },
+          "centerOfMass": {
+            "x": -0.06346676498651505,
+            "y": 0.7710816860198975,
+            "z": 0.0000958504606387578
+          },
+          "rotation": {
+            "x": 0.00006362028216244653,
+            "y": -0.000008293899554701056,
+            "z": 0.000026968838938046247,
+            "w": 1
+          },
+          "velocity": {
+            "x": 0.03615536540746689,
+            "y": -0.0007218259270302951,
+            "z": 0.000016033653082558885
+          },
+          "angularVelocity": {
+            "x": 0.00002238691558886785,
+            "y": 0.00002737544673436787,
+            "z": -0.00004931546209263615
+          },
+          "speed": 0.03616257371225695,
+          "mass": 59.999996185302734,
+          "inertia": {
+            "x": 6.478188991546631,
+            "y": 34.81426239013672,
+            "z": 35.21861267089844
+          }
+        },
+        {
+          "objectId": "rear-wheel",
+          "position": {
+            "x": -0.8766202330589294,
+            "y": 0.3496544659137726,
+            "z": 0.000027234576918999664
+          },
+          "centerOfMass": {
+            "x": -0.8766202330589294,
+            "y": 0.3496544659137726,
+            "z": 0.000027234576918999664
+          },
+          "rotation": {
+            "x": 0.7070236802101135,
+            "y": -0.013526778668165207,
+            "z": -0.013516866602003574,
+            "w": 0.7069312930107117
+          },
+          "velocity": {
+            "x": 0.0361519530415535,
+            "y": -0.0005595984985120595,
+            "z": 0.000026145307856495492
+          },
+          "angularVelocity": {
+            "x": 0.000074745126767084,
+            "y": 5.833882141814684e-7,
+            "z": -0.1033400148153305
+          },
+          "speed": 0.036156293266530366,
+          "mass": 12,
+          "inertia": {
+            "x": 1.0075000524520874,
+            "y": 0.73499995470047,
+            "z": 1.0075000524520874
+          }
+        },
+        {
+          "objectId": "front-wheel",
+          "position": {
+            "x": 0.9033812880516052,
+            "y": 0.3497496247291565,
+            "z": 0.00005827432687510736
+          },
+          "centerOfMass": {
+            "x": 0.9033812880516052,
+            "y": 0.3497496247291565,
+            "z": 0.00005827432687510736
+          },
+          "rotation": {
+            "x": 0.7070227265357971,
+            "y": -0.013521336019039154,
+            "z": -0.013511388562619686,
+            "w": 0.706932544708252
+          },
+          "velocity": {
+            "x": 0.03613622486591339,
+            "y": -0.0006045846967026591,
+            "z": -0.000022055794033803977
+          },
+          "angularVelocity": {
+            "x": -0.00006304190173977986,
+            "y": -2.932675045030919e-7,
+            "z": -0.10328033566474915
+          },
+          "speed": 0.03614128880758674,
+          "mass": 12,
+          "inertia": {
+            "x": 1.0075000524520874,
+            "y": 0.73499995470047,
+            "z": 1.0075000524520874
+          }
+        }
+      ],
+      "kineticEnergy": 0.06275748325636407,
+      "potentialEnergy": 536.1925010862395,
+      "momentum": {
+        "x": 3.0367799214158424,
+        "y": -0.05727975121084694,
+        "z": 0.0010110932896622987
+      },
+      "mechanisms": {
+        "springEnergy": 0,
+        "connections": [
+          {
+            "id": "rear-axle",
+            "separation": 0.0000022990903264491206,
+            "relativeVelocity": -0.10329069596216005,
+            "effort": 0,
+            "power": 0
+          },
+          {
+            "id": "front-axle",
+            "separation": 1.7503836902107635e-7,
+            "relativeVelocity": -0.10323101441541271,
+            "effort": 0,
+            "power": 0
+          }
+        ],
+        "fans": []
+      }
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "label": "ground support",
+      "kind": "platform",
+      "position": {
+        "x": 0,
+        "y": -0.1,
+        "z": 0
+      },
+      "dimensions": [
+        6,
+        0.2,
+        2
+      ],
+      "fixed": true
+    },
+    {
+      "id": "chassis",
+      "label": "car chassis",
+      "kind": "custom-part",
+      "position": {
+        "x": -0.05,
+        "y": 0.85,
+        "z": 0
+      },
+      "dimensions": [
+        2.85,
+        0.95,
+        0.8
+      ],
+      "fixed": false,
+      "parts": 2
+    },
+    {
+      "id": "rear-wheel",
+      "label": "rear wheel",
+      "kind": "cylinder",
+      "position": {
+        "x": -0.89,
+        "y": 0.35,
+        "z": 0
+      },
+      "dimensions": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "fixed": false
+    },
+    {
+      "id": "front-wheel",
+      "label": "front wheel",
+      "kind": "cylinder",
+      "position": {
+        "x": 0.89,
+        "y": 0.35,
+        "z": 0
+      },
+      "dimensions": [
+        0.7,
+        0.8,
+        0.7
+      ],
+      "fixed": false
+    }
+  ],
+  "constraints": [
+    {
+      "id": "rear-axle",
+      "type": "hinge",
+      "bodyA": "chassis",
+      "bodyB": "rear-wheel",
+      "anchorA": {
+        "x": -0.84,
+        "y": -0.5,
+        "z": 0
+      },
+      "anchorB": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "axisA": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "axisB": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      },
+      "contactsEnabled": false
+    },
+    {
+      "id": "front-axle",
+      "type": "hinge",
+      "bodyA": "chassis",
+      "bodyB": "front-wheel",
+      "anchorA": {
+        "x": 0.94,
+        "y": -0.5,
+        "z": 0
+      },
+      "anchorB": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "axisA": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "axisB": {
+        "x": 0,
+        "y": 1,
+        "z": 0
+      },
+      "contactsEnabled": false
+    }
+  ],
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "note": "Drawn horizontal ground line supporting the car",
+      "bbox": [
+        0.15,
+        0.775,
+        0.72,
+        0.015
+      ]
+    },
+    {
+      "objectId": "chassis",
+      "origin": "sketch",
+      "note": "Drawn car body silhouette with cabin, roof, hood and trunk",
+      "bbox": [
+        0.223,
+        0.329,
+        0.557,
+        0.32
+      ]
+    },
+    {
+      "objectId": "rear-wheel",
+      "origin": "sketch",
+      "note": "Drawn rear circular wheel resting on the ground",
+      "bbox": [
+        0.294,
+        0.56,
+        0.13,
+        0.208
+      ]
+    },
+    {
+      "objectId": "front-wheel",
+      "origin": "sketch",
+      "note": "Drawn front circular wheel resting on the ground",
+      "bbox": [
+        0.625,
+        0.56,
+        0.13,
+        0.208
+      ]
+    }
+  ],
+  "elapsedSeconds": 102.014,
+  "requests": 1
+}

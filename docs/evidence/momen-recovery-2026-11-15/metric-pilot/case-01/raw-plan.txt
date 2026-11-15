@@ -1,0 +1,251 @@
+{
+  "status": "ready",
+  "name": "Simple House",
+  "assumptions": [
+    "Scenery house model built to human architectural scale (approx. 6 m wide base, 10.7 m peak height).",
+    "Model is treated as static scenery with fixed bodies.",
+    "Door and 4-pane windows are represented as distinct facade relief features on the front exterior."
+  ],
+  "warnings": [],
+  "questions": [],
+  "message": "Rigid structural model of the drawn house including base walls, triangular gabled roof, central door, and symmetrical windows.",
+  "gravity": {
+    "x": 0,
+    "y": -9.81,
+    "z": 0
+  },
+  "scale": 15.9,
+  "constraints": [],
+  "forces": [],
+  "fans": [],
+  "assemblies": [
+    {
+      "id": "house-assembly",
+      "label": "House Structure",
+      "bodies": [
+        "base",
+        "roof",
+        "door",
+        "left-window",
+        "right-window"
+      ]
+    }
+  ],
+  "environment": {
+    "airDensity": 1.2,
+    "airVelocity": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "bodies": [
+    {
+      "id": "base",
+      "label": "House Walls",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 3.2,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 6.0,
+            "y": 6.4,
+            "z": 5.0
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Main rectangular house wall enclosure",
+        "region": {
+          "left": 0.311,
+          "top": 0.449,
+          "right": 0.689,
+          "bottom": 0.853
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "roof",
+      "label": "Gabled Roof",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 8.55,
+        "z": 0
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "convex",
+          "vertices": [
+            {
+              "x": -3.8,
+              "y": -2.15,
+              "z": -2.7
+            },
+            {
+              "x": 3.8,
+              "y": -2.15,
+              "z": -2.7
+            },
+            {
+              "x": 0.0,
+              "y": 2.15,
+              "z": -2.7
+            },
+            {
+              "x": -3.8,
+              "y": -2.15,
+              "z": 2.7
+            },
+            {
+              "x": 3.8,
+              "y": -2.15,
+              "z": 2.7
+            },
+            {
+              "x": 0.0,
+              "y": 2.15,
+              "z": 2.7
+            }
+          ]
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Triangular roof with overhanging eaves",
+        "region": {
+          "left": 0.262,
+          "top": 0.175,
+          "right": 0.739,
+          "bottom": 0.451
+        }
+      },
+      "stackAbove": "base"
+    },
+    {
+      "id": "door",
+      "label": "Front Door",
+      "fixed": true,
+      "position": {
+        "x": 0,
+        "y": 1.61,
+        "z": 2.53
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.1,
+            "y": 3.22,
+            "z": 0.08
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Front entry door",
+        "region": {
+          "left": 0.465,
+          "top": 0.648,
+          "right": 0.536,
+          "bottom": 0.853
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "left-window",
+      "label": "Left Window",
+      "fixed": true,
+      "position": {
+        "x": -1.74,
+        "y": 4.18,
+        "z": 2.53
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.25,
+            "y": 1.98,
+            "z": 0.08
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Square window on the left side with mullion grid",
+        "region": {
+          "left": 0.351,
+          "top": 0.527,
+          "right": 0.431,
+          "bottom": 0.653
+        }
+      },
+      "stackAbove": null
+    },
+    {
+      "id": "right-window",
+      "label": "Right Window",
+      "fixed": true,
+      "position": {
+        "x": 1.74,
+        "y": 4.18,
+        "z": 2.53
+      },
+      "rotationDegrees": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "shapes": [
+        {
+          "shape": "box",
+          "size": {
+            "x": 1.25,
+            "y": 1.98,
+            "z": 0.08
+          }
+        }
+      ],
+      "grounding": {
+        "origin": "sketch",
+        "note": "Square window on the right side with mullion grid",
+        "region": {
+          "left": 0.569,
+          "top": 0.527,
+          "right": 0.65,
+          "bottom": 0.653
+        }
+      },
+      "stackAbove": null
+    }
+  ]
+}

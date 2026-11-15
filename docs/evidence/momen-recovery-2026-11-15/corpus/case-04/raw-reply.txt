@@ -1,0 +1,124 @@
+{
+  "requestId": "momen-case-04",
+  "sourceId": "3ae8cf663ef5a2928f3306df41d619deeaeb73905fa507e0d5df1619ce9e4b53",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Tree Scenery",
+    "scale": 100,
+    "gravity": { "x": 0, "y": -9.81, "z": 0 },
+    "assumptions": [
+      "The 2D drawing of a tree and ground line is interpreted as static scenery extruded to an estimated depth of 0.2 m.",
+      "The horizontal line represents a fixed ground platform.",
+      "The tree (trunk, branches, and three circular foliage clusters) is modeled as a static compound rigid body fixed to the ground.",
+      "Dimensions, mass, and contact coefficients are estimated from drawing proportions."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "3ae8cf663ef5a2928f3306df41d619deeaeb73905fa507e0d5df1619ce9e4b53"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground platform",
+        "kind": "platform",
+        "fixed": true,
+        "position": { "x": 0, "y": -0.2, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0, "w": 1 },
+        "width": 10,
+        "height": 0.4,
+        "depth": 2,
+        "mass": 100,
+        "velocity": { "x": 0, "y": 0, "z": 0 },
+        "angularVelocity": { "x": 0, "y": 0, "z": 0 },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "tree",
+        "label": "tree structure",
+        "kind": "custom-part",
+        "fixed": true,
+        "position": { "x": 0, "y": 3.5, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0, "w": 1 },
+        "width": 8,
+        "height": 8,
+        "depth": 8,
+        "mass": 50,
+        "velocity": { "x": 0, "y": 0, "z": 0 },
+        "angularVelocity": { "x": 0, "y": 0, "z": 0 },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": { "x": 0.1375, "y": 0.3775, "z": 0.025 },
+            "position": { "x": 0, "y": -0.24875, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0, "w": 1 }
+          },
+          {
+            "shape": "box",
+            "size": { "x": 0.015, "y": 0.247625, "z": 0.025 },
+            "position": { "x": -0.140625, "y": -0.040625, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": 0.366092, "w": 0.930579 }
+          },
+          {
+            "shape": "box",
+            "size": { "x": 0.015, "y": 0.2538, "z": 0.025 },
+            "position": { "x": 0.125, "y": -0.053125, "z": 0 },
+            "rotation": { "x": 0, "y": 0, "z": -0.438382, "w": 0.898789 }
+          },
+          {
+            "shape": "cylinder",
+            "size": { "x": 0.4375, "y": 0.025, "z": 0.4375 },
+            "position": { "x": 0.115, "y": 0.22, "z": 0 },
+            "rotation": { "x": 0.7071067812, "y": 0, "z": 0, "w": 0.7071067812 }
+          },
+          {
+            "shape": "cylinder",
+            "size": { "x": 0.425, "y": 0.025, "z": 0.425 },
+            "position": { "x": -0.215, "y": 0.1375, "z": 0 },
+            "rotation": { "x": 0.7071067812, "y": 0, "z": 0, "w": 0.7071067812 }
+          },
+          {
+            "shape": "cylinder",
+            "size": { "x": 0.3875, "y": 0.025, "z": 0.3875 },
+            "position": { "x": 0.30625, "y": 0.05625, "z": 0 },
+            "rotation": { "x": 0.7071067812, "y": 0, "z": 0, "w": 0.7071067812 }
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": { "x": 0, "y": 0, "z": 0 }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "bbox": [0.18, 0.78, 0.61, 0.03],
+      "note": "Horizontal ground line drawn at the base of the tree"
+    },
+    {
+      "objectId": "tree",
+      "origin": "sketch",
+      "bbox": [0.27, 0.08, 0.47, 0.71],
+      "note": "Tree figure comprising trunk, two angled branches, and three overlapping circular foliage crowns"
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "The drawing represents a stylized tree on a horizontal ground line. It has been modeled as a fixed support ground platform with a static compound tree consisting of extruded rigid trunk, branches, and cylindrical foliage disks."
+}

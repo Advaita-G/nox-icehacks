@@ -1,0 +1,253 @@
+{
+  "requestId": "momen-case-05",
+  "sourceId": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507",
+  "sourceRevision": 1,
+  "status": "ready",
+  "scene": {
+    "schemaVersion": 2,
+    "revision": 0,
+    "name": "Stick Figure Standing on Ground",
+    "scale": 100,
+    "gravity": {
+      "x": 0,
+      "y": -9.81,
+      "z": 0
+    },
+    "assumptions": [
+      "Rigid body mechanics; the 2D illustration is modeled as a 3D rigid compound figurine with an estimated depth of 0.2 m.",
+      "The horizontal floor line is modeled as a fixed support platform beneath the character's feet.",
+      "Contact friction and restitution parameters are estimated standard rigid body defaults."
+    ],
+    "sources": [
+      {
+        "kind": "photo",
+        "reference": "b090a08fe84604c02336892eed6ac47a8899b2245d9814cc35b3079b0bbd9507"
+      }
+    ],
+    "objects": [
+      {
+        "id": "ground",
+        "label": "ground platform",
+        "kind": "platform",
+        "fixed": true,
+        "position": {
+          "x": 0,
+          "y": -0.1,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 2.4,
+        "height": 0.2,
+        "depth": 1,
+        "mass": 50,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1
+      },
+      {
+        "id": "figurine",
+        "label": "character figurine",
+        "kind": "custom-part",
+        "fixed": false,
+        "position": {
+          "x": 0,
+          "y": 0.85,
+          "z": 0
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0,
+          "w": 1
+        },
+        "width": 1,
+        "height": 1,
+        "depth": 1,
+        "mass": 18,
+        "velocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "angularVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "friction": 0.5,
+        "restitution": 0.1,
+        "wallThickness": 0.1,
+        "geometry": [
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.48,
+              "y": 0.5,
+              "z": 0.2
+            },
+            "position": {
+              "x": 0,
+              "y": 0.05,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1
+            }
+          },
+          {
+            "shape": "cylinder",
+            "size": {
+              "x": 0.5,
+              "y": 0.2,
+              "z": 0.5
+            },
+            "position": {
+              "x": 0,
+              "y": 0.55,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0.7071067812,
+              "y": 0,
+              "z": 0,
+              "w": 0.7071067812
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.4665,
+              "z": 0.2
+            },
+            "position": {
+              "x": -0.36,
+              "y": 0.05,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": -0.2669144,
+              "w": 0.9637207
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.4665,
+              "z": 0.2
+            },
+            "position": {
+              "x": 0.36,
+              "y": 0.05,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.2669144,
+              "w": 0.9637207
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.6549,
+              "z": 0.2
+            },
+            "position": {
+              "x": -0.16,
+              "y": -0.525,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": -0.061216,
+              "w": 0.998124
+            }
+          },
+          {
+            "shape": "box",
+            "size": {
+              "x": 0.05,
+              "y": 0.6549,
+              "z": 0.2
+            },
+            "position": {
+              "x": 0.16,
+              "y": -0.525,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0.061216,
+              "w": 0.998124
+            }
+          }
+        ]
+      }
+    ],
+    "constraints": [],
+    "forces": [],
+    "fans": [],
+    "assemblies": [],
+    "environment": {
+      "airDensity": 1.225,
+      "airVelocity": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    }
+  },
+  "grounding": [
+    {
+      "objectId": "ground",
+      "origin": "sketch",
+      "bbox": [
+        0.218,
+        0.87,
+        0.545,
+        0.02
+      ],
+      "note": "Horizontal support ground line"
+    },
+    {
+      "objectId": "figurine",
+      "origin": "sketch",
+      "bbox": [
+        0.29,
+        0.14,
+        0.39,
+        0.73
+      ],
+      "note": "Stick figure character with head, square torso, angled arms and legs"
+    }
+  ],
+  "questions": [],
+  "warnings": [],
+  "message": "Interpreted the drawn character as a standing rigid compound figurine supported on the drawn ground surface."
+}
