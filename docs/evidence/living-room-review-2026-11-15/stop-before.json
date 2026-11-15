@@ -1,0 +1,53 @@
+{
+  "url": "http://127.0.0.1:5213",
+  "mediaCapture": false,
+  "vendorCalls": 0,
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "motion": "no-preference",
+      "before": "thinking",
+      "after": {
+        "state": "thinking",
+        "label": "Working on it",
+        "stopHidden": false,
+        "roll": "nox-roll",
+        "clock": "0.942 s"
+      },
+      "status": "FAIL",
+      "failure": "{'state': 'thinking', 'label': 'Working on it', 'stopHidden': False, 'roll': 'nox-roll', 'clock': '0.942 s'}",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    },
+    {
+      "width": 375,
+      "height": 667,
+      "motion": "reduce",
+      "before": "thinking",
+      "after": {
+        "state": "thinking",
+        "label": "Working on it",
+        "stopHidden": false,
+        "roll": "none",
+        "clock": "0.608 s"
+      },
+      "status": "FAIL",
+      "failure": "{'state': 'thinking', 'label': 'Working on it', 'stopHidden': False, 'roll': 'none', 'clock': '0.608 s'}",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "motion": "no-preference",
+      "status": "FAIL",
+      "failure": "",
+      "pageErrors": [],
+      "inferenceRequests": [],
+      "browserClosed": true
+    }
+  ]
+}

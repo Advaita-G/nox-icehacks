@@ -46,7 +46,7 @@ Built with TypeScript, Vite, Three.js, Rapier3D, Cloudflare Workers AI, Gemma 4 
 
 ## Devpost field audit — not part of the story
 
-Checked November 14, 2026, Pacific. This section contains prepared field values and evidence of the last saved state; it does **not** assert that account fields were updated. The owned draft was last observed as 4/5, with the older story/video. No authenticated, focus-safe account connection is available in this session; no personal browser takeover or cookie extraction is permitted.
+Checked November 15, 2026, Pacific. This section contains prepared field values and evidence of the last saved state; it does **not** assert that account fields were updated. The owned draft was last observed as 4/5, with the older story/video. Neither agent has an authenticated, focus-safe account connection; no personal browser takeover or cookie extraction is permitted.
 
 | Field | Prepared value / required check | State |
 | --- | --- | --- |
@@ -66,4 +66,4 @@ Checked November 14, 2026, Pacific. This section contains prepared field values 
 
 [Official event page](https://icehacks.devpost.com/) checked November 14: deadline **November 15, 2026, 6 PM Pacific**. Its submission checklist requires a supported working video of at most three minutes, a write-up, source/live link, tools and applicable tracks; the separate rules page calls video optional. Meet the stricter video requirement and retain the public source. The free inference reset at **4 PM Pacific** leaves **two hours before the deadline**; finish independent preparation before reset. These dates do not establish final submission.
 
-Current ownership and finish checks live in [team issue #25](https://github.com/Advaita-G/nox/issues/25#issuecomment-6890712338). Claude owns independent UI/device review; Codex owns recognition, field-copy audit and final integration. A posted assignment is not proof that the remote agent has started or that the account draft is complete.
+Current ownership and finish checks live in [team issue #25](https://github.com/Advaita-G/nox/issues/25#issuecomment-6890712338). Claude acknowledged its existing 10-minute check and delivered the independent technical UI review and Stop-state fix. Its physical-device lane remains pending Juwon personally. Codex owns recognition, field-copy audit and final integration. No account-draft completion is established by those results.

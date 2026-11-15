@@ -1,0 +1,7 @@
+{
+  "applicationCommit": "d1ed836975c370c29a47c180882e53ebc49ff231",
+  "sha256": {
+    "src/main.ts": "1e6ef09c7ac64aaf393c7c3cbc0b874dc76493af63191b9d44e52a3893f8adf3",
+    "scripts/check-room-stop.py": "08728ef4e3b444d217fe9aaba0a8794a193675d35045540e39a95eea68e3c20a"
+  }
+}

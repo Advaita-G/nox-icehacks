@@ -21,3 +21,19 @@ This is a review candidate, not a stable release. Human visual/auditory preferen
 [Pinned review preview](https://nox-icehacks-21iqfx6kz-idk-41a8.vercel.app), deployed source `10e13041d264d699d442c6308206bca712f66aaf`, deployment `dpl_2XyknuEGo4BcFUPN6bD6bWJCMFyL`. [HTTP/asset check](deployed-http.json) returned 200 and byte-identical main JavaScript/CSS; anonymous API status remains access-gated. [Deployed desktop/reduced-motion mobile checks](deployed-room.json) passed actual local creation, sustained simulation, review/yes/cancel, offscreen annotation and exact Save/reload. Inference routes were blocked and no inference requests occurred. [Stable alias evidence](stable-alias.json) confirms `nox-icehacks.vercel.app` still points to the previous `dpl_Hg5bT9m2FLNmGgMUDxSV4u7a1dWU` deployment. [Draft UI PR #2](https://github.com/Advaita-G/nox-icehacks/pull/2) is unmerged.
 
 The user chose **$0 and wait for the Cloudflare reset at November 15, 4 PM Pacific**. No fresh inference is permitted before that reset; no paid capacity is enabled. Broader recognition fidelity/repeats still fail the separate experimental acceptance gate. Devpost remains unsubmitted and account-browser work remains deferred under the background-only instruction.
+
+## Independent review and Stop fix — November 15 morning Pacific
+
+Juwon's Claude confirmed that its existing **10-minute** check watches [team issue #25](https://github.com/Advaita-G/nox/issues/25#issuecomment-6890825235), then delivered an [independent verdict](https://github.com/Advaita-G/nox/issues/25#issuecomment-6890916878). [Copied raw DOM/permission results](independent-review.json) cover desktop, phone/reduced motion, Save/reload, microphone denial and unavailable speech. Physical microphone/TTS and new paper-camera acceptance still require Juwon personally; neither agent has an authorised background Devpost session.
+
+The reviewer reproduced a real defect: Stop during a pending local demonstration cancelled work but left the assistant in `thinking`, with Stop visible and the roll active. Its one-line fix explicitly resets the panel to idle after cancellation. The portable commit is applied with Juwon's authorship preserved at **`d1ed836975c370c29a47c180882e53ebc49ff231`**. Physics, timing guards, schemas and provider behavior are unchanged. Root **251/251** and typecheck/build pass. [Test log](stop-root-tests.txt) · [Build log](stop-build.txt) · [Touched source hashes](stop-source-sha256.json).
+
+Codex independently reproduced the old state on desktop and reduced-motion phone; the old 320 px setup did not reach the tested pending state ([before receipt](stop-before.json)). With the fix, Stop itself passed at all three sizes, but the initial expanded recovery run timed out at 320 px after Stop ([initial after receipt](stop-after.json)). A targeted 320 px diagnostic passed ([diagnostic](stop-narrow-diagnostic.json)); no causal repair for that transient recovery timeout is claimed. The final unchanged-source matrix passed **3/3** at 1280×800, 375×667 reduced motion and 320×640: pending request → actual Stop → idle/readable label/hidden Stop/no roll → fixed clock → next local request running beyond 0.25 s, with zero inference, page errors or capture ([final receipt](stop-final.json)). Earlier failure remains retained; this is bounded regression acceptance, not universal device reliability.
+
+Reproduce on the development Mac with its existing Python/Playwright/Chromium installation (ANGLE Metal) and a built app served locally:
+
+```sh
+python3 scripts/check-room-stop.py http://127.0.0.1:4173 /tmp/nox-stop.json
+```
+
+The helper uses isolated headless browsers, blocks interpretation/command endpoints and exits nonzero on any failed case. It neither accesses a personal profile nor captures media.

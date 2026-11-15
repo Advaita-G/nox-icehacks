@@ -17,7 +17,7 @@ This is the team's evidence-based review, **not an official score**. [IceHacks](
 | Result | Status and evidence |
 | --- | --- |
 | Current working deployment | Preserved at `0784006`; one actual live image/edit case and earlier core matrix have separate receipts. |
-| Living-assistant redesign | Both Juwon patches delivered and incorporated in [draft UI PR #2](https://github.com/Advaita-G/nox-icehacks/pull/2), application `10e1304`. Follow-up fixes and [candidate evidence](evidence/living-room-review-2026-11-15/README.md) are published. Independent final UI/device review is assigned to Claude on [issue 25](https://github.com/Advaita-G/nox/issues/25#issuecomment-6890712338); no final human design acceptance claimed. |
+| Living-assistant redesign | Both Juwon patches and the independent review's Stop-state fix are incorporated in [draft UI PR #2](https://github.com/Advaita-G/nox-icehacks/pull/2), latest application `d1ed836`. Independent technical review delivered; root 251/build and final 3/3 Stop/recovery matrix pass. [All attempts and evidence](evidence/living-room-review-2026-11-15/README.md). Physical-device and human design acceptance remain unverified. |
 | Live film release | Published; six downloaded assets match checksums and all 37 source files match the ZIP manifest. |
 | YouTube and Devpost draft update | Pending: task windows closed and user requested background-only work. No account state was changed in this continuation. |
 | Complete project field copy | [Field audit](SUBMISSION.md#devpost-field-audit--not-part-of-the-story) supplies name, pitch, story, tools, source/live/video, cover/caption, team, tracks and disclosures; saved account fields and remaining required questions still need an authenticated background check. |
