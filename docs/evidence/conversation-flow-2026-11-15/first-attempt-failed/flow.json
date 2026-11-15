@@ -1,0 +1,580 @@
+{
+  "url": "http://127.0.0.1:5231",
+  "scope": "User rough image, no numeric notes, ordinary conversation. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-0385c8e7",
+        "target": {
+          "experimentId": "70b37bc8-38d4-4688-811d-4644ad318bd2",
+          "versionId": "d8470909-fe3b-4532-aeae-2bb0842d35cb",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "widthPx": 1600,
+          "heightPx": 800,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "239e95c737fb1637f4e3b28e7e4dbfb6b3658e1ddbee111073979dfd9ff66271"
+        },
+        "notes": "Nox, can you build it into a 3D model, a physics model?",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-dfa8937f",
+        "target": {
+          "experimentId": "af1757a7-eff2-4825-94df-5842a4a90c68",
+          "versionId": "d6432796-43cc-464d-b13d-d42223fe4b9a",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 4,
+          "epoch": 30105
+        },
+        "transcript": "Can you make the ball a bit heavier?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 0,
+          "name": "ball-on-wedge",
+          "scale": 200,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Sketch scale estimated as 200 pixels per meter (image 1600x800 px). Ground line is the world floor at Y=0; image vertical maps to world Y up.",
+            "All geometry is a 2D sketch extruded with 0.4 m Z thickness so every body is volumetric for rigid physics. Drawn 2D line thickness is treated as solid decoration, not holes.",
+            "Ground is a fixed finite slab 7.6 m long x 0.1 m thick x 0.4 m deep, centered in X; it supports the wedge and floor line but is not infinite.",
+            "Wedge is a fixed rigid triangular prism prism 5.35 m long x 2.375 m tall x 0.4 m deep, resting on the ground; no masses are specified so defaults apply.",
+            "Ball is a loose dynamic sphere (default 1 kg) resting against the wedge near its top corner; contact-only placement (stackAbove null) preserves the small drawn gap.",
+            "No motion, actuation, or constraint was requested, so everything is static rigid display geometry with no forces, fans, or constraints.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 1.5499999523162842,
+                "y": 0.05000000074505806,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 7.6,
+              "height": 0.1,
+              "depth": 0.4,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "wedge",
+              "label": "wedge",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": 0.10000071674585342,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 10.7,
+              "height": 4.75,
+              "depth": 0.8,
+              "geometry": [
+                {
+                  "shape": "convex",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "vertices": [
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0
+                    },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0.5
+                    }
+                  ]
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 1.5822107791900635,
+                "y": 2.0729949474334717,
+                "z": 0.20000000298023224
+              },
+              "rotation": {
+                "x": -1.7391467821425977e-08,
+                "y": 7.008125191276804e-09,
+                "z": -0.9703572988510132,
+                "w": -0.24167469143867493
+              },
+              "width": 0.55,
+              "height": 0.55,
+              "depth": 0.55,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.269008159637451,
+                "y": -1.0291697978973389,
+                "z": 1.506094093883803e-08
+              },
+              "angularVelocity": {
+                "x": 1.9253138816566207e-07,
+                "y": -1.2340639443664259e-07,
+                "z": -9.037075996398926
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-09489bd3",
+        "target": {
+          "experimentId": "af1757a7-eff2-4825-94df-5842a4a90c68",
+          "versionId": "5771d33c-c0dd-400b-9c2d-a48cb400389b",
+          "sceneRevision": 1,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 5,
+          "epoch": 40000
+        },
+        "transcript": "Can you make it a bit more inclined?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 1,
+          "name": "ball-on-wedge",
+          "scale": 200,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Sketch scale estimated as 200 pixels per meter (image 1600x800 px). Ground line is the world floor at Y=0; image vertical maps to world Y up.",
+            "All geometry is a 2D sketch extruded with 0.4 m Z thickness so every body is volumetric for rigid physics. Drawn 2D line thickness is treated as solid decoration, not holes.",
+            "Ground is a fixed finite slab 7.6 m long x 0.1 m thick x 0.4 m deep, centered in X; it supports the wedge and floor line but is not infinite.",
+            "Wedge is a fixed rigid triangular prism prism 5.35 m long x 2.375 m tall x 0.4 m deep, resting on the ground; no masses are specified so defaults apply.",
+            "Ball is a loose dynamic sphere (default 1 kg) resting against the wedge near its top corner; contact-only placement (stackAbove null) preserves the small drawn gap.",
+            "No motion, actuation, or constraint was requested, so everything is static rigid display geometry with no forces, fans, or constraints.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 1.5499999523162842,
+                "y": 0.05000000074505806,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 7.6,
+              "height": 0.1,
+              "depth": 0.4,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "wedge",
+              "label": "wedge",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": 0.10000071674585342,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 10.7,
+              "height": 4.75,
+              "depth": 0.8,
+              "geometry": [
+                {
+                  "shape": "convex",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "vertices": [
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0
+                    },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0.5
+                    }
+                  ]
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 1.5822107791900635,
+                "y": 2.0729949474334717,
+                "z": 0.20000000298023224
+              },
+              "rotation": {
+                "x": -1.7391467821425977e-08,
+                "y": 7.008125191276804e-09,
+                "z": -0.9703572988510132,
+                "w": -0.24167469143867493
+              },
+              "width": 0.55,
+              "height": 0.55,
+              "depth": 0.55,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1.25,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.269008159637451,
+                "y": -1.0291697978973389,
+                "z": 1.506094093883803e-08
+              },
+              "angularVelocity": {
+                "x": 1.9253138816566207e-07,
+                "y": -1.2340639443664259e-07,
+                "z": -9.037075996398926
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 200,
+    "seconds": 30.988
+  },
+  "sourceMotion": {
+    "initialX": 0.638,
+    "actualX": 1.5822108,
+    "movedMeters": 0.9442107999999999
+  },
+  "heavier": {
+    "httpStatus": 200,
+    "seconds": 3.376
+  },
+  "unappliedUntilYes": true,
+  "inclined": {
+    "httpStatus": 200,
+    "seconds": 4.301
+  },
+  "status": "FAIL",
+  "failure": {
+    "type": "AssertionError",
+    "message": ""
+  },
+  "failedState": {
+    "#assistant-caption": "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "#assistant-state": "Listening",
+    "#source-status": "Interpreting your sketch\u2026",
+    "#command-status": "Rotation must be a unit quaternion.",
+    "#mode": "Paused",
+    "#clock": "0.000 s",
+    "#error": ""
+  },
+  "browserClosed": true
+}

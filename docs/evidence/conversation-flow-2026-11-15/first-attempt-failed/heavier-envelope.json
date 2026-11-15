@@ -1,0 +1,4 @@
+{
+  "requestId": "req-dfa8937f",
+  "raw": "{\"requestId\": \"req-dfa8937f\", \"status\": \"proposed\", \"operations\": [{\"type\": \"set-property\", \"id\": \"ball\", \"property\": \"mass\", \"value\": 1.25}], \"summary\": [\": Changed the ball\u2019s mass from 1 kg to 1.25 kg (25% heavier). All other properties stay the same.\"], \"questions\": [], \"message\": \"The ball will now be 25% heavier while its position, motion, friction, and restitution remain unchanged.\"}"
+}

@@ -11,7 +11,8 @@ export interface AssistantHost {
   source(): Message;
   select(name: string): Message;
   create?(name: string): Message;
-  interpret?(): Promise<AssistantReply>;
+  hasDrawing?(): boolean;
+  interpret?(instruction?: string): Promise<AssistantReply>;
   review(text: string): Promise<AssistantReply>;
   apply(): Message;
   cancel(): Message;
@@ -61,6 +62,13 @@ export class AssistantActions {
       }
       if (/^(?:yes(?:,? please)?|yeah|yep)$/.test(text) && answer !== undefined && this.awaitingAnswer && answer === this.reviewId) return this.review(input, epoch);
       return reply('There is no reviewed change to apply. Wait for the review, then say yes.');
+    }
+    if (/^(?:hi|hello|hey|are you there|can you hear me)$/.test(text)) return reply(this.host.hasDrawing?.() ? 'I am here. Your drawing is ready; ask me to build it into a physics model.' : 'I am here. Show me a drawing or tell me what you want to build, then we can change it together.');
+    if (/^(?:thanks|thank you)(?: nox)?$/.test(text)) return reply('You are welcome. What would you like to change next?');
+    // A visible source takes precedence over named presets and the text-only scene editor.
+    if (this.host.hasDrawing?.() && this.host.interpret && /^(?:(?:can|could|would|will) you(?: please)? )?(?:build|make|create|recreate|turn|convert|render|model|simulate|interpret)\b/.test(text)) {
+      if (this.reviewOpen) await this.host.cancel();
+      return this.review(input, epoch, () => this.host.interpret!(input));
     }
     let action: (() => Message) | undefined;
     if (/^(?:demo|(?:start|run)(?: a| the)? demo|show (?:me )?(?:a demo|what you can do|everything)|take me through it|what can you do|demonstrate(?: what you can do)?)$/.test(text)) action = () => this.host.demo();

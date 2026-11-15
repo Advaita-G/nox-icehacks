@@ -97,3 +97,9 @@ test('vector values read as at most four decimals, with solver noise shown as 0'
     'Ball · position x/y/z: (-4.8557, 1.9512, 0) → (3, 2, 0) m',
   ]);
 });
+
+test('rotation reviews explain physical degrees instead of speaking quaternion coordinates', () => {
+  const scene = emptyScene(), part = newObject('block', 'part');part.label='Support';scene.objects.push(part);
+  const angle=-5*Math.PI/180;
+  assert.deepEqual(describeChanges(scene,proposed([{type:'rotate',id:'part',rotation:{x:0,y:0,z:Math.sin(angle/2),w:Math.cos(angle/2)}}])),['Support · rotation x/y/z: (0, 0, 0) → (0, 0, -5) degrees']);
+});

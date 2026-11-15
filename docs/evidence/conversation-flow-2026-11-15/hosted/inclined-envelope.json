@@ -1,0 +1,4 @@
+{
+  "requestId": "req-74a6d96d",
+  "raw": "{\"requestId\":\"req-74a6d96d\",\"status\":\"proposed\",\"operations\":[{\"type\":\"rotate\",\"id\":\"ramp\",\"rotation\":{\"x\":-0.00010771110186525093,\"y\":0.0011920082082466927,\"z\":-0.04357381745125792,\"w\":0.9990494952701239}},{\"type\":\"move\",\"id\":\"ramp\",\"position\":{\"x\":-0.02507197856903076,\"y\":0.2828711183114683,\"z\":0.006994850467890501}}],\"summary\":[\": Tilted the ramp 5 degrees steeper around its contact point on the ground, keeping its downhill direction and floor contact unchanged.\"],\"questions\":[],\"message\":\"The ramp is now 5 degrees steeper while staying seated on the ground.\"}"
+}

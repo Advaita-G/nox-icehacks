@@ -1,0 +1,4 @@
+{
+  "requestId": "req-4468437f",
+  "raw": "{\"requestId\":\"req-4468437f\",\"status\":\"proposed\",\"operations\":[{\"type\":\"set-property\",\"id\":\"sphere\",\"property\":\"mass\",\"value\":1.25}],\"summary\":[\"Made the selected ball (sphere) 25% heavier, from 1 kg to 1.25 kg. Position, velocity, and all other properties are unchanged.\"],\"questions\":[],\"message\":\"The ball is now a bit heavier at 1.25 kg. Everything else stays the same.\"}"
+}

@@ -1,0 +1,326 @@
+{
+  "url": "http://127.0.0.1:5231",
+  "scope": "Unlabelled non-ramp chair drawing, no numeric notes, ordinary conversation. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-ea25d06d",
+        "target": {
+          "experimentId": "b6adcb1b-4b57-471a-86c9-5f95f6e0ecb7",
+          "versionId": "60d09a05-cf4d-4181-a06b-d4cea7e8ec8b",
+          "sceneRevision": 0,
+          "sourceId": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+          "widthPx": 1600,
+          "heightPx": 1000,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "39561093c78a0461926196cac1ae78489d5d4969a1de6ac4c27a96866cb2b53c"
+        },
+        "notes": "Nox, can you build it into a 3D model, a physics model?",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-5db51454",
+        "target": {
+          "experimentId": "8de8f64c-b634-435a-b5db-04a8dd500a13",
+          "versionId": "11d08b11-c3c9-4143-a4f4-2be88266a6b5",
+          "sceneRevision": 0,
+          "sourceId": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b",
+          "sourceRevision": 4,
+          "epoch": 30109
+        },
+        "transcript": "Can you make the chair a bit heavier?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 0,
+          "name": "chair-sketch",
+          "scale": 50,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "No physical scale is provided, so I estimate chair dimensions: seat height 0.45 m, seat width/depth 0.45/0.4 m, backrest height 0.9 m above seat, leg thickness 0.04 m; ground line drawn at image y=0.843 is treated as floor top (world y=0) with a thin fixed floor slab below it.",
+            "Image y increases downward; world Y is up, so drawn vertical extent maps inversely to world height.",
+            "The chair is a single rigid compound body (backrest, seat, four legs) since no motion is requested; it sits on the floor via stackAbove.",
+            "Image regions are normalized 0-1 over the 1600x1000 photo.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "a473731508fd4f0627873f6cb4340c2322cf7afcd13bdcb15e418b3499d8783b"
+            }
+          ],
+          "objects": [
+            {
+              "id": "floor",
+              "label": "ground line support",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0.4620000123977661,
+                "y": -0.009999999776482582,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 1.16,
+              "height": 0.1,
+              "depth": 0.6,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 0.19999999999999998,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "chair",
+              "label": "drawn chair",
+              "kind": "custom-part",
+              "fixed": false,
+              "position": {
+                "x": 0.44952720403671265,
+                "y": -0.42342525720596313,
+                "z": 0.9822549223899841
+              },
+              "rotation": {
+                "x": 0.9851512312889099,
+                "y": 0.01190910767763853,
+                "z": 0.025159860029816628,
+                "w": 0.16941769421100616
+              },
+              "width": 0.40199999999999997,
+              "height": 0.764,
+              "depth": 0.44,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0.25,
+                    "z": 0.4545454545454546
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.7114427860696517,
+                    "y": 0.5,
+                    "z": 0.09090909090909091
+                  }
+                },
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0.009162303664921465,
+                    "z": 0.3409090909090909
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.6965174129353235,
+                    "y": 0.05235602094240838,
+                    "z": 0.2272727272727273
+                  }
+                },
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": -0.30597014925373134,
+                    "y": -0.21793193717277487,
+                    "z": 0.4545454545454546
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.09950248756218906,
+                    "y": 0.43586387434554974,
+                    "z": 0.09090909090909091
+                  }
+                },
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0.30597014925373134,
+                    "y": -0.21793193717277487,
+                    "z": 0.4545454545454546
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.09950248756218906,
+                    "y": 0.43586387434554974,
+                    "z": 0.09090909090909091
+                  }
+                },
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": -0.4502487562189055,
+                    "y": -0.27028795811518325,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.09950248756218906,
+                    "y": 0.43586387434554974,
+                    "z": 0.09090909090909091
+                  }
+                },
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0.4502487562189055,
+                    "y": -0.27028795811518325,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.09950248756218906,
+                    "y": 0.43586387434554974,
+                    "z": 0.09090909090909091
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": -0.0011952923377975821,
+                "y": -3.9812543392181396,
+                "z": 0.973936915397644
+              },
+              "angularVelocity": {
+                "x": 6.357481956481934,
+                "y": -0.12999792397022247,
+                "z": 0.20167949795722961
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "chair"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 200,
+    "seconds": 28.736
+  },
+  "sourceMotion": {
+    "initialX": 0.462,
+    "actualX": 0.4495272,
+    "movedMeters": 0.012472800000000006
+  },
+  "heavier": {
+    "httpStatus": 200,
+    "seconds": 2.603
+  },
+  "unappliedUntilYes": true,
+  "spokenReplies": [
+    "Hi, I am Nox. Show me a drawing, then ask me to build it into a physics model.",
+    "I am here. Show me a drawing or tell me what you want to build, then we can change it together.",
+    "Your drawing is ready. Ask me to build it into a 3D physics model. You do not need to enter sizes or masses.",
+    "I built chair-sketch from your drawing. It is running with estimated sizes and physical values. Tell me what to change; I will explain edits and wait for your yes.",
+    "Paused at 0.91 simulated seconds.",
+    "Selected drawn chair. Tell me what to change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "Made the chair a bit heavier by raising its mass to 1.25 kg. drawn chair \u00b7 mass: 1 \u2192 1.25 kg Say yes to apply, or cancel.",
+    "Applied the reviewed change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+  ],
+  "saveReloadExact": true,
+  "twoVersions": true,
+  "status": "PASS",
+  "browserClosed": true
+}

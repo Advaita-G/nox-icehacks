@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-11-15T21:30:09.158Z",
+  "is_free_tier": true,
+  "free_model_daily_requests": {
+    "used": 39,
+    "limit": 50,
+    "remaining": 11
+  },
+  "usage_daily": 0
+}

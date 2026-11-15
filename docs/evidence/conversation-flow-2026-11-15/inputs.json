@@ -1,0 +1,12 @@
+{
+  "ramp": {
+    "file": "rough-sketch.png",
+    "sha256": "d783c9b39f1b8abe1154845cfab9789eb1edf09459d6b911fb27dc7209a5e153",
+    "origin": "Generated rough ball-on-ramp sketch supplied to the user, exactly as uploaded in the reported failure"
+  },
+  "chair": {
+    "file": "../momen-recovery-2026-11-15/inputs/03.jpg",
+    "sha256": "fa0b5d68398dfa2ea3ffd5b8d0b387fde7aa690dd75f2d5a5ea78c8d99a04f08",
+    "origin": "Existing frozen unlabelled chair corpus image; no class name or measurements in the build request"
+  }
+}

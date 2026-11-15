@@ -1,6 +1,7 @@
 import { applyCommands } from '../physics/scene.ts';
 import type { Scene } from '../physics/scene.ts';
 import type { CommandProposal } from './contract.ts';
+import { Euler, Quaternion } from 'three';
 
 function reviewValue(value: unknown): string {
   if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
@@ -22,6 +23,10 @@ export function describeChanges(scene: Scene, proposal: CommandProposal): string
     if (!before) lines.push(`Add ${after.label} (${after.id}).`);
     for (const key of new Set([...Object.keys(before ?? {}), ...Object.keys(after)]) as Set<keyof typeof after>) {
       if (key === 'id' || !before && key === 'label' || JSON.stringify(before?.[key]) === JSON.stringify(after[key])) continue;
+      if (key === 'rotation') {
+        const degrees = (q?: typeof after.rotation) => { if (!q) return 'none'; const e = new Euler().setFromQuaternion(new Quaternion(q.x, q.y, q.z, q.w)); return reviewValue({ x: e.x * 180 / Math.PI, y: e.y * 180 / Math.PI, z: e.z * 180 / Math.PI }); };
+        lines.push(`${after.label} · rotation x/y/z: ${degrees(before?.rotation)} → ${degrees(after.rotation)} degrees`); continue;
+      }
       const unit = key === 'mass' ? ' kg' : ['width', 'height', 'depth', 'wallThickness', 'position'].includes(key) ? ' m' : key === 'velocity' ? ' m/s' : key === 'angularVelocity' ? ' rad/s' : '';
       const axes = ['position', 'velocity', 'angularVelocity'].includes(key) ? ' x/y/z' : '';
       lines.push(`${after.label} · ${key}${axes}: ${reviewValue(before?.[key])} → ${reviewValue(after[key])}${unit}`);

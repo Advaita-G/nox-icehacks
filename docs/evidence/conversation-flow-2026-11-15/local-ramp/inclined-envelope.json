@@ -1,0 +1,4 @@
+{
+  "requestId": "req-727283a3",
+  "raw": "{\"requestId\":\"req-727283a3\",\"status\":\"proposed\",\"operations\":[{\"type\":\"rotate\",\"id\":\"ramp\",\"rotation\":{\"x\":0,\"y\":0,\"z\":-0.043619387365336,\"w\":0.9990482215818578}},{\"type\":\"move\",\"id\":\"ramp\",\"position\":{\"x\":0,\"y\":0.39220060064821816,\"z\":0}}],\"summary\":[\":Tilt the ramp 5 degrees steeper around Z while keeping its base on the ground. Nox recomputes the ramp\u2019s contact height and will also adjust the sphere\u2019s exact Y contact so it stays seated on the ramp shoulder.\"],\"questions\":[],\"message\":\"\"}"
+}

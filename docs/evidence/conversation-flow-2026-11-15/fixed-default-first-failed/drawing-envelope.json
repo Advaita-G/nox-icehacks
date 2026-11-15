@@ -1,0 +1,4 @@
+{
+  "code": "PROVIDER_ERROR",
+  "message": "The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports."
+}

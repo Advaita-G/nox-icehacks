@@ -1,5 +1,10 @@
 # Verification and evidence boundaries
 
+## Conversational repair, November 15
+
+The user-reported picture/empty-scene failure supersedes the earlier automatic-upload acceptance: an ordinary build request must carry the actual staged image and infer missing physical values. Current [flow evidence](evidence/conversation-flow-2026-11-15/README.md) retains the original failed incline attempt alongside fresh generated-ramp and non-ramp chair workflows, qualitative edits, explicit yes, physics, exact Save/reload and phone cancellation/error recovery. Synthetic speech/captured-response checks are identified separately from real model responses and physical microphone acceptance. Canonical validators, frame guards and the free-only price restriction remain unchanged.
+
+
 **Current public free-AI update:** the normal link works without a code, account or private launcher. NVIDIA Nemotron 3.5 Super VL is pinned to OpenRouter’s free endpoint, with zero price ceilings and no paid fallback. Actual anonymous drawing → genuine reviewed edit → yes → motion → exact Save/reload passes; phone/no-code controls also pass. Finite free quota, retained failures, the missing-hinge clarification guard and full-Chromium versus lightweight-shell rendering results are recorded in [current evidence](evidence/public-free-ai-2026-11-15/README.md). The earlier checkpoint sections below are historical and do not override this provider/access update.
 
 

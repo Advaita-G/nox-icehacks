@@ -1,0 +1,4 @@
+{
+  "requestId": "req-85cdd8f2",
+  "raw": "{\"requestId\":\"req-85cdd8f2\",\"status\":\"proposed\",\"operations\":[{\"type\":\"rotate\",\"id\":\"ramp\",\"rotation\":{\"x\":0,\"y\":0,\"z\":-0.16676875109459927,\"w\":0.9859960632574551}},{\"type\":\"move\",\"id\":\"ramp\",\"position\":{\"x\":3.8399999141693115,\"y\":1.0333832236950844,\"z\":0}}],\"summary\":[\", tilt the ramp 5\u00b0 steeper so it lifts off the ground while keeping its crest seated, then set the ball static on the ramp at the new crest height.\"],\"questions\":[],\"message\":\"I\u2019ll tilt the ramp 5\u00b0 steeper while keeping its crest on the ground and place the ball statically at the new crest so it stays seated.\"}"
+}

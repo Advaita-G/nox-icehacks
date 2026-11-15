@@ -1,0 +1,66 @@
+[
+  {
+    "viewport": [
+      375,
+      812
+    ],
+    "motion": "no-preference",
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-46b0f6aa",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "Can you build this picture into a physics model?"
+      },
+      {
+        "requestId": "req-1dcba052",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      }
+    ],
+    "screenshots": false,
+    "status": "FAIL",
+    "failure": "Page.wait_for_function: Timeout 15000ms exceeded.",
+    "state": {
+      "#assistant-caption": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "#source-status": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "#command-status": "",
+      "#mode": "Paused"
+    },
+    "contextClosed": true
+  },
+  {
+    "viewport": [
+      320,
+      640
+    ],
+    "motion": "reduce",
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-e8f849ad",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "Can you build this picture into a physics model?"
+      },
+      {
+        "requestId": "req-af1326b3",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      }
+    ],
+    "screenshots": false,
+    "status": "FAIL",
+    "failure": "Page.wait_for_function: Timeout 15000ms exceeded.",
+    "state": {
+      "#assistant-caption": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "#source-status": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+      "#command-status": "",
+      "#mode": "Paused"
+    },
+    "contextClosed": true
+  }
+]

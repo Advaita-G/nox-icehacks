@@ -1,0 +1,4 @@
+{
+  "requestId": "req-c5d85663",
+  "raw": "{\"requestId\":\"req-c5d85663\",\"status\":\"proposed\",\"operations\":[{\"type\":\"set-property\",\"id\":\"ball\",\"property\":\"mass\",\"value\":1.25}],\"summary\":[\":make the ball slightly heavier from 1 kg to 1.25 kg (:about 25% heavier).\"],\"questions\":[],\"message\":\"I'll make the ball a bit heavier, increasing its mass from 1 kg to 1.25 kg.\"}"
+}

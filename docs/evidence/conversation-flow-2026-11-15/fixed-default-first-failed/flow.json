@@ -1,0 +1,52 @@
+{
+  "url": "https://nox-icehacks-j1cg3e7k4-idk-41a8.vercel.app",
+  "scope": "User rough image, no numeric notes, ordinary conversation. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-a7869adb",
+        "target": {
+          "experimentId": "9b852e06-8738-478f-84ac-363e5ff17587",
+          "versionId": "5f7a18a4-0494-4268-9e3f-e1b7401be777",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "widthPx": 1600,
+          "heightPx": 800,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "239e95c737fb1637f4e3b28e7e4dbfb6b3658e1ddbee111073979dfd9ff66271"
+        },
+        "notes": "Nox, can you build it into a 3D model, a physics model?",
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 502,
+    "seconds": 33.439
+  },
+  "status": "FAIL",
+  "failure": {
+    "type": "AssertionError",
+    "message": "{'code': 'PROVIDER_ERROR', 'message': 'The drawing plan could not form a consistent rigid model. Nothing was applied; clarify the intended shape or supports.'}"
+  },
+  "failedState": {
+    "#assistant-caption": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+    "#assistant-state": "Nox is speaking",
+    "#source-status": "The AI service returned an error. Your sketch and scene are unchanged; Retry when ready.",
+    "#command-status": "",
+    "#mode": "Paused",
+    "#clock": "0.000 s",
+    "#error": ""
+  },
+  "browserClosed": true
+}

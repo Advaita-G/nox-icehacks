@@ -230,9 +230,9 @@ function assistantExample(name: string): Scene {
   const key = match && aliases[match[1]!.toLowerCase()]; check(key, 'I do not have that built-in example. Describe the custom system and I can request a reviewed AI proposal.');
   return EXAMPLES[key]();
 }
-async function assistantSay(text: string): Promise<void> {
+async function assistantSay(text: string, spoken = text): Promise<void> {
   assistant.say(text);
-  if (voice.isActive) await voice.speak(text);
+  if (voice.isActive) await voice.speak(spoken);
 }
 /** Make the conversation spatial: a reviewed change appears as ghosts/arrows and a note until yes or cancel. */
 let lastProposal: { id: string; text: string } | undefined, appliedNote: ReturnType<typeof setTimeout> | undefined;
@@ -255,45 +255,38 @@ async function presentAssistantReply(response: AssistantReply, turn: number): Pr
     if (turn !== assistantTurn) return;
     automaticPhotoEpoch = 0;
     await assistantActions.handle('run');
-    if (turn === assistantTurn) await assistantSay('Your drawing is now a running 3D experiment. Tell me which part to move or what to change. I will explain edits and wait for your yes before applying them. You can also say pause or save.');
+    if (turn === assistantTurn) await assistantSay(`I built ${bench.scene.name} from your drawing. It is running with estimated sizes and physical values. Tell me what to change; I will explain edits and wait for your yes.`);
     return;
   }
-  await assistantSay([response.message, ...response.changes].join('\n'));
+  const confirmation = response.reviewRequired ? 'Say yes to apply, or cancel.' : '';
+  const detail = [response.message, ...response.changes, confirmation].filter(Boolean).join('\n');
+  const spoken = [response.message, ...response.changes.slice(0, 2)].filter(Boolean).join(' ');
+  const brief = spoken.length <= 350 ? spoken : `${spoken.slice(0, 300).replace(/\s+\S*$/, '')}. The full details are in the conversation.`;
+  await assistantSay(detail, [brief, confirmation].filter(Boolean).join(' '));
 }
 async function receiveAssistantPhoto(file: File): Promise<void> {
   clearConversationMarks();
   const epoch = ++photoEpoch, turn = ++assistantTurn;
   automaticPhotoEpoch = 0; demoController?.abort(); await assistantActions.handle('cancel');
   if (epoch !== photoEpoch || turn !== assistantTurn) return;
-  voice.setThinking(true); assistant.setState('thinking', 'Preparing your photo. It will be checked automatically.');
-  void assistantSay('I am preparing the photo. Then I will check the drawing and build its physical scene.');
+  checkingPhoto = true;
+  voice.setThinking(true); assistant.setState('thinking', 'Preparing your drawing.');
   try { await inputUI!.receivePhoto(file); }
   catch (cause) {
     if (epoch === photoEpoch && turn === assistantTurn) {
+      checkingPhoto = false;
       const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message);
       if (voice.isActive) await voice.speak(message); voice.setThinking(false);
     }
   }
 }
-async function checkUploadedPhoto(): Promise<void> {
+async function stageUploadedPhoto(): Promise<void> {
   const epoch = ++photoEpoch, turn = ++assistantTurn;
   await assistantActions.handle('cancel');
   if (epoch !== photoEpoch || turn !== assistantTurn) return;
-  automaticPhotoEpoch = epoch; voice.setThinking(true); assistant.setState('thinking', 'Checking your drawing and building a 3D model. Model requests are bounded to 120 seconds.');
-  checkingPhoto = true;
-  try {
-    await judgeAccessReady;
-    if (turn !== assistantTurn) return;
-    const pending = assistantActions.handle('interpret my photo');
-    voice.setThinking(false);
-    const response = await pending; checkingPhoto = false;
-    if (turn === assistantTurn) { voice.setThinking(true); await presentAssistantReply(response, turn); }
-  }
-  catch (cause) {
-    if (epoch === photoEpoch && turn === assistantTurn) {
-      automaticPhotoEpoch = 0; const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message);
-    }
-  } finally { if (turn === assistantTurn) { checkingPhoto = false; voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
+  inputUI!.openSource();
+  await assistantSay('Your drawing is ready. Ask me to build it into a 3D physics model. You do not need to enter sizes or masses.');
+  if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); }
 }
 function compareMeasurements(): string {
   bench.pause(); bench.capture(); const baseline = bench.experiment.baseline;
@@ -330,19 +323,28 @@ async function runAssistantFor(seconds: number, signal: AbortSignal): Promise<vo
 }
 async function handleAssistant(text: string): Promise<void> {
   if (!text.trim()) return;
+  const normalized = normalizeAssistantInput(text);
+  const mute = /^(stop listening|go to sleep|goodbye|mute)$/.test(normalized);
+  const cancel = isAssistantCancellation(text) || checkingPhoto && normalized === 'stop';
+  // Repeated speech/typing must not supersede the turn that will deliver the drawing.
+  if (checkingPhoto && !cancel && !mute) {
+    assistant.heard(text);
+    await assistantSay('I am building from your drawing. Your picture is attached; you do not need to repeat the request. You can say cancel to stop.');
+    voice.setThinking(false); return;
+  }
   const turn = ++assistantTurn;
   assistant.heard(text); clearConversationMarks();
   demoController?.abort();
-  if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) {
+  if (mute) {
     checkingPhoto = false; automaticPhotoEpoch = 0; photoEpoch++; voice.stop(); await assistantActions.handle('cancel'); el<HTMLDialogElement>('source-dialog').close(); bench.pause(); bench.capture(); assistantChanged(); assistant.say('Voice is off. Your experiment is retained. Enable voice whenever you want to continue.'); return;
   }
   voice.setThinking(true); assistant.setState('thinking');
   try {
-    const response = await assistantActions.handle(text);
-    if (isAssistantCancellation(text)) { el<HTMLDialogElement>('source-dialog').close(); assistantChanged(); }
+    const response = await assistantActions.handle(cancel ? 'cancel' : text);
+    if (cancel) { el<HTMLDialogElement>('source-dialog').close(); assistantChanged(); }
     await presentAssistantReply(response, turn);
   } catch (cause) { if (turn === assistantTurn) { const message = cause instanceof Error ? cause.message : String(cause); assistant.error(message); if (voice.isActive) await voice.speak(message); } }
-  finally { if (turn === assistantTurn) { voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
+  finally { if (turn === assistantTurn) { checkingPhoto = false; voice.setThinking(false); if (!voice.isActive) assistant.setState('idle'); } }
 }
 /**
  * The first solver steps of a scene are several times slower (WebAssembly warm-up, first world snapshots); on Windows
@@ -380,19 +382,12 @@ function startAssistant(): void {
   voice = new VoiceSession({
     onHearing: active => assistant.hearing(active),
     onWord: () => assistant.word(),
-    onTranscript: text => {
-      if (/^(stop listening|go to sleep|goodbye|mute)$/.test(normalizeAssistantInput(text))) { void handleAssistant(text); return; }
-      if (checkingPhoto && !/^(?:cancel|stop|never mind)(?: (?:it|that|checking|the request))?$/.test(normalizeAssistantInput(text))) {
-        void assistantSay('I am still checking the drawing. You can say cancel to stop the request. I will ask if I need a detail from you.').finally(() => voice.setThinking(false)); return;
-      }
-      if (checkingPhoto) { checkingPhoto = false; void handleAssistant('cancel'); }
-      else void handleAssistant(text);
-    },
+    onTranscript: text => handleAssistant(text),
     onState: state => {
       assistant.setState(state, checkingPhoto ? 'Checking the drawing. You can say cancel while it builds.' : '');
       if (state === 'listening' && greeting) {
         greeting = false;
-        void assistantSay(checkingPhoto ? 'I am checking your drawing. You can say cancel while it builds.' : 'What are we building?').finally(() => voice.setThinking(false));
+        void assistantSay(checkingPhoto ? 'I am building from your drawing. You can say cancel while it builds.' : inputUI?.hasDrawing ? 'Your drawing is ready. Ask me to build it into a physics model.' : bench.scene.objects.length ? 'I am here. What would you like to change in your model?' : 'Hi, I am Nox. Show me a drawing, then ask me to build it into a physics model.').finally(() => voice.setThinking(false));
       }
     },
     onError: message => assistant.error(message),
@@ -440,7 +435,15 @@ function startAssistant(): void {
       return message;
     },
     cancel: () => { lastProposal = undefined; assistant.interrupt(); clearConversationMarks(); checkingPhoto = false; automaticPhotoEpoch = 0; demoController?.abort(); inputUI!.cancelWords(); return 'Cancelled. Valid experiments and saved work are retained.'; },
-    interpret: () => inputUI!.buildPreviewWords(),
+    hasDrawing: () => inputUI!.hasDrawing,
+    interpret: async instruction => {
+      automaticPhotoEpoch = ++photoEpoch; checkingPhoto = true;
+      assistant.setState('thinking', 'Building from your drawing. Missing measurements are estimated. You can say cancel.');
+      await judgeAccessReady;
+      const pending = inputUI!.buildPreviewWords(undefined, instruction);
+      voice.setThinking(false);
+      return pending;
+    },
   });
   document.addEventListener('nox:talk', () => { assistant.open(); greeting = !voice.isActive; if (!voice.isActive) voice.start(); });
   judgeAccessReady = unlockJudgeLink(new URL(location.href), url => history.replaceState(history.state, '', url));
@@ -506,7 +509,7 @@ async function start(): Promise<void> {
       state: () => ({ bench, selectedId, dirty }),
       show: (next, nextDirty, nextSelected) => { bench = next; dirty = nextDirty; selectedId = nextSelected; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); fit(); refresh(); },
       changed: () => { dirty = true; clock.reset(); lastFrame = 0; assistant?.setSceneAvailable(bench.scene.objects.length > 0); refresh(); },
-      onPhotoReady: () => checkUploadedPhoto(),
+      onPhotoReady: () => stageUploadedPhoto(),
     });
     initShell({ openSource: () => inputUI?.openSource() });
     startAssistant();

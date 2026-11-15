@@ -1,0 +1,637 @@
+{
+  "url": "https://nox-icehacks-j1cg3e7k4-idk-41a8.vercel.app",
+  "scope": "User rough image, no numeric notes, ordinary conversation. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-f1645cf2",
+        "target": {
+          "experimentId": "4838cd73-8b6f-48d8-8c51-cdc6afddebe6",
+          "versionId": "c7151a76-58fd-4519-8f50-0112cbbd5837",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "widthPx": 1600,
+          "heightPx": 800,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "239e95c737fb1637f4e3b28e7e4dbfb6b3658e1ddbee111073979dfd9ff66271"
+        },
+        "notes": "Nox, can you build it into a 3D model, a physics model?",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-c5d85663",
+        "target": {
+          "experimentId": "1782c318-e63b-4f07-8faa-01bd5245098a",
+          "versionId": "269365fb-1be2-438c-a779-06748fc5c08e",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 4,
+          "epoch": 30108
+        },
+        "transcript": "Can you make the ball a bit heavier?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 0,
+          "name": "ramp-with-ball",
+          "scale": 200,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Drawing scale is 200 px/m (within 5-500), mapping the 1600x800 image to an 8m x 4m world.",
+            "Y is up; the horizontal ground line is at world y=0 and spans most of the width.",
+            "The ground line is a fixed thin box (0.12m thick) resting on y=0.",
+            "The vertical left support and diagonal ramp are fixed thin boxes (0.08m thick) forming a right-triangle inclined plane.",
+            "The circle at the top is a dynamic sphere proxy for a ball, radius ~0.34m, sitting atop the ramp crest with null stackAbove.",
+            "Masses use Nox defaults (1kg); friction 0.5, restitution 0.1.",
+            "No motion is requested, so all supports are fixed and the sphere is static (zero velocity).",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 3.9000000953674316,
+                "y": 0.05999999865889549,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 7.8,
+              "height": 0.12,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "vertical_support",
+              "label": "vertical_support",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 1.1749999523162842,
+                "y": 1.3200000524520874,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 0.1,
+              "height": 2.4,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.7999999999999999,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ramp",
+              "label": "ramp",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 3.8399999141693115,
+                "y": 1.2000000476837158,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": -0.20961856842041016,
+                "w": 0.9777832627296448
+              },
+              "width": 5.325,
+              "height": 0.1,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 0.7999999999999999,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 2.639349937438965,
+                "y": 2.1502699851989746,
+                "z": 1.6284333881344537e-09
+              },
+              "rotation": {
+                "x": -1.1191334525761931e-09,
+                "y": -2.9319973116059828e-09,
+                "z": -0.9863115549087524,
+                "w": -0.164892315864563
+              },
+              "width": 0.67,
+              "height": 0.67,
+              "depth": 0.67,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.3492698669433594,
+                "y": -1.0821229219436646,
+                "z": 3.3853098102554213e-09
+              },
+              "angularVelocity": {
+                "x": -2.657144193562999e-08,
+                "y": -4.433164946249235e-09,
+                "z": -7.696306228637695
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-85cdd8f2",
+        "target": {
+          "experimentId": "1782c318-e63b-4f07-8faa-01bd5245098a",
+          "versionId": "6baaf40b-0833-4949-a9c0-f233ca1476c4",
+          "sceneRevision": 1,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 5,
+          "epoch": 40000
+        },
+        "transcript": "Can you make it a bit more inclined?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 1,
+          "name": "ramp-with-ball",
+          "scale": 200,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Drawing scale is 200 px/m (within 5-500), mapping the 1600x800 image to an 8m x 4m world.",
+            "Y is up; the horizontal ground line is at world y=0 and spans most of the width.",
+            "The ground line is a fixed thin box (0.12m thick) resting on y=0.",
+            "The vertical left support and diagonal ramp are fixed thin boxes (0.08m thick) forming a right-triangle inclined plane.",
+            "The circle at the top is a dynamic sphere proxy for a ball, radius ~0.34m, sitting atop the ramp crest with null stackAbove.",
+            "Masses use Nox defaults (1kg); friction 0.5, restitution 0.1.",
+            "No motion is requested, so all supports are fixed and the sphere is static (zero velocity).",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 3.9000000953674316,
+                "y": 0.05999999865889549,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 7.8,
+              "height": 0.12,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "vertical_support",
+              "label": "vertical_support",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 1.1749999523162842,
+                "y": 1.3200000524520874,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 0.1,
+              "height": 2.4,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 0.7999999999999999,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ramp",
+              "label": "ramp",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 3.8399999141693115,
+                "y": 1.2000000476837158,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": -0.20961856842041016,
+                "w": 0.9777832627296448
+              },
+              "width": 5.325,
+              "height": 0.1,
+              "depth": 0.5,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 0.7999999999999999,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ball",
+              "label": "ball",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 2.639349937438965,
+                "y": 2.1502699851989746,
+                "z": 1.6284333881344537e-09
+              },
+              "rotation": {
+                "x": -1.1191334525761931e-09,
+                "y": -2.9319973116059828e-09,
+                "z": -0.9863115549087524,
+                "w": -0.164892315864563
+              },
+              "width": 0.67,
+              "height": 0.67,
+              "depth": 0.67,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1.25,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.3492698669433594,
+                "y": -1.0821229219436646,
+                "z": 3.3853098102554213e-09
+              },
+              "angularVelocity": {
+                "x": -2.657144193562999e-08,
+                "y": -4.433164946249235e-09,
+                "z": -7.696306228637695
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "ball"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 200,
+    "seconds": 81.523
+  },
+  "sourceMotion": {
+    "initialX": 1.575,
+    "actualX": 2.6393499,
+    "movedMeters": 1.0643499
+  },
+  "heavier": {
+    "httpStatus": 200,
+    "seconds": 5.847
+  },
+  "unappliedUntilYes": true,
+  "inclined": {
+    "httpStatus": 200,
+    "seconds": 3.851
+  },
+  "rerunAfterIncline": true,
+  "spokenReplies": [
+    "Hi, I am Nox. Show me a drawing, then ask me to build it into a physics model.",
+    "I am here. Show me a drawing or tell me what you want to build, then we can change it together.",
+    "Your drawing is ready. Ask me to build it into a 3D physics model. You do not need to enter sizes or masses.",
+    "I am building from your drawing. Your picture is attached; you do not need to repeat the request. You can say cancel to stop.",
+    "I built ramp-with-ball from your drawing. It is running with estimated sizes and physical values. Tell me what to change; I will explain edits and wait for your yes.",
+    "Paused at 0.90 simulated seconds.",
+    "Selected ball. Tell me what to change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "I'll make the ball a bit heavier, increasing its mass from 1 kg to 1.25 kg. ball \u00b7 mass: 1 \u2192 1.25 kg Say yes to apply, or cancel.",
+    "Applied the reviewed change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "I\u2019ll tilt the ramp 5\u00b0 steeper while keeping its crest on the ground and place the ball statically at the new crest so it stays seated. ramp \u00b7 position x/y/z: (3.84, 1.2, 0) \u2192 (3.84, 1.0334, 0) m ramp \u00b7 rotation x/y/z: (0, 0, -24.2) \u2192 (0, 0, -19.2) degrees Say yes to apply, or cancel.",
+    "Applied the reviewed change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "The real simulation is running. Say pause, keep a baseline, or compare.",
+    "Paused at 0.89 simulated seconds.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+  ],
+  "saveReloadExact": true,
+  "threeVersions": true,
+  "status": "PASS",
+  "browserClosed": true
+}

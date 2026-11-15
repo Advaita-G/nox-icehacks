@@ -1,0 +1,585 @@
+{
+  "url": "http://127.0.0.1:5231",
+  "scope": "User rough image, no numeric notes, ordinary conversation. Synthetic recognition/TTS; real model, compiler, physics and storage. No screenshots.",
+  "modelResponsesMocked": false,
+  "requests": [
+    {
+      "path": "/api/interpret",
+      "request": {
+        "requestId": "req-bc48224c",
+        "target": {
+          "experimentId": "c020ee65-5b26-4f1f-8bb7-ef7985e52aec",
+          "versionId": "7fd5a162-66ae-4675-b449-3826417a4fcf",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 3,
+          "epoch": 10000
+        },
+        "source": {
+          "id": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "widthPx": 1600,
+          "heightPx": 800,
+          "kind": "photo",
+          "revision": 3,
+          "imageDataUriSha256": "239e95c737fb1637f4e3b28e7e4dbfb6b3658e1ddbee111073979dfd9ff66271"
+        },
+        "notes": "Nox, can you build it into a 3D model, a physics model?",
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-4468437f",
+        "target": {
+          "experimentId": "d3173070-ab8e-4844-a256-b7eae9cd9688",
+          "versionId": "564f8d74-ae06-40c2-b8da-9fa17c93b938",
+          "sceneRevision": 0,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 4,
+          "epoch": 30106
+        },
+        "transcript": "Can you make the ball a bit heavier?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 0,
+          "name": "ramp with sphere",
+          "scale": 238,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Uniform drawing scale treated as about 238 pixels/meter so the drawn ramp is roughly 2.0 m high and 4.5 m long; exact scale is not dimensioned in the image.",
+            "Ground line is a finite fixed slab spanning the drawn baseline, about 8 m wide and 0.1 m thick, not an infinite plane.",
+            "Ramp is a solid right-triangular prism extruded about 0.6 m deep in Z; drawn interior fill is treated as solid, not hollow.",
+            "Sphere at the upper left contacts the ramp shoulder and rests on it; radius about 0.42 m from the drawn circle.",
+            "All bodies are rigid; no motors, walking, fluids, cloth, or electricity are implied.",
+            "Masses default to 1 kg except the fixed ground; restitution/friction left at defaults.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 4.5,
+                "y": -0.05000000074505806,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 9,
+              "height": 0.1,
+              "depth": 1,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ramp",
+              "label": "ramp",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": 1.3142256705123145e-07,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 9,
+              "height": 4,
+              "depth": 0.6,
+              "geometry": [
+                {
+                  "shape": "convex",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "vertices": [
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0.5
+                    }
+                  ]
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "sphere",
+              "label": "sphere",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 1.435315728187561,
+                "y": 1.8213012218475342,
+                "z": 1.8121761868883368e-08
+              },
+              "rotation": {
+                "x": 1.2404194116300005e-08,
+                "y": 3.532904191416719e-09,
+                "z": -0.9693595767021179,
+                "w": 0.24564610421657562
+              },
+              "width": 0.84,
+              "height": 0.84,
+              "depth": 0.84,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.2914063930511475,
+                "y": -1.0388388633728027,
+                "z": 8.77969199564177e-08
+              },
+              "angularVelocity": {
+                "x": 1.1717430936641904e-07,
+                "y": 1.6080008435892523e-08,
+                "z": -5.972830295562744
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "sphere"
+        ],
+        "answers": []
+      }
+    },
+    {
+      "path": "/api/command",
+      "request": {
+        "requestId": "req-727283a3",
+        "target": {
+          "experimentId": "d3173070-ab8e-4844-a256-b7eae9cd9688",
+          "versionId": "82a4e347-e8a3-4fab-8d6f-bd6a62eae213",
+          "sceneRevision": 1,
+          "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+          "sourceRevision": 5,
+          "epoch": 40000
+        },
+        "transcript": "Can you make it a bit more inclined?",
+        "scene": {
+          "schemaVersion": 2,
+          "revision": 1,
+          "name": "ramp with sphere",
+          "scale": 238,
+          "gravity": {
+            "x": 0,
+            "y": -9.81,
+            "z": 0
+          },
+          "assumptions": [
+            "Uniform drawing scale treated as about 238 pixels/meter so the drawn ramp is roughly 2.0 m high and 4.5 m long; exact scale is not dimensioned in the image.",
+            "Ground line is a finite fixed slab spanning the drawn baseline, about 8 m wide and 0.1 m thick, not an infinite plane.",
+            "Ramp is a solid right-triangular prism extruded about 0.6 m deep in Z; drawn interior fill is treated as solid, not hollow.",
+            "Sphere at the upper left contacts the ramp shoulder and rests on it; radius about 0.42 m from the drawn circle.",
+            "All bodies are rigid; no motors, walking, fluids, cloth, or electricity are implied.",
+            "Masses default to 1 kg except the fixed ground; restitution/friction left at defaults.",
+            "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+            "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+          ],
+          "sources": [
+            {
+              "kind": "photo",
+              "reference": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596"
+            }
+          ],
+          "objects": [
+            {
+              "id": "ground",
+              "label": "ground",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 4.5,
+                "y": -0.05000000074505806,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 9,
+              "height": 0.1,
+              "depth": 1,
+              "geometry": [
+                {
+                  "shape": "box",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "ramp",
+              "label": "ramp",
+              "kind": "custom-part",
+              "fixed": true,
+              "position": {
+                "x": 0,
+                "y": 1.3142256705123145e-07,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "width": 9,
+              "height": 4,
+              "depth": 0.6,
+              "geometry": [
+                {
+                  "shape": "convex",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  },
+                  "vertices": [
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": -0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0,
+                      "y": 0.5,
+                      "z": 0.5
+                    },
+                    {
+                      "x": 0.5,
+                      "y": 0,
+                      "z": 0.5
+                    }
+                  ]
+                }
+              ],
+              "mass": 1,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "angularVelocity": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "wallThickness": 0.1
+            },
+            {
+              "id": "sphere",
+              "label": "sphere",
+              "kind": "ball",
+              "fixed": false,
+              "position": {
+                "x": 1.435315728187561,
+                "y": 1.8213012218475342,
+                "z": 1.8121761868883368e-08
+              },
+              "rotation": {
+                "x": 1.2404194116300005e-08,
+                "y": 3.532904191416719e-09,
+                "z": -0.9693595767021179,
+                "w": 0.24564610421657562
+              },
+              "width": 0.84,
+              "height": 0.84,
+              "depth": 0.84,
+              "geometry": [
+                {
+                  "shape": "sphere",
+                  "position": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                  },
+                  "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0,
+                    "w": 1
+                  },
+                  "size": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                  }
+                }
+              ],
+              "mass": 1.25,
+              "friction": 0.5,
+              "restitution": 0.1,
+              "velocity": {
+                "x": 2.2914063930511475,
+                "y": -1.0388388633728027,
+                "z": 8.77969199564177e-08
+              },
+              "angularVelocity": {
+                "x": 1.1717430936641904e-07,
+                "y": 1.6080008435892523e-08,
+                "z": -5.972830295562744
+              },
+              "wallThickness": 0.1
+            }
+          ],
+          "constraints": [],
+          "forces": [],
+          "fans": [],
+          "assemblies": [],
+          "environment": {
+            "airDensity": 1.225,
+            "airVelocity": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        },
+        "selection": [
+          "sphere"
+        ],
+        "answers": []
+      }
+    }
+  ],
+  "errors": [],
+  "browserVersion": "156.0.8078.4",
+  "drawing": {
+    "httpStatus": 200,
+    "seconds": 30.005
+  },
+  "sourceMotion": {
+    "initialX": 0.42,
+    "actualX": 1.4353157,
+    "movedMeters": 1.0153157000000002
+  },
+  "heavier": {
+    "httpStatus": 200,
+    "seconds": 3.381
+  },
+  "unappliedUntilYes": true,
+  "inclined": {
+    "httpStatus": 200,
+    "seconds": 2.329
+  },
+  "spokenReplies": [
+    "Hi, I am Nox. Show me a drawing, then ask me to build it into a physics model.",
+    "I am here. Show me a drawing or tell me what you want to build, then we can change it together.",
+    "Your drawing is ready. Ask me to build it into a 3D physics model. You do not need to enter sizes or masses.",
+    "I am building from your drawing. Your picture is attached; you do not need to repeat the request. You can say cancel to stop.",
+    "I built ramp with sphere from your drawing. It is running with estimated sizes and physical values. Tell me what to change; I will explain edits and wait for your yes.",
+    "Paused at 0.88 simulated seconds.",
+    "Selected sphere. Tell me what to change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "The ball is now a bit heavier at 1.25 kg. Everything else stays the same. sphere \u00b7 mass: 1 \u2192 1.25 kg",
+    "Applied the reviewed change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused.",
+    "Review the physical changes before applying. ramp \u00b7 position x/y/z: (0, 0, 0) \u2192 (0, 0.3922, 0) m ramp \u00b7 rotation: {\"x\":0,\"y\":0,\"z\":0,\"w\":1} \u2192 {\"x\":0,\"y\":0,\"z\":-0.043619387365336,\"w\":0.9990482215818578}",
+    "Applied the reviewed change.",
+    "Saved in this browser, including the experiment, versions, baseline and runtime checkpoint. It will reopen paused."
+  ],
+  "saveReloadExact": true,
+  "threeVersions": true,
+  "status": "PASS",
+  "browserClosed": true
+}

@@ -1,0 +1,15 @@
+{
+  "rootTests": 282,
+  "inputTests": 110,
+  "rootTypecheckBuild": "PASS",
+  "inputTypecheckBuild": "PASS",
+  "largeChunkWarning": "retained",
+  "screenshotsTaken": false,
+  "hostedModelResponsesMocked": false,
+  "phoneRecoveryUsesFixtures": true,
+  "physicalMicrophone": "UNVERIFIED",
+  "humanAudioAcceptance": "UNVERIFIED",
+  "requirementsReview": "PASS for checked generated-image conversation; broader accuracy unverified",
+  "codeQualityReview": "PASS",
+  "securityReview": "PASS: strict validation/origin/cancellation/confirmation and existing free price caps retained"
+}

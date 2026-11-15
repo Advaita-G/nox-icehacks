@@ -1,0 +1,4 @@
+{
+  "requestId": "req-5a0c5f5b",
+  "raw": "{\"requestId\":\"req-5a0c5f5b\",\"status\":\"proposed\",\"operations\":[{\"type\":\"set-property\",\"id\":\"sphere\",\"property\":\"mass\",\"value\":1.25},{\"type\":\"set-property\",\"id\":\"sphere\",\"property\":\"label\",\"value\":\"sphere\"}],\"summary\":[\":make the ball slightly heavier from 1 kg to 1.25 kg (:about 25% heavier).\"],\"questions\":[],\"message\":\"Proposed: I\u2019ll bump the ball\u2019s mass to 1.25 kg, about 25% heavier. No other properties or positions change.\"}"
+}

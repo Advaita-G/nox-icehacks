@@ -39,6 +39,25 @@ test('local controls and exact built-in requests avoid the model; custom paramet
   assert.deepEqual(calls.at(-1), ['review', 'build a spring with 2kg mass']);
 });
 
+test('ordinary build requests use the visible drawing and preserve intent before any preset or text-only command', async () => {
+  for (const words of ['build the ramp with the ball shown like in the picture', 'Nox, can you build it into a 3D model, a physics model?', 'build a ramp', 'make a chair', 'turn this into a physics model', 'recreate the drawing']) {
+    const { actions, calls } = fixture({ hasDrawing: () => true, interpret: async instruction => { calls.push(['drawing', instruction]); return proposal; } });
+    const response = await actions.handle(words);
+    assert.equal(response.reviewRequired, true);
+    assert.deepEqual(calls, [['drawing', words]]);
+    assert.ok(!calls.some(([name]) => name === 'create' || name === 'review'));
+    await actions.handle('yes'); assert.deepEqual(calls.at(-1), ['apply']);
+  }
+  const { actions, calls } = fixture({ hasDrawing: () => false });
+  await actions.handle('make a chair'); assert.deepEqual(calls, [['review', 'make a chair']]);
+});
+
+test('an ordinary voice check receives a conversational response without an AI call or physical questionnaire', async () => {
+  const { actions, calls } = fixture({ hasDrawing: () => true });
+  for (const words of ['hello', 'can you hear me', 'are you there', 'thank you']) assert.ok((await actions.handle(words)).message.length);
+  assert.deepEqual(calls, []);
+});
+
 test('natural demo, save and confirmation aliases stay local and gated', async () => {
   const { actions, calls } = fixture();
   for (const words of ['start demo', 'run a demo', 'show me everything', 'take me through it']) await actions.handle(words);
@@ -197,6 +216,31 @@ test('voice sketch clarification stays on the sketch path and preview confirmati
   assert.equal((await ui.reviewWords('one meter')).reviewRequired, true);
   assert.equal(confirms, 0); assert.equal(ui.confirmPreviewWords().message, 'Confirmed preview');
   assert.equal(confirms, 1); assert.throws(() => ui.confirmPreviewWords(), /no current 3D preview/);
+});
+
+test('natural drawing intent survives a clarification and remains separate from optional measurements', async t => {
+  const { ui, node } = bridge(t);
+  node('source-notes').value = '';
+  let calls = 0;
+  ui.interpret = async () => {
+    calls++;
+    assert.equal(ui.sketchIntent, 'Build this picture into a physics model');
+    assert.equal(node('source-notes').value, '');
+    if (calls === 1) { ui.questions('sketch-questions', [{ prompt: 'Should this hinge be free or powered?' }]); }
+    else { assert.equal(ui.answers('sketch-questions')[0].answer, 'free'); ui.questions('sketch-questions', []); ui.preview = {}; node('source-dialog').close(); }
+  };
+  assert.equal((await ui.buildPreviewWords(undefined, 'Build this picture into a physics model')).reviewRequired, false);
+  assert.equal((await ui.reviewWords('free')).reviewRequired, true);
+  assert.equal(calls, 2);
+});
+
+test('an unbuilt image remains available to conversation after closing or cancelling, but a confirmed source is not a permanent attachment', t => {
+  const { ui, node } = bridge(t);ui.mode='photo';ui.photo={id:'photo'};ui.sourcePending=true;
+  assert.equal(node('source-dialog').open,false);assert.equal(ui.hasDrawing,true);
+  ui.cancelWords();assert.equal(ui.hasDrawing,true);
+  ui.sourcePending=false;assert.equal(ui.hasDrawing,false);
+  node('source-dialog').show();assert.equal(ui.hasDrawing,true);
+  ui.photoLoading=true;assert.equal(ui.hasDrawing,false);
 });
 
 test('a new voice review waits for the previous dialog close cleanup and stale Apply fails', async t => {

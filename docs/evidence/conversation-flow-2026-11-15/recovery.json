@@ -1,0 +1,110 @@
+[
+  {
+    "viewport": [
+      375,
+      812
+    ],
+    "motion": "no-preference",
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-9b9717f9",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "Can you build this picture into a physics model?"
+      },
+      {
+        "requestId": "req-e0b199e4",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      },
+      {
+        "requestId": "req-a5e18e75",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      }
+    ],
+    "screenshots": false,
+    "controls": {
+      "#assistant-start": {
+        "x": 23,
+        "y": 617.5,
+        "width": 70,
+        "height": 44
+      },
+      "#assistant-keyboard": {
+        "x": 205.65625,
+        "y": 689,
+        "width": 44,
+        "height": 44
+      },
+      "#assistant-compose button": {
+        "x": 287.15625,
+        "y": 741,
+        "width": 64.84375,
+        "height": 48
+      }
+    },
+    "status": "PASS",
+    "cancelRetainsSource": true,
+    "lateResultIgnored": true,
+    "errorRetainsSource": true,
+    "retryUsesSameImage": true,
+    "contextClosed": true
+  },
+  {
+    "viewport": [
+      320,
+      640
+    ],
+    "motion": "reduce",
+    "modelResponsesMocked": true,
+    "actualInferenceCalls": 0,
+    "errors": [],
+    "requests": [
+      {
+        "requestId": "req-d3ab91da",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "Can you build this picture into a physics model?"
+      },
+      {
+        "requestId": "req-3934b276",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      },
+      {
+        "requestId": "req-0fa96123",
+        "sourceId": "16519279958e364ece354e0984ea5951cd2be2c790747031963a1426554dd596",
+        "notes": "build it"
+      }
+    ],
+    "screenshots": false,
+    "controls": {
+      "#assistant-start": {
+        "x": 23,
+        "y": 445.5,
+        "width": 70,
+        "height": 44
+      },
+      "#assistant-keyboard": {
+        "x": 150.65625,
+        "y": 517,
+        "width": 44,
+        "height": 44
+      },
+      "#assistant-compose button": {
+        "x": 232.15625,
+        "y": 569,
+        "width": 64.84375,
+        "height": 48
+      }
+    },
+    "status": "PASS",
+    "cancelRetainsSource": true,
+    "lateResultIgnored": true,
+    "errorRetainsSource": true,
+    "retryUsesSameImage": true,
+    "contextClosed": true
+  }
+]

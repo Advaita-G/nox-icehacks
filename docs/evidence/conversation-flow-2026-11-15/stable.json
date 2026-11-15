@@ -1,0 +1,40 @@
+{
+  "url": "https://nox-icehacks.vercel.app",
+  "deploymentId": "dpl_GoANnR3Fdfxx5UcHYV4Sg6NaDVkD",
+  "status": {
+    "configured": true,
+    "provider": "openrouter",
+    "accessRequired": false
+  },
+  "assets": {
+    "main-BddXbDC2.css": {
+      "sha256": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a",
+      "bytes": 43697
+    },
+    "main-124d6dvm.js": {
+      "sha256": "f9d55ddbccffa62b042ecfbacff004620938a2210997c5fbf56a978750bb94ad",
+      "bytes": 5098492
+    },
+    "Nox-spring-cart-CmwPPLNw.json": {
+      "sha256": "fa8f94f3b767b3132eee4a43a017f5e3c301c66a1661a2b025e23a517ca445c6",
+      "bytes": 1396570
+    },
+    "index-CgaP1V7X.js": {
+      "sha256": "207a1401a291887b4f20b2d2e6e28ced708b244b898274da69619304635a7525",
+      "bytes": 3052
+    },
+    "Nox-fan-and-friction-BjwsLSRc.json": {
+      "sha256": "9d1a112c496f6cca5cd0d8903bc1b12cb44c0efbeec526dad45660f7adb6f615",
+      "bytes": 1802063
+    },
+    "Nox-ramp-and-cup-CG0uwtsK.json": {
+      "sha256": "979537ea446581b1222d6d4c096b9afbb59c9b4d9b71b95c4f23f041ea90fd5c",
+      "bytes": 861743
+    }
+  },
+  "invalidAndForeignOrigin": {
+    "https://nox-icehacks.vercel.app": 400,
+    "https://foreign.example": 403
+  },
+  "inferenceCalls": 0
+}

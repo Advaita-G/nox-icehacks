@@ -39,24 +39,27 @@ export class InputUI {
   private lastContext = '';
   private photoSequence = 0;
   private photoLoading = false;
+  private sourcePending = false;
   private requests = new RequestManager(() => this.target(), { timeouts: REQUEST_TIMEOUTS });
   private preview?: { draft: Preview; dirty: boolean; selected: string; sourceRevision: number };
   private proposal?: { value: CommandProposal; target: TargetToken; context: Workbench['commandContext'] };
   private sketchAnswers: Answer[] = [];
+  private sketchIntent = '';
   private commandAnswers: Answer[] = [];
   private voice: PressToTalk;
   private wordsClosed: Promise<void> = Promise.resolve();
   private wordsRevision = 0;
   get active(): boolean { return !!this.preview; }
+  get hasDrawing(): boolean { return !this.photoLoading && (this.sourcePending || el<HTMLDialogElement>('source-dialog').open) && (this.mode === 'photo' ? !!this.photo : !this.strokes.isEmpty()); }
 
   constructor(private host: Host) {
     el('input-tools').innerHTML = `<div><strong>From an idea to an experiment</strong><p>Draw parts and connections, or describe a change.</p></div><div class="input-actions"><button id="open-source" class="primary">Draw or upload</button><button id="open-command">Change with words</button><button id="view-source" hidden>Original sketch</button></div>`;
     document.body.insertAdjacentHTML('beforeend', `
-      <dialog id="source-dialog" class="input-dialog sketch-stage" aria-labelledby="source-title"><div class="dialog-heading"><div><h2 id="source-title">Sketch a physical idea</h2><p>A rough drawing is enough. Add the size and what should move.</p></div><button id="close-source" aria-label="Close sketch and show the 3D scene">3D view</button></div>
+      <dialog id="source-dialog" class="input-dialog sketch-stage" aria-labelledby="source-title"><div class="dialog-heading"><div><h2 id="source-title">Sketch a physical idea</h2><p>Ask Nox to build your drawing. Missing measurements will be estimated.</p></div><button id="close-source" aria-label="Close sketch and show the 3D scene">3D view</button></div>
       <div class="source-switch"><button id="use-canvas" aria-pressed="true">Draw</button><button id="use-photo" aria-pressed="false">Upload photo</button><button id="undo-stroke">Undo</button><button id="clear-strokes">Clear</button></div>
       <div class="sketch-surface"><canvas id="sketch" tabindex="0" width="1600" height="900" aria-label="Draw your physical sketch with a pointer. Photo upload is also available."></canvas>
       <div id="photo-area" hidden><label>Drawing or photo<input id="photo-file" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label><img id="photo-preview" alt="Your normalized sketch" hidden></div><div class="scan" aria-hidden="true"></div></div>
-      <div class="sketch-panel"><label>What should happen? Include dimensions you know.<textarea id="source-notes" maxlength="4000" rows="2" placeholder="A 1-meter fan blows toward a lightweight cart. The fan is powered; the cart is free to move."></textarea></label>
+      <div class="sketch-panel"><label>What should happen? (optional)<textarea id="source-notes" maxlength="4000" rows="2" placeholder="Let the ball roll, or tell Nox what you want. Sizes and masses are estimated unless you supply them."></textarea></label>
       <div id="sketch-questions" class="questions"></div><p id="source-status" role="status" aria-live="polite"></p><p id="provider-status"></p><div class="dialog-actions"><button id="interpret" class="primary">Build 3D preview</button><button id="cancel-interpret" hidden>Cancel request</button></div></div></dialog>
       <dialog id="command-dialog" class="input-dialog command-dialog" aria-labelledby="command-title"><div class="dialog-heading"><h2 id="command-title">Change your experiment</h2><button id="close-command">Close</button></div>
       <p id="command-selection"></p><label>Your command<textarea id="command-text" maxlength="4000" rows="3" placeholder="Make this part twice as heavy, or add a spring between the cart and support."></textarea></label>
@@ -145,9 +148,10 @@ export class InputUI {
     this.wordsClosed = closed;
     return { message: 'Applied the reviewed change.' };
   }
-  async buildPreviewWords(answer?: string): Promise<WordsReply> {
+  async buildPreviewWords(answer?: string, instruction?: string): Promise<WordsReply> {
     await this.wordsClosed;
     check(!this.preview, 'Confirm or cancel the current 3D preview first.');
+    if (instruction !== undefined) { check(instruction.trim() && instruction.length <= 4000, 'Use a build request of at most 4000 characters.'); this.sketchIntent = instruction.trim(); }
     const revision = ++this.wordsRevision;
     const unanswered = [...el('sketch-questions').querySelectorAll<HTMLInputElement>('input')].filter(input => !input.value.trim());
     if (answer !== undefined) {
@@ -203,7 +207,7 @@ export class InputUI {
     else el<HTMLSelectElement>('examples').disabled = false;
   }
   private sourceChanged(): void {
-    this.revision++; this.sketchAnswers = []; el('sketch-questions').replaceChildren(); message('source-status', 'Source updated. Build a new preview when ready.'); this.sync();
+    this.revision++; this.sourcePending = true; this.sketchIntent = ''; this.sketchAnswers = []; el('sketch-questions').replaceChildren(); message('source-status', 'Source updated. Ask Nox to build it when ready.'); this.sync();
   }
   private switchSource(mode: 'canvas' | 'photo'): void {
     if (this.mode !== mode) { this.mode = mode; this.sourceChanged(); }
@@ -254,7 +258,7 @@ export class InputUI {
   private async providerStatus(): Promise<void> {
     try {
       const response = await fetch('/api/status'); check(response.ok, 'Vision service unavailable.'); const status = await response.json();
-      message('provider-status', status.accessRequired ? 'Vision runtime is not enabled for public use in this deployment. Local controls remain available.' : status.configured ? 'Live AI is ready. Photo uploads are checked automatically. For a canvas drawing, say interpret my sketch.' : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
+      message('provider-status', status.accessRequired ? 'Vision runtime is not enabled for public use in this deployment. Local controls remain available.' : status.configured ? 'Live AI is ready. Say “build this into a physics model.” Sizes and masses are estimated; you can change them afterward.' : 'Vision runtime is not configured. Your drawing stays here; local controls remain available.');
     }
     catch (error) { message('provider-status', error); }
   }
@@ -264,10 +268,11 @@ export class InputUI {
       const source = this.mode === 'canvas' ? { id: this.strokes.sourceId, revision: this.revision, kind: this.mode, image: exportSketchPng(this.strokes.list()), ...this.strokes.toJSON() } : { ...this.photo, kind: this.mode, revision: this.revision };
       check(source.image && (this.mode === 'photo' || !this.strokes.isEmpty()), 'Draw something or upload a photo first.');
       this.sketchAnswers = mergeAnswers(this.sketchAnswers, this.answers('sketch-questions')); check(this.sketchAnswers.length <= 40, 'Start a new interpretation after 40 answers.');
-      const notes = el<HTMLTextAreaElement>('source-notes').value, identity = { id: source.id!, revision: this.revision, kind: this.mode, strokeIds: [...this.strokes.ids()] };
+      const notes = [el<HTMLTextAreaElement>('source-notes').value.trim(), this.sketchIntent].filter(Boolean).join('\n'), identity = { id: source.id!, revision: this.revision, kind: this.mode, strokeIds: [...this.strokes.ids()] };
+      check(notes.length <= 4000, 'Keep the drawing notes and build request within 4000 characters. Your drawing is retained.');
       const pending = this.requests.start('sketch', async (signal, requestId, target) => parseInterpretation(await postModel('/api/interpret', { requestId, target, source, notes, answers: this.sketchAnswers }, signal), requestId, identity));
       message('source-status', 'Interpreting your sketch…'); this.sync(); const result = await pending;
-      if (result.status !== 'accepted') { message('source-status', result.message); return; }
+      if (result.status !== 'accepted') { message('source-status', result.status === 'cancelled' ? 'Cancelled. Your drawing and previous experiment are retained.' : result.message); return; }
       check(el<HTMLDialogElement>('source-dialog').open, 'The source dialog was closed. Your previous experiment is retained.');
       const interpretation = result.value; this.questions('sketch-questions', interpretation.questions);
       if (interpretation.status !== 'ready') { message('source-status', interpretation.message || (interpretation.status === 'needs-clarification' ? 'Answer these questions, then build the preview again.' : 'The sketch could not be interpreted.')); return; }
@@ -282,7 +287,7 @@ export class InputUI {
   private finishPreview(confirm: boolean): void {
     const preview = this.preview; if (!preview) return;
     try {
-      if (confirm) { check(preview.sourceRevision === this.revision, 'The source changed. Cancel and interpret again.'); preview.draft.confirm(); }
+      if (confirm) { check(preview.sourceRevision === this.revision, 'The source changed. Cancel and interpret again.'); preview.draft.confirm(); this.sourcePending = false; }
       else preview.draft.cancel();
       this.preview = undefined; this.host.show(preview.draft.original, confirm || preview.dirty, confirm ? '' : preview.selected);
       message('message', confirm ? 'Sketch added as a new experiment. Run it, edit it, or Save to keep it in this browser.' : 'Preview cancelled. Your previous experiment is retained.');

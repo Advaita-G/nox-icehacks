@@ -1,0 +1,4 @@
+{
+  "requestId": "req-09489bd3",
+  "raw": "{\"requestId\": \"req-09489bd3\", \"status\": \"proposed\", \"operations\": [{\"type\": \"rotate\", \"id\": \"wedge\", \"rotation\": {\"x\": 0.087155, \"y\": 0, \"z\": -0.087155, \"w\": 0.992403}}, {\"type\": \"move\", \"id\": \"wedge\", \"position\": {\"x\": 0, \"y\": 0.204301, \"z\": 0}}], \"summary\": [\": Tilt the wedge 5 degrees clockwise about its bottom corner (5\u00b0 slope). Its pivot remains at world ground level; new height will be about 2.34 m and length about 5.32 m.\"], \"questions\": [], \"message\": \"Tilted the wedge 5 degrees clockwise while keeping its bottom-left corner on the floor, so the ball's contact gap with the wedge is preserved.\"}"
+}
