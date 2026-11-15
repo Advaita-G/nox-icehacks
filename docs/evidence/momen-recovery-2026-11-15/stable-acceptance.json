@@ -1,0 +1,34 @@
+{
+  "stableUrl": "https://nox-icehacks.vercel.app",
+  "deploymentId": "dpl_6L5RE42x4pVpkyw44yocoAzDvmnV",
+  "applicationCommit": "8cfcc5a",
+  "deployedRepositoryCommit": "b36e51f",
+  "publicMainMerge": "b188a52",
+  "modelCalls": 0,
+  "assets": [
+    {
+      "path": "assets/index-D_abB1Lh.js",
+      "sha256": "9d04e5c6ff3d175908a7e51d9457f77ee4a400e4c97b78cbb44dda198f7270ac",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/main-BddXbDC2.css",
+      "sha256": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/main-CmVyJ2bf.js",
+      "sha256": "9bd983857070bba3052a46222bfc948c0d11c79c3a2774d40109335efba156b2",
+      "matchesLocal": true
+    }
+  ],
+  "anonymousInference": "LOCKED",
+  "wrongOrigin": "REJECTED",
+  "authenticatedStatus": {
+    "configured": true,
+    "provider": "momen",
+    "accessRequired": false
+  },
+  "privateCodeOrCookiePublished": false,
+  "status": "PASS"
+}

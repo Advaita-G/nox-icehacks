@@ -1,0 +1,260 @@
+{
+  "applicationCommit": "8cfcc5a",
+  "pinnedUrl": "https://nox-icehacks-dt5d0nvdg-idk-41a8.vercel.app",
+  "status": "PASS",
+  "commandCalls": 1,
+  "retries": 0,
+  "providerStatus": {
+    "configured": true,
+    "provider": "momen",
+    "accessRequired": false
+  },
+  "httpStatus": 200,
+  "seconds": 6.921,
+  "request": {
+    "requestId": "final-command-8e645979-8d51-4836-828c-86ab01b2aaf8",
+    "target": {
+      "experimentId": "69076afd-3168-43c5-b574-f45980179403",
+      "versionId": "ee307892-ae72-470a-aa20-768314866c51",
+      "sceneRevision": 0,
+      "sourceId": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f",
+      "sourceRevision": 5,
+      "epoch": 30313
+    },
+    "transcript": "Give the round object an initial horizontal velocity of 2 meters per second to the right, with zero vertical and depth velocity. Change nothing else.",
+    "scene": {
+      "schemaVersion": 2,
+      "revision": 0,
+      "name": "Ball Resting on Fixed Plank",
+      "scale": 100,
+      "gravity": {
+        "x": 0,
+        "y": -9.81,
+        "z": 0
+      },
+      "assumptions": [
+        "Plank height estimated as 0.3 m based on drawing proportions relative to 3 m length.",
+        "Depth in Z assumed to be 1.0 m for stability.",
+        "Ground line modeled as a fixed supporting base beneath the plank.",
+        "Nox compiles metric rigid geometry. Missing values use estimated defaults: mass 1 kg, friction 0.5, restitution 0.1, zero initial velocity/rotation; depth/scale are estimates unless supplied.",
+        "Declared stackAbove contacts are placed vertically against actual collision shapes; horizontal/depth positions are retained."
+      ],
+      "sources": [
+        {
+          "kind": "photo",
+          "reference": "311bf989104f1dd89aca6eb6e511933e493991dc1a469f3c1787dbcb7555568f"
+        }
+      ],
+      "objects": [
+        {
+          "id": "ground",
+          "label": "ground",
+          "kind": "custom-part",
+          "fixed": true,
+          "position": {
+            "x": 0,
+            "y": -0.10000000149011612,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "width": 6,
+          "height": 0.2,
+          "depth": 2,
+          "geometry": [
+            {
+              "shape": "box",
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "size": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ],
+          "mass": 1,
+          "friction": 0.5,
+          "restitution": 0.1,
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "wallThickness": 0.1
+        },
+        {
+          "id": "plank",
+          "label": "plank",
+          "kind": "custom-part",
+          "fixed": true,
+          "position": {
+            "x": 0,
+            "y": 0.14999985694885254,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "width": 3,
+          "height": 0.3,
+          "depth": 1,
+          "geometry": [
+            {
+              "shape": "box",
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "size": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ],
+          "mass": 1,
+          "friction": 0.5,
+          "restitution": 0.1,
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "wallThickness": 0.1
+        },
+        {
+          "id": "ball",
+          "label": "ball",
+          "kind": "ball",
+          "fixed": false,
+          "position": {
+            "x": 0,
+            "y": 0.7999281287193298,
+            "z": 0
+          },
+          "rotation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "width": 1,
+          "height": 1,
+          "depth": 1,
+          "geometry": [
+            {
+              "shape": "sphere",
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "rotation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "size": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ],
+          "mass": 1,
+          "friction": 0.5,
+          "restitution": 0.1,
+          "velocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "angularVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "wallThickness": 0.1
+        }
+      ],
+      "constraints": [],
+      "forces": [],
+      "fans": [],
+      "assemblies": [],
+      "environment": {
+        "airDensity": 1.2,
+        "airVelocity": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    "selection": [
+      "ball"
+    ],
+    "answers": []
+  },
+  "envelope": {
+    "requestId": "final-command-8e645979-8d51-4836-828c-86ab01b2aaf8",
+    "raw": "{\n  \"requestId\": \"final-command-8e645979-8d51-4836-828c-86ab01b2aaf8\",\n  \"status\": \"proposed\",\n  \"operations\": [\n    {\n      \"type\": \"set-property\",\n      \"id\": \"ball\",\n      \"property\": \"velocity\",\n      \"value\": {\n        \"x\": 2,\n        \"y\": 0,\n        \"z\": 0\n      }\n    }\n  ],\n  \"summary\": [\n    \"Set ball initial velocity to 2 m/s to the right along the X axis.\"\n  ],\n  \"questions\": [],\n  \"message\": \"Set the initial velocity of the ball to (2, 0, 0) m/s.\"\n}"
+  },
+  "scope": "One actual authenticated hosted canonical command after removing duplicate command schema; full app flow belongs to earlier 59793ca with identical UI/drawing instructions. No UI mutation, physical-device or new full-flow claim.",
+  "proposal": {
+    "requestId": "final-command-8e645979-8d51-4836-828c-86ab01b2aaf8",
+    "status": "proposed",
+    "operations": [
+      {
+        "type": "set-property",
+        "id": "ball",
+        "property": "velocity",
+        "value": {
+          "x": 2,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    "summary": [
+      "Set ball initial velocity to 2 m/s to the right along the X axis."
+    ],
+    "questions": [],
+    "message": "Set the initial velocity of the ball to (2, 0, 0) m/s."
+  },
+  "onlyVelocityAndRevisionChanged": true
+}

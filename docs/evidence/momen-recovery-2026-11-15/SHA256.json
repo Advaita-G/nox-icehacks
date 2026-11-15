@@ -1,5 +1,5 @@
 {
-  "README.md": "2ed1090c48d6be24a95abd418d4e5eaf1099177e13b4e9e88a42b75faa4b5e95",
+  "README.md": "c932853da4bff842428e5f5e1046cca2d2698ad63ee8c0d164ec2812f99cc71a",
   "app-flow/command-actual-envelope.json": "4fde4705373e472e102045e0b7906c81b59f6479dab34e753d95a0e84e391acf",
   "app-flow/command-validated.json": "2bf4192ead80ba564f2d2c16620d72fe171bef020075511ab4377173731332c5",
   "app-flow/interpret-actual-envelope.json": "a0101ef500d114457c9c80f3b762dd84a91c3b540a7467d5d5c8cde8a1d0c03a",
@@ -38,6 +38,7 @@
   "deployed-app-flow/interpret-validated.json": "4eef8d00d53d00f4b28bd934b1140f631c901155b89e0d0df5d778251580d6cd",
   "deployed-app-flow/live-receipt.json": "8d8254087a7bfcaabe0ef3c06ad9bd0a63003641c2b250c83ed3e13036986f5d",
   "deployed-http.json": "afdcfacd83b46f24d45c9b5db071e50b9ca10c0c980737e0be5d14cd538f7ffa",
+  "film-review.json": "61bcb3e04e7690a352c951502d9be36b2c29b6807053c68f6d9e57ebb8e87d3c",
   "final-app-flow/command-actual-envelope.json": "9b32bbecd9ae8601509a5dbece1a22d566e855e00768085a111ae5ee0406fe89",
   "final-app-flow/command-validated.json": "4aa719f915b89e645f948aab0f4888a767f89391f3bcee91c8ae4a78f3a4fb3b",
   "final-app-flow/final-app-raw-28.txt": "27b4fc7309d79116cfb97b5dcf01e592feae35cfdf97486726ce3d33d1d3a1d5",
@@ -45,6 +46,7 @@
   "final-app-flow/interpret-actual-envelope.json": "aca1e6f40b813374eaa6a5f334d8401989af45f42bcc8c47d1cbaa0e41e771ec",
   "final-app-flow/interpret-validated.json": "252fcc5f13922f66098b3bc32dcaed52b796bed416ad8c75baf77e745ca38a24",
   "final-app-flow/live-receipt.json": "52c6e5432280eee3da659d010e71d3e34631e269055cc0789c1dc571005f2591",
+  "final-hosted-command.json": "746a09fc8a1d0ad724931579621b0ae6913fc70e17179bfe52281f935ebed8f2",
   "final-metric/case-01/canonical.json": "635d3e1c906cec3a7a569b5ae7fb7dad76a71a6e15b7d3c7c651dff0fe524693",
   "final-metric/case-01/raw-provider-plan.txt": "e89d00820683ec1ce8e4ac2fed3a22e3652745f42292c982de9f80730dc04045",
   "final-metric/case-01/raw-reply.txt": "ae624bd9e3f9cd74fce4c136d35620f083ce51936d8f9c5bf861a45f55283ae6",
@@ -121,5 +123,6 @@
   "provider-control/canonical-scene.json": "b708215a777161056686e49ce4bf5bb4e562993bb4a36304999b0102a4cf58ab",
   "provider-control/raw-reply.txt": "f8b6fb1ce925a6e5c1173fdc580d73a82987db8dda7b1b9ee2b5c4a8d0c529cd",
   "provider-control/receipt.json": "e64b045aaa7377d71ab8b5c5973c6ad7b27cab4791d9653707765cc811e0743b",
-  "verification.json": "b7a5a8242f305cb7b0e793c0c8b7b9fd1f1489f660c6feae0c4cbb44d738c28c"
+  "stable-acceptance.json": "ec6765afce2151a7df4b051cb6f480c5efb3388e50ab9df3f78f22b971d6d85d",
+  "verification.json": "d4c4a7c1f15c69a5306e7e0b596397cd12192c531021797c05a03c735f4aeb23"
 }

@@ -23,5 +23,25 @@
   "clientAssets": {
     "dist/assets/main-CmVyJ2bf.js": "9bd983857070bba3052a46222bfc948c0d11c79c3a2774d40109335efba156b2",
     "dist/assets/main-BddXbDC2.css": "6dd2350c764555499c7c9d38fe1330e9a20b25058acc9e093ca261534542913a"
+  },
+  "finalApplicationCommit": "8cfcc5a",
+  "finalRootTests": {
+    "passed": 263,
+    "failed": 0,
+    "durationMs": 9081.558208
+  },
+  "finalFocusedTests": {
+    "passed": 27,
+    "failed": 0
+  },
+  "finalRootBuild": "PASS",
+  "hostedCleanInstall": {
+    "packagesAudited": 29,
+    "vulnerabilitiesReported": 0
+  },
+  "hostedCI": {
+    "runId": 43739864659,
+    "stepsExecuted": 0,
+    "result": "billing-locked-before-jobs"
   }
 }

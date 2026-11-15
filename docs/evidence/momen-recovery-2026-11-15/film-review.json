@@ -1,0 +1,23 @@
+{
+  "deliveryRepository": "Advaita-G/nox",
+  "deliveryCommit": "855628e1f3471b1a9d9f3032c53b96c8ac5440f4",
+  "deliveredFilmSha256": "2c1dc2c11672569aa5f0722a29118a64e4762bffa5c922d42390a64ebc277d6e",
+  "filmBytes": 24329591,
+  "durationSeconds": 74.7,
+  "video": "1920x1080, H.264, 30 fps",
+  "audio": "AAC, 48000 Hz; effects only",
+  "independentlyMeasuredAudio": { "integratedLUFS": -20.1, "truePeakDbFS": -7.4 },
+  "reviewMethod": "Local watch skill: 10 full-range scene frames plus 13 targeted cue frames, all inspected; caption/spec/source/provenance review. No cloud upload, transcript model or new installation. These samples do not establish a full continuous human watch/listen or physical-device acceptance.",
+  "targetedCueSeconds": [0.8, 2, 17, 22, 27, 30, 33, 41, 47, 51, 54.5, 63.5, 70],
+  "contentObserved": ["input beside actual 3D output", "drawing-to-scene reveal", "exact velocity proposal", "yes before motion", "local annotation/arrow", "applied edit", "real hop", "reload/replay", "readable URL and credits"],
+  "findings": [
+    "REFERENCES.md reference 4 incorrectly attributes new AI footage to the old 113-second take; actual source is the fresh Momen release.",
+    "End disclosure is 0.5 seconds short of the tool's suggested reading time; request a 1-second longer existing hold.",
+    "Final SRT/VTT cue omits disclosure despite the review claiming it is included; add a concise cue.",
+    "Use Recorded UI d1ed836 rather than Current build d1ed836 now that server release is 8cfcc5a; UI bytes remain identical.",
+    "8 of 25 source/caption checksum entries mismatch committed LF bytes but match their CRLF variants. Film and binary source hashes match; final package should hash actual published bytes."
+  ],
+  "requestedAction": "One bounded final polish/render/checksum delivery on Juwon's branch; no new footage, story, music, narration installation or model call.",
+  "uploadStatus": "Not uploaded; Juwon chose Advaita uploads. No authorised background YouTube connection is available.",
+  "devpostStatus": "Prepared story/fields; final owner-account save/reopen/preview unverified; not submitted."
+}
