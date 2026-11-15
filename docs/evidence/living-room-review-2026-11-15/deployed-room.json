@@ -1,0 +1,54 @@
+{
+  "mediaCapture": false,
+  "vendorCalls": 0,
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "motion": "no-preference",
+      "scope": "Typed actual deployed UI, real physics/storage; no microphone, TTS, model call or capture.",
+      "arrivalNoOverflow": true,
+      "coldRun": {
+        "mode": "Running",
+        "clock": "0.117 s",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+      },
+      "sustainedClock": "1.258 s",
+      "noteVisible": true,
+      "unappliedUntilYes": true,
+      "appliedMatchesReview": true,
+      "cancelClearsNote": true,
+      "offscreenNoteContained": true,
+      "saveReloadExact": true,
+      "noOverflow": true,
+      "inferenceRequests": [],
+      "status": "PASS",
+      "errors": [],
+      "browserClosed": true
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "motion": "reduce",
+      "scope": "Typed actual deployed UI, real physics/storage; no microphone, TTS, model call or capture.",
+      "arrivalNoOverflow": true,
+      "coldRun": {
+        "mode": "Running",
+        "clock": "0.108 s",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change."
+      },
+      "sustainedClock": "1.358 s",
+      "noteVisible": true,
+      "unappliedUntilYes": true,
+      "appliedMatchesReview": true,
+      "cancelClearsNote": true,
+      "offscreenNoteContained": true,
+      "saveReloadExact": true,
+      "noOverflow": true,
+      "inferenceRequests": [],
+      "status": "PASS",
+      "errors": [],
+      "browserClosed": true
+    }
+  ]
+}
