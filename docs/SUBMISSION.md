@@ -12,9 +12,9 @@ The room opens with Nox. Tap its name once for the browser's microphone consent,
 
 Ask Nox to select a part, move it or change a property. It explains proposed physical changes and waits for “yes” before applying a normal edit. You can pause, reset, keep a baseline, compare measured motion and save the experiment with its source, versions and paused checkpoint. Keyboard input is available on demand; optional workbench controls live behind Tools.
 
-Camera and Add drawing appear when the conversation needs them; images can also be dropped or pasted into the room. With a configured vision service, Nox normalizes the source and checks it automatically. The prompt attempts objects, characters, scenery, abstract forms and mechanisms as declared rigid-body approximations. It estimates noncritical scale, depth and mass, retains source grounding and asks when an unresolved detail changes the intended result. A validated ready interpretation becomes the running scene.
+Camera and Add drawing appear when the conversation needs them; images can also be dropped or pasted into the room. Nox normalizes and preserves the source before requesting interpretation. The implemented pipeline asks for declared rigid approximations of objects, characters, scenery, abstract forms and mechanisms, with estimated dimensions and critical-intent questions. A usable result must pass strict validation before becoming a running scene.
 
-Fresh hosted vision interpretation and free-form model edits are pending the new Momen runtime connection and live verification. The local ramp flow and the “show me what you can do” spring demonstration work independently of that service. The spring demonstration produces two real measured runs before and after doubling mass, compares sampled periods and saves the result. Recorded Library experiments remain labelled optional examples. Model requests are bounded, and no universal recognition or conversion-time guarantee is claimed.
+**The participant-funded Momen connection is configured, but actual image requests currently fail with an internal “Connection pool shut down” error. Fresh drawing conversion and free-form model edits are not working.** Failed recognition retains the source and valid experiment instead of loading a stored scene. The local ramp flow and the “show me what you can do” spring demonstration work independently of that service. The spring demonstration produces two real measured runs before and after doubling mass, compares sampled periods and saves the result. Recorded Library experiments remain labelled optional examples. No universal recognition or conversion-time guarantee is claimed.
 
 ## How we built it
 
@@ -32,6 +32,6 @@ Retaining comparable starting conditions, sample data and checkpoints made a bef
 
 Nox models rigid mechanics and a declared fan approximation. Water, cloth and electrical objects may be represented by explicit rigid visual proxies; fluid flow, deformation and electricity are not simulated. Browser speech support varies, and model interpretation can be unavailable, refused or wrong. Results describe the declared simulated setup. Captured-reply tests, fresh local demonstrations and actual live-model/device evidence are identified separately.
 
-We want to test more unfamiliar drawings and make the limits of each approximation easier to resolve through conversation.
+Our next steps are restoring the vision runtime, resolving an intermittent local startup pause and testing fresh drawings with real microphone use on the final release.
 
 Built with TypeScript, Vite, Three.js, Rapier3D, Momen, GPT 6 Luna, browser speech, Codex and Claude Code. Prepared tracks: Best AI Hack, Best Design & UX and Best Deployed / Shipped App.

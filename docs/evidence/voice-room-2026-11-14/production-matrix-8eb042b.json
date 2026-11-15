@@ -1,0 +1,994 @@
+{
+  "url": "[URL omitted]",
+  "deploymentId": "dpl_ATBWpoLDJw4PLPVJLoB2ArQmLgz6",
+  "suppliedAppCommit": "8eb042b",
+  "checkedAt": "2026-11-14T22:44:23.386534+00:00",
+  "evidence": "Isolated headless Chromium, DOM/computed layout and real local solver; injected synthetic recognition/TTS only. No microphone or physical speech claim.",
+  "mediaCapture": false,
+  "credentialsSent": false,
+  "modelCallsAllowed": false,
+  "cases": [
+    {
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "motion": "no-preference",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "room": "arrival",
+        "reducedMotion": false
+      },
+      "startBounds": {
+        "x": 65,
+        "y": 237.421875,
+        "width": 190,
+        "height": 134
+      },
+      "keyboardBounds": {
+        "x": 16,
+        "y": 607,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "room": "conversation",
+        "reducedMotion": false
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 236.921875,
+        "y": 418.015625,
+        "width": 80.171875,
+        "height": 44
+      },
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.808,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 10,
+          "y": 444.5,
+          "width": 300,
+          "height": 212.5
+        },
+        "room": "experiment",
+        "reducedMotion": false
+      },
+      "stopBounds": {
+        "x": 211.765625,
+        "y": 538.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "0.992 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 320,
+        "height": 667
+      },
+      "motion": "reduce",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "room": "arrival",
+        "reducedMotion": true
+      },
+      "startBounds": {
+        "x": 65,
+        "y": 237.421875,
+        "width": 190,
+        "height": 134
+      },
+      "keyboardBounds": {
+        "x": 16,
+        "y": 607,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 667
+        },
+        "room": "conversation",
+        "reducedMotion": true
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 236.921875,
+        "y": 418.015625,
+        "width": 80.171875,
+        "height": 44
+      },
+      "reducedMotionAnimationNames": [
+        "none",
+        "none",
+        "none",
+        "none"
+      ],
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.917,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 320,
+        "height": 667,
+        "docWidth": 320,
+        "docHeight": 667,
+        "panel": {
+          "x": 10,
+          "y": 444.5,
+          "width": 300,
+          "height": 212.5
+        },
+        "room": "experiment",
+        "reducedMotion": true
+      },
+      "stopBounds": {
+        "x": 211.765625,
+        "y": 538.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "0.992 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 667
+      },
+      "motion": "no-preference",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 667
+        },
+        "room": "arrival",
+        "reducedMotion": false
+      },
+      "startBounds": {
+        "x": 92.5,
+        "y": 237.421875,
+        "width": 190,
+        "height": 134
+      },
+      "keyboardBounds": {
+        "x": 16,
+        "y": 607,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 667
+        },
+        "room": "conversation",
+        "reducedMotion": false
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 271.03125,
+        "y": 418.015625,
+        "width": 83.96875,
+        "height": 44
+      },
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.925,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 10,
+          "y": 465.5,
+          "width": 355,
+          "height": 191.5
+        },
+        "room": "experiment",
+        "reducedMotion": false
+      },
+      "stopBounds": {
+        "x": 266.765625,
+        "y": 538.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "1.150 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 375,
+        "height": 667
+      },
+      "motion": "reduce",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 667
+        },
+        "room": "arrival",
+        "reducedMotion": true
+      },
+      "startBounds": {
+        "x": 92.5,
+        "y": 237.421875,
+        "width": 190,
+        "height": 134
+      },
+      "keyboardBounds": {
+        "x": 16,
+        "y": 607,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 667
+        },
+        "room": "conversation",
+        "reducedMotion": true
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 271.03125,
+        "y": 418.015625,
+        "width": 83.96875,
+        "height": 44
+      },
+      "reducedMotionAnimationNames": [
+        "none",
+        "none",
+        "none",
+        "none"
+      ],
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.808,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 375,
+        "height": 667,
+        "docWidth": 375,
+        "docHeight": 667,
+        "panel": {
+          "x": 10,
+          "y": 465.5,
+          "width": 355,
+          "height": 191.5
+        },
+        "room": "experiment",
+        "reducedMotion": true
+      },
+      "stopBounds": {
+        "x": 266.765625,
+        "y": 538.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "1.025 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "motion": "no-preference",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 900
+        },
+        "room": "arrival",
+        "reducedMotion": false
+      },
+      "startBounds": {
+        "x": 289,
+        "y": 349.53125,
+        "width": 190,
+        "height": 138.796875
+      },
+      "keyboardBounds": {
+        "x": 24,
+        "y": 832,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 900
+        },
+        "room": "conversation",
+        "reducedMotion": false
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 469.703125,
+        "y": 538.921875,
+        "width": 85.234375,
+        "height": 44
+      },
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.8,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 20,
+          "y": 726.5,
+          "width": 728,
+          "height": 153.5
+        },
+        "room": "experiment",
+        "reducedMotion": false
+      },
+      "stopBounds": {
+        "x": 641.765625,
+        "y": 753.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "0.925 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 768,
+        "height": 900
+      },
+      "motion": "reduce",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 900
+        },
+        "room": "arrival",
+        "reducedMotion": true
+      },
+      "startBounds": {
+        "x": 289,
+        "y": 349.53125,
+        "width": 190,
+        "height": 138.796875
+      },
+      "keyboardBounds": {
+        "x": 24,
+        "y": 832,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 900
+        },
+        "room": "conversation",
+        "reducedMotion": true
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 469.703125,
+        "y": 538.921875,
+        "width": 85.234375,
+        "height": 44
+      },
+      "reducedMotionAnimationNames": [
+        "none",
+        "none",
+        "none",
+        "none"
+      ],
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.825,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 768,
+        "height": 900,
+        "docWidth": 768,
+        "docHeight": 900,
+        "panel": {
+          "x": 20,
+          "y": 726.5,
+          "width": 728,
+          "height": 153.5
+        },
+        "room": "experiment",
+        "reducedMotion": true
+      },
+      "stopBounds": {
+        "x": 641.765625,
+        "y": 753.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "0.967 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "motion": "no-preference",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "PASS",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800
+        },
+        "room": "arrival",
+        "reducedMotion": false
+      },
+      "startBounds": {
+        "x": 530.40625,
+        "y": 285.921875,
+        "width": 219.1875,
+        "height": 166
+      },
+      "keyboardBounds": {
+        "x": 24,
+        "y": 732,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800
+        },
+        "room": "conversation",
+        "reducedMotion": false
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 725.703125,
+        "y": 506.265625,
+        "width": 85.234375,
+        "height": 44
+      },
+      "ramp": {
+        "spokenRequest": "Can you make a ramp with the ball?",
+        "freshBodies": 3,
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ],
+        "runningClockSeconds": 0.95,
+        "mode": "Running",
+        "caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "modelRequests": 0
+      },
+      "experimentLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": {
+          "x": 20,
+          "y": 626.5,
+          "width": 1240,
+          "height": 153.5
+        },
+        "room": "experiment",
+        "reducedMotion": false
+      },
+      "stopBounds": {
+        "x": 1153.765625,
+        "y": 653.25,
+        "width": 85.234375,
+        "height": 44
+      },
+      "stop": {
+        "clock": "1.133 s",
+        "mode": "Paused",
+        "recognitionInactive": true,
+        "clockStable": true,
+        "caption": "Stopped. Your work is retained."
+      },
+      "seenExpectedAssets": {
+        "/assets/main-bCFecXw6.js": true,
+        "/assets/main-MEbMjkZu.css": true,
+        "/assets/index-DH1jtNxO.js": true
+      }
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "motion": "reduce",
+      "modelRequests": [],
+      "apiRequests": [],
+      "unexpectedErrors": [],
+      "status": "FAIL",
+      "phase": "spoken-local-ramp",
+      "hiddenArrivalControls": {
+        ".app-header": true,
+        "#scene": true,
+        "#sketch": true,
+        "#hud-rail": true,
+        ".assistant-photo-actions": true,
+        "#assistant-compose": true
+      },
+      "arrivalLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800
+        },
+        "room": "arrival",
+        "reducedMotion": true
+      },
+      "startBounds": {
+        "x": 530.40625,
+        "y": 285.921875,
+        "width": 219.1875,
+        "height": 166
+      },
+      "keyboardBounds": {
+        "x": 24,
+        "y": 732,
+        "width": 44,
+        "height": 44
+      },
+      "keyboardFocusPath": [
+        "",
+        "assistant-start",
+        "assistant-keyboard"
+      ],
+      "keyboardLayout": {
+        "width": 1280,
+        "height": 800,
+        "docWidth": 1280,
+        "docHeight": 800,
+        "panel": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800
+        },
+        "room": "conversation",
+        "reducedMotion": true
+      },
+      "greeting": "What are we building?",
+      "stopListeningBounds": {
+        "x": 725.703125,
+        "y": 506.265625,
+        "width": 85.234375,
+        "height": 44
+      },
+      "reducedMotionAnimationNames": [
+        "none",
+        "none",
+        "none",
+        "none"
+      ],
+      "timeoutState": {
+        "room": "experiment",
+        "clock": "0.025 s",
+        "mode": "Paused",
+        "caption": "The solver paused before the run was established. Your experiment is retained.",
+        "panel": "listening",
+        "hidden": false,
+        "bodyCount": 3,
+        "recognizers": [
+          {
+            "active": false,
+            "result": false
+          },
+          {
+            "active": false,
+            "result": false
+          },
+          {
+            "active": true,
+            "result": true
+          }
+        ],
+        "canvas": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 800,
+          "top": 0,
+          "right": 1280,
+          "bottom": 800,
+          "left": 0
+        }
+      }
+    }
+  ],
+  "assets": {
+    "/assets/main-bCFecXw6.js": {
+      "httpStatus": 200,
+      "bytes": 5086528,
+      "sha256": "d8c38aa51f6985f7561c77d6a78b02076786146c7c630dbbd40c51151fe1d813",
+      "matchesFrozenCandidate": true
+    },
+    "/assets/main-MEbMjkZu.css": {
+      "httpStatus": 200,
+      "bytes": 41975,
+      "sha256": "032793a94c26c70be0419fc9f8bfd3707c898bc491cfb93503686b5aa4f73556",
+      "matchesFrozenCandidate": true
+    },
+    "/assets/index-DH1jtNxO.js": {
+      "httpStatus": 200,
+      "bytes": 3052,
+      "sha256": "11eccc5ba12fe3500d2c7886f4afea53f0e276ac504df46ede965487fee8b976",
+      "matchesFrozenCandidate": true
+    }
+  },
+  "browserClosed": true,
+  "status": "FAIL",
+  "priorAttempt": {
+    "path": "[local artifact path omitted]",
+    "failure": {
+      "type": "TimeoutError",
+      "message": "Page.wait_for_function: Timeout 25000ms exceeded."
+    },
+    "passedCases": 3
+  },
+  "anonymousStatus": {
+    "httpStatus": 200,
+    "configured": false,
+    "provider": null,
+    "accessRequired": true
+  },
+  "failure": {
+    "type": "AssertionError",
+    "message": "Locator expected to contain text 'locally with declared physical defaults'\nActual value: The solver paused before the run was established. Your experiment is retained. \nCall log:\n  - Expect \"to_contain_text\" locator(\"#assistant-caption\") with timeout 5000ms\n  - waiting for locator(\"#assistant-caption\")\n    3 × locator resolved to <p aria-live=\"polite\" data-speaker=\"user\" id=\"assistant-caption\" class=\"assistant-caption\">Can you make a ramp with the ball?</p>\n      - unexpected value \"Can you make a ramp with the ball?\"\n    9 × locator resolved to <p aria-live=\"polite\" id=\"assistant-caption\" data-speaker=\"assistant\" class=\"assistant-caption assistant-failure\">The solver paused before the run was established.…</p>\n      - unexpected value \"The solver paused before the run was established. Your experiment is retained.\"\n\nAria snapshot:\n- paragraph: The solver paused before the run was established. Your experiment is retained."
+  },
+  "completedAt": "2026-11-14T22:44:47.525493+00:00"
+}

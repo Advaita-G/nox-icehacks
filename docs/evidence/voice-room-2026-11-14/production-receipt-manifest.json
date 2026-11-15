@@ -1,0 +1,109 @@
+{
+  "scope": "Copies of saved actual receipts. URL, private local path and traceback redactions only; result/status fields retained.",
+  "receipts": [
+    {
+      "file": "production-matrix-8eb042b.json",
+      "sourceSha256": "f25dbce0267524a1e592452c5440c96c7424ac3fb93e2b6dc1dc1467527e83c0",
+      "publishedSha256": "2d597c506525b1566d2ef4e3d0b79a9050cb4ee0f86a2e59545135aeeedb79a6",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        },
+        {
+          "field": "$.priorAttempt.path",
+          "kind": "private-local-path"
+        },
+        {
+          "field": "$.priorAttempt.failure.traceback",
+          "kind": "private-stack-paths"
+        },
+        {
+          "field": "$.failure.traceback",
+          "kind": "private-stack-paths"
+        }
+      ]
+    },
+    {
+      "file": "production-isolated-1280.json",
+      "sourceSha256": "50c750288f5028a9d9337bb98e6cfa955c2e7fc5b2d054a13d955b717cf602d0",
+      "publishedSha256": "8044b6359c16ba63b259592a126c5d6f9c60d87916eb73fbc633d0d66af28b2a",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        }
+      ]
+    },
+    {
+      "file": "production-diagnostic-summary.json",
+      "sourceSha256": "9cde2f7f15ce38d8415d65d519bf7b2cd7951037ff8be6aee791c3e936991c60",
+      "publishedSha256": "d0eb0526fb8d37b6e0370d969c3c50196b6b9016913689b2f93efa1faa7b1601",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.attempts[0].receipt",
+          "kind": "private-local-path"
+        },
+        {
+          "field": "$.attempts[1].receipt",
+          "kind": "private-local-path"
+        },
+        {
+          "field": "$.attempts[2].receipt",
+          "kind": "private-local-path"
+        }
+      ]
+    },
+    {
+      "file": "production-diagnostic-1.json",
+      "sourceSha256": "74bf0784e245e65e047c09b20649da73c6278e05a2131d6e723ef8f74e058a01",
+      "publishedSha256": "6e6aa793ebc6137f483b5be8ba156edb54e81323dc2de0b7e02838fdcff076d0",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        }
+      ]
+    },
+    {
+      "file": "production-diagnostic-2.json",
+      "sourceSha256": "b9e99e7202f31888a178c42f3264ea84dafad9645d46492854442eb03d3a7709",
+      "publishedSha256": "fc9deb5dd293ec3044fc1e3ac04edb55ac521f6cd0e8ad9b2dab1f378b06fd15",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        }
+      ]
+    },
+    {
+      "file": "production-diagnostic-3.json",
+      "sourceSha256": "1c6c2b94bb2eb109ae9c379fc28f27df8c925ff2dfac89a5e12c32163bd7f590",
+      "publishedSha256": "57d6cd1601941e285fd4d37311d387cf57e8e168f589d88869b6ddc034081eef",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        }
+      ]
+    },
+    {
+      "file": "tools-local-check-948e9dc.json",
+      "sourceSha256": "16cf5c0103ccb2dd3a51684915c3686d59c38bfbb2900ea1e0797de69904bb88",
+      "publishedSha256": "d7a3ee35ebc0748e90715174bdf33b21501ff95705c81d1f0a47da0e8f192bd8",
+      "exactCopy": false,
+      "redactions": [
+        {
+          "field": "$.url",
+          "kind": "url"
+        }
+      ]
+    }
+  ]
+}

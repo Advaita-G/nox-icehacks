@@ -1,0 +1,896 @@
+{
+  "url": "[URL omitted]",
+  "deploymentId": "dpl_ATBWpoLDJw4PLPVJLoB2ArQmLgz6",
+  "appCommit": "8eb042b",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "reducedMotion": true,
+  "checkedAt": "2026-11-14T22:46:32.051101+00:00",
+  "modelRequests": [],
+  "apiRequests": [],
+  "errors": [],
+  "mediaCapture": false,
+  "browserClosed": true,
+  "status": "PASS",
+  "outcome": "AUTO_RUN_PASS",
+  "readout": {
+    "error": "",
+    "message": "Physics workbench ready. Unsaved changes.",
+    "mode": "Running",
+    "clock": "0.700 s",
+    "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+    "at": 2777.100000023842,
+    "hidden": false,
+    "room": "experiment",
+    "panel": "thinking",
+    "bodyNames": [
+      "Ground (fixed)",
+      "Ramp (fixed)",
+      "Ball"
+    ]
+  },
+  "trace": {
+    "origin": 116,
+    "frames": [
+      {
+        "timestamp": 115.5,
+        "gap": null
+      },
+      {
+        "timestamp": 148.8,
+        "gap": 33.30000000000001
+      },
+      {
+        "timestamp": 165.5,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 182.2,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 198.8,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 215.5,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 232.1,
+        "gap": 16.599999999999994
+      },
+      {
+        "timestamp": 248.8,
+        "gap": 16.700000000000017
+      },
+      {
+        "timestamp": 265.5,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 282.2,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 298.8,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 315.5,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 332.2,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 348.9,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 365.5,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 382.2,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 398.8,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 432.2,
+        "gap": 33.39999999999998
+      },
+      {
+        "timestamp": 448.8,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 482.2,
+        "gap": 33.39999999999998
+      },
+      {
+        "timestamp": 498.8,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 515.5,
+        "gap": 16.69999999999999
+      },
+      {
+        "timestamp": 532.1,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 548.8,
+        "gap": 16.699999999999932
+      },
+      {
+        "timestamp": 565.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 582.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 598.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 615.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 632.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 648.9,
+        "gap": 16.699999999999932
+      },
+      {
+        "timestamp": 665.5,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 682.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 698.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 715.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 732.1,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 748.8,
+        "gap": 16.699999999999932
+      },
+      {
+        "timestamp": 765.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 782.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 798.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 815.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 832.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 848.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 865.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 882.1,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 898.8,
+        "gap": 16.699999999999932
+      },
+      {
+        "timestamp": 915.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 932.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 948.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 965.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 982.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 998.9,
+        "gap": 16.699999999999932
+      },
+      {
+        "timestamp": 1015.5,
+        "gap": 16.600000000000023
+      },
+      {
+        "timestamp": 1032.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1048.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1065.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1082.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1098.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1115.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1132.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1148.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1165.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1182.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1198.9,
+        "gap": 16.800000000000182
+      },
+      {
+        "timestamp": 1215.5,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1232.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1248.9,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1265.5,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1282.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1298.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1315.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1332.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1348.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1365.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1382.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1398.8,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1415.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1432.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1448.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1465.4,
+        "gap": 16.600000000000136
+      },
+      {
+        "timestamp": 1482.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 1498.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1515.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1532.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1548.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1565.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1582.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1598.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1615.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1632.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 1648.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1665.4,
+        "gap": 16.600000000000136
+      },
+      {
+        "timestamp": 1682.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 1698.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 1982.1,
+        "gap": 283.29999999999995
+      },
+      {
+        "timestamp": 1998.8,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 2015.5,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 2032.2,
+        "gap": 16.700000000000045
+      },
+      {
+        "timestamp": 2048.8,
+        "gap": 16.600000000000136
+      },
+      {
+        "timestamp": 2065.5,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2115.4,
+        "gap": 49.90000000000009
+      },
+      {
+        "timestamp": 2148.8,
+        "gap": 33.40000000000009
+      },
+      {
+        "timestamp": 2165.5,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2182.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2198.8,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2215.5,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2232.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2248.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2265.4,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2282.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2298.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2315.5,
+        "gap": 16.800000000000182
+      },
+      {
+        "timestamp": 2332.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2348.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2365.4,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2382.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2398.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2415.4,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2432.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2448.8,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2465.5,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2482.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2498.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2515.5,
+        "gap": 16.800000000000182
+      },
+      {
+        "timestamp": 2532.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2548.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2565.4,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2582.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2598.8,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2615.4,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2632.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2648.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2665.4,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2682.1,
+        "gap": 16.699999999999818
+      },
+      {
+        "timestamp": 2698.7,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2715.5,
+        "gap": 16.800000000000182
+      },
+      {
+        "timestamp": 2732.1,
+        "gap": 16.59999999999991
+      },
+      {
+        "timestamp": 2748.8,
+        "gap": 16.700000000000273
+      },
+      {
+        "timestamp": 2765.4,
+        "gap": 16.59999999999991
+      }
+    ],
+    "mutations": [
+      {
+        "error": "",
+        "message": "Loading the 3D physics engine…",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": null,
+        "at": 126.79999995231628,
+        "hidden": false,
+        "room": "arrival",
+        "panel": null,
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "",
+        "at": 492.2000000476837,
+        "hidden": false,
+        "room": "arrival",
+        "panel": "idle",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "",
+        "at": 951.3999999761581,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "idle",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "What are we building?",
+        "at": 954,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "speaking",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "What are we building?",
+        "at": 969.8999999761581,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "idle",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "What are we building?",
+        "at": 1671.1000000238419,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "listening",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "Can you make a ramp with the ball?",
+        "at": 1692.2000000476837,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "thinking",
+        "bodyNames": []
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "Can you make a ramp with the ball?",
+        "at": 1732.1000000238419,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.000 s",
+        "assistant-caption": "Can you make a ramp with the ball?",
+        "at": 2036.5,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.117 s",
+        "assistant-caption": "Can you make a ramp with the ball?",
+        "at": 2179.7999999523163,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.117 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2234.899999976158,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "speaking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.117 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2247.899999976158,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.225 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2286,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.342 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2402.7000000476837,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.467 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2519,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.575 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2635.7000000476837,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.700 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2752.600000023842,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      }
+    ],
+    "marks": [
+      {
+        "name": "before-exact-ramp",
+        "error": "",
+        "message": "Physics workbench ready.",
+        "mode": "Paused",
+        "clock": "0.000 s",
+        "assistant-caption": "What are we building?",
+        "at": 1691.1000000238419,
+        "hidden": false,
+        "room": "conversation",
+        "panel": "listening",
+        "bodyNames": []
+      },
+      {
+        "name": "outcome",
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "0.700 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 2777.7000000476837,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "thinking",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      }
+    ]
+  },
+  "frameSummary": {
+    "frames": 137,
+    "maxGapMs": 283.29999999999995,
+    "gapsOver100Ms": [
+      {
+        "timestamp": 1982.1,
+        "gap": 283.29999999999995
+      }
+    ]
+  },
+  "afterStop": {
+    "error": "",
+    "message": "Physics workbench ready. Unsaved changes.",
+    "mode": "Paused",
+    "clock": "0.758 s",
+    "assistant-caption": "Stopped. Your work is retained.",
+    "at": 3185.600000023842,
+    "hidden": false,
+    "room": "experiment",
+    "panel": "idle",
+    "bodyNames": [
+      "Ground (fixed)",
+      "Ramp (fixed)",
+      "Ball"
+    ]
+  },
+  "completedAt": "2026-11-14T22:46:36.398487+00:00"
+}

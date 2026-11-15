@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-15T00:24:07.653111+00:00",
+  "scope": [
+    "server/momen.ts numeric image ID return type/value",
+    "tests/momen-provider.test.mjs outgoing numeric argument regression assertion"
+  ],
+  "requirementsCoverage": {
+    "result": "PASS for numeric transport requirement; live vision completion remains unverified",
+    "evidence": [
+      "uploadImage returns string | number and preserves p.imageId unchanged",
+      "Regression test asserts JSON-serialized outgoing image arg equals numeric777",
+      "Actual corrected-source request emitted number/safeinteger equal to upload-slot ID"
+    ],
+    "causalLimitation": {
+      "priorPoolFailure": "Root reports this same runtime pool was already shut down by the earlier image failure before numeric-ID correction.",
+      "effect": "Post-fix failure on that pool cannot establish whether preserving numeric image ID prevents the first failure on a healthy backend.",
+      "proven": "Corrected actual outgoing image ID was a safe integer equal to the upload API value; this request returned FAILED.",
+      "notProven": "Whether numeric preservation resolves first-request image interpretation on a fresh healthy backend."
+    }
+  },
+  "codeQuality": {
+    "result": "PASS",
+    "findings": [],
+    "assessment": "Two implementation-line changes and one focused assertion. Existing signed upload headers, redirect refusal, credential isolation, cancellation, polling, stop cleanup and retry behavior are preserved. No unrelated refactor in reviewed paths."
+  },
+  "independentFocusedCheck": {
+    "command": "node --test tests/momen-provider.test.mjs",
+    "exitCode": 0,
+    "tests": 14,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 5221.450875,
+    "uses": "Injected fake GraphQL/upload plus local HTTP middleware; no real inference or credentials"
+  },
+  "sourceHashes": {
+    "server/momen.ts": "9c6f03e8bbb528931157e8ccfcb6dcb9e114d788cb6ab6aab74e50e3f7d0b8ad",
+    "tests/momen-provider.test.mjs": "9a4ab66378203f0913b7615177dd1e3c0c7366378c85a3af40c0bff0400507b4"
+  },
+  "sourceEditsByReviewer": false,
+  "nextRuntimeProbeAuthorized": false
+}

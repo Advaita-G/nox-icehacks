@@ -1,0 +1,1707 @@
+{
+  "url": "[URL omitted]",
+  "checkedAt": "2026-11-14T22:54:10.638842+00:00",
+  "scope": "Paused Tools toggle with actual WebGL call instrumentation; no screenshots/media; no claim of earlier startup-pause repair",
+  "expectedAssets": [
+    "/assets/main-CAVvyYTU.js",
+    "/assets/index-vbmy_MuF.js",
+    "/assets/main-MEbMjkZu.css"
+  ],
+  "assets": {
+    "/assets/main-CAVvyYTU.js": {
+      "bytes": 5086711,
+      "sha256": "32a65cd7d6ed2cde8c6e0e9befbae1d10f089eb342e6e06e8d7ff91a2fe0cfed"
+    },
+    "/assets/index-vbmy_MuF.js": {
+      "bytes": 3052,
+      "sha256": "2bb3197c9834a308c21875e756dd22685cbe4d00421408c936be5d42ce9d9b30"
+    },
+    "/assets/main-MEbMjkZu.css": {
+      "bytes": 41975,
+      "sha256": "032793a94c26c70be0419fc9f8bfd3707c898bc491cfb93503686b5aa4f73556"
+    }
+  },
+  "cases": [
+    {
+      "motion": "no-preference",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "apiRequests": [],
+      "errors": [],
+      "status": "PASS",
+      "arrivalNoxOnly": true,
+      "autoRunClock": "0.225 s",
+      "closedBefore": {
+        "contexts": 1,
+        "totalCalls": 188,
+        "frames": [
+          {
+            "at": 2048,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2062.5999999046326,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2079.2999999523163,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2089.7999999523163,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          }
+        ],
+        "tools": "closed",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "open": {
+        "contexts": 1,
+        "totalCalls": 222,
+        "frames": [
+          {
+            "at": 2089.7999999523163,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2633,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2633.1999999284744,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2633.5,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          }
+        ],
+        "tools": "open",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "closedAfter": {
+        "contexts": 1,
+        "totalCalls": 269,
+        "frames": [
+          {
+            "at": 2633.5,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3265.0999999046326,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3265.2999999523163,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3265.399999976158,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          }
+        ],
+        "tools": "closed",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "drawsPerSettledRender": {
+        "closedBefore": 7,
+        "open": 20,
+        "closedAfter": 7
+      },
+      "gizmoRendererEvidence": "Opening Tools while paused triggers a new render with additional gizmo draws; closing triggers a new render restoring the original draw count. Source verification connects Tools to enabled/attach/detach/helper visibility.",
+      "seenExpectedAssets": {
+        "/assets/main-CAVvyYTU.js": true,
+        "/assets/index-vbmy_MuF.js": true,
+        "/assets/main-MEbMjkZu.css": true
+      }
+    },
+    {
+      "motion": "reduce",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "apiRequests": [],
+      "errors": [],
+      "status": "PASS",
+      "arrivalNoxOnly": true,
+      "autoRunClock": "0.225 s",
+      "closedBefore": {
+        "contexts": 1,
+        "totalCalls": 195,
+        "frames": [
+          {
+            "at": 2008.9000000953674,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2029.1000000238419,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2044.6000000238419,
+            "tools": "closed",
+            "mode": "Running",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2054.3000000715256,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          }
+        ],
+        "tools": "closed",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "open": {
+        "contexts": 1,
+        "totalCalls": 229,
+        "frames": [
+          {
+            "at": 2054.3000000715256,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2604.4000000953674,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2605,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          },
+          {
+            "at": 2605.8000000715256,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          }
+        ],
+        "tools": "open",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "closedAfter": {
+        "contexts": 1,
+        "totalCalls": 276,
+        "frames": [
+          {
+            "at": 2605.8000000715256,
+            "tools": "open",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3313.5,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3314.4000000953674,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 72
+              }
+            ]
+          },
+          {
+            "at": 3314.8000000715256,
+            "tools": "closed",
+            "mode": "Paused",
+            "draws": [
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 164
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 36
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 4,
+                "count": 24
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 6480
+              },
+              {
+                "name": "drawElements",
+                "primitive": 4,
+                "count": 1728
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 18
+              },
+              {
+                "name": "drawArrays",
+                "primitive": 1,
+                "count": 24
+              }
+            ]
+          }
+        ],
+        "tools": "closed",
+        "mode": "Paused",
+        "clock": "0.258 s",
+        "caption": "Stopped. Your work is retained.",
+        "error": "",
+        "selected": "ball"
+      },
+      "drawsPerSettledRender": {
+        "closedBefore": 7,
+        "open": 20,
+        "closedAfter": 7
+      },
+      "gizmoRendererEvidence": "Opening Tools while paused triggers a new render with additional gizmo draws; closing triggers a new render restoring the original draw count. Source verification connects Tools to enabled/attach/detach/helper visibility.",
+      "seenExpectedAssets": {
+        "/assets/main-CAVvyYTU.js": true,
+        "/assets/index-vbmy_MuF.js": true,
+        "/assets/main-MEbMjkZu.css": true
+      }
+    }
+  ],
+  "status": "PASS",
+  "browserClosed": true,
+  "completedAt": "2026-11-14T22:54:19.425738+00:00",
+  "sourceProof": {
+    "src/main.ts": {
+      "sha256": "b835fec9ec77f686a3f2a14a781ea98bd1489fd820c39ba68d569dca70cbfc98",
+      "matchingLines": [
+        {
+          "line": 120,
+          "text": "viewport.transform.enabled = document.body.dataset.tools === 'open' && !bench.restartRequired && bench.replayTime === null;"
+        },
+        {
+          "line": 453,
+          "text": "new MutationObserver(() => draw()).observe(document.body, { attributes: true, attributeFilter: ['data-tools'] });"
+        }
+      ]
+    },
+    "src/viewport.ts": {
+      "sha256": "7ec6850a3e92f0f352e20ef000bafc00188dda0e3654543ef3a80e3f2cc436eb",
+      "matchingLines": [
+        {
+          "line": 135,
+          "text": "if (selectedMesh && this.transform.enabled) {"
+        },
+        {
+          "line": 137,
+          "text": "} else if (this.transform.object) this.transform.detach();"
+        },
+        {
+          "line": 139,
+          "text": "this.transform.getHelper().visible = this.transform.enabled;"
+        }
+      ]
+    }
+  }
+}

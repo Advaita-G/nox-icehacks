@@ -1,0 +1,215 @@
+{
+  "purpose": "Up to 3 fresh isolated processes, stopping at first pause; diagnostic, not matrix rerun",
+  "attempts": [
+    {
+      "attempt": 1,
+      "receipt": "[local artifact path omitted]",
+      "status": "PASS",
+      "outcome": "AUTO_RUN_PASS",
+      "readout": {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "1.742 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 3915.600000023842,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "listening",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      "frameSummary": {
+        "frames": 197,
+        "maxGapMs": 383.39999999999986,
+        "gapsOver100Ms": [
+          {
+            "timestamp": 2000.3,
+            "gap": 383.39999999999986
+          }
+        ]
+      },
+      "longTasks": [
+        {
+          "startTime": 377.5,
+          "duration": 52,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        },
+        {
+          "startTime": 1605,
+          "duration": 62,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        },
+        {
+          "startTime": 1667.7999999523163,
+          "duration": 344,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        },
+        {
+          "startTime": 2086.100000023842,
+          "duration": 59,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        }
+      ],
+      "pausedAfterRunning": [],
+      "modelRequests": [],
+      "browserClosed": true
+    },
+    {
+      "attempt": 2,
+      "receipt": "[local artifact path omitted]",
+      "status": "PASS",
+      "outcome": "AUTO_RUN_PASS",
+      "readout": {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "1.708 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 3737.1999999284744,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "listening",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      "frameSummary": {
+        "frames": 198,
+        "maxGapMs": 316.60000000000014,
+        "gapsOver100Ms": [
+          {
+            "timestamp": 1853.7,
+            "gap": 316.60000000000014
+          }
+        ]
+      },
+      "longTasks": [
+        {
+          "startTime": 1555.7999999523163,
+          "duration": 314,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        },
+        {
+          "startTime": 1957.5,
+          "duration": 57,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        }
+      ],
+      "pausedAfterRunning": [],
+      "modelRequests": [],
+      "browserClosed": true
+    },
+    {
+      "attempt": 3,
+      "receipt": "[local artifact path omitted]",
+      "status": "PASS",
+      "outcome": "AUTO_RUN_PASS",
+      "readout": {
+        "error": "",
+        "message": "Physics workbench ready. Unsaved changes.",
+        "mode": "Running",
+        "clock": "1.700 s",
+        "assistant-caption": "I built Ramp and ball locally with declared physical defaults. It is running. Tell me what to change.",
+        "at": 3670.399999976158,
+        "hidden": false,
+        "room": "experiment",
+        "panel": "listening",
+        "bodyNames": [
+          "Ground (fixed)",
+          "Ramp (fixed)",
+          "Ball"
+        ]
+      },
+      "frameSummary": {
+        "frames": 197,
+        "maxGapMs": 200,
+        "gapsOver100Ms": [
+          {
+            "timestamp": 1842.5,
+            "gap": 200
+          }
+        ]
+      },
+      "longTasks": [
+        {
+          "startTime": 1660.3999999761581,
+          "duration": 194,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        },
+        {
+          "startTime": 1928.1999999284744,
+          "duration": 50,
+          "name": "self",
+          "attribution": [
+            {
+              "name": "unknown",
+              "containerType": "window",
+              "containerName": ""
+            }
+          ]
+        }
+      ],
+      "pausedAfterRunning": [],
+      "modelRequests": [],
+      "browserClosed": true
+    }
+  ],
+  "failureReproduced": false,
+  "durationSeconds": 14.298856167006306,
+  "conclusion": "Failure unreproduced in bounded diagnostic; original failed matrix receipt remains valid"
+}

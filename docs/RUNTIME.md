@@ -8,13 +8,15 @@ Say **“Create a ramp and ball.”** This bounded request creates a fresh three
 
 Continue with **“pause,” “keep a baseline,” “select the ball,” “double its mass,” “yes, apply,” “reset,” “run it,” “compare,”** and **“save.”** Normal physical edits are explained before spoken confirmation or Apply commits them. **“Cancel”** discards a pending request or proposal.
 
+A deployed desktop reduced-motion case paused during local ramp startup. Isolated retries passed, but the cause remains unresolved; this is not an all-device reliability claim. [Observed scope](VERIFICATION.md#deployed-voice-room-matrix-78-with-bounded-retries)
+
 **Stop** is available during active voice and pending work. It turns voice off, cancels pending work and pauses the experiment rather than permitting a delayed automatic start. Browser speech support varies and may use an online recognition service; speech synthesis supplies narration. Speech failures remain visible. Recent conversation is held in memory for this session, not stored by Save.
 
 ## Add a drawing when you need one
 
 The conversation reveals contextual **Camera** and **Add drawing** controls. You can also drop or paste an image into the room. Camera capture depends on the device/browser; a desktop may open a normal file picker. Use a JPEG, PNG, WebP or AVIF the browser can decode. Unsupported or damaged files produce an error; convert a camera's HEIC to JPEG or PNG if needed.
 
-Nox normalizes the source and starts model checking automatically. The normalized image remains visible with actual pending state and phase text. With a configured service, a validated ready response becomes the 3D scene and starts real simulation; a critical question waits for your answer. No Library, Build or Confirm click is required for a ready photo result. Manual canvas drawing remains available through **Tools** and retains its preview/confirmation controls.
+Nox normalizes the source and starts model checking automatically. The normalized image remains visible with actual pending state and phase text. The implemented pipeline turns a validated ready response into a running 3D scene and waits for answers to critical questions. **Current live calls fail at Momen before returning a usable scene, so fresh drawing conversion does not work.** The source and previous valid experiment remain available after failure. Manual canvas drawing is available through **Tools** and retains preview/confirmation controls.
 
 The interpretation prompt attempts objects, characters, scenery, abstract forms and mechanisms through explicit rigid-body, compound or shallow-extrusion approximations. Noncritical scale, depth, mass and material coefficients become declared estimates. It preserves source grounding and important visual features. Fluids, electricity and deformation are not simulated: visual proxies must be labelled, and behavior that changes the user's intended result requires a critical-intent question. A failed, invalid or cancelled result preserves valid work.
 
@@ -28,13 +30,13 @@ Say **“show me what you can do”** for a local spring demonstration. It creat
 
 ## Live model configuration
 
-**The new hosted Momen vision connection is pending live verification.** Signing into Momen does not by itself configure Nox or establish available runtime credit. Photo interpretation, custom systems and language outside the local command set require the configured server-side provider. Earlier actual live cases used GPT 6 Luna through Momen.
+**Configured and funded does not mean healthy.** The Momen backend is synced, authentication works and participant-funded AI points are available, but actual image interpretation fails with an internal “Connection pool shut down” error. A fresh clone with zero conversations also failed its first image request after the numeric image-ID correction; the outgoing ID was independently verified. Fresh photo interpretation and free-form model edits are not working. Bounded local creation, numerical edits and solver controls remain separate. Earlier actual live cases used GPT 6 Luna through Momen; [current receipts](VERIFICATION.md#actual-configured-provider-failure) describe the new failure.
 
 For local setup, run `npm ci` and `npm run dev`, then open the printed URL. Use the repository root for the current 3D product; `packages/input` includes shared modules and a preserved earlier prototype. The [README](../README.md) lists root/input-package verification commands.
 
 Only when authorized to configure the runtime, copy `.env.example` to an ignored server-local `.env`. The Momen adapter requires `NOX_LIVE_CALLS=enabled`, `NOX_MODEL_PROVIDER=momen`, project external ID, admin token, agent ID and instruction/request/image argument keys. Its agent must accept an actual image for interpretation and return the structured data specified by Nox's prompts. Real values belong in server/deployment secrets, never browser code or the public repository. There is no automatic paid fallback.
 
-Production endpoints include `/api/status`, `/api/interpret`, `/api/command` and `/api/access`. Live calls use a server-side judge access code (`NOX_DEMO_ACCESS_CODE`, at least 32 characters). Use the access flow or private judge link supplied by the project owner; no credential is published here. Unlocking cannot configure a missing provider. Check the displayed runtime status before expecting fresh interpretation.
+Production endpoints include `/api/status`, `/api/interpret`, `/api/command` and `/api/access`. Live calls use a server-side judge access code (`NOX_DEMO_ACCESS_CODE`, at least 32 characters). Use the access flow or private judge link supplied by the project owner; no credential is published here. `configured: true` confirms configuration is present, not successful inference. Access permission and provider health are separate checks.
 
 ## Persistence and evidence
 

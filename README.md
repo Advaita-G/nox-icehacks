@@ -8,14 +8,14 @@ Open Nox, tap its name and speak. Ask it to build a scene, add a drawing when yo
 
 [Open Nox](https://nox-icehacks.vercel.app)
 
-The hosted local assistant and physics are available. **Hosted vision interpretation is still pending the new Momen runtime connection and live verification.**
+The local assistant and real physics are available. **Momen is configured and participant-funded, but actual image requests currently fail with an internal “Connection pool shut down” error. Fresh drawing conversion and free-form model edits are not working.** See [verification](docs/VERIFICATION.md) for the current evidence and remaining startup limitation.
 
 1. The room opens with **Nox**. Tap its name once and allow the browser's microphone prompt, then speak naturally between Nox's replies.
 2. Say **“Create a ramp and ball.”** Nox creates a fresh local scene with a floor, ramp and ball, declares its physical defaults and starts the real solver. This request uses local code, not an image interpretation or captured model reply.
 3. Say **“pause,” “keep a baseline,” “select the ball,”** then **“double its mass.”** Nox explains the proposed edit. Say **“yes, apply”** to commit it or **“cancel”** to discard it.
 4. Continue with **“reset,” “run it,” “compare,”** and **“save.”** The model stays in the room while Nox remains available below it. Say **“stop listening”** or use **Stop** to end voice input.
 
-When a drawing is useful, the conversation offers **Camera** and **Add drawing**; you can also drop or paste an image into the room. With a configured live service and private judge access, Nox normalizes the source and starts checking automatically. A validated ready result becomes the running scene; a critical ambiguity produces a question. The vision prompt attempts objects, characters, scenery, abstract forms and mechanisms using declared rigid-body approximations. Estimated scale, depth and mass remain visible assumptions. Failed recognition is reported without substituting a saved scene.
+When a drawing is useful, the conversation offers **Camera** and **Add drawing**; you can also drop or paste an image into the room. Nox normalizes and retains the source before requesting interpretation. The implemented pipeline validates a ready response before automatic model/run and asks about critical ambiguity. Its prompt requests declared rigid approximations of objects, characters, scenery, abstract forms and mechanisms, with estimated scale, depth and mass preserved as assumptions. Current live requests fail at the provider; the source and last valid experiment are retained instead of substituting a saved scene.
 
 **Keyboard** reveals an optional input box using the same assistant pipeline. Browser speech support and permission vary, and the browser may request permission again in another session. Nox reports speech failures and keeps typing available. **Tools** contains optional drawing, Library, Parts, measurements and workbench controls. The recent conversation stays only in page memory; **Save** stores the experiment in this browser and **Export** creates a portable backup.
 
@@ -49,7 +49,7 @@ Use the root app for Nox's 3D interface. The standalone input-package UI is a pr
 | Layer | Implementation |
 | --- | --- |
 | Voice room and drawings | Nox starts the conversation; contextual camera/upload, drop/paste and optional keyboard feed shared input modules that retain source identity. |
-| Interpretation and edits | Server-side calls return validated 3D scene data and operations. Ready photo results are confirmed/run automatically; ordinary edits wait for reviewed spoken yes or Apply. Manual canvas previews retain Confirm/Cancel. |
+| Interpretation and edits | Local numerical edits remain reviewed. Model output is validated before automatic photo model/run or reviewed edits; the current live provider fails before returning scene data. Manual canvas previews retain Confirm/Cancel. |
 | Physics and rendering | Rapier3D 0.21.0 advances rigid bodies at 120 fixed steps/s. Three.js 0.186.0 renders the same geometry used for collision. |
 | Measurement and recovery | Selected-body samples drive plots; baseline, versions, source and checkpoints survive Save/reload and portable export. |
 
@@ -59,7 +59,7 @@ Use the root app for Nox's 3D interface. The standalone input-package UI is a pr
 
 The ramp-and-ball request creates fresh local scene data and runs the real solver. The spring demonstration also produces new local measurements. Library examples are labelled recorded experiments, with the solver running their saved scenes. None of these is fresh vision inference.
 
-New drawing/photo interpretation and language outside the local command set use a configured server-side provider. A static build alone cannot supply it. Earlier actual live cases used GPT 6 Luna through Momen; the new hosted connection remains pending verification. Each model request has a 120-second deadline, and clarification can require further requests. There is no universal conversion-time or recognition guarantee. Current checks and earlier live evidence are distinguished in [verification](docs/VERIFICATION.md).
+New drawing/photo interpretation and language outside the local command set require a working server-side provider. The current Momen connection is configured, but actual vision calls fail before returning a usable result. Earlier actual live cases used GPT 6 Luna through Momen; captured replies do not prove current recognition. Each request has a 120-second deadline, and clarification can require further requests. There is no universal conversion-time or recognition guarantee. Current checks and earlier live evidence are distinguished in [verification](docs/VERIFICATION.md).
 
 Nox models rigid mechanics and a declared fan-airflow approximation. Drawn water, cloth or electrical objects can have explicitly labelled rigid visual proxies; fluid flow, deformation and electricity are not simulated. If such behavior is central to the request, Nox asks about the intended approximation. Invalid geometry, unavailable service and cancelled work remain visible. Results describe the declared setup, not a guarantee about a real object.
 

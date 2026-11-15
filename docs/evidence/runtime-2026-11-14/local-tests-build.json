@@ -1,0 +1,26 @@
+{
+  "scope": "Summary extracted from completed local suite/build logs; no additional test or inference run by this documentation task. Raw logs omitted because workstation paths may appear.",
+  "rootTests": {
+    "tests": 218,
+    "passed": 218,
+    "failed": 0,
+    "sourceLogSha256": "ddc76a65a3ed001f8c2ebfb0641f78dcedd51bd125e9445248b7444d3679bd8b"
+  },
+  "inputTests": {
+    "tests": 110,
+    "passed": 110,
+    "failed": 0,
+    "sourceLogSha256": "3f453c5d0e8205be1af49f579be4fbbcbc23082ae4606f5504cb909e1e8bddb7"
+  },
+  "rootBuild": {
+    "status": "PASS",
+    "typecheck": true,
+    "assets": [
+      "main-BeN3EFcV.js",
+      "main-MEbMjkZu.css",
+      "index-Bc3XoacH.js"
+    ],
+    "largeChunkWarning": true,
+    "sourceLogSha256": "499e06655ef03fb308e8a3550959284394c4c819301a860dbcf09de7acfc8b81"
+  }
+}

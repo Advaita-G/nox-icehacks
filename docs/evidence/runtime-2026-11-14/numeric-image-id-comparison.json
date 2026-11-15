@@ -1,0 +1,86 @@
+{
+  "scope": "Local productionApi entrypoint with actual Momen provider and current INTERPRET_3D; not deployed/browser E2E evidence",
+  "source": "Generated synthetic Canvas drawing, normalized by the browser; not a camera/paper-photo or physical speech claim",
+  "normalization": {
+    "widthPx": 1600,
+    "heightPx": 1000,
+    "bytes": 57213,
+    "binarySha256": "9f26fc39b99f7a0d37d7edf84968f0eb92f64d6c1114c8824057ef7c4d6e681a",
+    "sameAsActualPriorBrowserRequest": true
+  },
+  "before": {
+    "httpStatus": 502,
+    "elapsedSeconds": 3.551039291,
+    "response": {
+      "code": "PROVIDER_ERROR",
+      "message": "The Momen agent failed. Your source and scene are unchanged."
+    },
+    "interpretationCalls": 1,
+    "sourceProof": {
+      "server/vercel.ts": "7b9676fcfd7d8d06fd1559a78e2a1238184f86449cdb33dc713fb0c5528bde88",
+      "server/momen.ts": "cfcdb6f74b722489d83df18dcb6b4eb99879b4097f0faf623b735b44aef281d1",
+      "server/providers.ts": "ac33e92f77b9e796b692fb9d66746aa3e96773ce30c822bed1befe624f0a7b2c",
+      "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+      "src/input/prompt.ts": "f2b8572e1fdd19b7d9fefb078b2a7e2d38a9cb39a4e9e3a52df537c7ebf230c0"
+    }
+  },
+  "after": {
+    "httpStatus": 502,
+    "elapsedSeconds": 2.7385015829999997,
+    "response": {
+      "code": "PROVIDER_ERROR",
+      "message": "The Momen agent failed. Your source and scene are unchanged."
+    },
+    "interpretationCalls": 1,
+    "wireObservation": {
+      "kind": "Pass-through observation; original fetch arguments and response unchanged",
+      "events": [
+        {
+          "operationName": "NoxImageUpload",
+          "httpStatus": 200,
+          "returnedImageIdType": "number",
+          "returnedImageIdSafeInteger": true
+        },
+        {
+          "operationName": "NoxCreateConversation",
+          "httpStatus": 200,
+          "wireImageIdType": "number",
+          "wireImageIdSafeInteger": true,
+          "sameAsReturnedUploadImageId": true
+        },
+        {
+          "operationName": "NoxResult",
+          "httpStatus": 200,
+          "terminalStatus": "FAILED"
+        }
+      ]
+    },
+    "sourceProof": {
+      "server/vercel.ts": "7b9676fcfd7d8d06fd1559a78e2a1238184f86449cdb33dc713fb0c5528bde88",
+      "server/momen.ts": "9c6f03e8bbb528931157e8ccfcb6dcb9e114d788cb6ab6aab74e50e3f7d0b8ad",
+      "server/providers.ts": "ac33e92f77b9e796b692fb9d66746aa3e96773ce30c822bed1befe624f0a7b2c",
+      "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+      "src/input/prompt.ts": "f2b8572e1fdd19b7d9fefb078b2a7e2d38a9cb39a4e9e3a52df537c7ebf230c0"
+    }
+  },
+  "oneReadOnlyDatabaseCheck": {
+    "httpStatus": 200,
+    "rows": 2,
+    "bothTerminalStatus": "FAILED",
+    "bothErrorCode": "SERVER_INTERNAL_ERROR",
+    "errorMessage": "Retained privately; excluded from shared evidence"
+  },
+  "modelRawTextReturned": false,
+  "strict3DValidationRan": false,
+  "automaticRetry": false,
+  "browserUsedForComparison": false,
+  "mediaCapture": false,
+  "configurationChanged": false,
+  "conclusion": "Actual wire type correction verified. Later request failed on an already-failed pool; effect on initial healthy-backend failure remains untested.",
+  "causalLimitation": {
+    "priorPoolFailure": "Root reports this same runtime pool was already shut down by the earlier image failure before numeric-ID correction.",
+    "effect": "Post-fix failure on that pool cannot establish whether preserving numeric image ID prevents the first failure on a healthy backend.",
+    "proven": "Corrected actual outgoing image ID was a safe integer equal to the upload API value; this request returned FAILED.",
+    "notProven": "Whether numeric preservation resolves first-request image interpretation on a fresh healthy backend."
+  }
+}

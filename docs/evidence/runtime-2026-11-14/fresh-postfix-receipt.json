@@ -1,0 +1,122 @@
+{
+  "ownerConfiguredRuntime": {
+    "name": "Fresh Free Nox Numeric Vision Check clone, copied without data",
+    "model": "Gemini 3.8 Flash",
+    "structured": false,
+    "streaming": false,
+    "maxOutputTokens": 16384,
+    "addOnResourcesPurchased": false,
+    "source": "Configuration reported by root; local provider status independently checked below"
+  },
+  "status": "FAIL",
+  "startedAt": "2026-11-15T00:27:15.621Z",
+  "scope": "Local productionApi entrypoint with actual Momen provider and current INTERPRET_3D; not deployed/browser E2E evidence",
+  "generatedSyntheticSketch": true,
+  "physicalCamera": false,
+  "mediaCapture": false,
+  "modelInterception": false,
+  "automaticRetries": 0,
+  "maxInterpretationCalls": 1,
+  "interpretationCalls": 1,
+  "timeoutMs": 120000,
+  "request": {
+    "requestId": "req-6cb5b904",
+    "target": {
+      "experimentId": "88709db6-d01c-444d-baa3-7af27058abff",
+      "versionId": "1fdf636c-6653-4c9c-9e9d-801a35c42f6d",
+      "sceneRevision": 0,
+      "sourceId": "9f26fc39b99f7a0d37d7edf84968f0eb92f64d6c1114c8824057ef7c4d6e681a",
+      "sourceRevision": 4,
+      "epoch": 10000
+    },
+    "source": {
+      "id": "9f26fc39b99f7a0d37d7edf84968f0eb92f64d6c1114c8824057ef7c4d6e681a",
+      "widthPx": 1600,
+      "heightPx": 1000,
+      "kind": "photo",
+      "revision": 4,
+      "imageBinarySha256": "9f26fc39b99f7a0d37d7edf84968f0eb92f64d6c1114c8824057ef7c4d6e681a",
+      "imageDataUriSha256": "073fb1497d01b75cd09b68204a6f65abfa7ea84d7f596155bd6ac7fd7df805b6"
+    },
+    "notes": "Generated synthetic test sketch, not a camera or paper photo. A 1 m diameter sphere, mass 1 kg, rests on top of a 3 m long horizontal fixed plank supported by fixed ground. Plank depth 0.5 m and thickness 0.3 m are declared test dimensions. The sphere starts at rest and is unpowered. Gravity is 9.81 m/s^2 downward. Interpret the drawn sphere, plank and ground; state any further physical assumptions explicitly.",
+    "answers": []
+  },
+  "instructionsSha256": "94ef266f231600f0c75b5eaa2c16a39fbefb1b9c13d7d706ddaccba46b31ccdc",
+  "sourceProof": {
+    "server/vercel.ts": "7b9676fcfd7d8d06fd1559a78e2a1238184f86449cdb33dc713fb0c5528bde88",
+    "server/momen.ts": "9c6f03e8bbb528931157e8ccfcb6dcb9e114d788cb6ab6aab74e50e3f7d0b8ad",
+    "server/providers.ts": "ac33e92f77b9e796b692fb9d66746aa3e96773ce30c822bed1befe624f0a7b2c",
+    "src/input/contract.ts": "836563549a59eed520f375c2c2a1013777ba7f79a9ce7f05dd88cf5e46c6c197",
+    "src/input/prompt.ts": "f2b8572e1fdd19b7d9fefb078b2a7e2d38a9cb39a4e9e3a52df537c7ebf230c0"
+  },
+  "wireObservation": {
+    "kind": "Pass-through observation; original fetch arguments and response unchanged",
+    "events": [
+      {
+        "operationName": "NoxImageUpload",
+        "httpStatus": 200,
+        "returnedImageIdType": "number",
+        "returnedImageIdSafeInteger": true
+      },
+      {
+        "operationName": "NoxCreateConversation",
+        "httpStatus": 200,
+        "wireImageIdType": "number",
+        "wireImageIdSafeInteger": true,
+        "sameAsReturnedUploadImageId": true
+      },
+      {
+        "operationName": "NoxResult",
+        "httpStatus": 200,
+        "terminalStatus": "FAILED"
+      }
+    ]
+  },
+  "database_before": {
+    "httpStatus": 200,
+    "graphQLErrorCount": 0,
+    "rowCount": 0,
+    "rows": []
+  },
+  "localProviderStatus": {
+    "httpStatus": 200,
+    "configured": true,
+    "provider": "momen",
+    "accessRequired": false
+  },
+  "elapsedSeconds": 2.9744149170000003,
+  "httpStatus": 502,
+  "response": {
+    "code": "PROVIDER_ERROR",
+    "message": "The Momen agent failed. Your source and scene are unchanged."
+  },
+  "failurePhase": "actual-image-interpretation",
+  "database_after": {
+    "httpStatus": 200,
+    "graphQLErrorCount": 0,
+    "rowCount": 1,
+    "rows": [
+      {
+        "status": "FAILED",
+        "errorCode": "SERVER_INTERNAL_ERROR",
+        "errorPresent": true,
+        "pointUsage": [
+          null,
+          null
+        ]
+      }
+    ]
+  },
+  "failure": {
+    "name": "Error",
+    "message": "Actual Momen image interpretation returned a provider error; no retry."
+  },
+  "completedAt": "2026-11-15T00:27:19.644Z",
+  "privateErrorBooleanSummary": {
+    "rowCount": 1,
+    "errorCode": "SERVER_INTERNAL_ERROR",
+    "containsExactConnectionPoolShutDown": true,
+    "containsExactCustomChatRequestError": true,
+    "rawMessageKeptPrivate": true
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "Copies of saved actual receipts. URL, private local path and traceback redactions only; result/status fields retained.",
+  "receipts": [
+    {
+      "file": "numeric-image-id-comparison.json",
+      "sourceSha256": "6206cb22f14e0859eb5b69d7dfeb9da50c27797e8c73acc10b731d5b41d8be7e",
+      "publishedSha256": "6206cb22f14e0859eb5b69d7dfeb9da50c27797e8c73acc10b731d5b41d8be7e",
+      "exactCopy": true,
+      "redactions": []
+    },
+    {
+      "file": "numeric-image-id-live-receipt.json",
+      "sourceSha256": "be59f8755a27d27af5d3cbdeaae4c6cc3a9b2a70157575f5d8de4324686f7fb3",
+      "publishedSha256": "be59f8755a27d27af5d3cbdeaae4c6cc3a9b2a70157575f5d8de4324686f7fb3",
+      "exactCopy": true,
+      "redactions": []
+    },
+    {
+      "file": "before-numeric-image-id.json",
+      "sourceSha256": "6cd96dfdcc8e45ba457a1c41a40c7d9235423ac8b389fdd5552c4d08b5b3f7a2",
+      "publishedSha256": "6cd96dfdcc8e45ba457a1c41a40c7d9235423ac8b389fdd5552c4d08b5b3f7a2",
+      "exactCopy": true,
+      "redactions": []
+    },
+    {
+      "file": "numeric-transport-review.json",
+      "sourceSha256": "a1b623fa4986a69a189ce1f7df7b459f204cd61fe88cd41b0be54f4a293c5407",
+      "publishedSha256": "a1b623fa4986a69a189ce1f7df7b459f204cd61fe88cd41b0be54f4a293c5407",
+      "exactCopy": true,
+      "redactions": []
+    },
+    {
+      "file": "fresh-postfix-receipt.json",
+      "sourceSha256": "8bc41a19facab076326d8b2ac0785b7e3346df40d016efeaaa32c4ad482cc8d3",
+      "publishedSha256": "8bc41a19facab076326d8b2ac0785b7e3346df40d016efeaaa32c4ad482cc8d3",
+      "exactCopy": true,
+      "redactions": []
+    }
+  ]
+}
