@@ -36,5 +36,6 @@
   },
   "inferenceCallsForHTTPChecks": 0,
   "anonymousInference": 401,
-  "wrongOrigin": 403
+  "wrongOrigin": 403,
+  "verifiedApplicationSourceCommit": "a9bd641d275871e3ac72720d3f0553ab347f8ea1"
 }

@@ -1,0 +1,11 @@
+{
+  "commit": "a9bd641d275871e3ac72720d3f0553ab347f8ea1",
+  "runId": 43750854039,
+  "url": "https://github.com/Advaita-G/nox-icehacks/actions/runs/43750854039",
+  "status": "completed",
+  "conclusion": "failure",
+  "jobId": 132924254068,
+  "executedSteps": 0,
+  "annotation": "The job was not started because your account is locked due to a billing issue.",
+  "meaning": "Hosted CI did not execute; local 265 root and 110 input tests plus both builds are separate evidence. No billing change or rerun was requested."
+}
