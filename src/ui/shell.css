@@ -150,6 +150,7 @@ body.shell[data-room='experiment'][data-tools='open'][data-drawer='library'] #li
 .shell dialog { background: var(--color-paper-2); color: var(--color-ink); border-color: var(--color-rule); border-radius: 8px; }
 .shell dialog::backdrop { background: rgb(0 0 0 / .6); opacity: 1; }
 .shell .input-dialog { background: var(--color-paper-2); }
+.shell #command-dialog[open]:not(:modal) { position: absolute; z-index: 22; top: calc(var(--header-h) + 12px); left: 50%; right: auto; bottom: auto; transform: translateX(-50%); width: min(720px, calc(100% - 32px)); max-height: calc(100dvh - var(--header-h) - var(--assistant-height, 180px) - 48px); margin: 0; }
 .shell #command-dialog .dialog-heading { justify-content: start; align-items: center; }
 .shell #command-dialog .dialog-heading .orb { width: 44px; height: 44px; flex: none; }
 .shell #command-dialog #close-command { margin-left: auto; }

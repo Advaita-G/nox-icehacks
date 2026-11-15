@@ -1,0 +1,25 @@
+{
+  "dimensions": [
+    1200,
+    800
+  ],
+  "mode": "RGB",
+  "source": "Original Pillow text/line illustration plus editable SVG; no screenshot or AI-generated media",
+  "palette": [
+    "#171717",
+    "#f4f3ee",
+    "#c4c3bc",
+    "#73736c",
+    "#b49a67"
+  ],
+  "files": {
+    "nox-cover.png": {
+      "bytes": 47478,
+      "sha256": "99fa3ea8fee436085fe171d42518f9147153d8fc5590c1ac581b02da7a4aaeb3"
+    },
+    "nox-cover.svg": {
+      "bytes": 1332,
+      "sha256": "5e23f2af37149820644d35abaf445f8025e9e6774500a56e2ff0de7152bb1ae6"
+    }
+  }
+}

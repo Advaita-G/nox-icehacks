@@ -86,7 +86,7 @@ export function initShell(_host?: { openSource(): void }): void {
   });
 
   // Stage: the sketch, the review card and measurements all live over the same viewport.
-  wrap.append(source); stage.append(banner);
+  wrap.append(source); stage.append(banner, el('command-dialog'));
   el('input-tools').hidden = true;
 
   // Real states → visual states.
