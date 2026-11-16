@@ -1,0 +1,35 @@
+{
+  "youtubeUrl": "https://youtu.be/wTUoFWWepdk",
+  "visibility": "Public",
+  "title": "Nox \u2014 Sketch to 3D Physics | IceHacks 2026",
+  "channel": "Pathfind",
+  "channelHandle": "@getpathfind",
+  "channelId": "UCupS3j_8t8b-TzUNvTXvjYw",
+  "studioConfirmation": "Video published; All changes saved",
+  "copyrightCheck": "No issues found",
+  "sourceFile": "nox-film.mp4",
+  "sourceSha256": "2e065d2f350bc135dd575d4c964cf82a95468941946e12826ad37dcfdadb3eaf",
+  "sourceBytes": 24388220,
+  "publicOembedVerified": true,
+  "signedOutPlayback": {
+    "url": "https://www.youtube.com/watch?v=wTUoFWWepdk",
+    "signedIn": false,
+    "screenshots": false,
+    "playability": "OK",
+    "title": "Nox \u2014 Sketch to 3D Physics | IceHacks 2026",
+    "channelId": "UCupS3j_8t8b-TzUNvTXvjYw",
+    "lengthSeconds": "76",
+    "media": {
+      "currentTime": 1.006999,
+      "duration": 75.721,
+      "width": 854,
+      "height": 480
+    },
+    "status": "PASS",
+    "browserClosed": true
+  },
+  "humanFullWatchListen": "UNVERIFIED",
+  "devpostHandoff": "https://github.com/Advaita-G/nox/issues/25#issuecomment-6904771068",
+  "publicVideoNotification": "https://github.com/Advaita-G/nox/issues/25#issuecomment-6904850828",
+  "devpostSubmission": "Delegated to Juwon; confirmation not yet verified"
+}
